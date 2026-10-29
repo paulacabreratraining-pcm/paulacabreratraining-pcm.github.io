@@ -1,0 +1,991 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mi plan">
+<link rel="apple-touch-icon" href="/icono.png">
+<link rel="icon" type="image/png" href="/icono.png">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Plan de Laura (ejemplo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<style>
+/* Layout: app de una columna para el móvil del cliente. Cabecera de marca, pestañas abajo,
+   tira de la semana y tarjetas de sesión que se despliegan (calentamiento → ejercicios → vuelta a la calma). */
+:root{
+  --bg:#FAF7F6; --surface:#FFFFFF; --sunk:#F1EEF3; --ink:#1F3B5C; --muted:#5D6B80; --line:#E3DEE7;
+  --blue:#A9C8E8; --blue-ink:#24527F; --blue-soft:#E5EEF8;
+  --pink:#F3C6D3; --pink-ink:#9A3C5C; --pink-soft:#FBEAF0;
+  --test:#1F3B5C; --test-soft:#E4E8EF;
+  --ok:#2F7A55; --ok-soft:#DFF1E7; --warn:#9A6714; --warn-soft:#F8ECD6; --bad:#B03B3D; --bad-soft:#F7E0E0;
+  --on-accent:#FFFFFF;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111824; --surface:#182233; --sunk:#0E141E; --ink:#E9EEF5; --muted:#9AA8BA; --line:#29354A;
+  --blue:#A9C8E8; --blue-ink:#A9C8E8; --blue-soft:#1C3049;
+  --pink:#F3C6D3; --pink-ink:#F3C6D3; --pink-soft:#3A2432;
+  --test:#C9D6E6; --test-soft:#232F42;
+  --ok:#72C996; --ok-soft:#173327; --warn:#E3B566; --warn-soft:#3A2D15; --bad:#EE8B8C; --bad-soft:#3D1E20;
+  --on-accent:#111824; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111824; --surface:#182233; --sunk:#0E141E; --ink:#E9EEF5; --muted:#9AA8BA; --line:#29354A;
+  --blue:#A9C8E8; --blue-ink:#A9C8E8; --blue-soft:#1C3049;
+  --pink:#F3C6D3; --pink-ink:#F3C6D3; --pink-soft:#3A2432;
+  --test:#C9D6E6; --test-soft:#232F42;
+  --ok:#72C996; --ok-soft:#173327; --warn:#E3B566; --warn-soft:#3A2D15; --bad:#EE8B8C; --bad-soft:#3D1E20;
+  --on-accent:#111824; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:580px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button,input,select{font-family:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px}
+h1,h2,h3,h4{text-wrap:balance}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+header .wrap{padding-block:12px 11px;display:flex;align-items:center;gap:12px}
+.mono{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--blue);color:#1F3B5C;font:800 15px var(--display);letter-spacing:.02em;position:relative}
+.mono::after{content:"";position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border-radius:50%;background:var(--pink);border:2px solid var(--surface)}
+.brand{flex:1;min-width:0}
+.brand small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.brand h1{margin:1px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(20px,5.6vw,24px);line-height:1.05}
+.wk{text-align:right;line-height:1}
+.wk b{display:block;font:800 26px var(--display);color:var(--blue-ink);font-variant-numeric:tabular-nums}
+.wk span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+main .wrap{padding-block:16px 140px;display:flex;flex-direction:column;gap:14px}
+
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.tabs .wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;padding-block:6px}
+nav.tabs button{appearance:none;border:0;background:none;color:var(--muted);font:700 10.5px var(--body);padding:8px 0;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
+nav.tabs svg{width:22px;height:22px}
+nav.tabs button[aria-selected="true"]{color:var(--blue-ink);background:var(--blue-soft)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px}
+.card h2{margin:0;font-family:var(--display);font-size:21px;font-weight:800;line-height:1.1}
+.lead{margin:0;font-size:14px;color:var(--muted)}
+.eyebrow{margin:0;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.04em;padding:3px 9px;border-radius:999px;background:var(--sunk);color:var(--muted)}
+.chip.b{background:var(--blue-soft);color:var(--blue-ink)}
+.chip.p{background:var(--pink-soft);color:var(--pink-ink)}
+.chip.w{background:var(--warn-soft);color:var(--warn)}
+.example{font-size:12.5px;color:var(--pink-ink);background:var(--pink-soft);border-radius:12px;padding:9px 12px;margin:0}
+
+.weekbar{display:flex;align-items:center;gap:8px}
+.arrow{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:42px;height:42px;border-radius:12px;font-size:20px;cursor:pointer;flex:none}
+.arrow:disabled{opacity:.3;cursor:default}
+.weekbar .mid{flex:1;min-width:0;text-align:center}
+.weekbar h2{margin:0;font:800 24px var(--display);line-height:1}
+.weekbar small{color:var(--muted);font-size:12.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px}
+.focus{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.focus .ic{width:38px;height:38px;border-radius:12px;background:var(--pink-soft);color:var(--pink-ink);display:grid;place-items:center}
+.focus .ic svg{width:20px;height:20px}
+.focus b{display:block;font-size:15px}
+.focus p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 8px}
+.sd{appearance:none;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 0;border-radius:10px;color:var(--ink);cursor:default}
+.sd[data-go]{cursor:pointer}
+.sd .l{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase}
+.sd .c{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:700 13.5px var(--mono);background:var(--sunk);color:var(--muted)}
+.sd .c.t-fuerza{background:var(--blue-soft);color:var(--blue-ink)}
+.sd .c.t-motor{background:var(--pink-soft);color:var(--pink-ink)}
+.sd .c.t-test{background:var(--test-soft);color:var(--test)}
+.sd .c.done{background:var(--ok);color:#fff}
+.sd .c.today{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
+.sd .k{font-size:9.5px;font-weight:700;color:var(--muted);text-transform:uppercase;min-height:12px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--muted);justify-content:center}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;scroll-margin-top:90px}
+.day.today{border-color:var(--ink)}
+.day > summary{list-style:none;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:13px 14px;cursor:pointer}
+.day > summary::-webkit-details-marker{display:none}
+.ticon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center}
+.ticon svg{width:24px;height:24px}
+.t-fuerza .ticon{background:var(--blue-soft);color:var(--blue-ink)}
+.t-motor .ticon{background:var(--pink-soft);color:var(--pink-ink)}
+.t-test .ticon{background:var(--test-soft);color:var(--test)}
+.dinfo{min-width:0}
+.dinfo .when{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.dinfo .when em{font-style:normal;color:var(--ink);background:var(--pink-soft);padding:1px 6px;border-radius:5px;margin-left:6px}
+.dinfo h3{margin:1px 0 3px;font-size:16.5px;font-weight:800;line-height:1.2}
+.mini{font-size:12.5px;color:var(--muted)}
+.check{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:transparent;font-weight:800}
+.day.done .check{background:var(--ok);border-color:var(--ok);color:#fff}
+.day.done .dinfo h3{color:var(--muted)}
+.dbody{border-top:1px solid var(--line);padding:4px 14px 16px;display:flex;flex-direction:column;gap:4px}
+.why{margin-top:12px;background:var(--sunk);border-radius:12px;padding:11px 12px;font-size:14px}
+.why b{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.sub{margin:14px 0 2px;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-ink)}
+.plain{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+
+.ex{border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.exhead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.exhead .n{font-weight:800;font-size:15px;line-height:1.25;min-width:0}
+.exhead .rx{font:600 13px var(--mono);color:var(--ink);white-space:nowrap}
+.exmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dots{display:flex;gap:6px}
+.dot{appearance:none;width:32px;height:32px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--muted);font:700 12px var(--mono);cursor:pointer;display:grid;place-items:center;padding:0}
+.dot[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.rirtag{font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;background:var(--blue-soft);color:var(--blue-ink)}
+.restbtn{appearance:none;margin-left:auto;border:1px solid var(--line);background:var(--sunk);color:var(--ink);border-radius:999px;padding:7px 11px;font:700 12.5px var(--mono);cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.restbtn svg{width:14px;height:14px}
+.sugg{font-size:13px;background:var(--blue-soft);color:var(--ink);border-radius:10px;padding:8px 10px}
+.sugg b{color:var(--blue-ink)}
+.exin{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:2px}
+.field label{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+input.num,input.txt,select.sel{font:600 15px var(--mono);color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center}
+input.num{width:76px}
+select.sel{font:600 14px var(--body);padding:8px 8px;min-width:110px}
+input.txt{width:100%;text-align:left;font:500 14px var(--body);padding:9px 11px}
+details.more summary{cursor:pointer;font-size:12.5px;color:var(--blue-ink);font-weight:700;list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"▸ "}
+details.more[open] summary::before{content:"▾ "}
+.morebody{display:grid;gap:6px;padding-top:7px;font-size:13px;color:var(--muted)}
+.morebody p{margin:0}
+.morebody b{color:var(--ink)}
+.cardio{background:var(--pink-soft);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.cardio .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cardio .top b{font:800 26px var(--display);color:var(--pink-ink);line-height:1}
+.cardio .top span{font-size:13.5px}
+.ibar{display:flex;gap:2px;height:20px}
+.ibar i{border-radius:3px;background:var(--surface)}
+.ibar i.h{background:var(--pink-ink)}
+.ibar i.e{background:var(--pink)}
+.ckey{display:flex;gap:14px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+.ckey span{display:inline-flex;align-items:center;gap:5px}
+.ckey i{width:12px;height:8px;border-radius:2px;display:inline-block}
+.test{border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.test .n{font-weight:800;font-size:14.5px}
+.test .h{font-size:12.5px;color:var(--muted);margin:0}
+.steps{margin:0;padding-left:20px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.after{font-size:13.5px;background:var(--ok-soft);border-radius:11px;padding:9px 11px;margin-top:8px}
+.finish{margin-top:10px;display:flex;flex-direction:column;gap:10px;background:var(--sunk);border-radius:14px;padding:12px}
+.btn{appearance:none;border:0;border-radius:12px;padding:12px 16px;font:800 14px var(--body);cursor:pointer;background:var(--ink);color:var(--bg);text-align:center;text-decoration:none;display:inline-block}
+.btn.okd{background:var(--ok);color:#fff}
+.btn.soft{background:var(--blue-soft);color:var(--blue-ink)}
+.note{margin:0;font-size:13px;color:var(--muted)}
+.checkin{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center}
+.checkin .ic{width:38px;height:38px;border-radius:12px;background:var(--blue-soft);color:var(--blue-ink);display:grid;place-items:center}
+.checkin .ic svg{width:20px;height:20px}
+.resbox{width:100%;min-height:170px;font:500 12.5px/1.5 var(--mono);color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:10px 12px;resize:vertical}
+
+.timer{position:fixed;left:0;right:0;bottom:calc(68px + env(safe-area-inset-bottom,0px));z-index:7}
+.tbox{background:var(--ink);color:var(--bg);border-radius:16px;padding:10px 12px;display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.tbox b{font:700 26px var(--mono);font-variant-numeric:tabular-nums;min-width:70px}
+.tbox span{font-size:12.5px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbox button{appearance:none;border:0;border-radius:10px;padding:8px 10px;font:700 12.5px var(--body);cursor:pointer;background:var(--surface);color:var(--ink)}
+.tprog{grid-column:1/-1;height:4px;background:var(--muted);border-radius:99px;overflow:hidden}
+.tprog i{display:block;height:100%;width:0;background:var(--pink)}
+.tbox.end{background:var(--ok);color:#fff}
+
+/* Guía */
+.rpe{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.rpe div{text-align:center;font:700 12px var(--mono);padding:8px 0;border-radius:6px}
+.rpelab{display:grid;grid-template-columns:3fr 3fr 2fr 2fr;gap:3px;font-size:10.5px;color:var(--muted);text-align:center;line-height:1.2}
+.rir{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.rir i{width:28px;height:28px;border-radius:7px;background:var(--blue);display:grid;place-items:center;font:700 11px var(--mono);color:#1F3B5C;font-style:normal}
+.rir i.res{background:transparent;border:2px dashed var(--blue-ink);color:var(--blue-ink)}
+.rules{display:flex;flex-direction:column;gap:10px}
+.rules > div{display:grid;grid-template-columns:30px 1fr;gap:10px}
+.rules span{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:15px}
+.rules b{font-size:14px}
+.rules p{margin:1px 0 0;font-size:13.5px;color:var(--muted)}
+.zones{display:grid;gap:6px}
+.zone{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:center;border-radius:12px;padding:10px 12px}
+.zone b{font:800 15px var(--display)}
+.zone p{margin:0;font-size:13.5px}
+.zone small{display:block;color:var(--muted);font-size:12px}
+.alert{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:14px}
+.alert::before{content:"!";font-weight:800;color:var(--bad);text-align:center}
+
+/* Progreso */
+.cmp{display:grid;gap:8px}
+.cmp > div{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+.cmp > div:last-child{border-bottom:0}
+.cmp .k{font-size:14px;font-weight:700}
+.cmp .k small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.cmp .v{font:600 14px var(--mono);font-variant-numeric:tabular-nums;text-align:right;min-width:62px}
+.cmp .v.muted{color:var(--muted)}
+.cmp .d{font:700 12px var(--mono);min-width:58px;text-align:right}
+.cmp .head{border-bottom:0;padding:0}
+.cmp .head span{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right}
+.mob{display:grid;gap:6px}
+.mob div{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:14px}
+.st{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px}
+.st.bien{background:var(--ok-soft);color:var(--ok)} .st.limitado{background:var(--warn-soft);color:var(--warn)} .st.dolor{background:var(--bad-soft);color:var(--bad)} .st.na{background:var(--sunk);color:var(--muted)}
+.bars{display:grid;gap:12px}
+.barrow .t{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700}
+.barrow .t span{font:600 12.5px var(--mono);color:var(--muted)}
+.bw{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:5px}
+.bw div{display:flex;flex-direction:column;gap:3px}
+.bw .track{height:8px;background:var(--sunk);border-radius:99px;overflow:hidden}
+.bw .track i{display:block;height:100%;background:var(--blue-ink);border-radius:99px}
+.bw small{font:600 11px var(--mono);color:var(--muted)}
+.big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.big b{font:800 30px var(--display);color:var(--pink-ink);line-height:1}
+.big span{font-size:13px;color:var(--muted)}
+
+/* Hábitos */
+.habit{display:flex;flex-direction:column;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.habit:last-child{border-bottom:0}
+.habit .t{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.habit .t b{font-size:14.5px}
+.habit .t span{font:600 12px var(--mono);color:var(--muted)}
+.habit p{margin:0;font-size:13px;color:var(--muted)}
+.hd{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.hd button{appearance:none;border:1px solid var(--line);background:var(--sunk);color:var(--muted);border-radius:10px;padding:7px 0;font:700 12px var(--body);cursor:pointer}
+.hd button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#1F3B5C}
+.tips{display:grid;gap:8px}
+.tips div{background:var(--sunk);border-radius:12px;padding:10px 12px;font-size:13.5px}
+.tips b{display:block;font-size:14px;margin-bottom:1px}
+.refs{font-size:12px;color:var(--muted)}
+.refs p{margin:0 0 4px}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;z-index:20;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+.seg{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -2px;padding:2px}
+.seg::-webkit-scrollbar{display:none}
+.seg button{appearance:none;flex:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.flow{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;gap:4px;align-items:center;text-align:center}
+.flow div{background:var(--sunk);border-radius:10px;padding:8px 4px;font-size:12px}
+.flow div b{display:block;font:700 14px var(--mono)}
+.flow span{color:var(--muted);font-weight:800}
+.lib{display:grid}
+.lib-i{border-bottom:1px solid var(--line);padding:10px 0}
+.lib-i:last-child{border-bottom:0}
+.lib-i summary{font-size:14.5px;color:var(--ink)}
+.platewrap{display:grid;grid-template-columns:116px 1fr;gap:16px;align-items:center}
+.plate{width:116px;height:116px;border-radius:50%;background:conic-gradient(var(--ok) 0 50%,var(--blue-ink) 0 75%,var(--pink-ink) 0 100%);position:relative;border:6px solid var(--sunk)}
+.plate::after{content:"";position:absolute;inset:30%;border-radius:50%;background:var(--surface)}
+.pl{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pl div{display:grid;grid-template-columns:12px 1fr;gap:8px;font-size:13px;color:var(--muted)}
+.pl i{width:12px;height:12px;border-radius:3px;margin-top:3px}
+.pl b{display:block;font-size:13.5px;color:var(--ink)}
+.tline{display:flex;flex-direction:column;gap:10px}
+.titem{display:grid;grid-template-columns:110px 1fr;gap:10px}
+.tw{font-weight:800;font-size:13.5px}
+.tc{min-width:0;border-left:3px solid var(--pink);padding-left:10px}
+.tc p{margin:0;font-size:13.5px}
+.chipgrid{display:flex;flex-wrap:wrap;gap:6px}
+.chipgrid .chip{font-size:12px;text-transform:none;letter-spacing:0}
+.supl{display:grid;gap:10px}
+.sp{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:6px}
+.sph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sph b{font-size:15.5px}
+.sp p{margin:0;font-size:13.5px}
+.sp .use{background:var(--sunk);border-radius:10px;padding:8px 10px}
+.sp small{font-size:11.5px;color:var(--muted)}
+.ev{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px}
+.ev-alta{background:var(--ok-soft);color:var(--ok)} .ev-limitada{background:var(--warn-soft);color:var(--warn)} .ev-comida{background:var(--blue-soft);color:var(--blue-ink)}
+.wsum{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.wsum div{background:var(--surface);border:1px solid var(--line);border-radius:12px;text-align:center;padding:10px 2px}
+.wsum b{display:block;font:800 21px var(--display);line-height:1.05;font-variant-numeric:tabular-nums}
+.wsum span{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+@media (max-width:380px){.platewrap{grid-template-columns:1fr;justify-items:center}.titem{grid-template-columns:86px 1fr}}
+.q{display:flex;flex-direction:column;gap:6px}
+.q > span{font-size:14px;font-weight:700}
+.q > span small{font-weight:500;color:var(--muted)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button{appearance:none;border:1px solid var(--line);background:var(--sunk);color:var(--ink);border-radius:10px;padding:10px 0;font:700 15px var(--mono);cursor:pointer}
+.scale button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.sl{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.toggles{display:flex;flex-wrap:wrap;gap:8px}
+.tog{appearance:none;border:1px solid var(--line);background:var(--sunk);color:var(--ink);border-radius:999px;padding:8px 13px;font:700 13px var(--body);cursor:pointer}
+.tog[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue-ink);color:var(--blue-ink)}
+.instb{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;background:var(--blue-soft);border-radius:var(--r);padding:10px 10px 10px 14px}
+.instb b{display:block;font-size:14px}
+.instb span{font-size:12.5px;color:var(--muted)}
+.instb .btn{padding:9px 12px;background:var(--surface)}
+.instb .x{appearance:none;border:0;background:none;color:var(--muted);font-size:22px;line-height:1;width:32px;height:32px;cursor:pointer}
+.big-steps{font-size:14px;color:var(--ink);gap:8px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head><body>
+<header><div class="wrap">
+  <div class="mono" aria-hidden="true">PC</div>
+  <div class="brand"><small>Paula Cabrera Training</small><h1 id="cname">—</h1></div>
+  <div class="wk"><b id="wknum">—</b><span>de 4 sem.</span></div>
+</div></header>
+
+<main><div class="wrap" id="view"></div></main>
+
+<div class="timer" id="timer" hidden><div class="wrap"><div class="tbox" id="tbox">
+  <b id="tleft">0:00</b><span id="tlabel">Descanso</span>
+  <button id="tplus" type="button">+15 s</button><button id="tstop" type="button">Listo</button>
+  <div class="tprog"><i id="tprog"></i></div>
+</div></div></div>
+
+<nav class="tabs" aria-label="Secciones"><div class="wrap" role="tablist">
+  <button role="tab" data-tab="semana" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Semana</button>
+  <button role="tab" data-tab="checkin" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>Check-in</button>
+  <button role="tab" data-tab="guia" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6M9 11h6"/></svg>Guía</button>
+  <button role="tab" data-tab="nutricion" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-2-3-7-2-7 3 0 5 4 10 7 10s7-5 7-10c0-5-5-6-7-3z"/><path d="M12 7c0-2 1-4 3-4"/></svg>Nutrición</button>
+  <button role="tab" data-tab="habitos" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>Hábitos</button>
+  <button role="tab" data-tab="progreso" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M6 15l4-4 3 3 5-6"/><path d="M15 8h3v3"/></svg>Progreso</button>
+</div></nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =========================================================================
+   DATOS DEL CLIENTE · lo único que cambia de un cliente a otro
+   ========================================================================= */
+const CLIENTE={
+  id:"laura-ejemplo",                 // identificador único: separa lo que guarda cada cliente
+  nombre:"Laura",
+  ejemplo:true,                       // true = muestra el aviso de datos de ejemplo
+  servicio:"Estándar",
+  inicio:"2026-10-26",                // lunes de la semana 1
+  objetivo:"Ganar fuerza y mejorar la composición corporal",
+  nivel:"Principiante",
+  edad:42, sexo:"mujer",
+  checkinUrl:"",                      // enlace del formulario de check-in semanal
+  inicial:{fecha:"2026-10-22",peso:68.4,cintura:84.5,
+    movilidad:{sentadilla:"Limitado",bisagra:"Bien",brazos:"Bien"},
+    rockport:{tiempo:"15:48",fc:148}}
+};
+
+/* ================= Fechas ================= */
+const START=(()=>{const [y,m,d]=CLIENTE.inicio.split("-").map(Number);return new Date(y,m-1,d)})();
+const OFF={lun:0,mar:1,mie:2,jue:3,vie:4,sab:5,dom:6};
+const DLABEL={lun:"Lunes",mar:"Martes",mie:"Miércoles",jue:"Jueves",vie:"Viernes",sab:"Sábado",dom:"Domingo"};
+const today=new Date();today.setHours(0,0,0,0);
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const fmt=d=>d.toLocaleDateString("es-ES",{day:"numeric",month:"short"}).replace(".","");
+const dateOf=(w,d)=>{const x=new Date(START);x.setDate(x.getDate()+7*(w-1)+OFF[d]);return x};
+const NW=4;
+let week=Math.min(Math.max(1,Math.floor((today-START)/(7*864e5))+1||1),NW);
+let tab="semana";
+
+/* ================= Iconos ================= */
+const IC={
+  fuerza:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>',
+  motor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>',
+  test:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>',
+  timer:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
+  form:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>'
+};
+const TLABEL={fuerza:"Fuerza",motor:"Motor",test:"Test"};
+
+/* ================= Plan · 4 semanas · fase Base ================= */
+const FOCUS={
+  1:["Aprender la técnica","Cargas cómodas: termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Esta semana lo importante es moverte bien y apuntar los pesos."],
+  2:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible."],
+  3:["Consolidar","Mismo esfuerzo, algo más de carga. Los intervalos del viernes pasan a 6 bloques."],
+  4:["Semana de valoración","Lunes, test de fuerza y medidas; miércoles, test de la milla. El viernes, sesión suave para recuperar."]
+};
+const WARM_F=["5' de bici o elíptica suave (RPE 3)","Movilidad de cadera y hombro (3')","1 serie ligera de cada ejercicio principal"];
+const WARM_M=["5' andando a ritmo cómodo"];
+
+function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza · cuerpo completo A",dur:60,
+  goal:"Fuerza de piernas, cadera y espalda: la base de todo lo demás.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera"],
+  after:"Incluye proteína en tu siguiente comida.",
+  ex:[
+  {n:"Sentadilla goblet",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho, rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
+  {n:"Hip thrust",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
+  {n:"Press con mancuernas en banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control.",alt:"Press en máquina"},
+  {n:"Remo en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
+  {n:"Plancha frontal",sets:s,time:"20-30\"",rest:45,how:"Cuerpo en línea recta, abdomen firme. Respira con normalidad.",alt:"Con las rodillas apoyadas"}]}}
+
+function sesB(w){const mins={1:25,2:30,3:35}[w];return{type:"motor",t:"Motor suave + core",dur:mins+20,
+  goal:"Mejorar tu resistencia sin acumular fatiga. Hoy todo es suave: es la base sobre la que irá lo intenso.",warm:WARM_M,cool:["Estira suave lo que notes cargado"],
+  cardio:{mins,txt:"Cinta con inclinación, bici o elíptica"},
+  after:"Si llegas muy cansada, reduce el cardio a 20' y haz el core igualmente.",
+  ex:[
+  {n:"Dead bug",sets:3,reps:"8 / lado",rest:45,how:"Zona lumbar pegada al suelo. Suelta el aire al estirar brazo y pierna contrarios.",alt:"Solo piernas"},
+  {n:"Pallof press",sets:3,reps:"10 / lado",rest:45,how:"Empuja la polea al frente sin que el tronco gire.",alt:"Con banda elástica"},
+  {n:"Bird dog",sets:3,reps:"8 / lado",rest:45,how:"A cuatro patas, estira brazo y pierna contrarios sin mover la cadera.",alt:"Solo brazos o solo piernas"}]}}
+
+function sesC(w){const dl=w===4,s=dl||w===1?2:3;
+  const iv={1:null,2:[4,60,60],3:[6,60,60],4:[4,60,60]}[w];
+  return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B + intervalos",dur:60,
+  goal:dl?"Sesión suave para recuperarte de los tests. Mismos ejercicios con menos series.":"Fuerza de cadena posterior y tracción, y tu primer contacto con esfuerzos algo más intensos.",
+  warm:WARM_F,cool:["5' andando suave","Movilidad de hombros"],
+  after:"Fin de semana: rellena el check-in el domingo.",
+  intervals:iv,easyEnd:w===1?8:null,
+  ex:[
+  {n:"Peso muerto rumano con mancuernas",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
+  {n:"Prensa de piernas",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada.",alt:"Sentadilla goblet"},
+  {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Remo con banda elástica"},
+  {n:"Press de hombro en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Abdomen firme y espalda apoyada. Sube sin arquear la zona lumbar.",alt:"Press con mancuernas sentada"},
+  {n:"Paseo del granjero",sets:s,reps:"30 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"}]}}
+
+function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:70,
+  goal:"Saber con qué cargas trabajas de verdad. Estos datos son tu punto de partida para el próximo mes.",
+  warm:["5-10' de bici o elíptica suave","Movilidad de cadera, tobillo y hombro"],cool:["5' andando suave","Apunta todo antes de irte"],
+  after:"Sin entrenamiento intenso hasta el miércoles.",
+  tests:[
+   {k:"peso",n:"Peso",u:"kg",h:"Por la mañana, tras ir al baño, en ayunas y con ropa ligera. Misma báscula siempre."},
+   {k:"cintura",n:"Perímetro de cintura",u:"cm",h:"De pie, a mitad de camino entre la última costilla y el hueso de la cadera, al soltar el aire. Cinta horizontal sin apretar. Mide 2 veces y apunta la media."},
+   {k:"mob_sentadilla",n:"Sentadilla profunda con brazos arriba",sel:true,h:"Baja todo lo que puedas con los brazos estirados por encima de la cabeza."},
+   {k:"mob_bisagra",n:"Bisagra de cadera con palo",sel:true,h:"Palo en la espalda tocando cabeza, espalda alta y sacro. Inclínate sin que se separe."},
+   {k:"mob_brazos",n:"Brazos arriba contra la pared",sel:true,h:"Espalda y cabeza apoyadas. Sube los brazos estirados hasta tocar la pared."},
+   {k:"rm_sentadilla",n:"Sentadilla goblet · 8-10RM",rm:true},
+   {k:"rm_hip",n:"Hip thrust · 8-10RM",rm:true},
+   {k:"rm_press",n:"Press con mancuernas · 8-10RM",rm:true},
+   {k:"rm_remo",n:"Remo en máquina · 8-10RM",rm:true}]}}
+
+function testMilla(){return{type:"test",t:"Test de la milla",dur:35,
+  goal:"Medir tu resistencia caminando. Lo repetiremos en cada valoración para ver cuánto mejoras.",
+  warm:["5' andando suave"],cool:["5' andando muy suave","Bebe agua"],
+  after:"Mañana descanso o un paseo suave.",
+  milla:true,
+  tests:[
+   {k:"milla_t",n:"Tiempo",u:"min:seg",txt:true,h:"Camina 1.609 m lo más rápido posible, sin correr. Recorrido llano y medido, siempre el mismo."},
+   {k:"milla_fc",n:"Pulsaciones al terminar",u:"ppm",h:"Míralas en el pulsómetro justo al cruzar la meta."}]}}
+
+const PLAN={
+  1:{lun:sesA(1),mie:sesB(1),vie:sesC(1)},
+  2:{lun:sesA(2),mie:sesB(2),vie:sesC(2)},
+  3:{lun:sesA(3),mie:sesB(3),vie:sesC(3)},
+  4:{lun:testFuerza(),mie:testMilla(),vie:sesC(4)}
+};
+const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
+
+/* ================= Estado (en el móvil del cliente) ================= */
+const LS="pct-"+CLIENTE.id;
+let S={ses:{},hab:{},ci:{},ini:{}};
+try{const o=JSON.parse(localStorage.getItem(LS)||"{}");S.ses=o.ses||{};S.hab=o.hab||{};S.ci=o.ci||{};S.ini=o.ini||{}}catch(e){}
+let saveT=null;
+const save=()=>{clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){toast("No se pudo guardar en este móvil")}},300)};
+const sid=(w,d)=>`w${w}-${d}`;
+const ses=id=>S.ses[id]||(S.ses[id]={});
+const exSt=(id,i)=>{const s=ses(id);s.ex=s.ex||{};return s.ex[i]||(s.ex[i]={})};
+const tSt=id=>{const s=ses(id);return s.t||(s.t={})};
+
+/* ================= Utilidades ================= */
+const $=(q,el=document)=>el.querySelector(q);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf=(n,d=1)=>Number(n).toLocaleString("es-ES",{maximumFractionDigits:d});
+const mmss=sec=>{sec=Math.max(0,Math.ceil(sec));return `${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}`};
+const tdur=sec=>sec%60?(sec>=60?`${Math.floor(sec/60)}'${sec%60}"`:`${sec}"`):`${sec/60}'`;
+const num=v=>{if(v===""||v==null)return null;const n=parseFloat(String(v).replace(",","."));return isNaN(n)?null:n};
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),2000)}
+const parseT=s=>{if(!s)return null;const m=String(s).trim().match(/^(\d{1,2})[:'.,](\d{1,2})$/);return m?+m[1]+(+m[2])/60:num(s)};
+
+/* Milla de Rockport (Kline et al., 1987): VO2máx en L/min → ml/kg/min */
+function rockport(pesoKg,tMin,fc){
+  if(!pesoKg||!tMin||!fc)return null;
+  const l=6.9652+0.0091*(pesoKg*2.2046)-0.0257*CLIENTE.edad+0.5955*(CLIENTE.sexo==="hombre"?1:0)-0.2240*tMin-0.0115*fc;
+  return l*1000/pesoKg;
+}
+
+/* Regla de progresión del método (doble progresión con RIR objetivo) */
+function prevLog(w,name){
+  for(let pw=w-1;pw>=1;pw--)for(const d of DAYS(pw)){const s=PLAN[pw][d];if(!s.ex)continue;
+    const i=s.ex.findIndex(e=>e.n===name);if(i<0)continue;const l=S.ses[sid(pw,d)]?.ex?.[i];
+    if(l&&num(l.kg)!=null)return {w:pw,kg:num(l.kg),reps:num(l.reps),rir:num(l.rir)}}
+  return null;
+}
+function suggest(e,p){
+  if(!e.lo&&!e.kg)return "";
+  if(!p)return `Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
+  const kg=p.kg;
+  if(e.kg) return `Semana pasada: ${nf(kg)} kg. Si los 30 m fueron cómodos, prueba con <b>${nf(kg+e.inc)} kg</b>.`;
+  if(p.reps!=null&&p.reps>=e.hi&&(p.rir==null||p.rir>=e.rirMin))return `Semana pasada: ${nf(kg)} kg × ${p.reps}. Completaste el rango: <b>sube a ${nf(kg+e.inc)} kg</b> (+${e.incTxt}).`;
+  if(p.reps!=null&&p.reps<e.lo)return `Semana pasada: ${nf(kg)} kg × ${p.reps}. No llegaste al mínimo: <b>baja a ${nf(Math.round(kg*0.92*2)/2)} kg</b>.`;
+  if(p.rir!=null&&p.rir<e.rirMin)return `Semana pasada: ${nf(kg)} kg con RIR ${p.rir}. Fuiste más cerca del fallo de lo previsto: <b>mantén ${nf(kg)} kg</b>.`;
+  return `Semana pasada: ${nf(kg)} kg${p.reps!=null?" × "+p.reps:""}. <b>Mantén ${nf(kg)} kg</b> y suma repeticiones.`;
+}
+
+/* ================= Semana ================= */
+function renderSemana(){
+  const plan=PLAN[week],ws=dateOf(week,"lun"),we=dateOf(week,"dom"),days=DAYS(week);
+  const done=days.filter(d=>S.ses[sid(week,d)]?.done).length;
+  const strip=Object.keys(OFF).map(k=>{const date=dateOf(week,k),s=plan[k],id=sid(week,k),isT=iso(date)===iso(today),dn=s&&S.ses[id]?.done;
+    return `<button class="sd" type="button" ${s?`data-go="${id}"`:"disabled"} aria-label="${DLABEL[k]} ${date.getDate()}${s?": "+esc(s.t):": descanso"}">
+      <span class="l">${DLABEL[k].slice(0,1)}</span>
+      <span class="c ${s?"t-"+s.type:""} ${dn?"done":""} ${isT?"today":""}">${dn?"✓":date.getDate()}</span>
+      <span class="k">${s?TLABEL[s.type]:"·"}</span></button>`}).join("");
+  const [ft,fp]=FOCUS[week];
+  let inst=false;try{inst=localStorage.getItem(LS+"-inst")==="1"}catch(_){}
+  let h=(!inst?`<div class="instb"><div><b>Instala tu plan en el móvil</b><span>Como una app, en 10 segundos.</span></div><button class="btn soft" type="button" data-goinst="1">Ver cómo</button><button class="x" type="button" data-hideinst="1" aria-label="Ocultar aviso">×</button></div>`:"")+(CLIENTE.ejemplo?`<p class="example">Plan de ejemplo con datos inventados, para enseñar cómo funciona.</p>`:"")+
+   `<div class="weekbar">
+      <button class="arrow" type="button" data-w="-1" ${week===1?"disabled":""} aria-label="Semana anterior">‹</button>
+      <div class="mid"><h2>Semana ${week}</h2><small>${fmt(ws)} – ${fmt(we)}</small>
+        <div class="chips"><span class="chip b">Fase Base</span>${week===4?'<span class="chip p">Valoración</span>':""}<span class="chip">${done}/${days.length} hechas</span></div></div>
+      <button class="arrow" type="button" data-w="1" ${week===NW?"disabled":""} aria-label="Semana siguiente">›</button></div>
+    <div class="strip">${strip}</div>
+    <div class="legend"><span><i style="background:var(--blue-ink)"></i>Fuerza</span><span><i style="background:var(--pink-ink)"></i>Motor</span><span><i style="background:var(--test)"></i>Test</span><span><i style="background:var(--ok)"></i>Hecha</span></div>
+    <div class="focus"><div class="ic">${IC.target}</div><div><b>${esc(ft)}</b><p>${esc(fp)}</p></div></div>`;
+  h+=days.map(d=>dayCard(week,d,plan[d])).join("");
+  const url=CLIENTE.checkinUrl;
+  h+=`<div class="card"><div class="checkin"><div class="ic">${IC.form}</div><div><b>Check-in del domingo</b><p class="note">5 preguntas y me mandas tu semana por WhatsApp.</p></div></div>
+    <button class="btn soft" type="button" data-tab="checkin">Ir al check-in</button></div>
+    <p class="note" style="text-align:center">Lo que apuntas se guarda en este móvil.</p>`;
+  return h;
+}
+
+function dayCard(w,d,s){
+  const id=sid(w,d),st=S.ses[id]||{},date=dateOf(w,d),isT=iso(date)===iso(today);
+  let b=`<div class="why"><b>Para qué</b>${esc(s.goal)}</div>`;
+  b+=`<p class="sub">Calentamiento</p><ul class="plain">${s.warm.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  if(s.cardio)b+=`<p class="sub">Cardio suave</p><div class="cardio"><div class="top"><b>${s.cardio.mins}'</b><span>${esc(s.cardio.txt)} · RPE 3-4</span></div>
+     <p class="note" style="color:var(--ink)">Puedes hablar en frases completas. Si no puedes, baja el ritmo.</p></div>`;
+  if(s.ex){b+=`<p class="sub">Ejercicios</p>`;b+=s.ex.map((e,i)=>exCard(w,id,e,i)).join("")}
+  if(s.intervals){const [n,on,off]=s.intervals;const segs=[];for(let i=0;i<n;i++){segs.push(`<i class="h" style="flex:${on}"></i>`);if(i<n-1)segs.push(`<i class="e" style="flex:${off}"></i>`)}
+    b+=`<p class="sub">Intervalos · bici o elíptica</p><div class="cardio"><div class="top"><b>${n} × ${tdur(on)}</b><span>moderado (RPE 6) · ${tdur(off)} suave entre bloques</span></div>
+     <div class="ibar" aria-hidden="true">${segs.join("")}</div>
+     <div class="ckey"><span><i style="background:var(--pink-ink)"></i>Moderado: frases cortas</span><span><i style="background:var(--pink)"></i>Suave</span></div>
+     <button class="restbtn" type="button" style="margin-left:0;align-self:flex-start" data-iv="${n},${on},${off}">${IC.timer} Empezar intervalos</button></div>`}
+  if(s.easyEnd)b+=`<p class="sub">Final</p><div class="cardio"><div class="top"><b>${s.easyEnd}'</b><span>bici o elíptica suave · RPE 3</span></div></div>`;
+  if(s.tests)b+=testBlock(id,s);
+  b+=`<p class="sub">Vuelta a la calma</p><ul class="plain">${s.cool.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  b+=`<div class="after">${esc(s.after)}</div>`;
+  b+=`<div class="finish"><div class="field"><label for="rpe-${id}">Esfuerzo de la sesión (RPE 1-10)</label><select class="sel" id="rpe-${id}" data-rpe="${id}">${["","1","2","3","4","5","6","7","8","9","10"].map(v=>`<option value="${v}" ${String(st.rpe??"")===v?"selected":""}>${v||"—"}</option>`).join("")}</select></div><div class="field" style="flex:1"><label for="n-${id}">¿Cómo ha ido? (opcional)</label><input class="txt" id="n-${id}" data-note="${id}" value="${esc(st.nota||"")}" placeholder="Ej.: me molestó la rodilla en la zancada"></div>
+    <button class="btn ${st.done?"okd":""}" type="button" data-done="${id}">${st.done?"Sesión hecha ✓":"Marcar como hecha"}</button></div>`;
+  return `<details class="day t-${s.type} ${st.done?"done":""} ${isT?"today":""}" id="${id}" ${isT?"open":""}>
+    <summary><span class="ticon">${IC[s.type]}</span>
+      <span class="dinfo"><span class="when">${DLABEL[d]} ${date.getDate()}${isT?"<em>Hoy</em>":""}</span><h3>${esc(s.t)}</h3><span class="mini">${s.dur}' aprox.</span></span>
+      <span class="check" aria-label="${st.done?"Hecha":"Pendiente"}">✓</span></summary>
+    <div class="dbody">${b}</div></details>`;
+}
+
+function exCard(w,id,e,i){
+  const st=exSt(id,i),sets=st.sets||[];
+  const rx=e.time?`${e.sets} × ${e.time}`:e.reps?`${e.sets} × ${e.reps}`:`${e.sets} × ${e.lo}-${e.hi}`;
+  const dots=Array.from({length:e.sets},(_,k)=>`<button class="dot" type="button" aria-pressed="${!!sets[k]}" data-set="${id}|${i}|${k}" aria-label="Serie ${k+1}">${k+1}</button>`).join("");
+  const sg=suggest(e,prevLog(w,e.n));
+  const loaded=e.lo||e.kg;
+  return `<div class="ex">
+    <div class="exhead"><span class="n">${esc(e.n)}</span><span class="rx">${rx}</span></div>
+    <div class="exmeta"><div class="dots">${dots}</div>${e.rir?`<span class="rirtag">RIR ${e.rir}</span>`:""}
+      <button class="restbtn" type="button" data-rest="${e.rest}" data-label="${esc(e.n)}">${IC.timer} ${tdur(e.rest)}</button></div>
+    ${sg?`<div class="sugg">${sg}</div>`:""}
+    ${loaded?`<div class="exin">
+      <div class="field"><label for="kg-${id}-${i}">Kg</label><input class="num" inputmode="decimal" id="kg-${id}-${i}" data-ex="${id}|${i}|kg" value="${esc(st.kg??"")}"></div>
+      ${e.lo?`<div class="field"><label for="rp-${id}-${i}">Reps última serie</label><input class="num" inputmode="numeric" id="rp-${id}-${i}" data-ex="${id}|${i}|reps" value="${esc(st.reps??"")}"></div>
+      <div class="field"><label for="ri-${id}-${i}">Te sobraban</label><select class="sel" id="ri-${id}-${i}" data-ex="${id}|${i}|rir">${["","0","1","2","3","4","5"].map(v=>`<option value="${v}" ${String(st.rir??"")===v?"selected":""}>${v===""?"—":v==="5"?"5 o más":v+" reps"}</option>`).join("")}</select></div>`:""}
+    </div>`:""}
+    <details class="more"><summary>Cómo hacerlo</summary><div class="morebody"><p>${esc(e.how)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p>${e.incTxt&&e.lo?`<p><b>Para subir:</b> ${e.hi} reps en todas las series con RIR ${e.rir} → +${esc(e.incTxt)}</p>`:""}</div></details>
+  </div>`;
+}
+
+function testBlock(id,s){
+  const t=tSt(id);
+  let h="";
+  if(s.tests.some(x=>x.rm))h+=`<p class="sub">Cómo hacer cada test de fuerza</p><ol class="steps">
+     <li>Aproximación: 1 serie ligera de 8-10, una media de 5 y otra más pesada de 2-3 (1-2' de descanso).</li>
+     <li>Intento con la carga que creas que puedes mover 8-10 veces con buena técnica.</li>
+     <li>Si haces más de 10, descansa 3-5', sube la carga y repite. Máximo 3-4 intentos.</li>
+     <li>La serie termina cuando se rompe la técnica, no al fallo absoluto. Apunta el último intento válido.</li></ol>`;
+  const groups=[["Medidas",x=>x.u&&!x.rm&&!x.txt&&!s.milla],["Movilidad",x=>x.sel],["Fuerza",x=>x.rm],["Test",x=>s.milla]];
+  for(const [g,f] of groups){const items=s.tests.filter(f);if(!items.length)continue;
+    h+=`<p class="sub">${g}</p>`+items.map(x=>{
+      if(x.sel)return `<div class="test"><span class="n">${esc(x.n)}</span><p class="h">${esc(x.h)}</p>
+        <div class="field"><label for="t-${id}-${x.k}">Resultado</label><select class="sel" id="t-${id}-${x.k}" data-t="${id}|${x.k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${t[x.k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div></div>`;
+      if(x.rm)return `<div class="test"><span class="n">${esc(x.n)}</span>
+        <div class="exin"><div class="field"><label for="t-${id}-${x.k}-kg">Kg</label><input class="num" inputmode="decimal" id="t-${id}-${x.k}-kg" data-t="${id}|${x.k}_kg" value="${esc(t[x.k+"_kg"]??"")}"></div>
+        <div class="field"><label for="t-${id}-${x.k}-r">Reps</label><input class="num" inputmode="numeric" id="t-${id}-${x.k}-r" data-t="${id}|${x.k}_r" value="${esc(t[x.k+"_r"]??"")}"></div>
+        <button class="restbtn" type="button" data-rest="180" data-label="${esc(x.n)}">${IC.timer} 3'</button></div></div>`;
+      return `<div class="test"><span class="n">${esc(x.n)}</span><p class="h">${esc(x.h)}</p>
+        <div class="field"><label for="t-${id}-${x.k}">${esc(x.u)}</label><input class="num" ${x.txt?'inputmode="text" placeholder="15:30"':'inputmode="decimal"'} id="t-${id}-${x.k}" data-t="${id}|${x.k}" value="${esc(t[x.k]??"")}"></div></div>`;
+    }).join("");}
+  return h;
+}
+
+/* ================= Subapartados ================= */
+const SUBS={
+  guia:[["esfuerzo","Esfuerzo"],["progresion","Progresión"],["cardio","Cardio"],["ejercicios","Ejercicios"],["seguridad","Seguridad"],["instalar","Instalar"]],
+  nutricion:[["basicos","Básicos"],["entreno","Entreno"],["proteina","Proteína"],["suplementos","Suplementos"]],
+  habitos:[["registro","Registro"],["sueno","Sueño"],["recuperacion","Recuperación"]],
+  progreso:[["resumen","Resumen"],["medidas","Medidas"],["fuerza","Fuerza"],["motor","Motor"]]
+};
+const SUB={guia:"esfuerzo",nutricion:"basicos",habitos:"registro",progreso:"resumen"};
+const segBar=t=>`<div class="seg" role="tablist" aria-label="Apartados">${SUBS[t].map(([k,n])=>`<button type="button" role="tab" data-sub="${t}|${k}" aria-selected="${SUB[t]===k}">${n}</button>`).join("")}</div>`;
+
+/* ================= Guía ================= */
+function renderGuia(){
+  const s=SUB.guia;let h=segBar("guia");
+  if(s==="esfuerzo"){
+    const cols=["#DDEBF6","#CFE2F3","#BFD8EF","#A9C8E8","#F6D9C2","#F2C4A4","#EBA98A","#E58A84","#D9666E","#B03B3D"];
+    const txt=["#1F3B5C","#1F3B5C","#1F3B5C","#1F3B5C","#1F3B5C","#1F3B5C","#1F3B5C","#1F3B5C","#fff","#fff"];
+    h+=`<div class="card"><p class="eyebrow">Escala RPE</p><h2>Cuánto te cuesta</h2>
+      <p class="lead">Del 1 al 10. Al terminar cada sesión, apunta su RPE.</p>
+      <div class="rpe">${cols.map((c,i)=>`<div style="background:${c};color:${txt[i]}">${i+1}</div>`).join("")}</div>
+      <div class="rpelab"><span>Muy fácil · charlas sin problema</span><span>Suave · frases completas</span><span>Moderado · frases cortas</span><span>Duro · palabras sueltas</span></div></div>
+    <div class="card"><p class="eyebrow">RIR</p><h2>Las repeticiones que te sobran</h2>
+      <p class="lead">Las que podrías haber hecho todavía con buena técnica. Haces 8 y podrías haber hecho 10: vas a RIR 2.</p>
+      <div class="rir">${[1,2,3,4,5,6,7,8].map(n=>`<i>${n}</i>`).join("")}<i class="res">9</i><i class="res">10</i></div>
+      <p class="note">Al empezar cuesta calcularlo y es normal: casi todo el mundo cree que le quedan menos repeticiones de las que le quedan. Se aprende en pocas semanas.</p></div>`;
+  }
+  if(s==="progresion"){
+    h+=`<div class="card"><p class="eyebrow">Tu plan</p><h2>Cómo sube la carga</h2>
+      <div class="rules">
+        <div><span style="background:var(--ok-soft);color:var(--ok)">↑</span><div><b>Completas el rango con el RIR indicado</b><p>Subes la carga lo mínimo disponible.</p></div></div>
+        <div><span style="background:var(--blue-soft);color:var(--blue-ink)">=</span><div><b>Estás dentro del rango</b><p>Misma carga, e intentas sumar repeticiones.</p></div></div>
+        <div><span style="background:var(--warn-soft);color:var(--warn)">=</span><div><b>Llegas, pero más cerca del fallo</b><p>Misma carga hasta que te cueste menos.</p></div></div>
+        <div><span style="background:var(--bad-soft);color:var(--bad)">↓</span><div><b>No llegas al mínimo</b><p>Bajas la carga un poco.</p></div></div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Ejemplo</p><h2>3 × 8-10 a RIR 3-4</h2>
+      <div class="flow"><div><b>12 kg</b>10-10-10<br>RIR 3</div><span>→</span><div><b>14 kg</b>9-8-8<br>RIR 3</div><span>→</span><div><b>14 kg</b>10-10-9<br>RIR 3</div></div>
+      <p class="note">La app te propone la carga de cada ejercicio con lo que apuntaste la semana anterior. Si esa semana dormiste mal o estabas muy cansada, no subas.</p></div>`;
+  }
+  if(s==="cardio"){
+    h+=`<div class="card"><p class="eyebrow">Test del habla</p><h2>A qué ritmo vas</h2>
+      <div class="zones">
+        <div class="zone" style="background:var(--blue-soft)"><b>Suave</b><p>Hablas en frases completas<small>RPE 2-4 · la mayor parte de tu cardio</small></p></div>
+        <div class="zone" style="background:var(--pink-soft)"><b>Moderado</b><p>Solo frases cortas<small>RPE 5-7 · tus intervalos</small></p></div>
+        <div class="zone" style="background:var(--bad-soft)"><b>Intenso</b><p>Solo palabras sueltas<small>RPE 8-10 · aún no lo trabajamos</small></p></div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Por qué casi todo suave</p><h2>La base aguanta lo demás</h2>
+      <p class="lead">La mayor parte del cardio es suave y solo una parte pequeña es más intensa. Así mejoras la resistencia sin acumular tanta fatiga que afecte a tus sesiones de fuerza.</p>
+      <p class="note">Primero sumamos días, después minutos y por último intensidad: nunca las tres cosas a la vez.</p></div>`;
+  }
+  if(s==="ejercicios"){
+    const seen=new Map();for(let w=1;w<=NW;w++)for(const d of DAYS(w)){const x=PLAN[w][d];(x.ex||[]).forEach(e=>{if(!seen.has(e.n))seen.set(e.n,{e,type:x.type})})}
+    h+=`<div class="card"><p class="eyebrow">Biblioteca</p><h2>Tus ejercicios</h2><p class="lead">Cómo hacer cada uno y qué hacer si la máquina está ocupada.</p>
+      <div class="lib">${[...seen.values()].map(({e})=>`<details class="more lib-i"><summary>${esc(e.n)}</summary><div class="morebody"><p>${esc(e.how)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p></div></details>`).join("")}</div></div>`;
+  }
+  if(s==="instalar"){
+    h+=`<div class="card"><p class="eyebrow">Tu plan como una app</p><h2>Instálalo en tu móvil</h2>
+      <p class="lead">Tendrás un icono en la pantalla de inicio que abre tu plan directamente. No ocupa espacio ni hay que descargar nada.</p></div>
+    <div class="card"><p class="eyebrow">iPhone</p><h2>Con Safari</h2>
+      <ol class="steps big-steps"><li>Si lo abriste desde WhatsApp, toca los tres puntos o la brújula y elige <b>Abrir en Safari</b>.</li>
+        <li>Toca el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba).</li>
+        <li>Baja y toca <b>Añadir a pantalla de inicio</b>.</li>
+        <li>Ponle de nombre <b>Mi plan</b> y toca <b>Añadir</b>.</li></ol></div>
+    <div class="card"><p class="eyebrow">Android</p><h2>Con Chrome</h2>
+      <ol class="steps big-steps"><li>Si lo abriste desde WhatsApp, toca los tres puntos y elige <b>Abrir en Chrome</b>.</li>
+        <li>Toca el menú <b>⋮</b> de arriba a la derecha.</li>
+        <li>Toca <b>Añadir a pantalla de inicio</b> (o <b>Instalar aplicación</b>).</li>
+        <li>Confirma con <b>Añadir</b>.</li></ol></div>
+    <div class="card"><p class="eyebrow">Importante</p><h2>Ábrelo siempre desde el icono</h2>
+      <p class="lead">Lo que apuntas se guarda en el navegador desde el que lo usas. Si un día lo abres desde WhatsApp y otro desde el icono, verás datos distintos.</p>
+      <p class="note">No borres los datos de navegación de Safari o Chrome: perderías lo que has apuntado. Lo importante ya me llega cada domingo con tu check-in.</p></div>`;
+  }
+  if(s==="seguridad"){
+    h+=`<div class="card"><p class="eyebrow">Importante</p><h2>Cuándo parar y avisarme</h2>
+      <div class="alert">Dolor en el pecho, mareo o falta de aire que no es normal: para y consulta con tu médico.</div>
+      <div class="alert">Dolor que te limita o que empeora al entrenar: no sigas con ese ejercicio y escríbeme.</div>
+      <div class="alert">Cambios de salud (diagnóstico nuevo, medicación nueva, embarazo): avísame antes de seguir. Tendrás que volver a rellenar el PAR-Q+.</div></div>
+    <div class="card"><p class="eyebrow">Molestia o dolor</p><h2>Cómo distinguirlos</h2>
+      <div class="tips">
+        <div><b>Agujetas</b>Aparecen al día siguiente o al otro y se van solas. Puedes entrenar.</div>
+        <div><b>Molestia leve</b>Desaparece al calentar y no empeora. Sigue, y apúntala en la sesión.</div>
+        <div><b>Dolor que limita</b>Cambia cómo te mueves o empeora con el ejercicio. Para ese ejercicio y avísame.</div>
+      </div></div>`;
+  }
+  return h;
+}
+
+/* ================= Nutrición ================= */
+function renderNutricion(){
+  const s=SUB.nutricion;let h=segBar("nutricion");
+  h+=`<p class="example">Pautas generales, no una dieta. Para una dieta personalizada, consulta con un dietista-nutricionista colegiado.</p>`;
+  if(s==="basicos"){
+    h+=`<div class="card"><p class="eyebrow">Cada comida principal</p><h2>Un plato sencillo</h2>
+      <div class="platewrap"><div class="plate" aria-hidden="true"></div><div class="pl">
+        <div><i style="background:var(--ok)"></i><span><b>Verdura y fruta</b>La mitad del plato.</span></div>
+        <div><i style="background:var(--blue-ink)"></i><span><b>Proteína</b>Carne, huevos, legumbres, lácteos, tofu o pescado.</span></div>
+        <div><i style="background:var(--pink-ink)"></i><span><b>Hidratos</b>Arroz, pasta, patata, pan o legumbres.</span></div>
+      </div></div><p class="note">Con aceite de oliva para cocinar y aliñar.</p></div>
+    <div class="card"><p class="eyebrow">Día a día</p><h2>Lo que más suma</h2>
+      <div class="tips">
+        <div><b>Agua a lo largo del día</b>Lleva una botella contigo, sobre todo los días de entreno.</div>
+        <div><b>Comida real la mayor parte del tiempo</b>Los ultraprocesados, de vez en cuando.</div>
+        <div><b>Constancia antes que perfección</b>Una comida "peor" no estropea una semana buena.</div>
+      </div></div>`;
+  }
+  if(s==="entreno"){
+    h+=`<div class="card"><p class="eyebrow">Alrededor del entreno</p><h2>Cuándo comer</h2>
+      <div class="tline">
+        <div class="titem"><div class="tw">2-3 h antes</div><div class="tc"><p>Una comida normal y no muy pesada.</p></div></div>
+        <div class="titem"><div class="tw">Si entrenas temprano</div><div class="tc"><p>Algo pequeño y fácil: una fruta o un yogur.</p></div></div>
+        <div class="titem"><div class="tw">Durante</div><div class="tc"><p>Agua. En sesiones de una hora no necesitas nada más.</p></div></div>
+        <div class="titem"><div class="tw">Después</div><div class="tc"><p>Tu siguiente comida, con proteína. No hace falta correr a por un batido.</p></div></div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Días de descanso</p><h2>Comes igual</h2><p class="lead">Tu cuerpo se recupera y construye músculo precisamente esos días. No hace falta comer menos.</p></div>`;
+  }
+  if(s==="proteina"){
+    const pk=num(testVals().peso)??getIni().peso??null;if(pk==null){h+=`<div class="card"><p class="eyebrow">Proteína</p><h2>Apunta tu peso</h2><p class="lead">Escribe tu peso en Progreso → Medidas y aquí verás tu referencia de proteína diaria.</p></div>`;return h}
+    const lo=Math.round(pk*1.4),hi=Math.round(pk*2.0);
+    h+=`<div class="card"><p class="eyebrow">Para ganar y mantener músculo</p><h2>Proteína al día</h2>
+      <div class="big"><b>${lo}-${hi} g</b><span>al día para tu peso (${nf(pk)} kg)</span></div>
+      <p class="lead">Es la referencia general para la mayoría de personas que entrenan: 1,4-2,0 g por kg de peso al día (Jäger et al., 2017).</p>
+      <p class="note">No hace falta contar gramos cada día. Lo práctico es incluir una buena ración de proteína en cada comida principal. Si tienes una enfermedad renal, consulta con tu médico antes de aumentarla.</p></div>
+    <div class="card"><p class="eyebrow">Ideas</p><h2>Fuentes de proteína</h2>
+      <div class="chipgrid">${["Pollo o pavo","Huevos","Yogur natural o skyr","Queso fresco batido","Legumbres","Tofu o tempeh","Carne magra","Pescado","Leche o bebida de soja"].map(x=>`<span class="chip b">${x}</span>`).join("")}</div></div>`;
+  }
+  if(s==="suplementos"){
+    const sup=[
+      {n:"Creatina monohidrato",ev:"alta",tag:"Recomendada",txt:"Mejora el rendimiento en esfuerzos intensos y las adaptaciones al entrenamiento de fuerza. Es de los suplementos más estudiados y es segura en personas sanas.",use:"3-5 g al día, cualquier momento del día, también los de descanso. No hace falta fase de carga.",note:"Puede subir algo el peso en la báscula por el agua que retiene el músculo: no es grasa.",ref:"Kreider et al., 2017"},
+      {n:"Cafeína",ev:"alta",tag:"Opcional",txt:"Tiene buena evidencia para mejorar el rendimiento. Un café antes de entrenar es suficiente para la mayoría.",use:"Evítala por la tarde si te cuesta dormir: el sueño importa más.",ref:"Maughan et al., 2018"},
+      {n:"Omega-3",ev:"limitada",tag:"Solo en algunos casos",txt:"Para la fuerza y el músculo, la evidencia no es clara.",use:"Tiene sentido valorarlo si comes poco pescado azul. Coméntalo antes con tu médico o farmacéutico, sobre todo si tomas anticoagulantes.",ref:"Timraz et al., 2023"},
+      {n:"Magnesio",ev:"limitada",tag:"Solo si hay déficit",txt:"No está claro que mejore el rendimiento si no tienes déficit. Los estudios son pequeños.",use:"Solo si un profesional sanitario detecta que te falta. Frutos secos, legumbres y cereales integrales lo aportan.",ref:"Zhang et al., 2017"},
+      {n:"Proteína en polvo",ev:"comida",tag:"Comodidad",txt:"Es comida en polvo, no un suplemento mágico. Útil si te cuesta llegar a tu proteína con la comida.",use:"Como una ración de proteína más, cuando te venga bien."}
+    ];
+    h+=`<div class="card"><p class="eyebrow">Antes de tomar nada</p><h2>Primero, la comida</h2>
+      <div class="alert">Si tienes alguna enfermedad, estás embarazada o tomas medicación, consulta antes con tu médico o farmacéutico.</div>
+      <div class="alert">Elige marcas con sello de análisis independiente: algunos suplementos llevan sustancias que no aparecen en la etiqueta.</div></div>
+    <div class="supl">${sup.map(x=>`<div class="sp"><div class="sph"><b>${x.n}</b><span class="ev ev-${x.ev}">${x.tag}</span></div>
+      <p>${x.txt}</p><p class="use"><b>Cómo:</b> ${x.use}</p>${x.note?`<p class="note">${x.note}</p>`:""}${x.ref?`<small>${x.ref}</small>`:""}</div>`).join("")}</div>`;
+  }
+  return h;
+}
+
+/* ================= Valoración inicial ================= */
+/* Si CLIENTE.inicial es null, el cliente apunta sus datos en el móvil (no viajan en el archivo público) */
+function getIni(){const c=CLIENTE.inicial;if(c)return c;const x=S.ini||{};
+  return {fecha:x.fecha||"",peso:num(x.peso),cintura:num(x.cintura),movilidad:{sentadilla:x.mob_sentadilla||"",bisagra:x.mob_bisagra||"",brazos:x.mob_brazos||""},rockport:{tiempo:x.milla_t||"",fc:num(x.milla_fc)}}}
+function iniForm(){
+  if(CLIENTE.inicial)return "";
+  const x=S.ini||{},f=(k,l,u,ph)=>`<div class="field"><label for="ini-${k}">${l}${u?" ("+u+")":""}</label><input class="num" id="ini-${k}" data-ini="${k}" value="${esc(x[k]??"")}" ${ph?`placeholder="${ph}"`:'inputmode="decimal"'}></div>`;
+  const sel=(k,l)=>`<div class="field"><label for="ini-${k}">${l}</label><select class="sel" id="ini-${k}" data-ini="${k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${x[k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div>`;
+  return `<div class="card"><p class="eyebrow">Valoración inicial</p><h2>Apunta tus datos de partida</h2>
+    <p class="lead">Los resultados de tu primera valoración. Se guardan solo en tu móvil.</p>
+    <div class="exin">${f("fecha","Fecha","","2026-11-02")}${f("peso","Peso","kg")}${f("cintura","Cintura","cm")}</div>
+    <div class="exin">${sel("mob_sentadilla","Sentadilla")}${sel("mob_bisagra","Bisagra")}${sel("mob_brazos","Brazos arriba")}</div>
+    <div class="exin">${f("milla_t","Milla","min:seg","15:30")}${f("milla_fc","Pulsaciones","ppm")}</div></div>`;
+}
+
+/* ================= Progreso ================= */
+function testVals(){const a=S.ses[sid(4,"lun")]?.t||{},b=S.ses[sid(4,"mie")]?.t||{};return {...a,...b}}
+const pdate=s=>{if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+function renderProgreso(){
+  const s=SUB.progreso,I=getIni(),T=testVals();let h=segBar("progreso");
+  if(CLIENTE.ejemplo)h+=`<p class="example">Valores iniciales de ejemplo.</p>`;
+  const d=(a,b,u)=>a!=null&&b!=null?`<span class="d" style="color:var(--muted)">${b-a>0?"+":""}${nf(b-a)} ${u}</span>`:`<span class="d"></span>`;
+  if(s==="resumen"){
+    let tot=0,dn=0;for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){tot++;if(S.ses[sid(w,dd)]?.done)dn++}
+    let hb=0;for(let w=1;w<=NW;w++){const x=S.hab[sid(w,"hab")]||{};HABITS.forEach(([k])=>hb+=(x[k]||[]).filter(Boolean).length)}
+    const rp=[];for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){const r=num(S.ses[sid(w,dd)]?.rpe);if(r!=null)rp.push(r)}
+    h+=`<div class="card"><p class="eyebrow">Objetivo</p><h2>${esc(CLIENTE.objetivo)}</h2><p class="lead">Nivel ${esc(CLIENTE.nivel.toLowerCase())} · servicio ${esc(CLIENTE.servicio)}. ${pdate(I.fecha)?"Valoración inicial: "+fmt(pdate(I.fecha))+".":""} Siguiente: semana 4.</p></div>
+      <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${rp.length?nf(rp.reduce((a,b)=>a+b,0)/rp.length):"–"}</b><span>RPE medio</span></div><div><b>${hb}</b><span>hábitos</span></div></div>
+      <p class="note" style="text-align:center">La constancia es lo que más predice tus resultados.</p>`;
+  }
+  if(s==="medidas"||s==="motor")h+=iniForm();
+  if(s==="medidas"){
+    const p1=I.peso,p2=num(T.peso),c1=I.cintura,c2=num(T.cintura);
+    const mobRows=[["sentadilla","Sentadilla profunda"],["bisagra","Bisagra de cadera"],["brazos","Brazos arriba"]].map(([k,n])=>{
+      const a=I.movilidad[k],b=T["mob_"+k];const cls=v=>v?v.toLowerCase():"na";
+      return `<div><span>${n}</span><span style="display:flex;gap:6px"><span class="st ${cls(a)}">${a||"—"}</span><span class="st ${cls(b)}">${b||"S4"}</span></span></div>`}).join("");
+    h+=`<div class="card"><p class="eyebrow">Composición</p><h2>Medidas</h2>
+      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Sem. 4</span><span>Cambio</span></div>
+        <div><span class="k">Peso</span><span class="v ${p1==null?"muted":""}">${p1!=null?nf(p1)+" kg":"—"}</span><span class="v ${p2==null?"muted":""}">${p2!=null?nf(p2)+" kg":"—"}</span>${d(p1,p2,"kg")}</div>
+        <div><span class="k">Cintura</span><span class="v ${c1==null?"muted":""}">${c1!=null?nf(c1)+" cm":"—"}</span><span class="v ${c2==null?"muted":""}">${c2!=null?nf(c2)+" cm":"—"}</span>${d(c1,c2,"cm")}</div></div>
+      <p class="note">El peso sube y baja de un día a otro. Fíjate en la tendencia, no en un día.</p></div>
+    <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: inicio. Derecha: semana 4.</p></div>`;
+  }
+  if(s==="fuerza"){
+    const rms=[["rm_sentadilla","Sentadilla goblet"],["rm_hip","Hip thrust"],["rm_press","Press con mancuernas"],["rm_remo","Remo en máquina"]].map(([k,n])=>{
+      const kg=num(T[k+"_kg"]),r=num(T[k+"_r"]);return `<div><span class="k">${n}</span><span class="v ${kg==null?"muted":""}">${kg!=null?nf(kg)+" kg":"—"}</span><span class="v ${r==null?"muted":""}">${r!=null?"× "+r:""}</span><span class="d"></span></div>`}).join("");
+    const bars=["Sentadilla goblet","Hip thrust","Press con mancuernas en banco","Remo en máquina","Peso muerto rumano con mancuernas","Jalón al pecho"].map(name=>{
+      const vals=[1,2,3].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
+      const mx=Math.max(...vals.filter(v=>v!=null),0),last=[...vals].reverse().find(v=>v!=null);
+      return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
+        <div class="bw">${vals.map((v,i)=>`<div><div class="track"><i style="width:${v!=null&&mx?Math.round(v/mx*100):0}%"></i></div><small>S${i+1}${v!=null?" · "+nf(v):""}</small></div>`).join("")}</div></div>`}).join("");
+    h+=`<div class="card"><p class="eyebrow">En el gimnasio</p><h2>Tus cargas semana a semana</h2><div class="bars">${bars}</div></div>
+    <div class="card"><p class="eyebrow">Test · semana 4</p><h2>8-10RM</h2><div class="cmp">${rms}</div><p class="note">Es tu primera medición de fuerza. La compararemos en la próxima valoración.</p></div>`;
+  }
+  if(s==="motor"){
+    const p2=num(T.peso);
+    const v1=rockport(I.peso,parseT(I.rockport.tiempo),I.rockport.fc),v2=rockport(p2??I.peso,parseT(T.milla_t),num(T.milla_fc));
+    const out=CLIENTE.edad<30||CLIENTE.edad>69;
+    h+=`<div class="card"><p class="eyebrow">Motor</p><h2>Test de la milla</h2>
+      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Sem. 4</span><span></span></div>
+        <div><span class="k">Tiempo</span><span class="v ${I.rockport.tiempo?"":"muted"}">${esc(I.rockport.tiempo||"—")}</span><span class="v ${T.milla_t?"":"muted"}">${esc(T.milla_t||"—")}</span><span class="d"></span></div>
+        <div><span class="k">Pulsaciones al final</span><span class="v ${I.rockport.fc?"":"muted"}">${I.rockport.fc??"—"}</span><span class="v ${T.milla_fc?"":"muted"}">${esc(T.milla_fc||"—")}</span><span class="d"></span></div>
+        <div><span class="k">VO2máx estimado<small>ml/kg/min</small></span><span class="v">${v1?nf(v1):"—"}</span><span class="v ${v2?"":"muted"}">${v2?nf(v2):"—"}</span>${v1&&v2?`<span class="d" style="color:${v2>=v1?"var(--ok)":"var(--muted)"}">${v2-v1>0?"+":""}${nf(v2-v1)}</span>`:'<span class="d"></span>'}</div></div>
+      <p class="note">${out?"La fórmula se validó en adultos de 30 a 69 años: en tu caso compara sobre todo el tiempo y las pulsaciones.":"Menos tiempo con las mismas pulsaciones, o las mismas pulsaciones con menos tiempo, es mejora."} Estimación con la fórmula de Kline et al. (1987).</p></div>`;
+  }
+  return h;
+}
+
+/* ================= Hábitos ================= */
+const HABITS=[
+  ["sueno","Dormir 7 horas o más","Es cuando te recuperas del entrenamiento."],
+  ["caminar","Caminar 30 minutos","Fuera del entrenamiento. Suma mucho a tu salud y a tu gasto diario."],
+  ["proteina","Proteína en cada comida principal","Ayuda a ganar y mantener músculo."],
+  ["agua","Beber agua a lo largo del día","Sobre todo los días de entreno."]
+];
+function renderHabitos(){
+  const s=SUB.habitos;let h=segBar("habitos");
+  if(s==="registro"){
+    const wk=sid(week,"hab"),hs=S.hab[wk]||{};
+    const rows=HABITS.map(([k,t,p])=>{const arr=hs[k]||[];const n=arr.filter(Boolean).length;
+      return `<div class="habit"><div class="t"><b>${t}</b><span>${n}/7</span></div><p>${p}</p>
+        <div class="hd">${Object.keys(OFF).map((d,i)=>`<button type="button" aria-pressed="${!!arr[i]}" data-hab="${wk}|${k}|${i}" aria-label="${t}, ${DLABEL[d]}">${DLABEL[d].slice(0,1)}</button>`).join("")}</div></div>`}).join("");
+    h+=`<div class="weekbar">
+        <button class="arrow" type="button" data-w="-1" ${week===1?"disabled":""} aria-label="Semana anterior">‹</button>
+        <div class="mid"><h2>Semana ${week}</h2><small>${fmt(dateOf(week,"lun"))} – ${fmt(dateOf(week,"dom"))}</small></div>
+        <button class="arrow" type="button" data-w="1" ${week===NW?"disabled":""} aria-label="Semana siguiente">›</button></div>
+      <div class="card"><p class="lead">Marca los días que lo cumples. No hace falta hacerlo perfecto: cuenta la tendencia.</p>${rows}</div>`;
+  }
+  if(s==="sueno"){
+    h+=`<div class="card"><p class="eyebrow">Descanso</p><h2>Duerme 7 horas o más</h2><p class="lead">Dormir poco hace que entrenes peor, te recuperes peor y tengas más hambre al día siguiente.</p>
+      <div class="tips">
+        <div><b>Horario parecido cada día</b>También el fin de semana.</div>
+        <div><b>Cafeína, por la mañana</b>Por la tarde puede quitarte sueño aunque no lo notes.</div>
+        <div><b>Pantallas, lejos de la cama</b>La última media hora, mejor sin móvil.</div>
+        <div><b>Habitación oscura y fresca</b>Ayuda a dormirte antes y a no despertarte.</div>
+      </div></div>`;
+  }
+  if(s==="recuperacion"){
+    h+=`<div class="card"><p class="eyebrow">Entre sesiones</p><h2>El descanso también entrena</h2>
+      <div class="tips">
+        <div><b>Al menos un día entre sesiones de fuerza</b>Tu plan ya lo tiene en cuenta.</div>
+        <div><b>Los días libres, muévete suave</b>Un paseo ayuda más que estar todo el día sentada.</div>
+        <div><b>Semana mala, sesión más suave</b>Si duermes mal o vas con mucho estrés, mantén la carga en vez de subirla.</div>
+        <div><b>Cada cierto tiempo, descarga</b>Una semana con menos series para asimilar lo hecho.</div>
+      </div></div>
+    ${CLIENTE.sexo==="mujer"?`<div class="card"><p class="eyebrow">Tu etapa</p><h2>Cuéntame cómo te encuentras</h2><p class="lead">Ciclo menstrual, perimenopausia o menopausia pueden cambiar tu energía de una semana a otra. Apúntalo en el check-in y ajusto el plan.</p></div>`:""}`;
+  }
+  return h;
+}
+
+/* ================= Resumen para el check-in ================= */
+function resumen(w){
+  const L=[`${CLIENTE.nombre} · Semana ${w} (${fmt(dateOf(w,"lun"))} – ${fmt(dateOf(w,"dom"))})`];
+  for(const d of DAYS(w)){const s=PLAN[w][d],st=S.ses[sid(w,d)]||{};
+    L.push("",`${DLABEL[d]} · ${s.t} · ${st.done?"hecha":"no hecha"}${st.rpe?" · RPE "+st.rpe:""}`);
+    (s.ex||[]).forEach((e,i)=>{const x=st.ex?.[i]||{};const n=(x.sets||[]).filter(Boolean).length;
+      if(!n&&!x.kg&&!x.reps)return;
+      L.push(`- ${e.n}: ${n}/${e.sets} series${x.kg?" · "+x.kg+" kg":""}${x.reps?" · "+x.reps+" reps":""}${x.rir!=null&&x.rir!==""?" · RIR "+x.rir:""}`)});
+    const t=st.t||{};
+    (s.tests||[]).forEach(x=>{if(x.rm){const kg=t[x.k+"_kg"],r=t[x.k+"_r"];if(kg||r)L.push(`- ${x.n}: ${kg||"?"} kg × ${r||"?"}`)}
+      else if(t[x.k])L.push(`- ${x.n}: ${t[x.k]}${x.u&&!x.txt?" "+x.u:""}`)});
+    if(st.nota)L.push(`Nota: ${st.nota}`);
+  }
+  const hs=S.hab[sid(w,"hab")]||{};
+  L.push("","Hábitos: "+HABITS.map(([k,t])=>`${t} ${(hs[k]||[]).filter(Boolean).length}/7`).join(" · "));
+  return L.join("\n");
+}
+
+
+/* ================= Check-in ================= */
+const ciSt=w=>S.ci["w"+w]||(S.ci["w"+w]={});
+const CIQ=[
+  ["rec","¿Cómo te has recuperado entre sesiones?","Muy mal","Muy bien"],
+  ["sueno","¿Qué tal has dormido?","Muy mal","Muy bien"],
+  ["estres","¿Cómo ha sido tu nivel de estrés?","Muy alto","Muy bajo"],
+  ["energia","¿Cómo has estado de energía y ánimo?","Muy bajo","Muy alto"]
+];
+function weekAuto(w){
+  const ds=DAYS(w),dn=ds.filter(d=>S.ses[sid(w,d)]?.done).length;
+  const rp=ds.map(d=>num(S.ses[sid(w,d)]?.rpe)).filter(v=>v!=null);
+  const hs=S.hab[sid(w,"hab")]||{};
+  return {tot:ds.length,dn,rpe:rp.length?rp.reduce((a,b)=>a+b,0)/rp.length:null,hab:HABITS.map(([k,t])=>[t,(hs[k]||[]).filter(Boolean).length])};
+}
+/* Semáforo del método: verde, amarillo o rojo (criterio práctico de Paula) */
+function semaforo(w){
+  const c=S.ci["w"+w]||{},a=weekAuto(w),q=CIQ.map(([k])=>num(c[k])).filter(v=>v!=null);
+  if(c.dolor==="limita")return "ROJO";
+  const low=q.filter(v=>v<=2).length;
+  const verde=a.dn/a.tot>=.8&&q.length===4&&q.every(v=>v>=3)&&c.dolor!=="leve";
+  if(verde)return "VERDE";
+  if(w>1&&S.ci["w"+(w-1)]&&semaforo(w-1)!=="VERDE")return "ROJO (2.ª semana seguida sin verde)";
+  return "AMARILLO";
+}
+function renderCheckin(){
+  const c=ciSt(week),a=weekAuto(week),mujer=CLIENTE.sexo==="mujer";
+  const scale=(k,q,l,r)=>`<div class="q"><span>${q}</span><div class="scale">${[1,2,3,4,5].map(v=>`<button type="button" data-ci="${k}|${v}" aria-pressed="${String(c[k])===String(v)}">${v}</button>`).join("")}</div><div class="sl"><small>1 · ${l}</small><small>5 · ${r}</small></div></div>`;
+  const opts=(k,list)=>`<div class="toggles">${list.map(([v,n])=>`<button type="button" class="tog" data-ci="${k}|${v}" aria-pressed="${c[k]===v}">${n}</button>`).join("")}</div>`;
+  const answered=CIQ.filter(([k])=>c[k]).length+(c.dolor?1:0);
+  return `<div class="weekbar">
+      <button class="arrow" type="button" data-w="-1" ${week===1?"disabled":""} aria-label="Semana anterior">‹</button>
+      <div class="mid"><h2>Check-in · semana ${week}</h2><small>${fmt(dateOf(week,"lun"))} – ${fmt(dateOf(week,"dom"))}</small></div>
+      <button class="arrow" type="button" data-w="1" ${week===NW?"disabled":""} aria-label="Semana siguiente">›</button></div>
+    <div class="card"><p class="eyebrow">Ya lo tengo de tu semana</p>
+      <div class="wsum"><div><b>${a.dn}/${a.tot}</b><span>sesiones</span></div><div><b>${a.rpe!=null?nf(a.rpe):"–"}</b><span>RPE medio</span></div><div><b>${a.hab.reduce((x,[,n])=>x+n,0)}</b><span>hábitos</span></div><div><b>${answered}/5</b><span>respondidas</span></div></div>
+      <p class="note">Los pesos, el RIR y tus notas de cada sesión también van en el resumen.</p></div>
+    <div class="card"><p class="eyebrow">5 preguntas</p><h2>¿Cómo ha ido la semana?</h2>
+      ${CIQ.map(x=>scale(...x)).join("")}
+      <div class="q"><span>¿Has tenido algún dolor o molestia?</span>${opts("dolor",[["no","No"],["leve","Sí, leve"],["limita","Sí, y me ha limitado"]])}
+        ${c.dolor&&c.dolor!=="no"?`<input class="txt" id="ci-dolor" data-cit="dolorTxt" value="${esc(c.dolorTxt||"")}" placeholder="¿Dónde y cuándo aparece?">`:""}</div>
+      ${mujer?`<div class="q"><span>¿Algún síntoma del ciclo o de la menopausia ha afectado a tu entreno? <small>(opcional)</small></span>${opts("ciclo",[["no","No"],["algo","Algo"],["mucho","Mucho"],["nr","Prefiero no responder"]])}</div>`:""}
+      <div class="field"><label for="ci-mas">¿Algo más que quieras contarme?</label><input class="txt" id="ci-mas" data-cit="mas" value="${esc(c.mas||"")}" placeholder="Opcional"></div>
+    </div>
+    <div class="card"><p class="eyebrow">Enviar</p><h2>Mándame tu semana</h2>
+      <ol class="steps"><li>Toca <b>Copiar mi check-in</b>.</li><li>Abre nuestro chat de WhatsApp y pégalo.</li></ol>
+      <button class="btn" type="button" data-copyci="1">Copiar mi check-in</button>
+      <textarea class="resbox" id="resumen" readonly hidden aria-label="Resumen de tu check-in"></textarea>
+      ${answered<5?`<p class="note">Te faltan ${5-answered} preguntas por responder.</p>`:""}</div>`;
+}
+function resumenCheckin(w){
+  const c=S.ci["w"+w]||{},a=weekAuto(w),lab={no:"No",leve:"Sí, leve",limita:"Sí, y me ha limitado",algo:"Algo",mucho:"Mucho",nr:"Prefiero no responder"};
+  const L=[`CHECK-IN · ${CLIENTE.nombre} · Semana ${w}`,`Semáforo sugerido: ${semaforo(w)}`,"",
+    `Sesiones: ${a.dn}/${a.tot}${a.rpe!=null?" · RPE medio "+nf(a.rpe):""}`,
+    ...CIQ.map(([k,q])=>`${q} ${c[k]||"—"}/5`),
+    `Dolor o molestia: ${lab[c.dolor]||"—"}${c.dolorTxt?" ("+c.dolorTxt+")":""}`];
+  if(CLIENTE.sexo==="mujer"&&c.ciclo)L.push(`Síntomas del ciclo/menopausia: ${lab[c.ciclo]}`);
+  if(c.mas)L.push(`Comentario: ${c.mas}`);
+  L.push("","— DETALLE DE LA SEMANA —",resumen(w));
+  return L.join("\n");
+}
+
+/* ================= Render y eventos ================= */
+function render(){
+  $("#cname").textContent=CLIENTE.nombre+(CLIENTE.ejemplo?" · ejemplo":"");
+  $("#wknum").textContent="S"+week;
+  const v=$("#view");
+  v.innerHTML=tab==="semana"?renderSemana():tab==="guia"?renderGuia():tab==="nutricion"?renderNutricion():tab==="checkin"?renderCheckin():tab==="progreso"?renderProgreso():renderHabitos();
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;
+  if(t.dataset.tab){tab=t.dataset.tab;try{localStorage.setItem(LS+"-tab",tab)}catch(_){}render();window.scrollTo(0,0);return}
+  if(t.dataset.ci){const [f,v]=t.dataset.ci.split("|");const c=ciSt(week);c[f]=c[f]===v?"":v;save();render();return}
+  if(t.dataset.copyci){const txt=resumenCheckin(week),box=$("#resumen");box.value=txt;box.hidden=false;
+    const manual=()=>{box.focus();box.select();toast("Mantén pulsado el texto y cópialo")};
+    try{navigator.clipboard.writeText(txt).then(()=>toast("Copiado. Pégalo en WhatsApp"),manual)}catch(_){manual()}return}
+  if(t.dataset.goinst){tab="guia";SUB.guia="instalar";render();window.scrollTo(0,0);return}
+  if(t.dataset.hideinst){try{localStorage.setItem(LS+"-inst","1")}catch(_){}render();return}
+  if(t.dataset.sub){const [tb,k]=t.dataset.sub.split("|");SUB[tb]=k;render();return}
+  if(t.dataset.w){week=Math.min(NW,Math.max(1,week+ +t.dataset.w));render();return}
+  if(t.dataset.go){const el=document.getElementById(t.dataset.go);if(el){el.open=true;el.scrollIntoView({behavior:"smooth",block:"start"})}return}
+  if(t.dataset.set){const [id,i,k]=t.dataset.set.split("|");const st=exSt(id,+i);st.sets=st.sets||[];st.sets[+k]=!st.sets[+k];t.setAttribute("aria-pressed",String(st.sets[+k]));save();return}
+  if(t.dataset.rest){startTimer(+t.dataset.rest,"Descanso · "+t.dataset.label);return}
+  if(t.dataset.copy){const txt=resumen(week),box=$("#resumen");box.value=txt;box.hidden=false;
+    const manual=()=>{box.focus();box.select();toast("Mantén pulsado el texto y cópialo")};
+    try{navigator.clipboard.writeText(txt).then(()=>toast("Copiado. Pégalo en el check-in"),manual)}catch(_){manual()}return}
+  if(t.dataset.iv){const [n,on,off]=t.dataset.iv.split(",").map(Number);startIntervals(n,on,off);return}
+  if(t.dataset.done){const s=ses(t.dataset.done);s.done=!s.done;save();const open=document.getElementById(t.dataset.done)?.open;render();const el=document.getElementById(t.dataset.done);if(el&&open)el.open=true;toast(s.done?"Sesión marcada como hecha":"Sesión pendiente");return}
+  if(t.dataset.hab){const [wk,k,i]=t.dataset.hab.split("|");S.hab[wk]=S.hab[wk]||{};const a=S.hab[wk][k]=S.hab[wk][k]||[];a[+i]=!a[+i];save();render();return}
+});
+document.addEventListener("input",e=>{const t=e.target;
+  if(t.dataset.ex){const [id,i,f]=t.dataset.ex.split("|");exSt(id,+i)[f]=t.value;save()}
+  else if(t.dataset.t){const [id,k]=t.dataset.t.split("|");tSt(id)[k]=t.value;save()}
+  else if(t.dataset.note){ses(t.dataset.note).nota=t.value;save()}
+  else if(t.dataset.ini){S.ini[t.dataset.ini]=t.value;save()}
+  else if(t.dataset.cit){ciSt(week)[t.dataset.cit]=t.value;save()}
+  else if(t.dataset.rpe){ses(t.dataset.rpe).rpe=t.value;save()}
+});
+
+/* ================= Temporizador ================= */
+let tEnd=0,tTot=0,tInt=null,ivQueue=null;
+function beep(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.value=.08;o.start();o.stop(a.currentTime+.25)}catch(_){}try{navigator.vibrate&&navigator.vibrate(200)}catch(_){}}
+function startTimer(sec,label){ivQueue=null;runTimer(sec,label)}
+function runTimer(sec,label){
+  tTot=sec;tEnd=Date.now()+sec*1000;$("#tlabel").textContent=label;$("#timer").hidden=false;$("#tbox").classList.remove("end");
+  clearInterval(tInt);tick();tInt=setInterval(tick,250);
+}
+function tick(){
+  const left=(tEnd-Date.now())/1000;$("#tleft").textContent=mmss(left);$("#tprog").style.width=Math.min(100,(1-left/tTot)*100)+"%";
+  if(left<=0){clearInterval(tInt);beep();
+    if(ivQueue&&ivQueue.length){const [s,l]=ivQueue.shift();runTimer(s,l);return}
+    $("#tbox").classList.add("end");$("#tlabel").textContent="¡A por la siguiente!";setTimeout(()=>{if(Date.now()>=tEnd)$("#timer").hidden=true},4000)}
+}
+function startIntervals(n,on,off){
+  const q=[];for(let i=1;i<=n;i++){q.push([on,`Bloque ${i}/${n} · moderado`]);if(i<n)q.push([off,"Suave"])}
+  const [s,l]=q.shift();ivQueue=q;runTimer(s,l);
+}
+$("#tplus").onclick=()=>{tEnd+=15000;tTot+=15};
+$("#tstop").onclick=()=>{clearInterval(tInt);ivQueue=null;$("#timer").hidden=true};
+
+try{const t=localStorage.getItem(LS+"-tab");if(t)tab=t}catch(_){}
+render();
+</script>
+
+</body></html>
