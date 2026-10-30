@@ -7,7 +7,8 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 - Cuenta: `@paulacabrera.training` · Nombre: `Paula Cabrera | Entrenadora personal` · Cuenta profesional, categoría Entrenador personal.
 - Paula: estudiante de CAFYD, monitora en un gimnasio y entrenadora personal. Di siempre «estudiante de CAFYD», nunca «graduada».
 - Lema: «Fuerza y salud en cada etapa».
-- Servicios: planes online Esencial, Plus y Premium (desde 65 €/mes), sesión presencial suelta, bonos y 10 % de descuento por pago trimestral. Primera valoración GRATIS. Confirma los precios con Paula antes de publicarlos.
+- Servicios: planes online, sesión presencial suelta y bonos. Primera valoración GRATIS.
+- **Precios: NO se publican en Instagram** (decisión de Paula, 30/10/2026). Ni en posts, ni en historias, ni en la bio. Quien pregunte, por WhatsApp.
 - Público: no solo mujeres. Mujeres que buscan fuerza y recomposición (también en perimenopausia y menopausia), principiantes y gente que quiere fuerza y resistencia. Ningún mensaje que excluya a los hombres.
 - Diferenciación: fuerza y resistencia, base científica, cercanía y seguimiento semanal con su app de planes.
 - Llamada a la acción: escribir por WhatsApp (enlace en la bio).

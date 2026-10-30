@@ -1,0 +1,38 @@
+{
+  "fecha": "2026-11-03",
+  "hora": "historias a lo largo del día",
+  "formato": "historia",
+  "pilar": "Confianza",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "1 por la mañana. A las 19:00 compartir el carrusel en historias desde la app (botón avión). 2 y 3 por la tarde-noche con sticker de encuesta y de pregunta en el hueco de abajo. 4 al final, con sticker de enlace a WhatsApp.",
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Hoy a las 19:00 me presento",
+      "resaltado": "19:00",
+      "sub": "Nueva cuenta, nuevo proyecto.\nActiva la campanita 🔔"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "¿Entrenas fuerza?",
+      "resaltado": "fuerza",
+      "texto": "Cuéntamelo en la encuesta 👇"
+    },
+    {
+      "tipo": "texto",
+      "titulo": "¿Qué te gustaría aprender sobre entrenar?",
+      "resaltado": "aprender",
+      "texto": "Pregúntame lo que quieras: con tus dudas preparo los próximos posts 👇"
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Tu 1.ª valoración es GRATIS",
+      "resaltado": "GRATIS",
+      "texto": "Escríbeme y vemos juntos qué necesitas.",
+      "boton": "Pulsa el enlace 👇"
+    }
+  ],
+  "texto": "",
+  "hashtags": []
+}

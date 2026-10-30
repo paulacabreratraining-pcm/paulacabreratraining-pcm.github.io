@@ -37,6 +37,7 @@ const rayas = `<div class="stripe" style="width:150px;height:900px;background:${
 <div class="stripe" style="width:60px;height:900px;background:${C.azul};right:-230px;top:-250px"></div>`;
 
 function slide(d, i, n, H){
+  if(H>1500) n = 1; // historias: sin numeración ni «Desliza»
   const foot = (dark) => `<div class="foot"><span class="u"><img src="${LOGO}">${USER}</span><span>${n>1?`${i+1}/${n}`:''}</span></div>`;
   switch(d.tipo){
     case 'portada': return `<div class="s dark">${rayas}<h1 style="position:relative;max-width:760px">${marca(d.titulo,d.resaltado)}</h1>${d.sub?`<p class="sub">${md(d.sub)}</p>`:''}${n>1?'<span class="desliza">Desliza →</span>':''}${foot(1)}</div>`;
@@ -55,7 +56,7 @@ function slide(d, i, n, H){
   const ds = post.diapositivas;
   if(post.formato==='carrusel' && (ds.length<2 || ds.length>10)) throw new Error('Un carrusel lleva de 2 a 10 diapositivas');
   for(const f of fs.readdirSync(dir)) if(/^slide-\d+\.jpg$/.test(f)) fs.unlinkSync(path.join(dir,f));
-  const b = await chromium.launch(); const p = await b.newPage({viewport:{width:W,height:H}});
+  const b = await chromium.launch(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{}); const p = await b.newPage({viewport:{width:W,height:H}});
   for(let i=0;i<ds.length;i++){
     await p.setContent(`<!doctype html><meta charset="utf-8"><style>${css(W,H)}</style><body>${slide(ds[i],i,ds.length,H)}</body>`);
     await p.waitForLoadState('networkidle');
