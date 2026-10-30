@@ -9,6 +9,7 @@ GitHub Pages la publica en https://paulacabreratraining-pcm.github.io/
 - `clientes/<nombre>-<código>/index.html`: el plan de cada cliente. Su enlace es `https://paulacabreratraining-pcm.github.io/clientes/<nombre>-<código>/`.
 - `icono.png`: icono de la app (monograma PC). Todos los planes lo enlazan como `/icono.png`.
 - `clientes/laura-ejemplo/`: clienta inventada para enseñar la plantilla.
+- `instagram/`: gestión del Instagram de la marca. Tiene su propio `CLAUDE.md` con las instrucciones de gestora.
 
 ## Reglas de privacidad (la web es pública)
 

@@ -1,0 +1,7 @@
+# Calendario de Instagram
+
+Estados: Borrador → Aprobado → Programado/Publicado.
+
+| Fecha | Hora | Formato | Pilar | Tema | Carpeta | Estado |
+|---|---|---|---|---|---|---|
+| 2026-11-03 | 19:00 | Carrusel | Confianza | Hola, soy Paula | `posts/2026-11-03-hola-soy-paula` | Borrador |
