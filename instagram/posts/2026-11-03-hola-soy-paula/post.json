@@ -3,15 +3,51 @@
   "hora": "19:00",
   "formato": "carrusel",
   "pilar": "Confianza",
-  "aprobado": false,
+  "aprobado": true,
   "publicado": false,
   "diapositivas": [
-    {"tipo": "portada", "titulo": "Hola, soy Paula", "resaltado": "Paula", "sub": "Entrenadora personal\nFuerza y salud en cada etapa"},
-    {"tipo": "texto", "num": "01", "titulo": "Quién soy", "texto": "Estudio **Ciencias de la Actividad Física y del Deporte** y trabajo como monitora en un gimnasio.\n\nY sí, también entreno: me estoy preparando para **HYROX Málaga 2027**."},
-    {"tipo": "lista", "titulo": "Cómo trabajo", "resaltado": "trabajo", "puntos": ["Valoración inicial para saber de dónde partes", "Plan **100 % personalizado** en tu propia app", "Check-in **cada semana** para ajustar el plan", "Fuerza, resistencia y salud"]},
-    {"tipo": "texto", "num": "02", "titulo": "Para quién", "texto": "Para quien quiere empezar con buen pie, ganar fuerza o volver a entrenar con un plan pensado para **su vida real**.\n\nOnline y presencial."},
-    {"tipo": "cierre", "titulo": "Tu 1.ª valoración es GRATIS", "resaltado": "GRATIS", "texto": "Escríbeme y vemos juntos qué necesitas."}
+    {
+      "tipo": "portada",
+      "titulo": "Hola, soy Paula",
+      "resaltado": "Paula",
+      "sub": "Entrenadora personal\nFuerza y salud en cada etapa"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Quién soy",
+      "texto": "Estudio **Ciencias de la Actividad Física y del Deporte** y trabajo como monitora en un gimnasio.\n\nY sí, también entreno: me estoy preparando para **HYROX Málaga 2027**."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Cómo trabajo",
+      "resaltado": "trabajo",
+      "puntos": [
+        "Valoración inicial para saber de dónde partes",
+        "Plan **100 % personalizado** en tu propia app",
+        "Check-in **cada semana** para ajustar el plan",
+        "Fuerza, resistencia y salud"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "Para quién",
+      "texto": "Para quien quiere empezar con buen pie, ganar fuerza o volver a entrenar con un plan pensado para **su vida real**.\n\nOnline y presencial."
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Tu 1.ª valoración es GRATIS",
+      "resaltado": "GRATIS",
+      "texto": "Escríbeme y vemos juntos qué necesitas."
+    }
   ],
   "texto": "Hola, soy Paula 👋\n\nEstudio CAFYD, trabajo como monitora en un gimnasio y he creado Paula Cabrera Training para ayudarte a entrenar con método: fuerza, resistencia y salud, adaptado a tu vida.\n\nCada plan empieza con una valoración, se construye para ti y se ajusta cada semana con tu check-in.\n\n👉 Tu primera valoración es gratis. Escríbeme por WhatsApp (enlace en la bio).",
-  "hashtags": ["entrenadorapersonal", "entrenamientodefuerza", "entrenamientoonline", "malaga", "fuerzaysalud"]
+  "hashtags": [
+    "entrenadorapersonal",
+    "entrenamientodefuerza",
+    "entrenamientoonline",
+    "malaga",
+    "fuerzaysalud"
+  ]
 }
