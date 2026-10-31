@@ -3,8 +3,8 @@
   "hora": "19:00",
   "formato": "carrusel",
   "pilar": "Método",
-  "aprobado": false,
-  "publicado": false,
+  "aprobado": true,
+  "publicado": true,
   "diapositivas": [
     {
       "tipo": "portada",
@@ -57,5 +57,10 @@
     "entrenamientodefuerza",
     "malaga",
     "fuerzaysalud"
-  ]
+  ],
+  "metricool": {
+    "id": 412176082,
+    "uuid": "-1551607153470257527",
+    "programado": "2026-11-03T19:00 Europe/Madrid"
+  }
 }
