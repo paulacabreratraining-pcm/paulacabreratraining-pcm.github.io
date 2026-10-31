@@ -4,7 +4,7 @@
   "formato": "carrusel",
   "pilar": "Confianza",
   "aprobado": true,
-  "publicado": false,
+  "publicado": true,
   "diapositivas": [
     {
       "tipo": "portada",
@@ -49,5 +49,10 @@
     "entrenamientoonline",
     "malaga",
     "fuerzaysalud"
-  ]
+  ],
+  "metricool": {
+    "id": 412172716,
+    "uuid": "6212862844179464557",
+    "programado": "2026-11-03T19:00 Europe/Madrid"
+  }
 }
