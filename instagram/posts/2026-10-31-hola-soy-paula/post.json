@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-03",
+  "fecha": "2026-10-31",
   "hora": "19:00",
   "formato": "carrusel",
   "pilar": "Confianza",
@@ -51,8 +51,8 @@
     "fuerzaysalud"
   ],
   "metricool": {
-    "id": 412172716,
+    "id": 412173704,
     "uuid": "6212862844179464557",
-    "programado": "2026-11-03T19:00 Europe/Madrid"
+    "programado": "2026-10-31T19:00 Europe/Madrid"
   }
 }

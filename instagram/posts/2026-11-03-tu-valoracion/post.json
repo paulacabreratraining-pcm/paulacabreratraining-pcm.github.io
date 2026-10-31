@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-11-03",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Así empieza tu plan conmigo",
+      "resaltado": "tu plan",
+      "sub": "Tu 1.ª valoración, paso a paso"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Un cuestionario previo",
+      "resaltado": "cuestionario",
+      "texto": "Antes de entrenar quiero conocerte: **salud**, **objetivos**, días y tiempo que tienes, sueño y estrés.\n\nSi algo de salud lo pide, primero pasas por tu médico."
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "Tests a tu medida",
+      "resaltado": "a tu medida",
+      "texto": "Fuerza, resistencia y movilidad, elegidos según **tu nivel**.\n\nSi empiezas de cero, nada de buscar tu máximo el primer día: primero, técnica."
+    },
+    {
+      "tipo": "texto",
+      "num": "03",
+      "titulo": "Tu plan de 4 semanas",
+      "resaltado": "4 semanas",
+      "texto": "Con los resultados creo tu plan en **tu propia app**.\n\nCada semana me haces un check-in rápido y ajusto lo que haga falta."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Y cada 8–12 semanas",
+      "resaltado": "8–12 semanas",
+      "puntos": [
+        "Repetimos **los mismos tests**",
+        "En **las mismas condiciones**",
+        "Así ves con datos cuánto has avanzado"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Tu 1.ª valoración es GRATIS",
+      "resaltado": "GRATIS",
+      "texto": "Escríbeme y empezamos por conocerte."
+    }
+  ],
+  "texto": "¿Qué pasa cuando me escribes para empezar a entrenar? 👇\n\n1️⃣ Un cuestionario para conocerte: salud, objetivos, tiempo disponible, sueño y estrés.\n2️⃣ Unos tests elegidos según tu nivel. Si empiezas de cero, primero técnica.\n3️⃣ Tu plan de 4 semanas en tu propia app, con un check-in cada semana para ajustarlo.\n\nY cada 8–12 semanas repetimos los tests para que veas tu progreso con datos, no a ojo.\n\n👉 Tu primera valoración es gratis. Escríbeme por WhatsApp (enlace en la bio).\n\nGuárdalo para cuando te decidas 📌",
+  "hashtags": [
+    "entrenadorapersonal",
+    "entrenamientoonline",
+    "entrenamientodefuerza",
+    "malaga",
+    "fuerzaysalud"
+  ]
+}
