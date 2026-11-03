@@ -131,6 +131,10 @@ nav.tabs button[aria-selected="true"]{color:var(--blue-ink);background:var(--blu
 .exhead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .exhead .n{font-weight:800;font-size:15px;line-height:1.25;min-width:0}
 .exhead .rx{font:600 13px var(--mono);color:var(--ink);white-space:nowrap}
+.vid{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:7px 12px;border-radius:999px;background:var(--pink-soft);color:var(--pink-ink);font-weight:700;font-size:13px;text-decoration:none}
+.vid svg{width:14px;height:14px}
+.vidchip{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-left:6px;border-radius:50%;background:var(--pink-soft);color:var(--pink-ink);vertical-align:middle}
+.vidchip svg{width:12px;height:12px}
 .exmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .dots{display:flex;gap:6px}
 .dot{appearance:none;width:32px;height:32px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--muted);font:700 12px var(--mono);cursor:pointer;display:grid;place-items:center;padding:0}
@@ -377,6 +381,17 @@ const IC={
 };
 const TLABEL={fuerza:"Fuerza",motor:"Motor",test:"Test"};
 
+/* ================= Vídeos de técnica =================
+   Un enlace de YouTube por ejercicio, con el mismo nombre que en el plan.
+   Si un ejercicio no tiene vídeo aquí, el botón abre una búsqueda en YouTube.
+   Mejor aún: tus propios vídeos (pueden ser «no listados» en YouTube). */
+const VIDEOS={
+  // "Sentadilla goblet":"https://www.youtube.com/watch?v=XXXXXXXXXXX",
+};
+const PLAY='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+const vidUrl=e=>e.vid||VIDEOS[e.n]||"https://www.youtube.com/results?search_query="+encodeURIComponent("técnica "+e.n);
+const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="noopener">${PLAY} Ver vídeo${e.vid||VIDEOS[e.n]?"":" en YouTube"}</a>`;
+
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
   1:["Aprender la técnica","Cargas cómodas: termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Esta semana lo importante es moverte bien y apuntar los pesos."],
@@ -558,7 +573,7 @@ function exCard(w,id,e,i){
   const sg=suggest(e,prevLog(w,e.n));
   const loaded=e.lo||e.kg;
   return `<div class="ex">
-    <div class="exhead"><span class="n">${esc(e.n)}</span><span class="rx">${rx}</span></div>
+    <div class="exhead"><span class="n">${esc(e.n)}<a class="vidchip" href="${esc(vidUrl(e))}" target="_blank" rel="noopener" aria-label="Vídeo de ${esc(e.n)}">${PLAY}</a></span><span class="rx">${rx}</span></div>
     <div class="exmeta"><div class="dots">${dots}</div>${e.rir?`<span class="rirtag">RIR ${e.rir}</span>`:""}
       <button class="restbtn" type="button" data-rest="${e.rest}" data-label="${esc(e.n)}">${IC.timer} ${tdur(e.rest)}</button></div>
     ${sg?`<div class="sugg">${sg}</div>`:""}
@@ -567,7 +582,7 @@ function exCard(w,id,e,i){
       ${e.lo?`<div class="field"><label for="rp-${id}-${i}">Reps última serie</label><input class="num" inputmode="numeric" id="rp-${id}-${i}" data-ex="${id}|${i}|reps" value="${esc(st.reps??"")}"></div>
       <div class="field"><label for="ri-${id}-${i}">Te sobraban</label><select class="sel" id="ri-${id}-${i}" data-ex="${id}|${i}|rir">${["","0","1","2","3","4","5"].map(v=>`<option value="${v}" ${String(st.rir??"")===v?"selected":""}>${v===""?"—":v==="5"?"5 o más":v+" reps"}</option>`).join("")}</select></div>`:""}
     </div>`:""}
-    <details class="more"><summary>Cómo hacerlo</summary><div class="morebody"><p>${esc(e.how)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p>${e.incTxt&&e.lo?`<p><b>Para subir:</b> ${e.hi} reps en todas las series con RIR ${e.rir} → +${esc(e.incTxt)}</p>`:""}</div></details>
+    <details class="more"><summary>Cómo hacerlo</summary><div class="morebody"><p>${esc(e.how)}</p><p>${vidBtn(e)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p>${e.incTxt&&e.lo?`<p><b>Para subir:</b> ${e.hi} reps en todas las series con RIR ${e.rir} → +${esc(e.incTxt)}</p>`:""}</div></details>
   </div>`;
 }
 
@@ -645,7 +660,7 @@ function renderGuia(){
   if(s==="ejercicios"){
     const seen=new Map();for(let w=1;w<=NW;w++)for(const d of DAYS(w)){const x=PLAN[w][d];(x.ex||[]).forEach(e=>{if(!seen.has(e.n))seen.set(e.n,{e,type:x.type})})}
     h+=`<div class="card"><p class="eyebrow">Biblioteca</p><h2>Tus ejercicios</h2><p class="lead">Cómo hacer cada uno y qué hacer si la máquina está ocupada.</p>
-      <div class="lib">${[...seen.values()].map(({e})=>`<details class="more lib-i"><summary>${esc(e.n)}</summary><div class="morebody"><p>${esc(e.how)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p></div></details>`).join("")}</div></div>`;
+      <div class="lib">${[...seen.values()].map(({e})=>`<details class="more lib-i"><summary>${esc(e.n)}</summary><div class="morebody"><p>${esc(e.how)}</p><p>${vidBtn(e)}</p><p><b>Alternativa:</b> ${esc(e.alt)}</p></div></details>`).join("")}</div></div>`;
   }
   if(s==="instalar"){
     h+=`<div class="card"><p class="eyebrow">Tu plan como una app</p><h2>Instálalo en tu móvil</h2>

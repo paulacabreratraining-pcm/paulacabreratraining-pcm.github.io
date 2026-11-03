@@ -23,5 +23,6 @@ GitHub Pages la publica en https://paulacabreratraining-pcm.github.io/
 1. Copiar `plantilla/plan.html` a `clientes/<nombre>-<código>/index.html`.
 2. Rellenar el bloque `CLIENTE` (id = nombre de la carpeta, nombre, servicio, inicio = lunes de la semana 1, objetivo, nivel, edad, sexo).
 3. Adaptar `FOCUS`, las funciones de sesión (`sesA`, `sesB`, `sesC`, `testFuerza`, `testMilla`) y `PLAN` al cliente siguiendo la metodología de Paula.
+   - Vídeos de técnica: el bloque `VIDEOS` (nombre del ejercicio → enlace de YouTube) lo rellena Paula con vídeos que ella haya revisado o propios. Para un vídeo solo en un ejercicio concreto, añade `vid:"<enlace>"` a ese ejercicio. Sin enlace, el botón abre una búsqueda «técnica <ejercicio>» en YouTube. No inventar enlaces.
 4. Comprobar el script con `node --check` y abrir la página una vez en Playwright para ver que no hay errores.
 5. Commit y push a `main`. GitHub Pages lo publica en 1-2 minutos.
