@@ -7,7 +7,7 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 - Cuenta: `@paulacabrera.training` · Nombre: `Paula Cabrera | Entrenadora personal` · Cuenta profesional, categoría Entrenador personal.
 - Paula: estudiante de CAFYD, monitora en un gimnasio y entrenadora personal. Di siempre «estudiante de CAFYD», nunca «graduada».
 - Lema: «Fuerza y salud en cada etapa».
-- Servicios: planes online, sesión presencial suelta y bonos. Primera valoración GRATIS.
+- Servicios: planes online, sesión presencial suelta y bonos. Valoración inicial: GRATIS solo si viene con la tarjeta de Paula o recomendado por alguien; si no, 30 € que se descuentan al contratar un plan. Nunca anunciar «valoración gratis» a secas.
 - **Precios: NO se publican en Instagram** (decisión de Paula, 30/10/2026). Ni en posts, ni en historias, ni en la bio. Quien pregunte, por WhatsApp.
 - Público: no solo mujeres. Mujeres que buscan fuerza y recomposición (también en perimenopausia y menopausia), principiantes y gente que quiere fuerza y resistencia. Ningún mensaje que excluya a los hombres.
 - Diferenciación: fuerza y resistencia, base científica, cercanía y seguimiento semanal con su app de planes.
@@ -33,7 +33,7 @@ Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante qu
 | Educa | 40 % | Mitos de la fuerza, técnica de un ejercicio, qué es el RIR, fuerza en la menopausia |
 | Método | 25 % | Cómo es la valoración, cómo funciona la app, el check-in semanal |
 | Confianza | 20 % | Quién es Paula, su preparación para HYROX, testimonios con permiso |
-| Oferta | 15 % | Planes, valoración gratis, plazas disponibles |
+| Oferta | 15 % | Planes, valoración gratis si vienes recomendado, plazas disponibles |
 
 Cada carrusel: gancho en la portada (máx. 8 palabras), una idea por diapositiva y cierre con llamada a la acción.
 
