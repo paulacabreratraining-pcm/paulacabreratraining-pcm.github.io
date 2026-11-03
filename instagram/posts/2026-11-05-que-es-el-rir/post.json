@@ -3,8 +3,8 @@
   "hora": "19:00",
   "formato": "carrusel",
   "pilar": "Educa",
-  "aprobado": false,
-  "publicado": false,
+  "aprobado": true,
+  "publicado": true,
   "fuentes": [
     "Refalo, M. C., Helms, E. R., Trexler, E. T., Hamilton, D. L., & Fyfe, J. J. (2023). Influence of resistance training proximity-to-failure on skeletal muscle hypertrophy: A systematic review with meta-analysis. Sports Medicine, 53(3), 649–665. https://doi.org/10.1007/s40279-022-01784-y",
     "Armes, C., Standish-Hunt, H., Androulakis-Korakakis, P., Michalopoulos, N., Georgieva, T., Hammond, A., Fisher, J. P., Gentil, P., Giessing, J., & Steele, J. (2020). \"Just one more rep!\" – Ability to predict proximity to task failure in resistance trained persons. Frontiers in Psychology, 11, 565416. https://doi.org/10.3389/fpsyg.2020.565416"
@@ -71,5 +71,10 @@
     "rir",
     "entrenamientoonline",
     "malaga"
-  ]
+  ],
+  "metricool": {
+    "id": 415875211,
+    "uuid": "6266325857268023886",
+    "programado": "2026-11-05T19:00 Europe/Madrid"
+  }
 }
