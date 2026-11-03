@@ -1,0 +1,17 @@
+{
+  "fecha": "2026-11-04",
+  "hora": "historias a lo largo del día",
+  "formato": "historia",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "1 por la mañana y, justo después, compartir en historias los carruseles «Hola, soy Paula» y «Así empieza tu plan conmigo» (botón del avión). 2 con sticker de encuesta y 3 con sticker de pregunta en el hueco de abajo, por la tarde. 4 al final del día. Guardar 1, los dos carruseles compartidos y 4 en la destacada «Empieza aquí» con la portada destacada-empieza-aqui.png.",
+  "diapositivas": [
+    {"tipo": "portada", "titulo": "¿Acabas de llegar? Empieza aquí", "resaltado": "Empieza aquí", "sub": "Quién soy y cómo trabajo 👇"},
+    {"tipo": "texto", "titulo": "¿Qué te frena para empezar a entrenar?", "resaltado": "frena", "texto": "Vota en la encuesta 👇"},
+    {"tipo": "texto", "titulo": "Pregúntame lo que quieras sobre entrenar", "resaltado": "lo que quieras", "texto": "Respondo en historias 👇"},
+    {"tipo": "cierre", "titulo": "¿Empezamos?", "resaltado": "Empezamos", "texto": "Cuéntame tu objetivo y te explico cómo trabajo.", "boton": "Escríbeme por mensaje directo 📩"}
+  ],
+  "texto": "",
+  "hashtags": []
+}
