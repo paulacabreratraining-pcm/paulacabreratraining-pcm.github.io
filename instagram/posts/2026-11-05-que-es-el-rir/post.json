@@ -1,0 +1,75 @@
+{
+  "fecha": "2026-11-05",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "fuentes": [
+    "Refalo, M. C., Helms, E. R., Trexler, E. T., Hamilton, D. L., & Fyfe, J. J. (2023). Influence of resistance training proximity-to-failure on skeletal muscle hypertrophy: A systematic review with meta-analysis. Sports Medicine, 53(3), 649–665. https://doi.org/10.1007/s40279-022-01784-y",
+    "Armes, C., Standish-Hunt, H., Androulakis-Korakakis, P., Michalopoulos, N., Georgieva, T., Hammond, A., Fisher, J. P., Gentil, P., Giessing, J., & Steele, J. (2020). \"Just one more rep!\" – Ability to predict proximity to task failure in resistance trained persons. Frontiers in Psychology, 11, 565416. https://doi.org/10.3389/fpsyg.2020.565416"
+  ],
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "¿Qué es el RIR?",
+      "resaltado": "RIR",
+      "sub": "La forma más sencilla de saber\nsi el peso es el adecuado"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Repeticiones en reserva",
+      "resaltado": "en reserva",
+      "texto": "Son las repeticiones que **te quedan** al terminar una serie, sin perder la técnica.\n\nRIR = Repetitions In Reserve."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Cómo se lee",
+      "resaltado": "se lee",
+      "puntos": [
+        "**RIR 0:** no podías hacer ni una más",
+        "**RIR 2:** te quedaban 2 repeticiones",
+        "**RIR 4:** te quedaban 4, ibas holgado"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "No hace falta llegar al fallo",
+      "resaltado": "fallo",
+      "texto": "Para ganar músculo, entrenar hasta no poder más **no ha resultado mejor** que quedarse un poco antes.\n\nRefalo et al., 2023"
+    },
+    {
+      "tipo": "texto",
+      "num": "03",
+      "titulo": "Calcularlo cuesta (a todos)",
+      "resaltado": "cuesta",
+      "texto": "Incluso gente con más de un año entrenando suele creer que le quedan **menos repeticiones** de las que tiene.\n\nArmes et al., 2020"
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Cómo lo uso en tus planes",
+      "resaltado": "tus planes",
+      "puntos": [
+        "Cada ejercicio lleva su **RIR objetivo**",
+        "Si empiezas, con **más margen**",
+        "Lo afinamos cada semana en tu check-in"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Pruébalo en tu próximo entreno",
+      "resaltado": "próximo entreno",
+      "texto": "Al acabar cada serie, pregúntate: ¿cuántas me quedaban?"
+    }
+  ],
+  "texto": "¿Sabes cuánto te quedaba en esa última serie? 🤔\n\nEl RIR (repeticiones en reserva) son las repeticiones que podrías haber hecho todavía con buena técnica. Es una forma muy práctica de ajustar el peso sin necesidad de llegar al fallo.\n\n📚 Una revisión con metaanálisis no encontró que entrenar hasta el fallo diera más músculo que parar un poco antes (Refalo et al., 2023).\n📚 Y calcularlo cuesta: incluso personas con más de un año entrenando suelen subestimar las repeticiones que les quedan (Armes et al., 2020).\n\nPor eso en mis planes cada ejercicio lleva su RIR objetivo y lo ajustamos cada semana.\n\nGuárdalo y pruébalo en tu próximo entreno 📌 ¿Dudas? Escríbeme por mensaje directo.",
+  "hashtags": [
+    "entrenamientodefuerza",
+    "entrenadorapersonal",
+    "rir",
+    "entrenamientoonline",
+    "malaga"
+  ]
+}
