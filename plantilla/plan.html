@@ -753,15 +753,19 @@ function renderNutricion(){
 /* Si CLIENTE.inicial es null, el cliente apunta sus datos en el móvil (no viajan en el archivo público) */
 function getIni(){const c=CLIENTE.inicial;if(c)return c;const x=S.ini||{};
   return {fecha:x.fecha||"",peso:num(x.peso),cintura:num(x.cintura),movilidad:{sentadilla:x.mob_sentadilla||"",bisagra:x.mob_bisagra||"",brazos:x.mob_brazos||""},rockport:{tiempo:x.milla_t||"",fc:num(x.milla_fc)}}}
-function iniForm(){
+function iniForm(sec){
   if(CLIENTE.inicial)return "";
   const x=S.ini||{},f=(k,l,u,ph)=>`<div class="field"><label for="ini-${k}">${l}${u?" ("+u+")":""}</label><input class="num" id="ini-${k}" data-ini="${k}" value="${esc(x[k]??"")}" ${ph?`placeholder="${ph}"`:'inputmode="decimal"'}></div>`;
   const sel=(k,l)=>`<div class="field"><label for="ini-${k}">${l}</label><select class="sel" id="ini-${k}" data-ini="${k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${x[k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div>`;
-  return `<div class="card"><p class="eyebrow">Valoración inicial</p><h2>Apunta tus datos de partida</h2>
-    <p class="lead">Los resultados de tu primera valoración. Se guardan solo en tu móvil.</p>
-    <div class="exin">${f("fecha","Fecha","","2026-11-02")}${f("peso","Peso","kg")}${f("cintura","Cintura","cm")}</div>
-    <div class="exin">${sel("mob_sentadilla","Sentadilla")}${sel("mob_bisagra","Bisagra")}${sel("mob_brazos","Brazos arriba")}</div>
-    <div class="exin">${f("milla_t","Milla","min:seg","15:30")}${f("milla_fc","Pulsaciones","ppm")}</div></div>`;
+  const mot=sec==="motor",keys=mot?["milla_t","milla_fc"]:["peso","cintura","mob_sentadilla","mob_bisagra","mob_brazos"];
+  const body=mot?`<div class="exin">${f("milla_t","Tiempo de la milla","min:seg","15:30")}${f("milla_fc","Pulsaciones al terminar","ppm")}</div>`
+    :`<div class="exin">${f("fecha","Fecha","","2026-11-02")}${f("peso","Peso","kg")}${f("cintura","Cintura","cm")}</div>
+    <div class="exin">${sel("mob_sentadilla","Sentadilla")}${sel("mob_bisagra","Bisagra")}${sel("mob_brazos","Brazos arriba")}</div>`;
+  const tit=mot?"Tu primera milla":"Tus medidas de partida";
+  if(keys.every(k=>x[k]))return `<details class="more card"><summary>${tit} ✓ · editar</summary><div class="morebody">${body}<p class="note">Cambia los datos y vuelve a abrir esta pestaña para ver la comparación.</p></div></details>`;
+  return `<div class="card"><p class="eyebrow">Valoración inicial</p><h2>${tit}</h2>
+    <p class="lead">${mot?"Apunta el tiempo y las pulsaciones de tu primera milla.":"Apunta tus datos de la primera valoración."} Se guardan solo en tu móvil.</p>${body}
+    <p class="note">Cuando los apuntes, vuelve a abrir esta pestaña para ver la comparación.</p></div>`;
 }
 
 /* ================= Progreso ================= */
@@ -779,7 +783,7 @@ function renderProgreso(){
       <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${rp.length?nf(rp.reduce((a,b)=>a+b,0)/rp.length):"–"}</b><span>RPE medio</span></div><div><b>${hb}</b><span>hábitos</span></div></div>
       <p class="note" style="text-align:center">La constancia es lo que más predice tus resultados.</p>`;
   }
-  if(s==="medidas"||s==="motor")h+=iniForm();
+  if(s==="medidas"||s==="motor")h+=iniForm(s);
   if(s==="medidas"){
     const p1=I.peso,p2=num(T.peso),c1=I.cintura,c2=num(T.cintura);
     const mobRows=[["sentadilla","Sentadilla profunda"],["bisagra","Bisagra de cadera"],["brazos","Brazos arriba"]].map(([k,n])=>{
