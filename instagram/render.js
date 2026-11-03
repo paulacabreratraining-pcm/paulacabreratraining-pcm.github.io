@@ -23,7 +23,7 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .hl{color:${C.rosa}} .light .hl{color:${C.navy};background:linear-gradient(transparent 60%,${C.rosa} 60%)}
 .sub{font-size:44px;font-weight:600;color:${C.azul};margin-top:48px;line-height:1.25}
 .num{font-size:150px;font-weight:900;color:${C.rosa};line-height:1;margin-bottom:24px}
-.txt{font-size:46px;line-height:1.38;color:${C.gris};font-weight:500} .txt strong{color:${C.navy};font-weight:800}
+.txt{font-size:46px;line-height:1.38;color:${C.gris};font-weight:500} .txt strong{color:${C.navy};font-weight:800} .dark .txt strong{color:${C.rosa}}
 .pts{display:flex;flex-direction:column;gap:34px}
 .pt{display:flex;gap:28px;align-items:flex-start;font-size:46px;font-weight:600;line-height:1.25}
 .pt svg{flex:none;margin-top:4px}
