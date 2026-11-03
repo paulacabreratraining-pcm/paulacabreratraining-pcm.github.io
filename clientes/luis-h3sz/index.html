@@ -394,17 +394,18 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
-  1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
-  2:["Una serie más y otro día de piscina","Pasamos a 3 series y sumamos un segundo día de natación. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible."],
-  3:["Consolidar","Mismo esfuerzo y algo más de carga si toca. La natación sube a 25 minutos, siempre a ritmo cómodo."],
-  4:["Semana de valoración","Lunes, test de fuerza y medidas; miércoles, test de la milla. El sábado, fuerza suave para recuperar."]
+  1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
+  2:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible. ¿Puedes algún lunes o viernes? Suma una natación suave extra."],
+  3:["Consolidar","Mismo esfuerzo y algo más de carga si toca. La natación sube a 30 minutos, siempre a ritmo cómodo."],
+  4:["Semana de valoración","Martes, test de fuerza y medidas; miércoles, natación suave; jueves, test de la milla."]
 };
 const WARM_F=["5' de bici o elíptica suave (RPE 3)","Movilidad de cadera, tobillo, espalda alta y hombro (3')","1 serie ligera de cada ejercicio principal"];
 const RESP="Respira en cada repetición: suelta el aire al hacer fuerza y nunca aguantes la respiración.";
+const CAMBIO=" ¿La haces otro día (lunes o viernes)? Apúntala aquí igualmente. Deja siempre un día entre las dos sesiones de fuerza.";
 
 function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse y empujar",dur:60,
   goal:"Fuerza de piernas y cadera para agacharte y levantarte con facilidad.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera"],
-  after:RESP+" Incluye proteína en tu siguiente comida.",
+  after:RESP+" Incluye proteína en tu siguiente comida."+CAMBIO,
   ex:[
   {n:"Sentadilla goblet",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Siéntate hacia atrás en un banco o cajón y levántate sin impulso. Mancuerna pegada al pecho y rodillas en la línea de los pies. Cuando lo controles bien, bajamos la altura del cajón.",alt:"Prensa de piernas"},
   {n:"Hip thrust",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
@@ -412,7 +413,7 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse
   {n:"Remo en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
   {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Desde un banco bajo, o con apoyo en una espaldera"}]}}
 
-function sesNat(w){const mins={1:20,2:20,3:25,4:20}[w];return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
+function sesNat(w){const mins={1:20,2:25,3:30,4:20}[w];return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
   goal:"Sumar resistencia con lo que más te gusta. Hoy todo suave: nada que te deje sin aliento.",
   warm:["3' de movilidad de hombros fuera del agua","2 largos muy suaves"],cool:["Ducha y estira suave lo que notes cargado"],
   cardio:{mins,txt:"Natación a ritmo cómodo, con pausas en la pared cuando las necesites"},
@@ -426,7 +427,7 @@ function sesC(w){const dl=w===4,s=dl||w===1?2:3;
   return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · recoger y tirar",dur:60,
   goal:dl?"Sesión suave para recuperarte de los tests. Mismos ejercicios con menos series.":"Fuerza de cadera, espalda y agarre para recoger cosas del suelo sin esfuerzo.",
   warm:WARM_F,cool:["5' andando suave","Movilidad de hombros"],
-  after:RESP+" Fin de semana: rellena el check-in el domingo.",
+  after:RESP+CAMBIO+" El domingo, rellena el check-in.",
   ex:[
   {n:"Peso muerto rumano con mancuernas",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
   {n:"Prensa de piernas",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada.",alt:"Sentadilla goblet"},
@@ -437,7 +438,7 @@ function sesC(w){const dl=w===4,s=dl||w===1?2:3;
 function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:70,
   goal:"Saber con qué cargas trabajas de verdad. Estos datos son tu punto de partida para el próximo bloque.",
   warm:["5-10' de bici o elíptica suave","Movilidad de cadera, tobillo y hombro"],cool:["5' andando suave","Apunta todo antes de irte"],
-  after:"Mañana, natación muy suave. El miércoles, test de la milla.",
+  after:"Mañana, natación muy suave. El jueves, test de la milla.",
   tests:[
    {k:"peso",n:"Peso",u:"kg",h:"Por la mañana, tras ir al baño, en ayunas y con ropa ligera. Misma báscula siempre."},
    {k:"cintura",n:"Perímetro de cintura",u:"cm",h:"De pie, a la altura del ombligo como la primera vez, al soltar el aire. Cinta horizontal sin apretar. Mide 2 veces y apunta la media."},
@@ -459,10 +460,10 @@ function testMilla(){return{type:"test",t:"Test de la milla",dur:35,
    {k:"milla_fc",n:"Pulsaciones al terminar",u:"ppm",h:"Las del reloj justo al cruzar la meta."}]}}
 
 const PLAN={
-  1:{mie:sesA(1),jue:sesNat(1),sab:sesC(1)},
-  2:{lun:sesA(2),mar:sesNat(2),jue:sesC(2),sab:sesNat(2)},
-  3:{lun:sesA(3),mar:sesNat(3),jue:sesC(3),sab:sesNat(3)},
-  4:{lun:testFuerza(),mar:sesNat(4),mie:testMilla(),sab:sesC(4)}
+  1:{mie:sesA(1),jue:sesNat(1)},
+  2:{mar:sesA(2),mie:sesNat(2),jue:sesC(2)},
+  3:{mar:sesA(3),mie:sesNat(3),jue:sesC(3)},
+  4:{mar:testFuerza(),mie:sesNat(4),jue:testMilla()}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
@@ -769,7 +770,7 @@ function iniForm(sec){
 }
 
 /* ================= Progreso ================= */
-function testVals(){const a=S.ses[sid(4,"lun")]?.t||{},b=S.ses[sid(4,"mie")]?.t||{};return {...a,...b}}
+function testVals(){const a=S.ses[sid(4,"mar")]?.t||{},b=S.ses[sid(4,"jue")]?.t||{};return {...a,...b}}
 const pdate=s=>{if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
 function renderProgreso(){
   const s=SUB.progreso,I=getIni(),T=testVals();let h=segBar("progreso");
