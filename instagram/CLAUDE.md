@@ -8,10 +8,11 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 - Paula: estudiante de CAFYD, monitora en un gimnasio y entrenadora personal. Di siempre «estudiante de CAFYD», nunca «graduada».
 - Lema: «Fuerza y salud en cada etapa».
 - Servicios: planes online, sesión presencial suelta y bonos. Valoración inicial: GRATIS solo si viene con la tarjeta de Paula o recomendado por alguien; si no, 30 € que se descuentan al contratar un plan. Nunca anunciar «valoración gratis» a secas.
-- **Precios: NO se publican en Instagram** (decisión de Paula, 30/10/2026). Ni en posts, ni en historias, ni en la bio. Quien pregunte, por WhatsApp.
+- **Precios: NO se publican en Instagram** (decisión de Paula, 30/10/2026). Ni en posts, ni en historias, ni en la bio. Quien pregunte, por mensaje directo.
 - Público: no solo mujeres. Mujeres que buscan fuerza y recomposición (también en perimenopausia y menopausia), principiantes y gente que quiere fuerza y resistencia. Ningún mensaje que excluya a los hombres.
 - Diferenciación: fuerza y resistencia, base científica, cercanía y seguimiento semanal con su app de planes.
-- Llamada a la acción: escribir por WhatsApp (enlace en la bio).
+- Llamada a la acción: escribir por **mensaje directo de Instagram**. Nunca poner el WhatsApp ni el teléfono de Paula en Instagram (ni en posts, historias, bio ni enlace): Paula da su número por privado solo a quien ya tiene claro que quiere la valoración. El cierre por defecto de los carruseles es «Escríbeme por mensaje directo».
+- La tarjeta y el cartel (en persona) sí llevan el QR de WhatsApp: eso no cambia.
 
 ## Identidad visual
 
@@ -74,7 +75,7 @@ Al publicar o programar, pon `"publicado": true`, actualiza `calendario.md` y ha
 
 ## Revisar resultados
 
-Con Metricool conectado, lee las estadísticas; si no, pide a Paula capturas. Mira alcance, guardados, compartidos, visitas al perfil y mensajes de WhatsApp. Di con honestidad qué repetir y qué dejar.
+Con Metricool conectado, lee las estadísticas; si no, pide a Paula capturas. Mira alcance, guardados, compartidos, visitas al perfil y mensajes directos recibidos (Metricool no lee los mensajes: pide a Paula cuántos le llegaron). Di con honestidad qué repetir y qué dejar.
 
 ## Reglas que no se saltan
 

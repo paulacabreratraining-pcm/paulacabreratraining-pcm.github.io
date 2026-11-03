@@ -43,7 +43,7 @@ function slide(d, i, n, H){
     case 'portada': return `<div class="s dark">${rayas}<h1 style="position:relative;max-width:760px">${marca(d.titulo,d.resaltado)}</h1>${d.sub?`<p class="sub">${md(d.sub)}</p>`:''}${n>1?'<span class="desliza">Desliza →</span>':''}${foot(1)}</div>`;
     case 'texto': return `<div class="s light">${d.num?`<div class="num">${esc(d.num)}</div>`:''}<h2>${marca(d.titulo,d.resaltado)}</h2><p class="txt">${md(d.texto)}</p>${foot()}</div>`;
     case 'lista': return `<div class="s light"><h2>${marca(d.titulo,d.resaltado)}</h2><div class="pts">${(d.puntos||[]).map(p=>`<div class="pt">${check}<span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`;
-    case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme por WhatsApp · enlace en la bio')}</span>${foot(1)}</div>`;
+    case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme por mensaje directo')}</span>${foot(1)}</div>`;
     default: throw new Error('Tipo de diapositiva desconocido: '+d.tipo);
   }
 }
