@@ -407,10 +407,10 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse
   goal:"Fuerza de piernas y cadera para agacharte y levantarte con facilidad.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera"],
   after:RESP+" Incluye proteína en tu siguiente comida."+CAMBIO,
   ex:[
-  {n:"Sentadilla goblet",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Siéntate hacia atrás en un banco o cajón y levántate sin impulso. Mancuerna pegada al pecho y rodillas en la línea de los pies. Cuando lo controles bien, bajamos la altura del cajón.",alt:"Prensa de piernas"},
-  {n:"Hip thrust",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
-  {n:"Press con mancuernas en banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"la siguiente mancuerna",how:"Punto de partida: 10 kg por mano. Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
-  {n:"Remo en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
+  {n:"Sentadilla goblet",start:"8 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Siéntate hacia atrás en un banco o cajón y levántate sin impulso. Mancuerna pegada al pecho y rodillas en la línea de los pies. Cuando lo controles bien, bajamos la altura del cajón.",alt:"Prensa de piernas"},
+  {n:"Hip thrust",start:"10 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
+  {n:"Press con mancuernas en banco",start:"10 kg por mano",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"la siguiente mancuerna",how:"Punto de partida: 10 kg por mano. Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
+  {n:"Remo en máquina",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
   {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Desde un banco bajo, o con apoyo en una espaldera"}]}}
 
 function sesNat(w){const mins={1:20,2:25,3:30,4:20}[w];return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
@@ -429,11 +429,11 @@ function sesC(w){const dl=w===4,s=dl||w===1?2:3;
   warm:WARM_F,cool:["5' andando suave","Movilidad de hombros"],
   after:RESP+CAMBIO+" El domingo, rellena el check-in.",
   ex:[
-  {n:"Peso muerto rumano con mancuernas",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
-  {n:"Prensa de piernas",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada.",alt:"Sentadilla goblet"},
-  {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Remo con banda elástica"},
-  {n:"Subida al cajón (por pierna)",sets:s,lo:8,hi:10,rir:"2-3",rirMin:2,rest:90,inc:1,incTxt:"1 kg por mano",how:"Cajón o escalón a media espinilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo. Apóyate en algo si lo necesitas; al principio, sin peso.",alt:"Subir escaleras despacio"},
-  {n:"Paseo del granjero",sets:s,reps:"30 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Recoge las mancuernas del suelo con cadera atrás y espalda recta. Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"}]}}
+  {n:"Peso muerto rumano con mancuernas",start:"6 kg por mano",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
+  {n:"Prensa de piernas",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada.",alt:"Sentadilla goblet"},
+  {n:"Jalón al pecho",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Remo con banda elástica"},
+  {n:"Subida al cajón (por pierna)",start:"sin peso",sets:s,lo:8,hi:10,rir:"2-3",rirMin:2,rest:90,inc:1,incTxt:"1 kg por mano",how:"Cajón o escalón a media espinilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo. Apóyate en algo si lo necesitas; al principio, sin peso.",alt:"Subir escaleras despacio"},
+  {n:"Paseo del granjero",start:"10 kg por mano",sets:s,reps:"30 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Recoge las mancuernas del suelo con cadera atrás y espalda recta. Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"}]}}
 
 function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:70,
   goal:"Saber con qué cargas trabajas de verdad. Estos datos son tu punto de partida para el próximo bloque.",
@@ -504,7 +504,8 @@ function prevLog(w,name){
 }
 function suggest(e,p){
   if(!e.lo&&!e.kg)return "";
-  if(!p)return `Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
+  if(!p&&e.kg&&e.start)return `Para empezar: <b>${e.start}</b>. Que los ${e.reps} te resulten cómodos.`;
+  if(!p)return e.start?`Para empezar: <b>${e.start}</b>. Ajusta para que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`:`Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
   const kg=p.kg;
   if(e.kg) return `Semana pasada: ${nf(kg)} kg. Si los 30 m fueron cómodos, prueba con <b>${nf(kg+e.inc)} kg</b>.`;
   if(p.reps!=null&&p.reps>=e.hi&&(p.rir==null||p.rir>=e.rirMin))return `Semana pasada: ${nf(kg)} kg × ${p.reps}. Completaste el rango: <b>sube a ${nf(kg+e.inc)} kg</b> (+${e.incTxt}).`;
