@@ -42,7 +42,7 @@
       "texto": "Escríbeme y vemos juntos qué necesitas."
     }
   ],
-  "texto": "Hola, soy Paula 👋\n\nEstudio CAFYD, trabajo como monitora en un gimnasio y he creado Paula Cabrera Training para ayudarte a entrenar con método: fuerza, resistencia y salud, adaptado a tu vida.\n\nCada plan empieza con una valoración, se construye para ti y se ajusta cada semana con tu check-in.\n\n👉 Tu primera valoración es gratis. Escríbeme por WhatsApp (enlace en la bio).",
+  "texto": "Hola, soy Paula 👋\n\nEstudio CAFYD, trabajo como monitora en un gimnasio y he creado Paula Cabrera Training para ayudarte a entrenar con método: fuerza, resistencia y salud, adaptado a tu vida.\n\nCada plan empieza con una valoración, se construye para ti y se ajusta cada semana con tu check-in.\n\n👉 ¿Quieres empezar? Escríbeme por mensaje directo y te cuento cómo.",
   "hashtags": [
     "entrenadorapersonal",
     "entrenamientodefuerza",
@@ -54,5 +54,6 @@
     "id": 412173704,
     "uuid": "6212862844179464557",
     "programado": "2026-10-31T19:00 Europe/Madrid"
-  }
+  },
+  "nota": "03/11/2026: texto editado en Instagram y diapositiva 5 (valoración gratis + WhatsApp) quitada del carrusel publicado, por las reglas nuevas de contacto y valoración."
 }
