@@ -623,7 +623,7 @@ const SUBS={
   guia:[["esfuerzo","Esfuerzo"],["progresion","Progresión"],["cardio","Cardio"],["ejercicios","Ejercicios"],["seguridad","Seguridad"],["instalar","Instalar"]],
   nutricion:[["basicos","Básicos"],["entreno","Entreno"],["marcha","Marcha"],["proteina","Proteína"],["suplementos","Suplementos"]],
   habitos:[["registro","Registro"],["sueno","Sueño"],["recuperacion","Recuperación"]],
-  progreso:[["resumen","Resumen"],["fuerza","Fuerza"]]
+  progreso:[["resumen","Resumen"],["medidas","Medidas"],["fuerza","Fuerza"]]
 };
 const SUB={guia:"esfuerzo",nutricion:"basicos",habitos:"registro",progreso:"resumen"};
 const segBar=t=>`<div class="seg" role="tablist" aria-label="Apartados">${SUBS[t].map(([k,n])=>`<button type="button" role="tab" data-sub="${t}|${k}" aria-selected="${SUB[t]===k}">${n}</button>`).join("")}</div>`;
@@ -807,7 +807,7 @@ function iniForm(sec){
   const sel=(k,l)=>`<div class="field"><label for="ini-${k}">${l}</label><select class="sel" id="ini-${k}" data-ini="${k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${x[k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div>`;
   const mot=sec==="motor",keys=mot?["milla_t","milla_fc"]:["peso","cintura","mob_sentadilla","mob_bisagra","mob_brazos"];
   const body=mot?`<div class="exin">${f("milla_t","Tiempo de la milla","min:seg","15:30")}${f("milla_fc","Pulsaciones al terminar","ppm")}</div>`
-    :`<div class="exin">${f("fecha","Fecha","","2026-11-02")}${f("peso","Peso","kg")}${f("cintura","Cintura","cm")}</div>
+    :`<div class="exin">${f("fecha","Fecha","","2026-11-04")}${f("peso","Peso","kg")}${f("cintura","Cintura","cm")}</div>
     <div class="exin">${sel("mob_sentadilla","Sentadilla")}${sel("mob_bisagra","Bisagra")}${sel("mob_brazos","Brazos arriba")}</div>`;
   const tit=mot?"Tu primera milla":"Tus medidas de partida";
   if(keys.every(k=>x[k]))return `<details class="more card"><summary>${tit} ✓ · editar</summary><div class="morebody">${body}<p class="note">Cambia los datos y vuelve a abrir esta pestaña para ver la comparación.</p></div></details>`;
@@ -817,7 +817,12 @@ function iniForm(sec){
 }
 
 /* ================= Progreso ================= */
-function testVals(){const a=S.ses[sid(4,"lun")]?.t||{},b=S.ses[sid(4,"mie")]?.t||{};return {...a,...b}}
+function testVals(){const x=S.ini||{};return {peso:x.act_peso,cintura:x.act_cintura,mob_sentadilla:x.act_mob_sentadilla,mob_bisagra:x.act_mob_bisagra,mob_brazos:x.act_mob_brazos}}
+function actForm(){const x=S.ini||{},f=(k,l,u)=>`<div class="field"><label for="ini-${k}">${l} (${u})</label><input class="num" inputmode="decimal" id="ini-${k}" data-ini="${k}" value="${esc(x[k]??"")}"></div>`;
+  const sel=(k,l)=>`<div class="field"><label for="ini-${k}">${l}</label><select class="sel" id="ini-${k}" data-ini="${k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${x[k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div>`;
+  return `<details class="more card"><summary>Tus medidas de ahora · apuntar o actualizar</summary><div class="morebody"><p class="note">Cuando quieras ver cómo vas (mejor cada 4 semanas, en las mismas condiciones que la primera vez).</p>
+    <div class="exin">${f("act_peso","Peso","kg")}${f("act_cintura","Cintura","cm")}</div><div class="exin">${sel("act_mob_sentadilla","Sentadilla")}${sel("act_mob_bisagra","Bisagra")}${sel("act_mob_brazos","Brazos arriba")}</div>
+    <p class="note">Vuelve a abrir esta pestaña para ver la comparación.</p></div></details>`}
 const pdate=s=>{if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
 function renderProgreso(){
   const s=SUB.progreso,I=getIni(),T=testVals();let h=segBar("progreso");
@@ -832,17 +837,18 @@ function renderProgreso(){
       <p class="note" style="text-align:center">La constancia es lo que más predice tus resultados.</p>`;
   }
   if(s==="medidas"||s==="motor")h+=iniForm(s);
+  if(s==="medidas")h+=actForm();
   if(s==="medidas"){
     const p1=I.peso,p2=num(T.peso),c1=I.cintura,c2=num(T.cintura);
     const mobRows=[["sentadilla","Sentadilla profunda"],["bisagra","Bisagra de cadera"],["brazos","Brazos arriba"]].map(([k,n])=>{
       const a=I.movilidad[k],b=T["mob_"+k];const cls=v=>v?v.toLowerCase():"na";
-      return `<div><span>${n}</span><span style="display:flex;gap:6px"><span class="st ${cls(a)}">${a||"—"}</span><span class="st ${cls(b)}">${b||"S4"}</span></span></div>`}).join("");
+      return `<div><span>${n}</span><span style="display:flex;gap:6px"><span class="st ${cls(a)}">${a||"—"}</span><span class="st ${cls(b)}">${b||"—"}</span></span></div>`}).join("");
     h+=`<div class="card"><p class="eyebrow">Composición</p><h2>Medidas</h2>
-      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Sem. 4</span><span>Cambio</span></div>
+      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Ahora</span><span>Cambio</span></div>
         <div><span class="k">Peso</span><span class="v ${p1==null?"muted":""}">${p1!=null?nf(p1)+" kg":"—"}</span><span class="v ${p2==null?"muted":""}">${p2!=null?nf(p2)+" kg":"—"}</span>${d(p1,p2,"kg")}</div>
         <div><span class="k">Cintura</span><span class="v ${c1==null?"muted":""}">${c1!=null?nf(c1)+" cm":"—"}</span><span class="v ${c2==null?"muted":""}">${c2!=null?nf(c2)+" cm":"—"}</span>${d(c1,c2,"cm")}</div></div>
       <p class="note">El peso sube y baja de un día a otro. Fíjate en la tendencia, no en un día.</p></div>
-    <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: inicio. Derecha: semana 4.</p></div>`;
+    <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: inicio. Derecha: ahora.</p></div>`;
   }
   if(s==="fuerza"){
     const rms=[["rm_sentadilla","Sentadilla goblet"],["rm_hip","Hip thrust"],["rm_press","Press con mancuernas"],["rm_remo","Remo en máquina"]].map(([k,n])=>{
