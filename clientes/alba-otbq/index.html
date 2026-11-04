@@ -397,7 +397,7 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 
 /* ================= Plan · 4 semanas · marcha → recuperación → base de fuerza ================= */
 const FOCUS={
-  1:["Semana de la marcha","Hoy todo va dirigido al sábado: piernas frescas, nada nuevo y descanso. Jueves, rodaje corto; viernes, solo movilidad suave."],
+  1:["Semana de la marcha","Hoy todo va dirigido al sábado: piernas frescas, nada nuevo y descanso. Miércoles, rodaje corto; jueves, movilidad suave; viernes, descanso."],
   2:["Recuperar y aprender la técnica","Tras la marcha, la semana es suave: un paseo o bici el martes y 2 sesiones de técnica con cargas muy cómodas. Si esta semana te viene la regla, guíate por cómo te encuentras."],
   3:["Empiezan tus 3 días de fuerza","Lunes, miércoles y viernes fuerza; martes, rodaje suave. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más y apunta los pesos."],
   4:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible. El rodaje del martes sube a 35'."]
@@ -451,8 +451,8 @@ function progresiones(){return{type:"motor",t:"Rodaje corto + 4 progresiones",du
   cardio:{mins:25,txt:"Unos 4 km muy suaves. Al final, 4 progresiones de 20\": acelera poco a poco hasta un ritmo alegre (nunca a tope) y camina 1' entre ellas"},
   after:"Mañana, solo movilidad. Prepara ya la mochila y lo que vas a comer el sábado."}}
 function movPre(){return{type:"mov",t:"Movilidad suave",dur:20,
-  goal:"Llegar al sábado con las piernas sueltas. Hoy nada de fuerza ni de carrera.",warm:["2' de respiración tranquila tumbada"],cool:["Acuéstate temprano"],
-  after:"Cena algo que ya conozcas y te siente bien.",
+  goal:"Llegar al sábado con las piernas sueltas. Hoy nada de fuerza ni de carrera.",warm:["2' de respiración tranquila tumbada"],cool:["Respira tranquila 1'"],
+  after:"Mañana viernes, descanso: como mucho un paseo suave de 15-20'. Deja la mochila lista, cena algo que ya conozcas y acuéstate temprano.",
   ex:[
   {n:"Movilidad de tobillo en pared",sets:2,reps:"10 / lado",rest:20,how:"Pie a un palmo de la pared. Lleva la rodilla a tocarla sin levantar el talón.",alt:"De pie, balanceando la rodilla adelante"},
   {n:"Gato-camello",sets:2,reps:"8",rest:20,how:"A cuatro patas, redondea y arquea la espalda despacio, siguiendo la respiración.",alt:"Sentada en una silla"},
@@ -469,7 +469,7 @@ function recup(){return{type:"motor",t:"Paseo o bici suave",dur:30,
   after:"Si todavía notas las piernas muy cargadas, cambia este día por descanso."}}
 
 const PLAN={
-  1:{jue:progresiones(),vie:movPre(),sab:marcha()},
+  1:{mie:progresiones(),jue:movPre(),sab:marcha()},
   2:{mar:recup(),mie:sesA(2),vie:sesB(2)},
   3:{lun:sesA(3),mar:rodaje(3),mie:sesB(3),vie:sesC(3)},
   4:{lun:sesA(4),mar:rodaje(4),mie:sesB(4),vie:sesC(4)}
