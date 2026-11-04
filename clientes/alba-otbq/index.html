@@ -621,7 +621,7 @@ function testBlock(id,s){
 /* ================= Subapartados ================= */
 const SUBS={
   guia:[["esfuerzo","Esfuerzo"],["progresion","Progresión"],["cardio","Cardio"],["ejercicios","Ejercicios"],["seguridad","Seguridad"],["instalar","Instalar"]],
-  nutricion:[["basicos","Básicos"],["entreno","Entreno"],["proteina","Proteína"],["suplementos","Suplementos"]],
+  nutricion:[["basicos","Básicos"],["entreno","Entreno"],["marcha","Marcha"],["proteina","Proteína"],["suplementos","Suplementos"]],
   habitos:[["registro","Registro"],["sueno","Sueño"],["recuperacion","Recuperación"]],
   progreso:[["resumen","Resumen"],["fuerza","Fuerza"]]
 };
@@ -719,6 +719,22 @@ function renderNutricion(){
         <div><b>Agua a lo largo del día</b>Lleva una botella contigo, sobre todo los días de entreno.</div>
         <div><b>Comida real la mayor parte del tiempo</b>Los ultraprocesados, de vez en cuando.</div>
         <div><b>Constancia antes que perfección</b>Una comida "peor" no estropea una semana buena.</div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Tu día</p><h2>Cuántas veces y cuánto</h2>
+      <div class="tips">
+        <div><b>3-4 comidas al día</b>Desayuno, comida y cena, y una merienda los días que entrenas por la tarde.</div>
+        <div><b>Proteína en cada una</b>Una ración del tamaño de la palma de tu mano (o 2 huevos, o un yogur grande) en cada comida.</div>
+        <div><b>Hidratos según el día</b>Días de fuerza: un puño de arroz, pasta, patata o pan en las comidas principales. Días de rodaje y los 2 días antes de la marcha: algo más. Días de descanso: puedes bajarlos un poco, sin quitarlos.</div>
+        <div><b>Fruta y verdura, 5 raciones</b>Medio plato de verdura en comida y cena, y 2-3 piezas de fruta.</div>
+        <div><b>Grasa buena</b>Aceite de oliva, frutos secos, aguacate y pescado azul 1-2 veces por semana.</div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Para mujeres que entrenan</p><h2>Hierro, calcio y vitamina D</h2>
+      <div class="tips">
+        <div><b>Hierro</b>Carne, legumbres, mejillones y hoja verde. Acompáñalo de algo con vitamina C (naranja, pimiento, kiwi) y deja el café para fuera de las comidas.</div>
+        <div><b>Calcio</b>Lácteos o bebidas vegetales enriquecidas, 2-3 raciones al día.</div>
+        <div><b>Vitamina D</b>Algo de sol a diario y pescado azul o huevo.</div>
+        <div><b>¿Analítica?</b>Si no tienes una del último año, pide a tu médico que mire la ferritina y la vitamina D.</div>
+        <div><b>Tu energía manda</b>Con la pastilla, la regla no te dice si comes suficiente. Fíjate en tu energía, tu sueño y cómo rindes: si vas siempre cansada, cuéntamelo.</div>
       </div></div>`;
   }
   if(s==="entreno"){
@@ -730,6 +746,29 @@ function renderNutricion(){
         <div class="titem"><div class="tw">Después</div><div class="tc"><p>Tu siguiente comida, con proteína. No hace falta correr a por un batido.</p></div></div>
       </div></div>
     <div class="card"><p class="eyebrow">Días de descanso</p><h2>Comes igual</h2><p class="lead">Tu cuerpo se recupera y construye músculo precisamente esos días. No hace falta comer menos.</p></div>`;
+  }
+  if(s==="marcha"){
+    h+=`<div class="card"><p class="eyebrow">Jueves y viernes</p><h2>Los 2 días antes</h2>
+      <div class="tips">
+        <div><b>Un poco más de hidratos</b>Arroz, pasta, patata, pan, fruta y zumo en todas las comidas. Es normal pesar algo más: es agua y energía guardada.</div>
+        <div><b>Viernes, menos fibra</b>Menos legumbre, integral y verdura cruda para ir ligera de tripa.</div>
+        <div><b>Bebe a lo largo del día</b>Que la orina sea de color claro.</div>
+        <div><b>Cena conocida</b>Por ejemplo, pasta o arroz con pollo o tortilla. Nada nuevo ni muy picante.</div>
+      </div></div>
+    <div class="card"><p class="eyebrow">Sábado</p><h2>Cuándo y qué comer</h2>
+      <div class="tline">
+        <div class="titem"><div class="tw">3 h antes</div><div class="tc"><p>Desayuno con muchos hidratos y poca grasa y fibra. Por ejemplo: 2 tostadas grandes de pan blanco con mermelada o miel, un plátano y un yogur o un vaso de leche. Más agua o un zumo.</p></div></div>
+        <div class="titem"><div class="tw">Al salir</div><div class="tc"><p>Un vaso de agua. Si te da hambre antes de empezar, medio plátano.</p></div></div>
+        <div class="titem"><div class="tw">Cada hora</div><div class="tc"><p>Unos 30-60 g de hidratos, desde la primera hora y aunque no tengas hambre. Ve picando poco a poco, no todo de golpe.</p></div></div>
+        <div class="titem"><div class="tw">Cada 15-20'</div><div class="tc"><p>Unos sorbos de agua o bebida isotónica. Bebe según la sed, sin obligarte a beber de más.</p></div></div>
+        <div class="titem"><div class="tw">Al terminar</div><div class="tc"><p>Agua o bebida isotónica, y en la primera hora una comida con hidratos y proteína: un bocadillo, arroz con pollo o un batido de leche con plátano.</p></div></div>
+      </div></div>
+    <div class="card"><p class="eyebrow">En la mochila</p><h2>Qué llevar</h2>
+      <p class="lead">Cada uno de estos da unos 20-30 g de hidratos. Combina 1-2 cada hora:</p>
+      <div class="chipgrid">${["1 plátano","2 dátiles","1 barrita de cereales","1 gel","1 bocadillo pequeño de membrillo o crema de cacao","Un puñado de pasas","500 ml de bebida isotónica","Gominolas"].map(x=>`<span class="chip b">${x}</span>`).join("")}</div>
+      <p class="note">En una marcha tan larga apetece algo salado: medio bocadillo de jamón o queso, frutos secos salados o patatas. Te dan sal, que pierdes con el sudor.</p></div>
+    <div class="card"><p class="eyebrow">La regla de oro</p><h2>Nada nuevo el sábado</h2><p class="lead">Lleva solo comida y bebida que ya hayas probado entrenando. Si no has probado los geles, mejor fruta, dátiles y bocadillo.</p>
+      <p class="note">Hidratos durante el ejercicio largo: Thomas et al., 2016.</p></div>`;
   }
   if(s==="proteina"){
     const pk=num(testVals().peso)??getIni().peso??null;if(pk==null){h+=`<div class="card"><p class="eyebrow">Proteína</p><h2>Apunta tu peso</h2><p class="lead">Escribe tu peso en Progreso → Medidas y aquí verás tu referencia de proteína diaria.</p></div>`;return h}
