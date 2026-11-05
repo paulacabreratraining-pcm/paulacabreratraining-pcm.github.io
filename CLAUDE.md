@@ -18,6 +18,15 @@ GitHub Pages la publica en https://paulacabreratraining-pcm.github.io/
 - Nada de datos de salud: ni PAR-Q+, ni patologías, ni medicación. `CLIENTE.inicial` va siempre a `null` en clientes reales: el cliente apunta su valoración inicial en el móvil.
 - No crear un `index.html` en la raíz que liste los clientes.
 
+## La voz del plan (no cambiar)
+
+Los clientes valoran que el plan suene a Paula y esté hecho para ellos (un cliente pidió expresamente que no se cambie). En cada plan nuevo o renovado:
+
+- Escribir como Paula hablando al cliente: de tú, cercano, frases cortas, sin tecnicismos sin explicar.
+- Cada texto (foco de la semana, objetivo de la sesión, notas) se adapta a su objetivo, su nivel, su horario y lo que contó en la valoración o en el check-in. Nada de textos genéricos copiados de otro cliente.
+- Explicar el porqué de las decisiones en una frase («esta semana subimos una serie porque…»).
+- Mantener la estructura y el diseño de la app: las mejoras se añaden sin cambiar cómo se ve ni cómo se usa.
+
 ## Cómo se crea un plan
 
 1. Copiar `plantilla/plan.html` a `clientes/<nombre>-<código>/index.html`.
