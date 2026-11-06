@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-11-15",
+  "hora": "11:00",
+  "formato": "carrusel",
+  "pilar": "Oferta",
+  "aprobado": false,
+  "publicado": false,
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Tres formas de entrenar conmigo",
+      "resaltado": "conmigo",
+      "sub": "Elige la que encaje con tu vida"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Plan online",
+      "resaltado": "online",
+      "texto": "Tu plan de 4 semanas en **tu propia app**, con un check-in **cada semana** para ajustarlo.\n\nEntrenas donde y cuando te venga bien."
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "Sesión presencial",
+      "resaltado": "presencial",
+      "texto": "Una sesión suelta para **revisar tu técnica**, resolver dudas o ver cómo trabajo antes de decidirte."
+    },
+    {
+      "tipo": "texto",
+      "num": "03",
+      "titulo": "Bonos de sesiones",
+      "resaltado": "Bonos",
+      "texto": "Varias sesiones presenciales para entrenar conmigo **con continuidad** y avanzar paso a paso."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Siempre empezamos igual",
+      "resaltado": "empezamos",
+      "puntos": [
+        "Una **valoración inicial** para saber de dónde partes",
+        "**Gratis** si vienes con mi tarjeta o de parte de alguien",
+        "¿Precios? Te los cuento por **mensaje directo**"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "¿Cuál encaja contigo?",
+      "resaltado": "contigo",
+      "texto": "Cuéntame tu objetivo y te digo cuál te recomiendo."
+    }
+  ],
+  "texto": "¿Quieres entrenar conmigo y no sabes cómo? Tienes tres opciones 👇\n\n1️⃣ Plan online: tu plan de 4 semanas en tu propia app, con check-in cada semana para ajustarlo.\n2️⃣ Sesión presencial suelta: para revisar tu técnica, resolver dudas o ver cómo trabajo.\n3️⃣ Bonos de sesiones: para entrenar conmigo con continuidad.\n\nSea cual sea, empezamos con una valoración inicial para saber de dónde partes. Si vienes con mi tarjeta o de parte de alguien, es gratis.\n\n👉 Escríbeme por mensaje directo, cuéntame tu objetivo y te digo cuál te encaja mejor (y los precios).",
+  "hashtags": [
+    "entrenadorapersonal",
+    "entrenamientoonline",
+    "entrenamientopersonal",
+    "malaga",
+    "fuerzaysalud"
+  ]
+}

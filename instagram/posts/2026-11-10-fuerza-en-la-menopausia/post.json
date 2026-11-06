@@ -1,0 +1,65 @@
+{
+  "fecha": "2026-11-10",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "fuentes": [
+    "Wang, Z., Zan, X., Li, Y., Lu, Y., Xia, Y., & Pan, X. (2023). Comparative efficacy different resistance training protocols on bone mineral density in postmenopausal women: A systematic review and network meta-analysis. Frontiers in Physiology, 14, 1105303. https://doi.org/10.3389/fphys.2023.1105303"
+  ],
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Tus huesos piden pesas",
+      "resaltado": "pesas",
+      "sub": "Fuerza en la menopausia:\nlo que dice la ciencia"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Lo que toca cuidar",
+      "resaltado": "cuidar",
+      "texto": "Con la menopausia, cuidar **los huesos** y **el músculo** pasa a ser prioridad.\n\nY ahí el entrenamiento de fuerza tiene mucho que decir."
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "El hueso responde a la carga",
+      "resaltado": "carga",
+      "texto": "Una revisión de **19 estudios** vio que la fuerza a intensidad moderada mejoró la **densidad ósea** de la columna y del cuello del fémur frente a no entrenar.\n\nWang et al., 2023"
+    },
+    {
+      "tipo": "texto",
+      "num": "03",
+      "titulo": "¿Cuántos días?",
+      "resaltado": "días",
+      "texto": "En esa revisión, **3 días por semana** a intensidad moderada funcionó mejor que 2 para la columna.\n\nModerada: exigente, pero sin ir al límite.\n\nWang et al., 2023"
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Cómo lo planteo yo",
+      "resaltado": "planteo",
+      "puntos": [
+        "Primero **técnica**, luego subimos poco a poco",
+        "Ejercicios básicos: **sentadilla, bisagra, empujes y tirones**",
+        "Si algo de salud lo pide, antes pasas por **tu médico**",
+        "Lo ajustamos **cada semana** en tu check-in"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Nunca es tarde para empezar",
+      "resaltado": "empezar",
+      "texto": "¿Estás en esta etapa y no sabes por dónde empezar? Te ayudo."
+    }
+  ],
+  "texto": "La menopausia no es el momento de dejar las pesas: es el momento de cogerlas 💪\n\nEn esta etapa, cuidar los huesos y el músculo pasa a ser prioridad, y el entrenamiento de fuerza es una de las mejores herramientas que tenemos.\n\n📚 Una revisión con metaanálisis de 19 estudios encontró que entrenar fuerza a intensidad moderada mejoró la densidad ósea de la columna y del cuello del fémur en mujeres posmenopáusicas, y que 3 días por semana funcionó mejor que 2 para la columna (Wang et al., 2023).\n\nEn mis planes empezamos por la técnica, subimos poco a poco y lo ajustamos cada semana. Y si hay algo de salud que lo pida, primero pasas por tu médico.\n\nGuárdalo o compártelo con quien lo necesite 📌 ¿Dudas? Escríbeme por mensaje directo.",
+  "hashtags": [
+    "menopausia",
+    "entrenamientodefuerza",
+    "fuerzaysalud",
+    "entrenadorapersonal",
+    "malaga"
+  ]
+}
