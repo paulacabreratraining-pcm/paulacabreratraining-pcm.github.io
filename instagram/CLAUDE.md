@@ -11,7 +11,7 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 - **Precios: NO se publican en Instagram** (decisión de Paula, 30/10/2026). Ni en posts, ni en historias, ni en la bio. Quien pregunte, por mensaje directo.
 - Público: no solo mujeres. Mujeres que buscan fuerza y recomposición (también en perimenopausia y menopausia), principiantes y gente que quiere fuerza y resistencia. Ningún mensaje que excluya a los hombres.
 - Diferenciación: fuerza y resistencia, base científica, cercanía y seguimiento semanal con su app de planes.
-- Llamada a la acción: escribir por **mensaje directo de Instagram**. Nunca poner el WhatsApp ni el teléfono de Paula en Instagram (ni en posts, historias, bio ni enlace): Paula da su número por privado solo a quien ya tiene claro que quiere la valoración. El cierre por defecto de los carruseles es «Escríbeme por mensaje directo».
+- Llamada a la acción: escribir por **mensaje directo de Instagram**. Nunca poner el WhatsApp ni el teléfono de Paula en Instagram (ni en posts, historias, bio ni enlace): Paula da su número por privado solo a quien ya tiene claro que quiere la valoración. El cierre por defecto (decisión de Paula, 06/11/2026) es «Escríbeme EMPEZAR por mensaje directo»: en el botón de la última diapositiva «Escríbeme EMPEZAR por mensaje» y en el texto del post «Escríbeme EMPEZAR por mensaje directo y te cuento cómo trabajo» (o adaptado al post).
 - La tarjeta y el cartel (en persona) sí llevan el QR de WhatsApp: eso no cambia.
 
 ## Identidad visual
