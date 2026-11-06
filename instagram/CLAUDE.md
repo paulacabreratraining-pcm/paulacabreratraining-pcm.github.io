@@ -25,6 +25,8 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 
 Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante quizá vídeos entrenando, sin hablar a cámara.
 - 2 publicaciones por semana (carruseles) y 3–5 historias (decisión de Paula, 06/11/2026: mejor constancia que cantidad).
+- Reels sin cara (decisión de Paula, 06/11/2026): 1 reel a la semana. Paula graba clips cortos del ejercicio con el móvil (sin hablar a cámara ni mostrar a clientes); Claude escribe el guion de clips, monta el vídeo 1080×1920 con los textos en pantalla con la identidad visual y lo programa en Metricool (tipo REEL) cuando Paula lo apruebe. Semana del 9/11: reel extra el jueves a las 19:00. Desde la semana del 16/11: 1 carrusel (martes 19:00) + 1 reel (jueves 19:00), salvo que Paula diga otra cosa.
+- Alcance: cada post se comparte en historias de la marca y en la cuenta personal de Paula. Carruseles pensados para guardar y compartir («Mándaselo a…», chuletas). Zona local: Málaga (ubicación Málaga, que Paula añade en la app al publicar, y #malaga más 1 hashtag local como #entrenadorapersonalmalaga).
 - Horas por defecto: martes a las 19:00 y domingo a las 11:00 (hora de Madrid). Ajústalas con las estadísticas.
 
 ## Pilares de contenido

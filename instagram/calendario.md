@@ -11,3 +11,4 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-05 | 19:00 | Carrusel | Educa | ¿Qué es el RIR? | `posts/2026-11-05-que-es-el-rir` | Programado en Metricool |
 | 2026-11-10 | 19:00 | Carrusel | Educa | Tus huesos piden pesas (fuerza en la menopausia) | `posts/2026-11-10-fuerza-en-la-menopausia` | Programado en Metricool |
 | 2026-11-15 | 11:00 | Carrusel | Oferta | Tres formas de entrenar conmigo | `posts/2026-11-15-entrena-conmigo` | Programado en Metricool |
+| 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Guion (pendiente de clips de Paula) |
