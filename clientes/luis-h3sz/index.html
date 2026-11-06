@@ -398,7 +398,7 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
   1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
-  2:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible. ¿Puedes algún lunes o viernes? Suma una natación suave extra."],
+  2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual, salvo el remo, que iba muy ligero; y en el press bajamos un poco para ir con calma. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos."],
   3:["Consolidar","Mismo esfuerzo y algo más de carga si toca. La natación sube a 30 minutos, siempre a ritmo cómodo."],
   4:["Semana de valoración","Martes, test de fuerza y medidas; miércoles, natación suave; jueves, test de la milla."]
 };
@@ -412,7 +412,7 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse
   ex:[
   {n:"Sentadilla goblet",start:"8 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Siéntate hacia atrás en un banco o cajón y levántate sin impulso. Mancuerna pegada al pecho y rodillas en la línea de los pies. Cuando lo controles bien, bajamos la altura del cajón.",alt:"Prensa de piernas"},
   {n:"Hip thrust",start:"10 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
-  {n:"Press con mancuernas en banco",start:"10 kg por mano",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"la siguiente mancuerna",how:"Punto de partida: 10 kg por mano. Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
+  {n:"Press con mancuernas en banco",start:"10 kg por mano",sets:w===2?2:s,ajuste:w===2?"Esta semana, <b>8 kg por mano y 2 series</b>: vamos con calma en el press. Si notas molestia, cambia al press en máquina o para.":"",lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"la siguiente mancuerna",how:"Punto de partida: 10 kg por mano. Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
   {n:"Remo en máquina",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
   {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Desde un banco bajo, o con apoyo en una espaldera"}]}}
 
@@ -507,11 +507,13 @@ function prevLog(w,name){
 }
 function suggest(e,p){
   if(!e.lo&&!e.kg)return "";
+  if(e.ajuste)return e.ajuste;
   if(!p&&e.kg&&e.start)return `Para empezar: <b>${e.start}</b>. Que los ${e.reps} te resulten cómodos.`;
   if(!p)return e.start?`Para empezar: <b>${e.start}</b>. Ajusta para que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`:`Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
   const kg=p.kg;
   if(e.kg) return `Semana pasada: ${nf(kg)} kg. Si los 30 m fueron cómodos, prueba con <b>${nf(kg+e.inc)} kg</b>.`;
   if(p.reps!=null&&p.reps>=e.hi&&(p.rir==null||p.rir>=e.rirMin))return `Semana pasada: ${nf(kg)} kg × ${p.reps}. Completaste el rango: <b>sube a ${nf(kg+e.inc)} kg</b> (+${e.incTxt}).`;
+  if(p.reps!=null&&p.reps<e.lo&&p.rir!=null&&p.rir>=e.rirMin)return `Semana pasada: ${nf(kg)} kg × ${p.reps} y te sobraban ${p.rir}. Paraste antes de tiempo: <b>mantén ${nf(kg)} kg</b> y llega a ${e.lo}-${e.hi} repeticiones.`;
   if(p.reps!=null&&p.reps<e.lo)return `Semana pasada: ${nf(kg)} kg × ${p.reps}. No llegaste al mínimo: <b>baja a ${nf(Math.round(kg*0.92*2)/2)} kg</b>.`;
   if(p.rir!=null&&p.rir<e.rirMin)return `Semana pasada: ${nf(kg)} kg con RIR ${p.rir}. Fuiste más cerca del fallo de lo previsto: <b>mantén ${nf(kg)} kg</b>.`;
   return `Semana pasada: ${nf(kg)} kg${p.reps!=null?" × "+p.reps:""}. <b>Mantén ${nf(kg)} kg</b> y suma repeticiones.`;

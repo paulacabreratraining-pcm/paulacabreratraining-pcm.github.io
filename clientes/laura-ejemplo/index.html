@@ -509,10 +509,12 @@ function prevLog(w,name){
 }
 function suggest(e,p){
   if(!e.lo&&!e.kg)return "";
+  if(e.ajuste)return e.ajuste;
   if(!p)return `Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
   const kg=p.kg;
   if(e.kg) return `Semana pasada: ${nf(kg)} kg. Si los 30 m fueron cómodos, prueba con <b>${nf(kg+e.inc)} kg</b>.`;
   if(p.reps!=null&&p.reps>=e.hi&&(p.rir==null||p.rir>=e.rirMin))return `Semana pasada: ${nf(kg)} kg × ${p.reps}. Completaste el rango: <b>sube a ${nf(kg+e.inc)} kg</b> (+${e.incTxt}).`;
+  if(p.reps!=null&&p.reps<e.lo&&p.rir!=null&&p.rir>=e.rirMin)return `Semana pasada: ${nf(kg)} kg × ${p.reps} y te sobraban ${p.rir}. Paraste antes de tiempo: <b>mantén ${nf(kg)} kg</b> y llega a ${e.lo}-${e.hi} repeticiones.`;
   if(p.reps!=null&&p.reps<e.lo)return `Semana pasada: ${nf(kg)} kg × ${p.reps}. No llegaste al mínimo: <b>baja a ${nf(Math.round(kg*0.92*2)/2)} kg</b>.`;
   if(p.rir!=null&&p.rir<e.rirMin)return `Semana pasada: ${nf(kg)} kg con RIR ${p.rir}. Fuiste más cerca del fallo de lo previsto: <b>mantén ${nf(kg)} kg</b>.`;
   return `Semana pasada: ${nf(kg)} kg${p.reps!=null?" × "+p.reps:""}. <b>Mantén ${nf(kg)} kg</b> y suma repeticiones.`;
