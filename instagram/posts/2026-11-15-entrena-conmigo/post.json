@@ -4,7 +4,7 @@
   "formato": "carrusel",
   "pilar": "Oferta",
   "aprobado": true,
-  "publicado": false,
+  "publicado": true,
   "diapositivas": [
     {
       "tipo": "portada",
@@ -57,5 +57,10 @@
     "entrenamientopersonal",
     "malaga",
     "fuerzaysalud"
-  ]
+  ],
+  "metricool": {
+    "id": 419311319,
+    "uuid": "-6340489721626868546",
+    "programado": "2026-11-15T11:00 Europe/Madrid"
+  }
 }

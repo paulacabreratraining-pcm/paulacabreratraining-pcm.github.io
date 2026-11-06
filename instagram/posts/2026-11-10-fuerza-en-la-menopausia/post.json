@@ -4,7 +4,7 @@
   "formato": "carrusel",
   "pilar": "Educa",
   "aprobado": true,
-  "publicado": false,
+  "publicado": true,
   "fuentes": [
     "Wang, Z., Zan, X., Li, Y., Lu, Y., Xia, Y., & Pan, X. (2023). Comparative efficacy different resistance training protocols on bone mineral density in postmenopausal women: A systematic review and network meta-analysis. Frontiers in Physiology, 14, 1105303. https://doi.org/10.3389/fphys.2023.1105303"
   ],
@@ -61,5 +61,10 @@
     "fuerzaysalud",
     "entrenadorapersonal",
     "malaga"
-  ]
+  ],
+  "metricool": {
+    "id": 419311304,
+    "uuid": "2473132104755267067",
+    "programado": "2026-11-10T19:00 Europe/Madrid"
+  }
 }
