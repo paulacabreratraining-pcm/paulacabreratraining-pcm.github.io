@@ -24,8 +24,8 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 ## Ritmo
 
 Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante quizá vídeos entrenando, sin hablar a cámara.
-- 2–3 publicaciones por semana (sobre todo carruseles) y 3–5 historias.
-- Horas por defecto: martes y jueves a las 19:00, domingo a las 11:00 (hora de Madrid). Ajústalas con las estadísticas.
+- 2 publicaciones por semana (carruseles) y 3–5 historias (decisión de Paula, 06/11/2026: mejor constancia que cantidad).
+- Horas por defecto: martes a las 19:00 y domingo a las 11:00 (hora de Madrid). Ajústalas con las estadísticas.
 
 ## Pilares de contenido
 
@@ -33,7 +33,7 @@ Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante qu
 |---|---|---|
 | Educa | 40 % | Mitos de la fuerza, técnica de un ejercicio, qué es el RIR, fuerza en la menopausia |
 | Método | 25 % | Cómo es la valoración, cómo funciona la app, el check-in semanal |
-| Confianza | 20 % | Quién es Paula, su preparación para HYROX, testimonios con permiso |
+| Confianza | 20 % | Quién es Paula, cómo trabaja, testimonios con permiso. De momento NO hablar de su preparación para HYROX (decisión de Paula, 06/11/2026) |
 | Oferta | 15 % | Planes, valoración gratis si vienes recomendado, plazas disponibles |
 
 Cada carrusel: gancho en la portada (máx. 8 palabras), una idea por diapositiva y cierre con llamada a la acción.

@@ -3,7 +3,7 @@
   "hora": "11:00",
   "formato": "carrusel",
   "pilar": "Oferta",
-  "aprobado": false,
+  "aprobado": true,
   "publicado": false,
   "diapositivas": [
     {
