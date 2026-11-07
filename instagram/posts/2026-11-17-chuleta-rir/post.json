@@ -1,0 +1,83 @@
+{
+  "fecha": "2026-11-17",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "patron_nicho": "2 · recurso para guardar (análisis 07/11/2026)",
+  "ganchos": {
+    "¿Cuánto peso cojo? → RIR · Deja de adivinar": 9,
+    "¿Este peso es el adecuado?": 8,
+    "La chuleta para elegir tu peso": 7
+  },
+  "fuentes": [],
+  "nota": "Criterio práctico de la metodología de Paula (doble progresión y RIR por nivel). Sin datos científicos en el post.",
+  "diapositivas": [
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Cuánto peso cojo?",
+      "respuesta": "RIR",
+      "texto": "Deja de adivinar: **guarda esta chuleta** 📌"
+    },
+    {
+      "tipo": "texto",
+      "num": "01",
+      "titulo": "Una sola pregunta",
+      "resaltado": "pregunta",
+      "texto": "Al terminar cada serie, pregúntate:\n\n**¿Cuántas repeticiones más podría haber hecho con buena técnica?**\n\nEse número es tu RIR."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Qué significa tu número",
+      "resaltado": "tu número",
+      "puntos": [
+        "**RIR 0:** no podías ni una más",
+        "**RIR 1–2:** muy exigente",
+        "**RIR 3–4:** exigente, pero con margen",
+        "**RIR 5 o más:** podías bastante más"
+      ]
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Qué RIR buscar",
+      "resaltado": "buscar",
+      "puntos": [
+        "**Si empiezas:** 3–4 en sentadilla, peso muerto y press",
+        "**Si ya dominas la técnica:** 2–3",
+        "**Si llevas tiempo:** 1–3, sin llegar al fallo"
+      ]
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Qué hago con el peso",
+      "resaltado": "el peso",
+      "puntos": [
+        "Haces **todas las repeticiones** con tu RIR → **sube** un poco",
+        "Te faltan repeticiones, pero vas con tu RIR → **mantén** y suma",
+        "No llegas al mínimo → **baja** un 5–10 %"
+      ]
+    },
+    {
+      "tipo": "texto",
+      "num": "02",
+      "titulo": "Al principio cuesta",
+      "resaltado": "cuesta",
+      "texto": "Calcular el RIR **se aprende serie a serie**. Si te equivocas las primeras semanas, es normal.\n\nApunta tu número y en unas semanas lo clavarás."
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Guárdala para tu próximo entreno",
+      "resaltado": "próximo entreno",
+      "texto": "¿Quieres que ajustemos tu peso cada semana?"
+    }
+  ],
+  "texto": "¿Cuánto peso cojo? 🤔 La pregunta de cada entreno.\n\nNo hace falta adivinar. Al terminar cada serie, pregúntate cuántas repeticiones más podrías haber hecho con buena técnica: ese número es tu RIR.\n\nEn el carrusel tienes la chuleta completa: qué significa cada número, qué RIR buscar según tu nivel y cuándo subir, mantener o bajar el peso.\n\nEs el criterio que uso con mis clientes, y lo ajustamos cada semana en su check-in.\n\nGuárdala 📌 y mándasela a quien entrena contigo. ¿Dudas? Escríbeme EMPEZAR por mensaje directo y te cuento cómo trabajo.",
+  "hashtags": [
+    "rir",
+    "entrenamientodefuerza",
+    "fuerzaysalud",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ]
+}
