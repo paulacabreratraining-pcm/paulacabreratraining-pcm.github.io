@@ -472,8 +472,8 @@ const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
 /* ================= Estado (en el móvil del cliente) ================= */
 const LS="pct-"+CLIENTE.id;
-let S={ses:{},hab:{},ci:{},ini:{}};
-try{const o=JSON.parse(localStorage.getItem(LS)||"{}");S.ses=o.ses||{};S.hab=o.hab||{};S.ci=o.ci||{};S.ini=o.ini||{}}catch(e){}
+let S={ses:{},hab:{},ci:{},ini:{},pas:{}};
+try{const o=JSON.parse(localStorage.getItem(LS)||"{}");S.ses=o.ses||{};S.hab=o.hab||{};S.ci=o.ci||{};S.ini=o.ini||{};S.pas=o.pas||{}}catch(e){}
 let saveT=null;
 const save=()=>{clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){toast("No se pudo guardar en este móvil")}},300)};
 const sid=(w,d)=>`w${w}-${d}`;
@@ -540,11 +540,32 @@ function renderSemana(){
     <div class="legend"><span><i style="background:var(--blue-ink)"></i>Fuerza</span><span><i style="background:var(--pink-ink)"></i>Motor</span><span><i style="background:var(--test)"></i>Test</span><span><i style="background:var(--ok)"></i>Hecha</span></div>
     <div class="focus"><div class="ic">${IC.target}</div><div><b>${esc(ft)}</b><p>${esc(fp)}</p></div></div>`;
   h+=days.map(d=>dayCard(week,d,plan[d])).join("");
+  h+=paseosCard(week);
   const url=CLIENTE.checkinUrl;
   h+=`<div class="card"><div class="checkin"><div class="ic">${IC.form}</div><div><b>Check-in del domingo</b><p class="note">5 preguntas y me mandas tu semana por WhatsApp.</p></div></div>
     <button class="btn soft" type="button" data-tab="checkin">Ir al check-in</button></div>
     <p class="note" style="text-align:center">Lo que apuntas se guarda en este móvil.</p>`;
   return h;
+}
+
+/* Paseos fuera del plan (solo en el plan de Luis) */
+const pasSt=w=>S.pas["w"+w]||(S.pas["w"+w]=[]);
+function paseosTot(w){const a=(S.pas["w"+w]||[]).filter(p=>num(p.km)!=null);return {n:a.length,km:a.reduce((x,p)=>x+num(p.km),0)}}
+function paseosCard(w){
+  const a=S.pas["w"+w]||[],t=paseosTot(w);
+  const dsel=(i,v)=>`<select class="sel" id="pas-${w}-${i}-d" data-pas="${w}|${i}|d">${["",...Object.keys(OFF)].map(k=>`<option value="${k}" ${v===k?"selected":""}>${k?DLABEL[k]:"—"}</option>`).join("")}</select>`;
+  const rsel=(i,v)=>`<select class="sel" id="pas-${w}-${i}-rpe" data-pas="${w}|${i}|rpe">${["","1","2","3","4","5","6","7","8","9","10"].map(x=>`<option value="${x}" ${String(v??"")===x?"selected":""}>${x||"—"}</option>`).join("")}</select>`;
+  const row=(p,i)=>`<div class="exin">
+      <div class="field"><label for="pas-${w}-${i}-d">Día</label>${dsel(i,p.d)}</div>
+      <div class="field"><label for="pas-${w}-${i}-km">Km</label><input class="num" id="pas-${w}-${i}-km" data-pas="${w}|${i}|km" value="${esc(p.km||"")}" inputmode="decimal"></div>
+      <div class="field"><label for="pas-${w}-${i}-fc">Pulso al terminar</label><input class="num" id="pas-${w}-${i}-fc" data-pas="${w}|${i}|fc" value="${esc(p.fc||"")}" inputmode="numeric"></div>
+      <div class="field"><label for="pas-${w}-${i}-rpe">RPE (1-10)</label>${rsel(i,p.rpe)}</div>
+      <button class="btn soft" type="button" data-delpas="${w}|${i}" aria-label="Borrar este paseo">Borrar</button></div>`;
+  return `<div class="card"><p class="eyebrow">Fuera del plan</p><h2>Tus paseos</h2>
+    <p class="lead">Apunta aquí los paseos que das durante la semana, Luis. Así veo todo lo que te mueves y lo tengo en cuenta al ajustar tu plan.</p>
+    ${a.map(row).join("")}
+    <p class="note">${t.n?`Esta semana: <b>${t.n} ${t.n===1?"paseo":"paseos"} · ${nf(t.km)} km</b>.`:"Aún no has apuntado ningún paseo esta semana."} El pulso, el que marque el reloj justo al terminar.</p>
+    <button class="btn soft" type="button" data-addpas="${w}">+ Añadir paseo</button></div>`;
 }
 
 function dayCard(w,d,s){
@@ -883,6 +904,9 @@ function resumen(w){
       else if(t[x.k])L.push(`- ${x.n}: ${t[x.k]}${x.u&&!x.txt?" "+x.u:""}`)});
     if(st.nota)L.push(`Nota: ${st.nota}`);
   }
+  const pa=(S.pas["w"+w]||[]).filter(p=>p.km||p.fc||p.rpe),pt=paseosTot(w);
+  if(pa.length){L.push("",`Paseos: ${pt.n} · ${nf(pt.km)} km en total`);
+    pa.forEach(p=>L.push(`- ${p.d?DLABEL[p.d]:"Día sin apuntar"}: ${p.km?p.km+" km":"? km"}${p.fc?" · pulso al terminar "+p.fc:""}${p.rpe?" · RPE "+p.rpe:""}`))}
   const hs=S.hab[sid(w,"hab")]||{};
   L.push("","Hábitos: "+HABITS.map(([k,t])=>`${t} ${(hs[k]||[]).filter(Boolean).length}/7`).join(" · "));
   return L.join("\n");
@@ -977,6 +1001,9 @@ document.addEventListener("click",e=>{
     try{navigator.clipboard.writeText(txt).then(()=>toast("Copiado. Pégalo en el check-in"),manual)}catch(_){manual()}return}
   if(t.dataset.iv){const [n,on,off]=t.dataset.iv.split(",").map(Number);startIntervals(n,on,off);return}
   if(t.dataset.done){const s=ses(t.dataset.done);s.done=!s.done;save();const open=document.getElementById(t.dataset.done)?.open;render();const el=document.getElementById(t.dataset.done);if(el&&open)el.open=true;toast(s.done?"Sesión marcada como hecha":"Sesión pendiente");return}
+  if(t.dataset.addpas){const w=+t.dataset.addpas,d=Object.keys(OFF).find(k=>iso(dateOf(w,k))===iso(today))||"";pasSt(w).push({d,km:"",fc:"",rpe:""});save();render();
+    const el=document.getElementById(`pas-${w}-${pasSt(w).length-1}-km`);if(el)el.focus();return}
+  if(t.dataset.delpas){const [w,i]=t.dataset.delpas.split("|").map(Number);pasSt(w).splice(i,1);save();render();toast("Paseo borrado");return}
   if(t.dataset.hab){const [wk,k,i]=t.dataset.hab.split("|");S.hab[wk]=S.hab[wk]||{};const a=S.hab[wk][k]=S.hab[wk][k]||[];a[+i]=!a[+i];save();render();return}
 });
 document.addEventListener("input",e=>{const t=e.target;
@@ -986,6 +1013,7 @@ document.addEventListener("input",e=>{const t=e.target;
   else if(t.dataset.ini){S.ini[t.dataset.ini]=t.value;save()}
   else if(t.dataset.cit){ciSt(week)[t.dataset.cit]=t.value;save()}
   else if(t.dataset.rpe){ses(t.dataset.rpe).rpe=t.value;save()}
+  else if(t.dataset.pas){const [w,i,f]=t.dataset.pas.split("|");const p=pasSt(+w)[+i];if(p){p[f]=t.value;save()}}
 });
 
 /* ================= Temporizador ================= */
