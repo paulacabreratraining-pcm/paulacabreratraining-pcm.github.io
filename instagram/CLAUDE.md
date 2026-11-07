@@ -29,6 +29,14 @@ Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante qu
 - Alcance: cada post se comparte en historias de la marca y en la cuenta personal de Paula. Carruseles pensados para guardar y compartir («Mándaselo a…», chuletas). Zona local: Málaga (ubicación Málaga, que Paula añade en la app al publicar, y #malaga más 1 hashtag local como #entrenadorapersonalmalaga).
 - Horas por defecto: martes a las 19:00 y domingo a las 11:00 (hora de Madrid). Ajústalas con las estadísticas.
 
+## Portadas (decisión de Paula, 07/11/2026: más llamativas y variadas)
+
+La primera diapositiva de cada carrusel usa uno de estos tres estilos, alternándolos para que el perfil tenga variedad (no repetir el mismo dos posts seguidos). Las diapositivas interiores siguen como hasta ahora.
+- `impacto` (A): fondo rosa, letra enorme, franja azul y sello «Desliza». Campos: `etiqueta`, `lineas` (lista de 1–3 líneas cortas), `grande` (una palabra, máx. ~8 letras), `franja` (corta, una línea; **palabra** sale en rosa).
+- `foto` (B): foto de Paula a toda la portada con el titular encima. Campos: `foto` (archivo dentro de la carpeta del post), `posicion` (CSS object-position, opcional), `etiqueta`, `titulo`, `resaltado`. Solo con fotos reales de Paula; nunca de clientes sin permiso escrito ni de bancos de imágenes con personas.
+- `pregunta` (C): fondo claro, pregunta + respuesta gigante («SÍ.», «NO.», «3»…) y una línea. Campos: `pregunta`, `respuesta` (1–4 caracteres), `texto`.
+El tipo `portada` antiguo queda solo como reserva.
+
 ## Pilares de contenido
 
 | Pilar | % aprox. | Ejemplos |

@@ -7,10 +7,14 @@
   "publicado": true,
   "diapositivas": [
     {
-      "tipo": "portada",
-      "titulo": "Tres formas de entrenar conmigo",
-      "resaltado": "conmigo",
-      "sub": "Elige la que encaje con tu vida"
+      "tipo": "impacto",
+      "etiqueta": "Online y presencial",
+      "lineas": [
+        "3 formas de",
+        "entrenar"
+      ],
+      "grande": "CONMIGO",
+      "franja": "Elige la **tuya**"
     },
     {
       "tipo": "texto",

@@ -10,10 +10,10 @@
   ],
   "diapositivas": [
     {
-      "tipo": "portada",
-      "titulo": "Tus huesos piden pesas",
-      "resaltado": "pesas",
-      "sub": "Fuerza en la menopausia:\nlo que dice la ciencia"
+      "tipo": "pregunta",
+      "pregunta": "¿Pesas en la menopausia?",
+      "respuesta": "SÍ.",
+      "texto": "Y te explico **por qué** tus huesos lo agradecen 👉"
     },
     {
       "tipo": "texto",
