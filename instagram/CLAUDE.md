@@ -35,7 +35,12 @@ La primera diapositiva de cada carrusel usa uno de estos tres estilos, alternán
 - `impacto` (A): fondo rosa, letra enorme, franja azul y sello «Desliza». Campos: `etiqueta`, `lineas` (lista de 1–3 líneas cortas), `grande` (una palabra, máx. ~8 letras), `franja` (corta, una línea; **palabra** sale en rosa).
 - `foto` (B): foto de Paula a toda la portada con el titular encima. Campos: `foto` (archivo dentro de la carpeta del post), `posicion` (CSS object-position, opcional), `etiqueta`, `titulo`, `resaltado`. Solo con fotos reales de Paula; nunca de clientes sin permiso escrito ni de bancos de imágenes con personas.
 - `pregunta` (C): fondo claro, pregunta + respuesta gigante («SÍ.», «NO.», «3»…) y una línea. Campos: `pregunta`, `respuesta` (1–4 caracteres), `texto`.
+- `mitos` (D): fondo azul marino, frases tachadas en rosa y titular grande abajo. Campos: `etiqueta`, `frases` (2–4 frases cortas), `titulo` (**palabra** en rosa).
 El tipo `portada` antiguo queda solo como reserva.
+
+**Interiores (decisión de Paula, 07/11/2026: el diseño de fondo claro con lista le parece plano y soso).** Variar el diseño dentro de cada carrusel y no hacer carruseles enteros de `texto`/`lista` sobre fondo claro. Tipo nuevo `mito`: bloque rosa arriba con el mito tachado y bloque azul marino abajo con la realidad. Campos: `num`, `mito`, `realidad`, `fuente` (opcional). Si un formato pide un diseño que no existe, se añade a `render.js` antes que forzarlo en una lista.
+
+**Antes de proponer un tema, revisa `calendario.md`: no repetir un tema ya publicado o programado** (07/11/2026: se propuso una chuleta del RIR repetida con el post del 5/11 y Paula la descartó).
 
 ## Pilares de contenido
 

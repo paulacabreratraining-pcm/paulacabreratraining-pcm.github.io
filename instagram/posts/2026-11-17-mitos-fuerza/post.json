@@ -1,0 +1,65 @@
+{
+  "fecha": "2026-11-17",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "patron_nicho": "2 · contenido para guardar y compartir + 5 · pregunta al público (análisis 07/11/2026)",
+  "ganchos": {
+    "Portada de mitos tachados + «4 mitos de la fuerza»": 9,
+    "¿Las pesas te ponen grande? NO.": 8,
+    "Lo que te han contado de las pesas": 7
+  },
+  "fuentes": [
+    "Fragala, M. S., Cadore, E. L., Dorgo, S., Izquierdo, M., Kraemer, W. J., Peterson, M. D., & Ryan, E. D. (2019). Resistance training for older adults: Position statement from the National Strength and Conditioning Association. Journal of Strength and Conditioning Research, 33(8), 2019–2052. https://doi.org/10.1519/JSC.0000000000003230"
+  ],
+  "nota": "Mitos 1, 3 y 4: criterio práctico. Mito 2: Fragala et al. (2019), verificado.",
+  "diapositivas": [
+    {
+      "tipo": "mitos",
+      "etiqueta": "Mitos de la fuerza",
+      "frases": ["Te vas a poner enorme", "Ya no tienes edad", "Sin agujetas no vale", "Necesitas un gimnasio"],
+      "titulo": "4 mitos que te **frenan**"
+    },
+    {
+      "tipo": "mito",
+      "num": "01",
+      "mito": "Las pesas te ponen enorme",
+      "realidad": "Ganar mucho músculo **lleva años** de entreno y comer a propósito para ello.\n\nLo normal al empezar: **más fuerza y más firmeza**."
+    },
+    {
+      "tipo": "mito",
+      "num": "02",
+      "mito": "A mi edad ya no se gana fuerza",
+      "realidad": "También en personas mayores, la fuerza es **de lo más eficaz** contra la pérdida de músculo y fuerza. Bien planteada, sus beneficios **superan los riesgos**.",
+      "fuente": "Fragala et al., 2019"
+    },
+    {
+      "tipo": "mito",
+      "num": "03",
+      "mito": "Si no hay agujetas, no ha servido",
+      "realidad": "Las agujetas dicen que hiciste algo **nuevo o distinto**, no si el entreno fue bueno.\n\nLo que cuenta es **progresar** semana a semana."
+    },
+    {
+      "tipo": "mito",
+      "num": "04",
+      "mito": "Necesitas un gimnasio para empezar",
+      "realidad": "Para empezar basta con **tu peso, una silla o una mochila**.\n\nLo importante es la **constancia** y que, con el tiempo, cueste un poco más."
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "¿Cuál te habías creído?",
+      "resaltado": "creído",
+      "texto": "Cuéntamelo en comentarios 👇"
+    }
+  ],
+  "texto": "¿Cuál de estos te habías creído? 👀\n\n❌ «Las pesas te ponen enorme» → ganar mucho músculo lleva años y comer a propósito para ello. Al empezar, lo normal es ganar fuerza y firmeza.\n\n❌ «A mi edad ya no se gana fuerza» → también en personas mayores, el entrenamiento de fuerza es de lo más eficaz contra la pérdida de músculo y fuerza, y bien planteado sus beneficios superan los riesgos (Fragala et al., 2019).\n\n❌ «Si no hay agujetas, no ha servido» → las agujetas dicen que hiciste algo nuevo, no si el entreno fue bueno. Lo que cuenta es progresar.\n\n❌ «Necesitas un gimnasio» → para empezar basta con tu peso, una silla o una mochila.\n\nCuéntame en comentarios cuál te habías creído 👇 Guárdalo 📌 y mándaselo a quien todavía piensa que las pesas no son para ella o para él.\n\n¿Quieres empezar con un plan hecho para ti? Escríbeme EMPEZAR por mensaje directo.",
+  "hashtags": [
+    "mitosdelafuerza",
+    "entrenamientodefuerza",
+    "fuerzaysalud",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ]
+}

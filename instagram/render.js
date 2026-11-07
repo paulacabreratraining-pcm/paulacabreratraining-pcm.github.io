@@ -49,7 +49,27 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .preg .yes{font-weight:900;line-height:.8;letter-spacing:-20px;color:${C.rosa};margin-top:110px;-webkit-text-stroke:8px ${C.logoBg}}
 .preg .why{font-size:46px;font-weight:600;color:${C.gris};margin-top:50px;line-height:1.3}
 .preg .why strong{color:${C.logoBg};background:linear-gradient(transparent 60%,${C.rosa} 60%)}
-.preg .desliza{color:${C.logoBg};bottom:56px;font-weight:900}`;
+.preg .desliza{color:${C.logoBg};bottom:56px;font-weight:900}
+.mits{background:${C.logoBg};color:${C.blanco};justify-content:flex-start;padding:100px 80px}
+.mits .tag{align-self:flex-start;background:${C.rosa};color:${C.logoBg};font-weight:800;font-size:34px;padding:14px 26px;border-radius:12px;letter-spacing:1px;text-transform:uppercase}
+.mits .fr{margin-top:70px;display:flex;flex-direction:column;gap:26px}
+.mits .fr div{font-weight:900;font-size:76px;line-height:1.02;letter-spacing:-2px;text-transform:uppercase;position:relative;align-self:flex-start}
+.mits .fr div::after{content:'';position:absolute;left:-10px;right:-10px;top:50%;height:8px;background:${C.rosa};transform:rotate(-3deg)}
+.mits .big{position:absolute;left:80px;bottom:150px;font-weight:900;font-size:120px;line-height:.9;letter-spacing:-4px;text-transform:uppercase;color:${C.azul}}
+.mits .big strong{color:${C.rosa}}
+.mits .foot{color:${C.blanco}}
+.mito{padding:0;justify-content:flex-start;background:${C.logoBg}}
+.mito .top{background:${C.rosa};color:${C.logoBg};padding:90px 80px 120px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%);min-height:560px;position:relative}
+.mito .lab{display:inline-block;font-weight:900;font-size:34px;letter-spacing:2px;padding:12px 24px;border-radius:10px;text-transform:uppercase}
+.mito .top .lab{background:${C.logoBg};color:${C.rosa}}
+.mito .n{position:absolute;right:70px;top:50px;font-weight:900;font-size:110px;line-height:1;color:${C.logoBg};opacity:.25}
+.mito .mt{margin-top:40px;font-weight:900;font-size:72px;line-height:1.05;letter-spacing:-2px}
+.mito .mt span{text-decoration:line-through;text-decoration-thickness:5px;text-decoration-color:rgba(18,42,78,.55)}
+.mito .bot{padding:30px 80px 0;color:${C.blanco}}
+.mito .bot .lab{background:${C.azul};color:${C.logoBg}}
+.mito .rt{margin-top:36px;font-size:50px;line-height:1.3;font-weight:600} .mito .rt strong{color:${C.rosa};font-weight:800}
+.mito .src{margin-top:28px;font-size:28px;color:${C.azul};font-weight:600}
+.mito .foot{color:${C.blanco}}`;
 
 const check = `<svg width="56" height="56" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="${C.azul}"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="${C.navy}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const rayas = `<div class="stripe" style="width:150px;height:900px;background:${C.rosa};right:-120px;top:-330px"></div>
@@ -61,6 +81,10 @@ function slide(d, i, n, H){
   const foot = (modo) => `<div class="foot"><span class="u"><img src="${LOGO}">${USER}</span><span>${n>1&&modo!=='sin'?`${i+1}/${n}`:''}</span></div>`;
   switch(d.tipo){
     case 'portada': return `<div class="s dark">${rayas}<h1 style="position:relative;max-width:760px">${marca(d.titulo,d.resaltado)}</h1>${d.sub?`<p class="sub">${md(d.sub)}</p>`:''}${n>1?'<span class="desliza">Desliza →</span>':''}${foot(1)}</div>`;
+    case 'mitos': { // D · portada de mitos: frases tachadas en rosa sobre azul marino
+      return `<div class="s mits">${d.etiqueta?`<span class="tag">${esc(d.etiqueta)}</span>`:''}<div class="fr">${(d.frases||[]).map(x=>`<div>${esc(x)}</div>`).join('')}</div><div class="big">${md(d.titulo)}</div>${n>1?'<span class="desliza">DESLIZA →</span>':''}${foot('sin')}</div>`; }
+    case 'mito': { // mito arriba (rosa, tachado) · realidad abajo (azul marino)
+      return `<div class="s mito"><div class="top">${d.num?`<div class="n">${esc(d.num)}</div>`:''}<span class="lab">Mito</span><div class="mt"><span>«${esc(d.mito)}»</span></div></div><div class="bot"><span class="lab">Realidad</span><div class="rt">${md(d.realidad)}</div>${d.fuente?`<div class="src">${esc(d.fuente)}</div>`:''}</div>${foot()}</div>`; }
     case 'impacto': { // A · fondo rosa, letra enorme, franja y sello
       const ls = d.lineas||[]; const maxL = Math.max(...ls.map(x=>x.length),1);
       const fl = Math.min(150, Math.floor(1530/maxL)), fg = Math.min(310, Math.floor(1350/(d.grande||'x').length));
