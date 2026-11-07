@@ -23,7 +23,7 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 
 ## Ritmo
 
-Paula dedica 1–2 h a la semana. De momento NO sale en vídeo; más adelante quizá vídeos entrenando, sin hablar a cámara.
+Paula dedica 1–2 h a la semana. Va a empezar a grabarse entrenando y quizá a poner su voz en off (07/11/2026). Hablar a cámara: todavía no se siente preparada, no es un no definitivo; no lo propongas hasta que ella lo saque.
 - 2 publicaciones por semana (carruseles) y 3–5 historias (decisión de Paula, 06/11/2026: mejor constancia que cantidad).
 - Reels sin cara (decisión de Paula, 06/11/2026): 1 reel a la semana. Paula graba clips cortos del ejercicio con el móvil (sin hablar a cámara ni mostrar a clientes); Claude escribe el guion de clips, monta el vídeo 1080×1920 con los textos en pantalla con la identidad visual y lo programa en Metricool (tipo REEL) cuando Paula lo apruebe. Semana del 9/11: reel extra el jueves a las 19:00. Desde la semana del 16/11: 1 carrusel (martes 19:00) + 1 reel (jueves 19:00), salvo que Paula diga otra cosa.
 - Alcance: cada post se comparte en historias de la marca y en la cuenta personal de Paula. Carruseles pensados para guardar y compartir («Mándaselo a…», chuletas). Zona local: Málaga (ubicación Málaga, que Paula añade en la app al publicar, y #malaga más 1 hashtag local como #entrenadorapersonalmalaga).
@@ -43,7 +43,7 @@ El tipo `portada` antiguo queda solo como reserva.
 |---|---|---|
 | Educa | 40 % | Mitos de la fuerza, técnica de un ejercicio, qué es el RIR, fuerza en la menopausia |
 | Método | 25 % | Cómo es la valoración, cómo funciona la app, el check-in semanal |
-| Confianza | 20 % | Quién es Paula, cómo trabaja, testimonios con permiso. De momento NO hablar de su preparación para HYROX (decisión de Paula, 06/11/2026) |
+| Confianza | 20 % | Quién es Paula, cómo trabaja, testimonios con permiso. Todavía NO hablar de su preparación para HYROX: quiere hacerlo más adelante, ella dirá cuándo (06/11 y 07/11/2026) |
 | Oferta | 15 % | Planes, valoración gratis si vienes recomendado, plazas disponibles |
 
 Cada carrusel: gancho en la portada (máx. 8 palabras), una idea por diapositiva y cierre con llamada a la acción.
