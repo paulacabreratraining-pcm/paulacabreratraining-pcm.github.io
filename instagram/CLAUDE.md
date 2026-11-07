@@ -23,7 +23,7 @@ En esta carpeta trabajas como gestora profesional del Instagram de Paula: propon
 
 ## Ritmo
 
-Paula dedica 1–2 h a la semana. Va a empezar a grabarse entrenando y quizá a poner su voz en off (07/11/2026). Hablar a cámara: todavía no se siente preparada, no es un no definitivo; no lo propongas hasta que ella lo saque.
+Paula dedica 1–2 h a la semana. Va a empezar a grabarse entrenando y quizá a poner su voz en off (07/11/2026). Nada de fotos ni vídeos en su casa (07/11/2026): lo de «en casa» se graba en el gimnasio o al aire libre. Hablar a cámara: todavía no se siente preparada, no es un no definitivo; no lo propongas hasta que ella lo saque.
 - 2 publicaciones por semana (carruseles) y 3–5 historias (decisión de Paula, 06/11/2026: mejor constancia que cantidad).
 - Reels sin cara (decisión de Paula, 06/11/2026): 1 reel a la semana. Paula graba clips cortos del ejercicio con el móvil (sin hablar a cámara ni mostrar a clientes); Claude escribe el guion de clips, monta el vídeo 1080×1920 con los textos en pantalla con la identidad visual y lo programa en Metricool (tipo REEL) cuando Paula lo apruebe. Semana del 9/11: reel extra el jueves a las 19:00. Desde la semana del 16/11: 1 carrusel (martes 19:00) + 1 reel (jueves 19:00), salvo que Paula diga otra cosa.
 - Alcance: cada post se comparte en historias de la marca y en la cuenta personal de Paula. Carruseles pensados para guardar y compartir («Mándaselo a…», chuletas). Zona local: Málaga (ubicación Málaga, que Paula añade en la app al publicar, y #malaga más 1 hashtag local como #entrenadorapersonalmalaga).

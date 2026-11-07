@@ -2,7 +2,7 @@
 
 Reglas para todo: móvil en vertical, buena luz (de cara a la luz, no a contraluz), clips de 3–5 s, cada toma 2 veces. Nadie más reconocible sin su permiso por escrito (amiga, alumnos, gente del gimnasio).
 
-## Domingo 8/11 · Paseo por la montaña (~15 min dentro del paseo)
+## Domingo 8/11 · Paseo por la montaña · reel «Un paseo conmigo» (ver guion en el chat del 07/11)
 - [ ] 4–5 clips tuyos caminando o subiendo (de espaldas, de lado, en una cuesta) → reel 19/11
 - [ ] 1 clip de la vista o del camino → reel 19/11
 - [ ] Foto: sentadilla o subida a una roca con la mochila puesta → carrusel 17/11 (mito 4: «necesitas un gimnasio»)
@@ -21,9 +21,9 @@ Reglas para todo: móvil en vertical, buena luz (de cara a la luz, no a contralu
 - [ ] Contarle a Claude un momento concreto en que viste mejorar a alguien → Claude escribe el guion
 - [ ] Grabar la voz del reel 19/11 en un sitio sin ruido
 
-## En casa, antes del domingo 22/11 (~20 min)
-- [ ] 5 fotos haciendo ejercicios con una silla y una mochila → carrusel 24/11
-- [ ] Clips de la sentadilla a la silla (de lado y de frente) → reel 26/11
+## Gimnasio o parque, antes del domingo 22/11 (~20 min) · Paula no quiere fotos en su casa (07/11)
+- [ ] 5 fotos haciendo ejercicios con un banco y una mochila → carrusel 24/11
+- [ ] Clips de la sentadilla a un banco (de lado y de frente) → reel 26/11
 
 ## Revisar y aprobar
 - [ ] Miércoles 11/11: montaje del reel 12/11
