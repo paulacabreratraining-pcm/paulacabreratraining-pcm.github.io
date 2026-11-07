@@ -77,9 +77,34 @@ Antes de entregar cualquier texto (pie de foto, diapositivas, historias, guion d
 
 Después, léelo como lo diría Paula en persona: de tú, frases cortas, el porqué en una frase. Si suena a anuncio, reescríbelo.
 
+## Analizar el nicho (una vez al mes)
+
+Objetivo: saber qué está funcionando en su nicho para sacar ideas de reels, carruseles e historias. Nunca para copiar.
+
+1. **Cuentas de referencia (5–8).** Pregunta a Paula con opciones cuáles sigue o admira y completa con búsqueda: entrenadoras de fuerza en español, salud femenina y menopausia, principiantes, fuerza + resistencia y alguna de Málaga. Mejor pequeñas o medianas (1.000–50.000 seguidores) que grandes. Lista en `nicho.md`.
+2. **Recoger datos.** De cada cuenta, las últimas 20–30 publicaciones: formato, tema, gancho, si sale la cara o voz en off, y visualizaciones (reels) o «me gusta» y comentarios. Fuentes, por orden: capturas o enlaces de Paula, su navegador si está conectado (solo leer; nunca seguir, comentar, dar «me gusta» ni escribir a nadie) y búsqueda web. Si un dato no se ve, se deja en blanco; no se estima.
+3. **Qué destaca.** Compara cada publicación con la mediana de su propia cuenta. Quédate con las que superan 2 veces su mediana.
+4. **Patrones.** Clasifica lo que destaca por formato, tipo de gancho, tema y forma de grabarlo. Di cuántos casos hay detrás; con menos de 3, es una pista, no un patrón.
+5. **Adaptar a Paula.** Pasa cada patrón por sus pilares, su público, sus reglas y lo que hoy está dispuesta a grabar. Se toma la estructura, nunca el texto, el vídeo ni la idea concreta de otra persona. Descarta lo que choque con la marca.
+6. **Informe breve** en `nicho.md`: fecha, cuentas, 3–5 patrones con su número de casos y ejemplos enlazados, qué se descarta y por qué, y 8–12 ideas propias para el mes.
+
+Honestidad: es una muestra pequeña y lo que funciona en otra cuenta no garantiza nada en la suya. Mandan sus estadísticas de Metricool; con unas 8 publicaciones, compara lo que se probó por el nicho con lo que le funcionó a ella.
+
+## Plan del mes y hoja de grabación
+
+- **Plan del mes** (en `calendario.md`): a partir del último análisis del nicho y de sus estadísticas, con fecha, formato, pilar, gancho, idea o guion y de qué patrón sale.
+- **Hoja de la semana** (por defecto el domingo), solo con lo que tiene que hacer Paula y que quepa en su tiempo:
+  - Grabar: cada clip con ejercicio, plano (lado, frente, detalle), duración, dónde, material y para qué post. Todo agrupado para una sola sesión de grabación.
+  - Voz en off: guion en frases cortas, gancho en los primeros 3 segundos y tiempo de cada frase.
+  - Fotos que hagan falta para portadas.
+  - Borradores que tiene que revisar y aprobar, y cuándo.
+  - Historias de cada día.
+  - Tiempo estimado por tarea y total; si se pasa, propón qué quitar.
+
 ## Archivos
 
 - `calendario.md`: calendario de publicaciones. Una fila por post, con su estado.
+- `nicho.md`: cuentas de referencia y análisis mensual del nicho.
 - `posts/<AAAA-MM-DD>-<tema>/post.json`: contenido del post (fecha, hora, formato, pilar, diapositivas, texto, hashtags, `aprobado`, `publicado`).
 - `posts/.../slide-N.jpg`: imágenes generadas. No se editan a mano.
 - `render.js`: genera las imágenes. `node instagram/render.js instagram/posts/<carpeta>` desde la raíz del repo.
