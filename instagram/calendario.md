@@ -14,8 +14,9 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Guion (pendiente de clips de Paula) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿cuánto peso cojo? El RIR (patrón 2) | `posts/2026-11-17-chuleta-rir` | Descartado (repite tema y diseño) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | 4 mitos de la fuerza (diseño nuevo mito/realidad) | `posts/2026-11-17-mitos-fuerza` | Borrador |
-| 2026-11-19 | 19:00 | Reel | Confianza | Por qué me hice entrenadora: clips de Paula entrenando + su voz en off (patrón 1) | — | Idea aprobada |
+| 2026-11-19 | 19:00 | Reel | Confianza | Un paseo conmigo: domingo en la montaña + test del habla (zona suave), voz en off (patrón 1) | — | Guion (se graba el 8/11) |
 | 2026-11-24 | 19:00 | Carrusel | Educa | Fuerza en casa con una silla y una mochila: 5 ejercicios para empezar (patrón 2) | — | Idea aprobada |
 | 2026-11-26 | 19:00 | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí: sentadilla a la silla, con voz en off (patrones 1 y 2) | — | Idea aprobada |
 | 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
 | 2026-12-03 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio (patrón 1) | — | Idea aprobada |
+| 2026-12-10 | 19:00 | Reel | Confianza | Por qué me hice entrenadora: ver a otros mejorar, clips de Paula + voz en off (patrón 1) | — | Idea aprobada (movida desde el 19/11) |

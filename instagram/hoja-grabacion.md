@@ -3,7 +3,7 @@
 Reglas para todo: móvil en vertical, buena luz (de cara a la luz, no a contraluz), clips de 3–5 s, cada toma 2 veces. Nadie más reconocible sin su permiso por escrito (amiga, alumnos, gente del gimnasio).
 
 ## Domingo 8/11 · Paseo por la montaña · reel «Un paseo conmigo» (ver guion en el chat del 07/11)
-- [ ] 4–5 clips tuyos caminando o subiendo (de espaldas, de lado, en una cuesta) → reel 19/11
+- [ ] 4–5 clips tuyos caminando o subiendo (de espaldas, de lado, en una cuesta) → reel 19/11 «Un paseo conmigo»
 - [ ] 1 clip de la vista o del camino → reel 19/11
 - [ ] Foto: sentadilla o subida a una roca con la mochila puesta → carrusel 17/11 (mito 4: «necesitas un gimnasio»)
 - [ ] 2–3 fotos tuyas naturales (sonriendo, de cuerpo entero) → portadas futuras
@@ -15,11 +15,11 @@ Reglas para todo: móvil en vertical, buena luz (de cara a la luz, no a contralu
 - [ ] Foto mito 1 («te pones enorme»): tú con una carga exigente
 - [ ] Foto mito 2 («a mi edad…»): tú dando clase o corrigiendo técnica, sin cara de la otra persona
 - [ ] Foto mito 3 («sin agujetas no vale»): tú apuntando o revisando tu entreno
-- [ ] 3–4 clips tuyos entrenando + 1–2 dando clase (sin caras) → reel 19/11
+- [ ] (Opcional, para el reel del 10/12) 3–4 clips tuyos entrenando + 1–2 dando clase, sin caras
 
-## Voz en off, antes del lunes 16/11 (~10 min)
-- [ ] Contarle a Claude un momento concreto en que viste mejorar a alguien → Claude escribe el guion
-- [ ] Grabar la voz del reel 19/11 en un sitio sin ruido
+## Voz en off
+- [ ] Domingo 8/11 al volver: grabar la voz del reel «Un paseo conmigo» (guion en el chat) y mandarla con los clips
+- [ ] Más adelante: contarle a Claude un momento en que viste mejorar a alguien → reel del 10/12
 
 ## Gimnasio o parque, antes del domingo 22/11 (~20 min) · Paula no quiere fotos en su casa (07/11)
 - [ ] 5 fotos haciendo ejercicios con un banco y una mochila → carrusel 24/11
@@ -28,4 +28,4 @@ Reglas para todo: móvil en vertical, buena luz (de cara a la luz, no a contralu
 ## Revisar y aprobar
 - [ ] Miércoles 11/11: montaje del reel 12/11
 - [ ] Sábado 14/11: carrusel 17/11 con tus fotos
-- [ ] Lunes 16/11: guion del reel 19/11
+- [ ] Lunes 16/11: montaje del reel 19/11 «Un paseo conmigo»
