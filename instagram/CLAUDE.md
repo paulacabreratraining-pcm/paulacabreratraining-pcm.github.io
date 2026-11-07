@@ -48,6 +48,35 @@ El tipo `portada` antiguo queda solo como reserva.
 
 Cada carrusel: gancho en la portada (máx. 8 palabras), una idea por diapositiva y cierre con llamada a la acción.
 
+### Puntuar el gancho
+
+Para cada portada de carrusel y cada reel, escribe 3 ganchos distintos y puntúa cada uno de 0 a 2 en estos 5 criterios (total sobre 10):
+
+| Criterio | 2 puntos si… |
+|---|---|
+| Corto | 8 palabras o menos y se lee de un vistazo en el móvil |
+| Concreto | Nombra algo específico (un ejercicio, una etapa, un error), no una idea vaga |
+| Para alguien | La persona se reconoce: «si empiezas en el gimnasio…», «en la menopausia…» |
+| Tensión | Despierta curiosidad o rompe un mito, sin exagerar ni engañar |
+| Marca | Cumple las reglas: sin culpa, sin promesas de resultados, sin cifras inventadas |
+
+Se queda el gancho con más nota y solo si saca 7 o más; si ninguno llega, reescribe. Enseña a Paula los 3 con su nota y el elegido. Es criterio práctico propio, no un método validado.
+
+## Textos
+
+- Hashtags: **máximo 5** (límite de Instagram desde diciembre de 2025). Lo habitual: #malaga, 1 local (#entrenadorapersonalmalaga) y 2–3 del tema del post. Nada de genéricos tipo #reels o #explore.
+
+### Limpiar el texto de «sonido a IA»
+
+Antes de entregar cualquier texto (pie de foto, diapositivas, historias, guion de reel), haz una pasada de limpieza y quita:
+- Arranques y muletillas típicas: «En el mundo de…», «Descubre…», «Sumérgete», «Te cuento un secreto», «Aquí va la clave».
+- Palabras infladas: potenciar, transformar, desbloquear, viaje, increíble, revolucionario.
+- La estructura «no es solo X, es Y» y las listas de tres adjetivos seguidos.
+- Rayas (—) de más: como mucho una por texto; mejor punto o coma.
+- Varias preguntas retóricas seguidas, cierres genéricos («¿Y tú qué opinas?») y más de 2–3 emojis.
+
+Después, léelo como lo diría Paula en persona: de tú, frases cortas, el porqué en una frase. Si suena a anuncio, reescríbelo.
+
 ## Archivos
 
 - `calendario.md`: calendario de publicaciones. Una fila por post, con su estado.
@@ -82,6 +111,19 @@ Cuando Paula apruebe un post, pon `"aprobado": true`, haz push y espera 1–2 mi
 3. Si no hay ninguna de las dos: enviarle las imágenes y el texto listo para copiar y que lo publique ella.
 
 Al publicar o programar, pon `"publicado": true`, actualiza `calendario.md` y haz push.
+
+## Auditar el perfil
+
+Cuando Paula lo pida (o cada 3 meses), revisa el perfil con sus capturas y puntúa cada punto como Bien / Mejorable / Falta, con la propuesta reescrita al lado:
+1. Foto: logo PC nítido y reconocible en pequeño.
+2. Campo de nombre: incluye «Entrenadora personal» (es lo que se busca).
+3. Bio: a quién ayuda, qué la diferencia, «estudiante de CAFYD» y la llamada a escribir por mensaje directo. Sin precios, sin WhatsApp ni teléfono.
+4. Enlace: a su web; nunca a WhatsApp.
+5. Destacados: portadas con la identidad visual (por ejemplo: Sobre mí, Método, Valoración, Dudas).
+6. Publicaciones fijadas: una de quién es, una del método y una de la valoración.
+7. Las 9 primeras publicaciones: se entiende en 5 segundos qué ofrece y para quién, y siguen la identidad visual.
+
+Cierra con las 3 mejoras que más impacto tendrían, en orden.
 
 ## Revisar resultados
 
