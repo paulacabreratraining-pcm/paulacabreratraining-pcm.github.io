@@ -3,7 +3,7 @@
   "hora": "19:00",
   "formato": "carrusel",
   "pilar": "Educa",
-  "aprobado": true,
+  "aprobado": false,
   "publicado": false,
   "patron_nicho": "2 · recurso para guardar (análisis 07/11/2026)",
   "ganchos": {
@@ -79,5 +79,6 @@
     "fuerzaysalud",
     "malaga",
     "entrenadorapersonalmalaga"
-  ]
+  ],
+  "nota_paula": "07/11: descartado. Repite el tema del RIR (post del 5/11) y no le gusta el diseño."
 }
