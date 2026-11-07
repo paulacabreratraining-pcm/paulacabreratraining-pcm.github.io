@@ -121,6 +121,7 @@ Honestidad: es una muestra pequeña y lo que funciona en otra cuenta no garantiz
 - `texto`: `num` (opcional, «01»), `titulo`, `resaltado`, `texto`.
 - `lista`: `titulo`, `resaltado`, `puntos` (lista).
 - `cierre`: `titulo`, `resaltado`, `texto`, `boton` (opcional).
+- `testimonio`: `texto` (la opinión, con las palabras exactas del cliente), `autor` (como haya elegido salir: nombre de pila, inicial o «Cliente»), `detalle` (opcional, p. ej. «Plan online · 2 meses»). Solo con su permiso por escrito; el permiso NO se guarda en este repositorio (es público).
 
 En los textos, `**así**` va en negrita y `\n` es salto de línea. `formato`: `carrusel` (1080×1350, 2–10 diapositivas) o `historia` (1080×1920).
 

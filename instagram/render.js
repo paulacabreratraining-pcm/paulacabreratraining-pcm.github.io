@@ -99,6 +99,7 @@ function slide(d, i, n, H){
     case 'texto': return `<div class="s light">${d.num?`<div class="num">${esc(d.num)}</div>`:''}<h2>${marca(d.titulo,d.resaltado)}</h2><p class="txt">${md(d.texto)}</p>${foot()}</div>`;
     case 'lista': return `<div class="s light"><h2>${marca(d.titulo,d.resaltado)}</h2><div class="pts">${(d.puntos||[]).map(p=>`<div class="pt">${check}<span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`;
     case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme EMPEZAR por mensaje')}</span>${foot(1)}</div>`;
+    case 'testimonio': return `<div class="s light"><div style="font-size:260px;line-height:.7;font-weight:900;color:${C.rosa};margin-bottom:10px">“</div><p style="font-size:${(d.texto||'').length>220?46:56}px;line-height:1.3;font-weight:600;color:${C.navy}">${md(d.texto)}</p><p style="margin-top:56px;font-size:38px;font-weight:800;color:${C.navy}">— ${esc(d.autor||'Cliente')}</p>${d.detalle?`<p style="font-size:32px;font-weight:600;color:${C.gris};margin-top:8px">${esc(d.detalle)}</p>`:''}${foot()}</div>`;
     default: throw new Error('Tipo de diapositiva desconocido: '+d.tipo);
   }
 }
