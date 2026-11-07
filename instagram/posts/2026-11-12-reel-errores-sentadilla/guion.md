@@ -35,7 +35,7 @@ Criterio práctico de técnica (sin datos científicos en el reel).
 
 Guárdalo para tu próximo entreno 📌 y mándaselo a quien entrena contigo.
 
-#sentadilla #entrenamientodefuerza #entrenadorapersonal #malaga #entrenadorapersonalmalaga
+#sentadilla #entrenamientodefuerza #fuerzaysalud #malaga #entrenadorapersonalmalaga
 
 ## Cuando grabes
 Mándame los 6 clips por el chat. Monto el vídeo, te lo enseño y, si lo apruebas, lo programo. La música la añades tú desde la app (Metricool no puede poner audio de Instagram en esta cuenta).

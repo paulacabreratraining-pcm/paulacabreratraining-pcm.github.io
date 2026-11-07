@@ -12,3 +12,9 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-10 | 19:00 | Carrusel | Educa | Tus huesos piden pesas (fuerza en la menopausia) | `posts/2026-11-10-fuerza-en-la-menopausia` | Programado en Metricool |
 | 2026-11-15 | 11:00 | Carrusel | Oferta | Tres formas de entrenar conmigo | `posts/2026-11-15-entrena-conmigo` | Programado en Metricool |
 | 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Guion (pendiente de clips de Paula) |
+| 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿este peso es el adecuado? El RIR en una tabla (patrón 2) | — | Idea |
+| 2026-11-19 | 19:00 | Reel | Confianza | Por qué me hice entrenadora: clips de Paula entrenando + su voz en off (patrón 1) | — | Idea |
+| 2026-11-24 | 19:00 | Carrusel | Educa | Fuerza en casa con una silla y una mochila: 5 ejercicios para empezar (patrón 2) | — | Idea |
+| 2026-11-26 | 19:00 | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí: sentadilla a la silla, con voz en off (patrones 1 y 2) | — | Idea |
+| 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea |
+| 2026-12-03 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio (patrón 1) | — | Idea |
