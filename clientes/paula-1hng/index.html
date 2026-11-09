@@ -400,21 +400,21 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 
 /* ================= Plan · semana 1 valoración + semanas 2-4 fase Base ================= */
 const FOCUS={
-  1:["Semana de valoración","Hoy, sesión suave para volver a moverte después de estas semanas. Martes, test de fuerza y medidas; jueves, 2 km de remo y técnica de estaciones con tus compañeras. En los tests, la serie acaba cuando se rompe la técnica, nunca al fallo."],
-  2:["Empieza la Base","Aunque sabes levantar más, esta fase va a 8-12 repeticiones con RIR 3-4: el cuerpo tiene que volver a tolerar la carga después de casi tres semanas parada. La carrera, andar-correr en cinta."],
-  3:["Solo sube una cosa","Si la semana pasada completaste el rango con RIR 3-4, sube la carga mínima. En carrera, los tramos de trote se alargan pero la sesión dura lo mismo: así cumples la regla del 10 %."],
-  4:["Cierre del bloque","Tramos de trote de 2'30\". El domingo, check-in: con el semáforo decidimos si pasas a Construcción o repetimos la Base."]
+  1:["Semana tranquila","Esta semana solo vuelves a moverte: 2 series por ejercicio, cargas cómodas con las que te sobren 3-4 repeticiones y nada de tests. Lo que cuenta es ir."],
+  2:["Empieza la Base","Pasamos a 3 series de 8-12 con RIR 3-4. Apunta tus cargas: la app te dirá cuándo subir. En carrera, los tramos de trote pasan a 1'30\"."],
+  3:["Solo sube una cosa","Si completaste el rango con RIR 3-4, sube la carga mínima. Los tramos de trote pasan a 2'30\" y la sesión sigue durando 24 minutos: así cumples la regla del 10 %."],
+  4:["Semana de valoración","Lunes, test de fuerza y medidas; jueves, 2 km de remo y técnica de estaciones. El martes y el miércoles van suaves para que llegues fresca. Nada al fallo."]
 };
 const WARM_F=["5' de bici o remo suave (RPE 3)","Movilidad de cadera, tobillo y hombro (3')","1-2 series ligeras del primer ejercicio"];
 const WARM_M=["5' andando rápido en la cinta (1 % de inclinación)"];
 const WARM_H=["5' de remo suave","Movilidad general (3')","2 tramos de trineo sin discos"];
-const RUNW={2:[8,60,120],3:[8,90,90],4:[6,150,90]};
+const RUNW={1:[8,60,120],2:[8,90,90],3:[6,150,90],4:[5,240,60]};
 
 function vuelta(){return{type:"motor",t:"Vuelta suave",dur:45,
-  goal:"Volver a moverte sin cansarte. Es la sesión del día antes del test: todo cómodo, para llegar fresca.",
+  goal:"Volver a moverte sin cansarte después de estas semanas. Todo cómodo: hoy no se busca nada más.",
   warm:["5' andando o en bici muy suave"],cool:["Movilidad suave de lo que notes cargado"],
   cardio:{mins:20,txt:"Remo o bici a ritmo cómodo"},
-  after:"Mañana, test de fuerza: cena con hidratos y proteína y duerme lo que puedas.",
+  after:"Mañana, fuerza con cargas cómodas. Come bien hoy aunque no tengas mucha hambre.",
   ex:[
   {n:"Sentadilla trasera",sets:2,reps:"10 con barra ligera",rest:60,how:"Solo técnica: misma profundidad en todas las repeticiones, rodillas en la línea de los pies.",alt:"Sentadilla goblet"},
   {n:"Hip thrust",sets:2,reps:"10 ligero",rest:60,how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
@@ -424,7 +424,7 @@ function vuelta(){return{type:"motor",t:"Vuelta suave",dur:45,
 function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:75,rmTxt:[3,6],
   goal:"Saber con qué cargas trabajas de verdad, para que el plan parta de tus números y no de una estimación.",
   warm:["5-10' de bici o remo suave","Movilidad de cadera, tobillo y hombro"],cool:["5' andando suave","Apunta todo antes de irte"],
-  after:"Mañana, sesión suave. Nada intenso hasta el test de remo del jueves.",
+  after:"Martes y miércoles, sesiones suaves. El jueves, test de remo.",
   tests:[
    {k:"peso",n:"Peso",u:"kg",h:"Por la mañana, tras ir al baño, en ayunas y con ropa ligera. Misma báscula siempre."},
    {k:"cintura",n:"Perímetro de cintura",u:"cm",h:"De pie, a mitad de camino entre la última costilla y el hueso de la cadera, al soltar el aire. Cinta horizontal sin apretar. Mide 2 veces y apunta la media."},
@@ -451,29 +451,29 @@ function testRemoHyrox(){return{type:"test",t:"Test de remo + estaciones",dur:70
   {n:"Arrastre de trineo",sets:4,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Mano sobre mano, cadera baja y espalda recta.",alt:"Remo pesado con cuerda"},
   {n:"Wall ball",sets:3,reps:"10",rest:60,how:"Sentadilla completa y lanza con el impulso de las piernas.",alt:"Sentadilla con balón sin lanzar"}]}}
 
-function sesA(w){return{type:"fuerza",t:"Fuerza A · piernas y tracción",dur:65,
+function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · piernas y tracción",dur:65,
   goal:"Fuerza de piernas y cadera: es lo que empuja el trineo y te sostiene en las zancadas con saco.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera y gemelo"],
   after:"Comida con proteína y arroz o patata antes de ir a trabajar.",
   ex:[
-  {n:"Sentadilla trasera",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:150,inc:2.5,incTxt:"2,5 kg",how:"Rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
-  {n:"Peso muerto rumano",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Cadera atrás, barra pegada a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Rumano con mancuernas"},
-  {n:"Zancada atrás con mancuernas",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Paso largo hacia atrás, la rodilla de atrás roza el suelo. Reps por pierna.",alt:"Split squat sin desplazarte"},
-  {n:"Remo en máquina",sets:3,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
-  {n:"Gemelo de pie",sets:3,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:5,incTxt:"5 kg",how:"Un segundo arriba y bajada lenta. Prepara el tendón de Aquiles para correr.",alt:"Gemelo en prensa"},
-  {n:"Plancha lateral",sets:3,time:"30-40\" / lado",rest:45,how:"Cadera alta y cuerpo en línea recta.",alt:"Con las rodillas apoyadas"}]}}
+  {n:"Sentadilla trasera",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:150,inc:2.5,incTxt:"2,5 kg",how:"Rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
+  {n:"Peso muerto rumano",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Cadera atrás, barra pegada a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Rumano con mancuernas"},
+  {n:"Zancada atrás con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Paso largo hacia atrás, la rodilla de atrás roza el suelo. Reps por pierna.",alt:"Split squat sin desplazarte"},
+  {n:"Remo en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
+  {n:"Gemelo de pie",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:5,incTxt:"5 kg",how:"Un segundo arriba y bajada lenta. Prepara el tendón de Aquiles para correr.",alt:"Gemelo en prensa"},
+  {n:"Plancha lateral",sets:s,time:"30-40\" / lado",rest:45,how:"Cadera alta y cuerpo en línea recta.",alt:"Con las rodillas apoyadas"}]}}
 
-function sesB(w){return{type:"fuerza",t:"Andar-correr + tren superior",dur:65,
+function sesB(w){const s=w===1?2:3;return{type:"fuerza",t:"Andar-correr + tren superior",dur:65,
   goal:"Volver a correr poco a poco y fuerza de tracción y empuje para el arrastre, el remo y el wall ball.",warm:WARM_M,cool:["5' andando","Movilidad de hombros"],
   runwalk:RUNW[w],
   after:"La carrera va primero porque ahora es tu prioridad para HYROX. Si un día te molesta algo más de 3/10, repite la semana anterior.",
   ex:[
-  {n:"Press banca",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Escápulas juntas y atrás, pies firmes. La barra baja a la mitad del pecho.",alt:"Press con mancuernas"},
-  {n:"Jalón al pecho",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Dominada asistida con banda"},
-  {n:"Press militar con mancuernas",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Sentada, abdomen firme y sin arquear la zona lumbar.",alt:"Press en máquina"},
-  {n:"Remo en polea",sets:3,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Tira hacia el ombligo y junta las escápulas al final.",alt:"Remo con banda elástica"},
-  {n:"Paseo del granjero",sets:3,reps:"40 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos y rápidos. Es una estación de HYROX.",alt:"Con kettlebells"}]}}
+  {n:"Press banca",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Escápulas juntas y atrás, pies firmes. La barra baja a la mitad del pecho.",alt:"Press con mancuernas"},
+  {n:"Jalón al pecho",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Dominada asistida con banda"},
+  {n:"Press militar con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Sentada, abdomen firme y sin arquear la zona lumbar.",alt:"Press en máquina"},
+  {n:"Remo en polea",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Tira hacia el ombligo y junta las escápulas al final.",alt:"Remo con banda elástica"},
+  {n:"Paseo del granjero",sets:s,reps:"40 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos y rápidos. Es una estación de HYROX.",alt:"Con kettlebells"}]}}
 
-function sesC(w){const mins={2:30,3:35,4:35}[w];return{type:"motor",t:"Motor suave + core",dur:mins+20,
+function sesC(w){const mins={1:25,2:30,3:35,4:30}[w];return{type:"motor",t:"Motor suave + core",dur:mins+20,
   goal:"Sumar resistencia sin impacto ni fatiga, para llegar fresca al HYROX del jueves.",warm:["5' suave en la misma máquina"],cool:["Estira suave lo que notes cargado"],
   cardio:{mins,txt:"Remo, bici o elíptica"},
   after:"Si llegas muy cansada, baja el cardio a 20' y haz el core igualmente.",
@@ -482,20 +482,20 @@ function sesC(w){const mins={2:30,3:35,4:35}[w];return{type:"motor",t:"Motor sua
   {n:"Pallof press",sets:3,reps:"10 / lado",rest:45,how:"Empuja la polea al frente sin que el tronco gire.",alt:"Con banda elástica"},
   {n:"Suitcase carry",sets:3,reps:"30 m / lado",rest:60,kg:true,inc:2,incTxt:"2 kg",how:"Peso en una mano y tronco recto, sin inclinarte.",alt:"Con kettlebell"}]}}
 
-function sesH(w){const r=w===2?2:3;return{type:"hyrox",t:"HYROX · técnica de estaciones",dur:65,
+function sesH(w){const r=w<=2?2:3,t1=w===1;return{type:"hyrox",t:t1?"HYROX suave · técnica":"HYROX · técnica de estaciones",dur:t1?55:65,
   goal:"Técnica de las estaciones y moverte entre ellas, con tus compañeras. En la Base se trabaja con margen: RPE 5-6, nada de ir a tope.",warm:WARM_H,cool:["5' andando","Bebe y come antes de ir a trabajar"],
   after:"Si entrenáis juntas, alternad: una trabaja mientras la otra descansa. Tu tarde más larga: lleva merienda.",
   ex:[
-  {n:"Empuje de trineo",sets:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Brazos estirados, cuerpo a unos 45° y pasos cortos y continuos.",alt:"Empujar un banco o prowler"},
-  {n:"Arrastre de trineo",sets:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Mano sobre mano, cadera baja y espalda recta mientras retrocedes.",alt:"Remo pesado con cuerda"},
-  {n:"Wall ball",sets:w===2?4:5,reps:"10",rest:60,how:"Sentadilla completa y lanza con las piernas, no solo con los brazos. 4 kg si vas a la individual; 6 kg si acabas en doubles mixto.",alt:"Balón medicinal ligero"},
+  {n:"Empuje de trineo",sets:t1?4:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Brazos estirados, cuerpo a unos 45° y pasos cortos y continuos.",alt:"Empujar un banco o prowler"},
+  {n:"Arrastre de trineo",sets:t1?4:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Mano sobre mano, cadera baja y espalda recta mientras retrocedes.",alt:"Remo pesado con cuerda"},
+  {n:"Wall ball",sets:w<=2?(t1?3:4):5,reps:"10",rest:60,how:"Sentadilla completa y lanza con las piernas, no solo con los brazos. 4 kg si vas a la individual; 6 kg si acabas en doubles mixto.",alt:"Balón medicinal ligero"},
   {n:`Circuito · ${r} rondas`,sets:r,reps:"400 m cinta andar-correr + 300 m remo + 6 burpees con salto + 20 m zancada con saco + 40 m granjero",rest:120,how:"Ritmo de conversación en la cinta. Marca una ronda al acabarla; descansa 2' entre rondas.",alt:"Burpee sin salto o zancada sin peso"}]}}
 
 const PLAN={
-  1:{lun:vuelta(),mar:testFuerza(),mie:{...sesC(2),t:"Motor suave + core",cardio:{mins:25,txt:"Bici o elíptica, sin impacto"},after:"Suave de verdad: mañana es el test de remo."},jue:testRemoHyrox()},
+  1:{lun:vuelta(),mar:sesB(1),mie:sesC(1),jue:sesH(1)},
   2:{lun:sesA(2),mar:sesB(2),mie:sesC(2),jue:sesH(2)},
   3:{lun:sesA(3),mar:sesB(3),mie:sesC(3),jue:sesH(3)},
-  4:{lun:sesA(4),mar:sesB(4),mie:sesC(4),jue:sesH(4)}
+  4:{lun:testFuerza(),mar:{...sesB(4),after:"Hoy y mañana, suave: el jueves es el test de remo."},mie:sesC(4),jue:testRemoHyrox()}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
@@ -562,7 +562,7 @@ function renderSemana(){
    `<div class="weekbar">
       <button class="arrow" type="button" data-w="-1" ${week===1?"disabled":""} aria-label="Semana anterior">‹</button>
       <div class="mid"><h2>Semana ${week}</h2><small>${fmt(ws)} – ${fmt(we)}</small>
-        <div class="chips">${week===1?'<span class="chip p">Valoración</span>':'<span class="chip b">Fase Base</span>'}<span class="chip">${done}/${days.length} hechas</span></div></div>
+        <div class="chips"><span class="chip b">Fase Base</span>${week===4?'<span class="chip p">Valoración</span>':''}<span class="chip">${done}/${days.length} hechas</span></div></div>
       <button class="arrow" type="button" data-w="1" ${week===NW?"disabled":""} aria-label="Semana siguiente">›</button></div>
     <div class="strip">${strip}</div>
     <div class="legend"><span><i style="background:var(--blue-ink)"></i>Fuerza</span><span><i style="background:var(--pink-ink)"></i>Motor</span><span><i style="background:var(--test)"></i>Test</span><span><i style="background:var(--blue)"></i>HYROX</span><span><i style="background:var(--ok)"></i>Hecha</span></div>
@@ -791,22 +791,22 @@ function renderNutricion(){
 
 /* ================= Valoración inicial ================= */
 /* Si CLIENTE.inicial es null, el cliente apunta sus datos en el móvil (no viajan en el archivo público) */
-function getIni(){const a=S.ses[sid(1,"mar")]?.t||{},b=S.ses[sid(1,"jue")]?.t||{};return {...a,...b}}
-const REVAL="del 4 al 10 de enero";
+function getIni(){const a=S.ses[sid(4,"lun")]?.t||{},b=S.ses[sid(4,"jue")]?.t||{};return {...a,...b}}
+const REVAL="del 1 al 7 de febrero";
 const pdate=s=>{if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
 function renderProgreso(){
   const s=SUB.progreso,I=getIni();let h=segBar("progreso");
   const v=(x,u)=>x!=null&&x!==""?`<span class="v">${esc(x)}${u?" "+u:""}</span>`:`<span class="v muted">—</span>`;
-  const pend=`<span class="v muted">${"ene"}</span>`;
+  const pend=`<span class="v muted">feb</span>`;
   if(s==="resumen"){
     let tot=0,dn=0;for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){tot++;if(S.ses[sid(w,dd)]?.done)dn++}
     let hb=0;for(let w=1;w<=NW;w++){const x=S.hab[sid(w,"hab")]||{};HABITS.forEach(([k])=>hb+=(x[k]||[]).filter(Boolean).length)}
     const rp=[];for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){const r=num(S.ses[sid(w,dd)]?.rpe);if(r!=null)rp.push(r)}
-    h+=`<div class="card"><p class="eyebrow">Objetivo</p><h2>${esc(CLIENTE.objetivo)}</h2><p class="lead">Nivel ${esc(CLIENTE.nivel.toLowerCase())}. Valoración inicial: semana 1. Próxima valoración: ${REVAL}, con los mismos tests y en las mismas condiciones.</p></div>
+    h+=`<div class="card"><p class="eyebrow">Objetivo</p><h2>${esc(CLIENTE.objetivo)}</h2><p class="lead">Nivel ${esc(CLIENTE.nivel.toLowerCase())}. Valoración inicial: semana 4 (30 nov – 6 dic). Próxima valoración: ${REVAL}, con los mismos tests y en las mismas condiciones.</p></div>
       <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${rp.length?nf(rp.reduce((a,b)=>a+b,0)/rp.length):"–"}</b><span>RPE medio</span></div><div><b>${hb}</b><span>hábitos</span></div></div>
       <div class="card"><p class="eyebrow">El camino</p><h2>Hasta Málaga</h2><div class="tips">
-        <div><b>Valoración · 9-15 nov</b>Tests de fuerza, remo y medidas.</div>
-        <div><b>Base · desde el 16 nov</b>Técnica y tolerancia a la carga, 4-8 semanas.</div>
+        <div><b>Base · desde el 9 nov</b>Técnica y tolerancia a la carga, 4-8 semanas.</div>
+        <div><b>Valoración · 30 nov – 6 dic</b>Tests de fuerza, remo y medidas.</div>
         <div><b>Construcción · 8-12 semanas</b>Fuerza pesada y más carrera. Revaloración ${REVAL}.</div>
         <div><b>Objetivo HYROX · marzo</b>Bloque específico con las cargas de tu categoría.</div>
         <div><b>Tapering · últimos 10-14 días</b>Volumen −40-60 %, misma intensidad. Nada nuevo la última semana.</div>
@@ -816,28 +816,28 @@ function renderProgreso(){
   if(s==="medidas"){
     const mobRows=[["sentadilla","Sentadilla profunda"],["bisagra","Bisagra de cadera"],["brazos","Brazos arriba"]].map(([k,n])=>{
       const a=I["mob_"+k];const cls=x=>x?x.toLowerCase():"na";
-      return `<div><span>${n}</span><span style="display:flex;gap:6px"><span class="st ${cls(a)}">${a||"—"}</span><span class="st na">ene</span></span></div>`}).join("");
+      return `<div><span>${n}</span><span style="display:flex;gap:6px"><span class="st ${cls(a)}">${a||"—"}</span><span class="st na">feb</span></span></div>`}).join("");
     h+=`<div class="card"><p class="eyebrow">Composición</p><h2>Medidas</h2>
-      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Enero</span><span></span></div>
+      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Febrero</span><span></span></div>
         <div><span class="k">Peso</span>${v(I.peso,"kg")}${pend}<span class="d"></span></div>
         <div><span class="k">Cintura</span>${v(I.cintura,"cm")}${pend}<span class="d"></span></div></div>
-      <p class="note">Los datos de inicio salen de tu test de la semana 1. El peso sube y baja de un día a otro: mira la tendencia.</p></div>
-    <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: semana 1. Derecha: próxima valoración.</p></div>`;
+      <p class="note">Los datos de inicio salen de tu test de la semana 4. El peso sube y baja de un día a otro: mira la tendencia.</p></div>
+    <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: semana 4. Derecha: próxima valoración.</p></div>`;
   }
   if(s==="fuerza"){
     const rms=[["rm_sentadilla","Sentadilla trasera"],["rm_hip","Hip thrust"],["rm_press","Press banca"],["rm_remo","Remo en máquina"]].map(([k,n])=>{
       const kg=num(I[k+"_kg"]),r=num(I[k+"_r"]);return `<div><span class="k">${n}</span><span class="v ${kg==null?"muted":""}">${kg!=null?nf(kg)+" kg":"—"}</span><span class="v ${r==null?"muted":""}">${r!=null?"× "+r:""}</span><span class="d"></span></div>`}).join("");
     const bars=["Sentadilla trasera","Peso muerto rumano","Press banca","Jalón al pecho","Remo en máquina","Empuje de trineo"].map(name=>{
-      const vals=[2,3,4].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
+      const vals=[1,2,3].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
       const mx=Math.max(...vals.filter(x=>x!=null),0),last=[...vals].reverse().find(x=>x!=null);
       return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
-        <div class="bw">${vals.map((x,i)=>`<div><div class="track"><i style="width:${x!=null&&mx?Math.round(x/mx*100):0}%"></i></div><small>S${i+2}${x!=null?" · "+nf(x):""}</small></div>`).join("")}</div></div>`}).join("");
-    h+=`<div class="card"><p class="eyebrow">Test · semana 1</p><h2>3-6RM</h2><div class="cmp">${rms}</div><p class="note">Tu punto de partida. En enero repites el mismo test: un cambio cuenta si sube al menos un 5 % la carga o 2 repeticiones con la misma.</p></div>
+        <div class="bw">${vals.map((x,i)=>`<div><div class="track"><i style="width:${x!=null&&mx?Math.round(x/mx*100):0}%"></i></div><small>S${i+1}${x!=null?" · "+nf(x):""}</small></div>`).join("")}</div></div>`}).join("");
+    h+=`<div class="card"><p class="eyebrow">Test · semana 4</p><h2>3-6RM</h2><div class="cmp">${rms}</div><p class="note">Tu punto de partida. En febrero repites el mismo test: un cambio cuenta si sube al menos un 5 % la carga o 2 repeticiones con la misma.</p></div>
     <div class="card"><p class="eyebrow">En el gimnasio</p><h2>Tus cargas semana a semana</h2><div class="bars">${bars}</div></div>`;
   }
   if(s==="motor"){
     h+=`<div class="card"><p class="eyebrow">Motor</p><h2>Contrarreloj de 2 km de remo</h2>
-      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Enero</span><span></span></div>
+      <div class="cmp"><div class="head"><span></span><span>Inicio</span><span>Febrero</span><span></span></div>
         <div><span class="k">Tiempo</span>${v(I.remo_t)}${pend}<span class="d"></span></div>
         <div><span class="k">Ritmo /500 m</span>${v(I.remo_500)}${pend}<span class="d"></span></div>
         <div><span class="k">Pulsaciones medias</span>${v(I.remo_fcm,"ppm")}${pend}<span class="d"></span></div>
