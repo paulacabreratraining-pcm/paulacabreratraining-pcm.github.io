@@ -398,7 +398,7 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
   1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
-  2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual; en el press bajamos un poco para ir con calma, y en el remo estrenas la máquina de fuerza. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos."],
+  2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual; en el press bajamos un poco para ir con calma, y en el remo estrenas la máquina de fuerza. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos. Y como el jueves no puedes, la Fuerza B la haces el viernes en casa."],
   3:["Consolidar","Mismo esfuerzo y algo más de carga si toca. La natación sube a 30 minutos, siempre a ritmo cómodo."],
   4:["Semana de valoración","Martes, test de fuerza y medidas; miércoles, natación suave; jueves, test de la milla."]
 };
@@ -462,9 +462,23 @@ function testMilla(){return{type:"test",t:"Test de la milla",dur:35,
    {k:"milla_t",n:"Tiempo",u:"min:seg",txt:true,h:"Camina 1.609 m lo más rápido posible, sin correr. Mismo recorrido y mismo reloj que la primera vez."},
    {k:"milla_fc",n:"Pulsaciones al terminar",u:"ppm",h:"Las del reloj justo al cruzar la meta."}]}}
 
+/* Fuerza B en casa: 2 tobilleras lastradas, 2 mancuernas de 2 kg y colchoneta */
+function sesCasa(w){return{type:"fuerza",t:"Fuerza B · en casa",dur:45,
+  goal:"La misma idea que la Fuerza B del gimnasio, con lo que tienes en casa: cadera, piernas y espalda para recoger cosas y levantarte del suelo sin esfuerzo.",
+  warm:["5' andando por casa o subiendo y bajando un escalón","Movilidad de cadera, tobillo y hombros (3')"],cool:["Estira suave en la colchoneta"],
+  after:RESP+" Con poco peso, el esfuerzo lo pones tú: baja despacio y para cuando te queden 2-3 repeticiones. El domingo, rellena el check-in.",
+  ex:[
+  {n:"Peso muerto rumano a una pierna con apoyo",sets:3,reps:"8-10 / pierna",rir:"2-3",rest:60,how:"Una mancuerna de 2 kg en la mano contraria a la pierna de apoyo y la otra mano en la pared o una silla. Cadera atrás y espalda recta, como en la bisagra con el palo. Baja despacio, en 3 segundos.",alt:"Con las dos piernas y las dos mancuernas"},
+  {n:"Sentadilla a la silla",sets:3,reps:"10-12",rir:"2-3",rest:60,how:"Una mancuerna en cada mano. Siéntate en la silla bajando en 3 segundos y levántate sin impulso. Cuando te sea fácil, usa una silla más baja.",alt:"Con las manos en las rodillas para ayudarte"},
+  {n:"Remo con mancuerna apoyado en una silla",sets:3,reps:"12-15 / brazo",rir:"2-3",rest:60,how:"Mano y rodilla apoyadas en la silla. Coge las dos mancuernas juntas con la otra mano y tira hacia la cadera. Junta la escápula y aguanta 2 segundos arriba.",alt:"Con una tobillera lastrada en la mano"},
+  {n:"Subida al escalón",sets:3,reps:"8-10 / pierna",rir:"2-3",rest:60,how:"En el primer escalón de una escalera, agarrado a la barandilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo. Con una mancuerna en la mano libre si te resulta fácil.",alt:"Sin peso"},
+  {n:"Puente de glúteo con tobilleras",sets:3,reps:"12-15",rir:"2-3",rest:60,how:"Tumbado en la colchoneta, rodillas dobladas y las dos tobilleras sobre la cadera. Sube apretando glúteos, aguanta 2 segundos y baja despacio.",alt:"A una pierna, sin peso"},
+  {n:"Levantarse del suelo",sets:3,reps:"3-5",rest:60,how:"Desde la colchoneta, levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Apoyando una mano en una silla"},
+  {n:"Elevación lateral de pierna con tobilleras",sets:2,reps:"12-15 / lado",rest:45,how:"Tumbado de lado, con la tobillera puesta. Sube la pierna de arriba recta, sin girar la cadera, y baja despacio.",alt:"Sin tobillera"}]}}
+
 const PLAN={
   1:{mie:sesA(1),jue:sesNat(1)},
-  2:{mar:sesA(2),mie:sesNat(2),jue:sesC(2)},
+  2:{mar:sesA(2),mie:sesNat(2),vie:sesCasa(2)},   // jueves 12 no puede: Fuerza B en casa el viernes 13
   3:{mar:sesA(3),mie:sesNat(3),jue:sesC(3)},
   4:{mar:testFuerza(),mie:sesNat(4),jue:testMilla()}
 };
