@@ -121,6 +121,7 @@ Honestidad: es una muestra pequeña y lo que funciona en otra cuenta no garantiz
 - `texto`: `num` (opcional, «01»), `titulo`, `resaltado`, `texto`.
 - `lista`: `titulo`, `resaltado`, `puntos` (lista).
 - `opcion`: para menús de opciones o servicios (decisión de Paula, 13/11/2026: las diapositivas de texto sobre fondo claro le parecen «presentación de clase»). Bloque de color a toda la diapositiva (`color`: navy, rosa o azul, alternándolos), número gigante, título enorme en mayúsculas y 2–3 `chips`. Campos: `num`, `etiqueta`, `titulo`, `resaltado`, `texto`, `chips`, `color`.
+- `pasos`: 2–4 pasos numerados en tarjetas azul marino sobre fondo rosa (13/11/2026, va a juego con `opcion`). Campos: `titulo`, `resaltado`, `pasos` (lista; `**así**` sale en rosa).
 - `cierre`: `titulo`, `resaltado`, `texto`, `boton` (opcional).
 - `testimonio`: `texto` (la opinión, con las palabras exactas del cliente), `autor` (como haya elegido salir: nombre de pila, inicial o «Cliente»), `detalle` (opcional, p. ej. «Plan online · 2 meses»). Solo con su permiso por escrito; el permiso NO se guarda en este repositorio (es público).
 

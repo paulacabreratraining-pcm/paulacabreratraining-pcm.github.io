@@ -44,6 +44,13 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .op .chip{font-size:34px;font-weight:800;padding:16px 28px;border-radius:999px;border:4px solid currentColor}
 .op.navy .chip{border-color:${C.rosa};color:${C.rosa}}
 .op .foot{opacity:.9}
+.pa{background:${C.rosa};color:${C.logoBg};padding:110px 80px 170px;justify-content:center}
+.pa h2{font-weight:900;font-size:112px;line-height:.9;letter-spacing:-4px;text-transform:uppercase;margin:0 0 60px}
+.pa h2 .k{color:${C.blanco};-webkit-text-stroke:3px ${C.logoBg}}
+.pa .rows{display:flex;flex-direction:column;gap:24px}
+.pa .row{display:flex;align-items:center;gap:32px;background:${C.logoBg};color:${C.blanco};border-radius:28px;padding:34px 40px}
+.pa .n{flex:none;width:96px;height:96px;border-radius:50%;background:${C.rosa};color:${C.logoBg};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:52px}
+.pa .row span{font-size:42px;font-weight:600;line-height:1.25} .pa .row strong{color:${C.rosa};font-weight:800}
 .imp{background:${C.rosa};color:${C.logoBg};justify-content:flex-start;padding:90px 80px}
 .imp .tag{align-self:flex-start;background:${C.logoBg};color:${C.rosa};font-weight:800;font-size:34px;padding:16px 28px;border-radius:12px;letter-spacing:1px;text-transform:uppercase}
 .imp h1{color:${C.logoBg};margin-top:60px;line-height:.86;letter-spacing:-6px}
@@ -112,6 +119,9 @@ function slide(d, i, n, H){
     case 'opcion': { // opción de un menú: bloque de color, número gigante, título enorme y chips
       const col = d.color||'navy'; const t = esc(d.titulo).replace(esc(d.resaltado||'\u0000'), `<span class="k">${esc(d.resaltado||'')}</span>`);
       return `<div class="s op ${col}"><div class="big">${esc(d.num)}</div>${d.etiqueta?`<span class="et">${esc(d.etiqueta)}</span>`:''}<h2>${t}</h2>${d.texto?`<p class="tx">${md(d.texto)}</p>`:''}${(d.chips||[]).length?`<div class="chips">${d.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}</div>`:''}${foot()}</div>`; }
+    case 'pasos': { // pasos numerados en tarjetas azul marino sobre rosa
+      const t = esc(d.titulo).replace(esc(d.resaltado||'\u0000'), `<span class="k">${esc(d.resaltado||'')}</span>`);
+      return `<div class="s pa"><h2>${t}</h2><div class="rows">${(d.pasos||[]).map((p,j)=>`<div class="row"><div class="n">${j+1}</div><span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`; }
     case 'texto': return `<div class="s light">${d.num?`<div class="num">${esc(d.num)}</div>`:''}<h2>${marca(d.titulo,d.resaltado)}</h2><p class="txt">${md(d.texto)}</p>${foot()}</div>`;
     case 'lista': return `<div class="s light"><h2>${marca(d.titulo,d.resaltado)}</h2><div class="pts">${(d.puntos||[]).map(p=>`<div class="pt">${check}<span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`;
     case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme EMPEZAR por mensaje')}</span>${foot(1)}</div>`;

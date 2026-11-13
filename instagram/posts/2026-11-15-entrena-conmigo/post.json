@@ -57,10 +57,10 @@
       ]
     },
     {
-      "tipo": "lista",
+      "tipo": "pasos",
       "titulo": "Siempre empezamos igual",
-      "resaltado": "empezamos",
-      "puntos": [
+      "resaltado": "igual",
+      "pasos": [
         "Una **valoración inicial** para saber de dónde partes",
         "**Gratis** si vienes con mi tarjeta o de parte de alguien",
         "¿Precios? Te los cuento por **mensaje directo**"
