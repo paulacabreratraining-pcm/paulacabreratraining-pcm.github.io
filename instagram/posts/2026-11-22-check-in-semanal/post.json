@@ -1,0 +1,84 @@
+{
+  "fecha": "2026-11-22",
+  "hora": "11:00",
+  "formato": "carrusel",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "ganchos": {
+    "¿Tu plan cambia si tu semana va mal? SÍ.": 9,
+    "Lo que hago con tu check-in del domingo": 7,
+    "Tu plan no es fijo": 6
+  },
+  "nota": "Sin datos científicos: todo es cómo trabaja Paula (criterio práctico). Se publica en domingo, el día del check-in de sus clientes.",
+  "diapositivas": [
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Tu plan cambia si tu semana va mal?",
+      "respuesta": "SÍ.",
+      "texto": "Para eso está el **check-in** de cada domingo."
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "01",
+      "etiqueta": "Domingo",
+      "titulo": "Me cuentas tu semana",
+      "resaltado": "semana",
+      "texto": "**5 preguntas** en tu app: cómo ha ido, si te ha molestado algo y lo que quieras contarme.",
+      "chips": ["5 preguntas", "Desde tu app"]
+    },
+    {
+      "tipo": "opcion",
+      "color": "rosa",
+      "num": "02",
+      "etiqueta": "Lo que miro",
+      "titulo": "Leo tus datos",
+      "resaltado": "datos",
+      "texto": "Con el check-in me llegan **tus pesos, tu RIR y tus notas** de cada sesión. Así no ajusto a ojo.",
+      "chips": ["Pesos", "RIR", "Tus notas"]
+    },
+    {
+      "tipo": "opcion",
+      "color": "azul",
+      "num": "03",
+      "etiqueta": "Lunes",
+      "titulo": "Ajusto tu plan",
+      "resaltado": "plan",
+      "texto": "Subimos, mantenemos o bajamos. Tu plan se adapta **a tu semana**, no al revés.",
+      "chips": ["Subir", "Mantener", "Bajar"]
+    },
+    {
+      "tipo": "pasos",
+      "titulo": "Algunos ejemplos",
+      "resaltado": "ejemplos",
+      "pasos": [
+        "¿Todo te ha ido sobrado? La semana que viene **subimos un poco**",
+        "¿Has dormido fatal o vas con mucho estrés? **Mantenemos** la carga",
+        "¿Te ha molestado algo? **Cambiamos el ejercicio** y lo vigilamos"
+      ]
+    },
+    {
+      "tipo": "mito",
+      "num": "!",
+      "mito": "Si fallo una semana, tengo que recuperarlo",
+      "realidad": "No se compensa **acumulando sesiones**.\n\nAjustamos y seguimos. Lo que suma es la **constancia de muchas semanas**."
+    },
+    {
+      "tipo": "cierre-dm",
+      "titulo": "¿Quieres un plan que se adapte a ti?",
+      "resaltado": "a ti?",
+      "texto": "Cuéntame tu objetivo y cómo es tu semana.",
+      "etiqueta": "Escríbeme por mensaje directo",
+      "palabra": "EMPEZAR"
+    }
+  ],
+  "texto": "¿Tu plan cambia si tu semana va mal? Sí. Para eso está el check-in de cada domingo 👇\n\n1️⃣ Me cuentas tu semana: 5 preguntas en tu app.\n2️⃣ Leo tus datos: con el check-in me llegan tus pesos, tu RIR y tus notas de cada sesión.\n3️⃣ Ajusto tu plan: subimos, mantenemos o bajamos según cómo te haya ido.\n\nSi has dormido fatal, no te pido más. Si todo te ha ido sobrado, subimos un poco. Y si fallas una semana, no hay que recuperarla acumulando sesiones: ajustamos y seguimos.\n\nGuárdalo 📌 y mándaselo a quien deja de entrenar cada vez que tiene una semana complicada.\n\n¿Quieres un plan que se adapte a tu vida? Escríbeme EMPEZAR por mensaje directo y te cuento cómo trabajo.",
+  "hashtags": [
+    "entrenamientoonline",
+    "entrenadorapersonal",
+    "entrenamientodefuerza",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ]
+}

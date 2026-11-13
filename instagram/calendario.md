@@ -15,6 +15,7 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿cuánto peso cojo? El RIR (patrón 2) | `posts/2026-11-17-chuleta-rir` | Descartado (repite tema y diseño) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | 4 mitos de la fuerza (diseño nuevo mito/realidad) | `posts/2026-11-17-mitos-fuerza` | Borrador |
 | 2026-11-19 | 19:00 | Reel | Confianza | Un paseo conmigo: domingo en la montaña + test del habla (zona suave), voz en off (patrón 1) | — | Guion (se graba el 8/11) |
+| 2026-11-22 | 11:00 | Carrusel | Método | ¿Tu plan cambia si tu semana va mal? El check-in del domingo | `posts/2026-11-22-check-in-semanal` | Borrador |
 | 2026-11-24 | 19:00 | Carrusel | Educa | Fuerza en casa con una silla y una mochila: 5 ejercicios para empezar (patrón 2) | — | Idea aprobada |
 | 2026-11-26 | 19:00 | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí: sentadilla a la silla, con voz en off (patrones 1 y 2) | — | Idea aprobada |
 | 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
