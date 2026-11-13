@@ -17,25 +17,44 @@
       "franja": "Elige la **tuya**"
     },
     {
-      "tipo": "texto",
+      "tipo": "opcion",
+      "color": "navy",
       "num": "01",
+      "etiqueta": "Opción 1",
       "titulo": "Plan online",
       "resaltado": "online",
-      "texto": "Tu plan de 4 semanas en **tu propia app**, con un check-in **cada semana** para ajustarlo.\n\nEntrenas donde y cuando te venga bien."
+      "texto": "Tu plan de 4 semanas en **tu propia app**. Entrenas donde y cuando te venga bien.",
+      "chips": [
+        "Check-in semanal",
+        "Ajustes cada semana"
+      ]
     },
     {
-      "tipo": "texto",
+      "tipo": "opcion",
+      "color": "rosa",
       "num": "02",
+      "etiqueta": "Opción 2",
       "titulo": "Sesión presencial",
       "resaltado": "presencial",
-      "texto": "Una sesión suelta para **revisar tu técnica**, resolver dudas o ver cómo trabajo antes de decidirte."
+      "texto": "Una sesión suelta para **revisar tu técnica**, resolver dudas o ver cómo trabajo antes de decidirte.",
+      "chips": [
+        "Técnica",
+        "Dudas",
+        "Sin compromiso"
+      ]
     },
     {
-      "tipo": "texto",
+      "tipo": "opcion",
+      "color": "azul",
       "num": "03",
+      "etiqueta": "Opción 3",
       "titulo": "Bonos de sesiones",
-      "resaltado": "Bonos",
-      "texto": "Varias sesiones presenciales para entrenar conmigo **con continuidad** y avanzar paso a paso."
+      "resaltado": "sesiones",
+      "texto": "Varias sesiones presenciales para entrenar conmigo **con continuidad** y avanzar paso a paso.",
+      "chips": [
+        "Presencial",
+        "Paso a paso"
+      ]
     },
     {
       "tipo": "lista",

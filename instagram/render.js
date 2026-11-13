@@ -31,6 +31,19 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .logo{width:300px;height:300px;margin-bottom:56px}
 .cierre{align-items:center;text-align:center}
 .desliza{position:absolute;right:96px;bottom:150px;font-size:34px;font-weight:700;color:${C.rosa}}
+.op{justify-content:flex-end;padding:110px 80px 170px}
+.op.navy{background:${C.logoBg};color:${C.blanco}} .op.rosa{background:${C.rosa};color:${C.logoBg}} .op.azul{background:${C.azul};color:${C.logoBg}}
+.op .big{position:absolute;right:50px;top:150px;font-weight:900;font-size:520px;line-height:.8;letter-spacing:-26px}
+.op.navy .big{color:${C.gris}} .op.rosa .big{color:${C.blanco}} .op.azul .big{color:${C.blanco};opacity:.6}
+.op .et{position:absolute;left:80px;top:90px;font-weight:800;font-size:32px;letter-spacing:2px;text-transform:uppercase;padding:14px 26px;border-radius:999px}
+.op.navy .et{background:${C.rosa};color:${C.logoBg}} .op.rosa .et,.op.azul .et{background:${C.logoBg};color:${C.blanco}}
+.op h2{font-weight:900;font-size:128px;line-height:.9;letter-spacing:-5px;text-transform:uppercase;margin:0 0 36px;position:relative}
+.op.navy h2 .k{color:${C.rosa}} .op.rosa h2 .k,.op.azul h2 .k{color:${C.blanco};-webkit-text-stroke:3px ${C.logoBg}}
+.op .tx{font-size:46px;line-height:1.3;font-weight:600;max-width:880px;position:relative}
+.op .chips{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px;position:relative}
+.op .chip{font-size:34px;font-weight:800;padding:16px 28px;border-radius:999px;border:4px solid currentColor}
+.op.navy .chip{border-color:${C.rosa};color:${C.rosa}}
+.op .foot{opacity:.9}
 .imp{background:${C.rosa};color:${C.logoBg};justify-content:flex-start;padding:90px 80px}
 .imp .tag{align-self:flex-start;background:${C.logoBg};color:${C.rosa};font-weight:800;font-size:34px;padding:16px 28px;border-radius:12px;letter-spacing:1px;text-transform:uppercase}
 .imp h1{color:${C.logoBg};margin-top:60px;line-height:.86;letter-spacing:-6px}
@@ -96,6 +109,9 @@ function slide(d, i, n, H){
     case 'pregunta': { // C · pregunta + respuesta gigante, fondo claro
       const fy = Math.min(420, Math.floor(1530/(d.respuesta||'x').length));
       return `<div class="s preg"><div class="q">${esc(d.pregunta)}</div><div class="yes" style="font-size:${fy}px">${esc(d.respuesta)}</div>${d.texto?`<div class="why">${md(d.texto)}</div>`:''}${n>1?'<span class="desliza">DESLIZA →</span>':''}${foot('sin')}</div>`; }
+    case 'opcion': { // opción de un menú: bloque de color, número gigante, título enorme y chips
+      const col = d.color||'navy'; const t = esc(d.titulo).replace(esc(d.resaltado||'\u0000'), `<span class="k">${esc(d.resaltado||'')}</span>`);
+      return `<div class="s op ${col}"><div class="big">${esc(d.num)}</div>${d.etiqueta?`<span class="et">${esc(d.etiqueta)}</span>`:''}<h2>${t}</h2>${d.texto?`<p class="tx">${md(d.texto)}</p>`:''}${(d.chips||[]).length?`<div class="chips">${d.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}</div>`:''}${foot()}</div>`; }
     case 'texto': return `<div class="s light">${d.num?`<div class="num">${esc(d.num)}</div>`:''}<h2>${marca(d.titulo,d.resaltado)}</h2><p class="txt">${md(d.texto)}</p>${foot()}</div>`;
     case 'lista': return `<div class="s light"><h2>${marca(d.titulo,d.resaltado)}</h2><div class="pts">${(d.puntos||[]).map(p=>`<div class="pt">${check}<span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`;
     case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme EMPEZAR por mensaje')}</span>${foot(1)}</div>`;
