@@ -138,7 +138,7 @@ En los textos, `**así**` va en negrita y `\n` es salto de línea. `formato`: `c
 
 ## Cómo se publica (solo con el «sí» de Paula en el chat)
 
-Cuando Paula apruebe un post, pon `"aprobado": true`, haz push y espera 1–2 minutos a que GitHub Pages sirva las imágenes. Después, por orden de preferencia:
+Cuando Paula apruebe un post, pon `"aprobado": true`, haz push y espera 1–2 minutos a que GitHub Pages sirva las imágenes. Si cambias una imagen que ya estaba publicada en la web, espera al menos 5 minutos tras el push y añade a la URL `?v=<commit>`: si no, Metricool puede coger la versión antigua (13/11/2026 se coló la portada azul antigua en «Tres formas de entrenar conmigo»). Después pide a Paula que mire en Metricool que la imagen es la nueva. Después, por orden de preferencia:
 
 1. **Conector de Metricool** (si está conectado en el chat): programar el post con las URL de las imágenes, el texto y los hashtags en su fecha y hora.
 2. **`publicar.py`** con la API de Instagram, si está configurada (ver `CONFIGURAR.md`).
