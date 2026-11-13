@@ -401,14 +401,14 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 /* ================= Plan · semana 1 valoración + semanas 2-4 fase Base ================= */
 const FOCUS={
   1:["Semana tranquila","Esta semana solo vuelves a moverte: 2 series por ejercicio, cargas cómodas con las que te sobren 3-4 repeticiones y nada de tests. Lo que cuenta es ir."],
-  2:["Empieza la Base","Pasamos a 3 series de 8-12 con RIR 3-4. Apunta tus cargas: la app te dirá cuándo subir. En carrera, los tramos de trote pasan a 1'30\"."],
-  3:["Solo sube una cosa","Si completaste el rango con RIR 3-4, sube la carga mínima. Los tramos de trote pasan a 2'30\" y la sesión sigue durando 24 minutos: así cumples la regla del 10 %."],
+  2:["Empieza la Base","¡4 de 4, Paula! Pasamos a 3 series, pero los pesos se quedan igual: tu energía estuvo baja. La carrera repite la de la semana 1, porque solo hiciste 4 tramos y se te puso en RPE 7. El trote es suave: si no puedes hablar, baja la velocidad o anda más."],
+  3:["Solo sube una cosa","Si completaste el rango con RIR 3-4, sube la carga mínima. Los tramos de trote pasan a 1'30\" y la sesión sigue durando 24 minutos: así cumples la regla del 10 %."],
   4:["Semana de valoración","Lunes, test de fuerza y medidas; jueves, 2 km de remo y técnica de estaciones. El martes y el miércoles van suaves para que llegues fresca. Nada al fallo."]
 };
 const WARM_F=["5' de bici o remo suave (RPE 3)","Movilidad de cadera, tobillo y hombro (3')","1-2 series ligeras del primer ejercicio"];
 const WARM_M=["5' andando rápido en la cinta (1 % de inclinación)"];
 const WARM_H=["5' de remo suave","Movilidad general (3')","2 tramos de trineo sin discos"];
-const RUNW={1:[8,60,120],2:[8,90,90],3:[6,150,90],4:[5,240,60]};
+const RUNW={1:[8,60,120],2:[8,60,120],3:[8,90,90],4:[6,150,90]};
 
 function vuelta(){return{type:"motor",t:"Vuelta suave",dur:45,
   goal:"Volver a moverte sin cansarte después de estas semanas. Todo cómodo: hoy no se busca nada más.",
@@ -484,7 +484,7 @@ function sesC(w){const mins={1:25,2:30,3:35,4:30}[w];return{type:"motor",t:"Moto
 
 function sesH(w){const r=w<=2?2:3,t1=w===1;return{type:"hyrox",t:t1?"HYROX suave · técnica":"HYROX · técnica de estaciones",dur:t1?55:65,
   goal:"Técnica de las estaciones y moverte entre ellas, con tus compañeras. En la Base se trabaja con margen: RPE 5-6, nada de ir a tope.",warm:WARM_H,cool:["5' andando","Bebe y come antes de ir a trabajar"],
-  after:"Si entrenáis juntas, alternad: una trabaja mientras la otra descansa. Tu tarde más larga: lleva merienda.",
+  after:"Si entrenas con alguien, haz tu sesión a su lado y alternad: uno trabaja mientras el otro descansa. Si un día hacéis la suya, que no pase de RPE 6. Tu tarde más larga: lleva merienda.",
   ex:[
   {n:"Empuje de trineo",sets:t1?4:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Brazos estirados, cuerpo a unos 45° y pasos cortos y continuos.",alt:"Empujar un banco o prowler"},
   {n:"Arrastre de trineo",sets:t1?4:6,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Mano sobre mano, cadera baja y espalda recta mientras retrocedes.",alt:"Remo pesado con cuerda"},
