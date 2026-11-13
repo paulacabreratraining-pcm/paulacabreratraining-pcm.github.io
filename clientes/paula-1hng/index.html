@@ -453,7 +453,7 @@ function testRemoHyrox(){return{type:"test",t:"Test de remo + estaciones",dur:70
 
 function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · tren inferior",dur:65,
   goal:"Solo tren inferior: fuerza de piernas y cadera para empujar el trineo, y cuádriceps fuertes para la rodilla, las zancadas con saco y los wall balls.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera y gemelo"],
-  after:"Comida con proteína y arroz o patata antes de ir a trabajar.",
+  after:"Si vuelve la molestia de rodilla: baja la carga o la profundidad de la sentadilla y la zancada hasta que no pase de 3/10, y apúntalo en la nota. Si dura más de una semana, fisio. Después, comida con proteína y arroz o patata.",
   ex:[
   {n:"Sentadilla trasera",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:150,inc:2.5,incTxt:"2,5 kg",how:"Rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
   {n:"Peso muerto rumano",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Cadera atrás, barra pegada a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Rumano con mancuernas"},
@@ -480,7 +480,8 @@ function sesC(w){const mins={1:25,2:30,3:35,4:30}[w];return{type:"motor",t:"Moto
   ex:[
   {n:"Dead bug",sets:3,reps:"8 / lado",rest:45,how:"Zona lumbar pegada al suelo. Suelta el aire al estirar brazo y pierna contrarios.",alt:"Solo piernas"},
   {n:"Pallof press",sets:3,reps:"10 / lado",rest:45,how:"Empuja la polea al frente sin que el tronco gire.",alt:"Con banda elástica"},
-  {n:"Suitcase carry",sets:3,reps:"30 m / lado",rest:60,kg:true,inc:2,incTxt:"2 kg",how:"Peso en una mano y tronco recto, sin inclinarte.",alt:"Con kettlebell"}]}}
+  {n:"Suitcase carry",sets:3,reps:"30 m / lado",rest:60,kg:true,inc:2,incTxt:"2 kg",how:"Peso en una mano y tronco recto, sin inclinarte.",alt:"Con kettlebell"},
+  {n:"Abducción de cadera en máquina",sets:3,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada. Abre las piernas con control, 1 segundo fuera y vuelve despacio. Los glúteos ayudan a que la rodilla no se vaya hacia dentro al correr, en las zancadas y en las escaleras.",alt:"Puente lateral o paseo lateral con banda"}]}}
 
 function sesH(w){const r=w<=2?2:3,t1=w===1;return{type:"hyrox",t:t1?"HYROX suave · técnica":"HYROX · técnica de estaciones",dur:t1?55:65,
   goal:"Técnica de las estaciones y moverte entre ellas, con tus compañeras. En la Base se trabaja con margen: RPE 5-6, nada de ir a tope.",warm:WARM_H,cool:["5' andando","Bebe y come antes de ir a trabajar"],
