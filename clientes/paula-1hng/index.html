@@ -451,14 +451,14 @@ function testRemoHyrox(){return{type:"test",t:"Test de remo + estaciones",dur:70
   {n:"Arrastre de trineo",sets:4,reps:"12,5 m",rest:90,kg:true,inc:5,incTxt:"5 kg",how:"Mano sobre mano, cadera baja y espalda recta.",alt:"Remo pesado con cuerda"},
   {n:"Wall ball",sets:3,reps:"10",rest:60,how:"Sentadilla completa y lanza con el impulso de las piernas.",alt:"Sentadilla con balón sin lanzar"}]}}
 
-function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · piernas y tracción",dur:65,
-  goal:"Fuerza de piernas y cadera: es lo que empuja el trineo y te sostiene en las zancadas con saco.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera y gemelo"],
+function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · tren inferior",dur:65,
+  goal:"Solo tren inferior: fuerza de piernas y cadera para empujar el trineo, y cuádriceps fuertes para la rodilla, las zancadas con saco y los wall balls.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera y gemelo"],
   after:"Comida con proteína y arroz o patata antes de ir a trabajar.",
   ex:[
   {n:"Sentadilla trasera",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:150,inc:2.5,incTxt:"2,5 kg",how:"Rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
   {n:"Peso muerto rumano",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Cadera atrás, barra pegada a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Rumano con mancuernas"},
   {n:"Zancada atrás con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Paso largo hacia atrás, la rodilla de atrás roza el suelo. Reps por pierna.",alt:"Split squat sin desplazarte"},
-  {n:"Remo en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado. Lleva los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
+  {n:"Extensión de cuádriceps",sets:s,lo:10,hi:15,rir:"2-3",rirMin:2,rest:75,inc:2.5,incTxt:"1 placa",how:"Ajusta el respaldo para que la rodilla quede alineada con el eje de la máquina. Estira del todo, aguanta 1 segundo arriba y baja en 2-3 segundos.",alt:"Sentadilla española con banda"},
   {n:"Gemelo de pie",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:5,incTxt:"5 kg",how:"Un segundo arriba y bajada lenta. Prepara el tendón de Aquiles para correr.",alt:"Gemelo en prensa"},
   {n:"Plancha lateral",sets:s,time:"30-40\" / lado",rest:45,how:"Cadera alta y cuerpo en línea recta.",alt:"Con las rodillas apoyadas"}]}}
 
@@ -827,7 +827,7 @@ function renderProgreso(){
   if(s==="fuerza"){
     const rms=[["rm_sentadilla","Sentadilla trasera"],["rm_hip","Hip thrust"],["rm_press","Press banca"],["rm_remo","Remo en máquina"]].map(([k,n])=>{
       const kg=num(I[k+"_kg"]),r=num(I[k+"_r"]);return `<div><span class="k">${n}</span><span class="v ${kg==null?"muted":""}">${kg!=null?nf(kg)+" kg":"—"}</span><span class="v ${r==null?"muted":""}">${r!=null?"× "+r:""}</span><span class="d"></span></div>`}).join("");
-    const bars=["Sentadilla trasera","Peso muerto rumano","Press banca","Jalón al pecho","Remo en máquina","Empuje de trineo"].map(name=>{
+    const bars=["Sentadilla trasera","Peso muerto rumano","Extensión de cuádriceps","Press banca","Jalón al pecho","Empuje de trineo"].map(name=>{
       const vals=[1,2,3].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
       const mx=Math.max(...vals.filter(x=>x!=null),0),last=[...vals].reverse().find(x=>x!=null);
       return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
