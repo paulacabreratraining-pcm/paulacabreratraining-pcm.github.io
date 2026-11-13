@@ -338,7 +338,7 @@ details.more[open] summary::before{content:"▾ "}
   <button role="tab" data-tab="semana" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Semana</button>
   <button role="tab" data-tab="checkin" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>Check-in</button>
   <button role="tab" data-tab="guia" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 7h6M9 11h6"/></svg>Guía</button>
-  <button role="tab" data-tab="nutricion" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-2-3-7-2-7 3 0 5 4 10 7 10s7-5 7-10c0-5-5-6-7-3z"/><path d="M12 7c0-2 1-4 3-4"/></svg>Nutrición</button>
+  <button role="tab" data-tab="maquinas" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Máquinas</button>
   <button role="tab" data-tab="habitos" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>Hábitos</button>
   <button role="tab" data-tab="progreso" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M6 15l4-4 3 3 5-6"/><path d="M15 8h3v3"/></svg>Progreso</button>
 </div></nav>
@@ -399,10 +399,11 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 const FOCUS={
   1:["Volvemos con calma","Dos series de cada ejercicio y cargas cómodas: termina cada serie sintiendo que podías hacer 3 o 4 más. Esta semana la fuerza es martes y viernes. Lo importante es moverte bien y apuntar los pesos."],
   2:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste las repeticiones con el RIR indicado, la app te dirá cuánto subir. El jueves vuelve a pasar al viernes."],
-  3:["Vuelven los jueves","Fuerza martes y jueves, como querías. Añadimos 10 minutos de bici suave al final de cada sesión de fuerza: es la única cosa que cambia."],
+  3:["Vuelven los jueves","Fuerza martes y jueves, como querías. Añadimos 10 minutos suaves al final de cada sesión de fuerza: el martes andando en cinta y el jueves en bici. Es lo único que cambia."],
   4:["Cerrar el mes","Misma estructura que la semana pasada. Si subes de carga, solo donde la app te lo diga. Al terminar, quedamos para tu valoración presencial."]
 };
-const WARM_F=["5' de bici estática suave (RPE 3)","Movilidad de cadera y hombros, de pie (3')","1 serie ligera del primer ejercicio con carga"];
+const WARM_A=["5' andando en cinta a paso cómodo (RPE 3): así sumas pasos","Movilidad de cadera y hombros, de pie (3')","1 serie ligera del primer ejercicio con carga"];
+const WARM_B=["5' de bici sentada suave (RPE 3)","Movilidad de cadera y hombros, de pie (3')","1 serie ligera del primer ejercicio con carga"];
 
 function aquagym(w){return{type:"motor",t:"Aquagym",dur:30,
   goal:"Tu cardio de la semana, sin impacto y en un ambiente que te gusta. Cuenta igual que una sesión: márcala como hecha.",
@@ -412,13 +413,13 @@ function aquagym(w){return{type:"motor",t:"Aquagym",dur:30,
 
 function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:w>=3?60:50,
   goal:"Piernas fuertes y espalda que tire bien: lo que más ayuda a ganar músculo y a moverte con soltura en el día a día. Todo en máquina para que te concentres en hacerlo bien. Al cambiar de máquina, levántate despacio.",
-  warm:WARM_F,cool:["Estiramiento suave de cadera, de pie","Bebe agua"],
+  warm:WARM_A,cool:["Estiramiento suave de cadera, de pie","Bebe agua"],
   expres:"Haz solo los 3 primeros ejercicios, 2 series de cada uno. Mejor 30 minutos que no venir.",
   after:"Si un día no puedes venir, no pasa nada: la próxima vez haz la sesión que te tocaba y sigue.",
-  easyEnd:w>=3?10:null,
+  easyEnd:w>=3?10:null,easyTxt:"andando en cinta a paso cómodo · RPE 3",
   ex:[
   {n:"Sentadilla isométrica en pared",sets:s,time:"20-30\"",rest:60,how:"Espalda apoyada en la pared y pies un paso por delante. Baja solo hasta donde estés cómoda, sin molestias, y aguanta respirando con normalidad.",alt:"Menos tiempo o bajando menos"},
-  {n:"Prensa de piernas",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera, en el centro de la plataforma. Baja solo hasta donde no notes molestias y sin que la zona lumbar se despegue del respaldo. Suelta el aire al empujar.",alt:"Sentadilla isométrica en pared"},
+  {n:"Prensa horizontal",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, con la espalda pegada al respaldo y los pies a la anchura de la cadera en el centro de la plataforma. Dobla las rodillas solo hasta donde no notes molestias y empuja soltando el aire, sin bloquear las rodillas al estirar.",alt:"Sentadilla isométrica en pared"},
   {n:"Press de pecho en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada y asas a la altura del pecho. Empuja soltando el aire y vuelve despacio.",alt:"Press de pecho en polea"},
   {n:"Remo sentado en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado en el respaldo. Lleva los codos hacia atrás y junta las escápulas al final, sin encoger los hombros.",alt:"Remo en polea baja sentada"},
   {n:"Abductores en máquina",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada. Abre las piernas con control y vuelve despacio, sin dejar que el peso caiga de golpe.",alt:"Abducción de pie en polea"},
@@ -426,17 +427,17 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · piernas, 
 
 function sesB(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza B · glúteos, espalda y hombros",dur:w>=3?60:50,
   goal:"Glúteos, parte de atrás de las piernas y espalda: lo que te sostiene y te ayuda a agacharte y levantarte con facilidad. Al cambiar de máquina, levántate despacio.",
-  warm:WARM_F,cool:["Movilidad de hombros, de pie","Bebe agua"],
+  warm:WARM_B,cool:["Movilidad de hombros, de pie","Bebe agua"],
   expres:"Haz solo los 3 primeros ejercicios, 2 series de cada uno. Mejor 30 minutos que no venir.",
   after:"El domingo, rellena tu check-in y mándamelo por WhatsApp.",
-  easyEnd:w>=3?10:null,
+  easyEnd:w>=3?10:null,easyTxt:"bici sentada suave · RPE 3",
   ex:[
   {n:"Sentadilla en pared con foam roller",sets:s,reps:"8-10",rest:60,how:"El foam roller entre la pared y la zona lumbar, pies un paso por delante. Baja deslizando hasta donde estés cómoda, sin molestias, y sube empujando el suelo. Suelta el aire al subir.",alt:"Sentadilla isométrica en pared"},
-  {n:"Hip thrust en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:5,incTxt:"5 kg",how:"Sube apretando los glúteos, sin arquear la zona lumbar. Arriba, un segundo quieta. Suelta el aire al subir.",alt:"Patada de glúteo en polea"},
+  {n:"Patada de glúteo en polea",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:60,inc:1.25,incTxt:"la placa más pequeña",how:"De pie, agarrada a la máquina con las dos manos y la tobillera puesta. Lleva la pierna hacia atrás apretando el glúteo, sin arquear la zona lumbar, y vuelve despacio. Haz todas las repeticiones con una pierna y luego con la otra; apunta las de la pierna que te cueste más.",alt:"Abducción de pie en polea"},
   {n:"Curl femoral sentada",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Ajusta el rodillo justo encima del tobillo. Lleva los talones hacia abajo y atrás y vuelve despacio.",alt:"Curl femoral en polea de pie"},
   {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás, hasta la parte alta del pecho.",alt:"Jalón con agarre neutro"},
   {n:"Press de hombro en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada y abdomen firme. Sube soltando el aire, sin arquear la zona lumbar.",alt:"Elevaciones laterales con mancuernas ligeras"},
-  {n:"Plancha con manos en banco alto",sets:s,time:"20-30\"",rest:45,how:"Manos en un banco alto o en la espaldera, cuerpo en línea recta y abdomen firme. Respira con normalidad, sin aguantar el aire.",alt:"Con las manos en la pared"}]}}
+  {n:"Dead bug",sets:s,reps:"6 / lado",rest:45,how:"Tumbada boca arriba en la colchoneta, brazos al techo y rodillas dobladas en el aire. Estira un brazo y la pierna contraria soltando el aire, sin que la zona lumbar se despegue del suelo. Lo dejamos al final para que solo bajes al suelo una vez. Para levantarte, en tres pasos: gírate de lado, quédate sentada unos segundos y después ponte de pie despacio.",alt:"Solo piernas, con los brazos apoyados en el suelo"}]}}
 
 /* Fuerza martes y jueves. Las semanas 1 y 2, el jueves pasa al viernes. Lunes y miércoles, aquagym. */
 const PLAN={
@@ -449,8 +450,8 @@ const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
 /* ================= Estado (en el móvil del cliente) ================= */
 const LS="pct-"+CLIENTE.id;
-let S={ses:{},hab:{},ci:{},ini:{}};
-try{const o=JSON.parse(localStorage.getItem(LS)||"{}");S.ses=o.ses||{};S.hab=o.hab||{};S.ci=o.ci||{};S.ini=o.ini||{}}catch(e){}
+let S={ses:{},hab:{},ci:{},ini:{},maq:{}};
+try{const o=JSON.parse(localStorage.getItem(LS)||"{}");S.ses=o.ses||{};S.hab=o.hab||{};S.ci=o.ci||{};S.ini=o.ini||{};S.maq=o.maq||{}}catch(e){}
 let saveT=null;
 const save=()=>{clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){toast("No se pudo guardar en este móvil")}},300)};
 const sid=(w,d)=>`w${w}-${d}`;
@@ -536,7 +537,7 @@ function dayCard(w,d,s){
      <div class="ibar" aria-hidden="true">${segs.join("")}</div>
      <div class="ckey"><span><i style="background:var(--pink-ink)"></i>Moderado: frases cortas</span><span><i style="background:var(--pink)"></i>Suave</span></div>
      <button class="restbtn" type="button" style="margin-left:0;align-self:flex-start" data-iv="${n},${on},${off}">${IC.timer} Empezar intervalos</button></div>`}
-  if(s.easyEnd)b+=`<p class="sub">Final</p><div class="cardio"><div class="top"><b>${s.easyEnd}'</b><span>bici o elíptica suave · RPE 3</span></div></div>`;
+  if(s.easyEnd)b+=`<p class="sub">Final</p><div class="cardio"><div class="top"><b>${s.easyEnd}'</b><span>${esc(s.easyTxt||"bici o elíptica suave · RPE 3")}</span></div></div>`;
   if(s.tests)b+=testBlock(id,s);
   b+=`<p class="sub">Vuelta a la calma</p><ul class="plain">${s.cool.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
   b+=`<div class="after">${esc(s.after)}</div>`;
@@ -595,11 +596,10 @@ function testBlock(id,s){
 /* ================= Subapartados ================= */
 const SUBS={
   guia:[["esfuerzo","Esfuerzo"],["progresion","Progresión"],["cardio","Cardio"],["ejercicios","Ejercicios"],["seguridad","Seguridad"],["instalar","Instalar"]],
-  nutricion:[["basicos","Básicos"],["entreno","Entreno"],["proteina","Proteína"],["suplementos","Suplementos"]],
   habitos:[["registro","Registro"],["sueno","Sueño"],["recuperacion","Recuperación"]],
   progreso:[["resumen","Resumen"],["medidas","Medidas"],["fuerza","Fuerza"]]
 };
-const SUB={guia:"esfuerzo",nutricion:"basicos",habitos:"registro",progreso:"resumen"};
+const SUB={guia:"esfuerzo",habitos:"registro",progreso:"resumen"};
 const segBar=t=>`<div class="seg" role="tablist" aria-label="Apartados">${SUBS[t].map(([k,n])=>`<button type="button" role="tab" data-sub="${t}|${k}" aria-selected="${SUB[t]===k}">${n}</button>`).join("")}</div>`;
 
 /* ================= Guía ================= */
@@ -684,58 +684,28 @@ function renderGuia(){
   return h;
 }
 
-/* ================= Nutrición ================= */
-function renderNutricion(){
-  const s=SUB.nutricion;let h=segBar("nutricion");
-  h+=`<p class="example">Pautas generales, no una dieta. Para una dieta personalizada, consulta con un dietista-nutricionista colegiado.</p>`;
-  if(s==="basicos"){
-    h+=`<div class="card"><p class="eyebrow">Cada comida principal</p><h2>Un plato sencillo</h2>
-      <div class="platewrap"><div class="plate" aria-hidden="true"></div><div class="pl">
-        <div><i style="background:var(--ok)"></i><span><b>Verdura y fruta</b>La mitad del plato.</span></div>
-        <div><i style="background:var(--blue-ink)"></i><span><b>Proteína</b>Carne, huevos, legumbres, lácteos, tofu o pescado.</span></div>
-        <div><i style="background:var(--pink-ink)"></i><span><b>Hidratos</b>Arroz, pasta, patata, pan o legumbres.</span></div>
-      </div></div><p class="note">Con aceite de oliva para cocinar y aliñar.</p></div>
-    <div class="card"><p class="eyebrow">Día a día</p><h2>Lo que más suma</h2>
-      <div class="tips">
-        <div><b>Agua a lo largo del día</b>Lleva una botella contigo, sobre todo los días de entreno.</div>
-        <div><b>Comida real la mayor parte del tiempo</b>Los ultraprocesados, de vez en cuando.</div>
-        <div><b>Constancia antes que perfección</b>Una comida "peor" no estropea una semana buena.</div>
-      </div></div>`;
-  }
-  if(s==="entreno"){
-    h+=`<div class="card"><p class="eyebrow">Alrededor del entreno</p><h2>Cuándo comer</h2>
-      <div class="tline">
-        <div class="titem"><div class="tw">2-3 h antes</div><div class="tc"><p>Una comida normal y no muy pesada.</p></div></div>
-        <div class="titem"><div class="tw">Si entrenas temprano</div><div class="tc"><p>Algo pequeño y fácil: una fruta o un yogur.</p></div></div>
-        <div class="titem"><div class="tw">Durante</div><div class="tc"><p>Agua. En sesiones de una hora no necesitas nada más.</p></div></div>
-        <div class="titem"><div class="tw">Después</div><div class="tc"><p>Tu siguiente comida, con proteína. No hace falta correr a por un batido.</p></div></div>
-      </div></div>
-    <div class="card"><p class="eyebrow">Días de descanso</p><h2>Comes igual</h2><p class="lead">Tu cuerpo se recupera y construye músculo precisamente esos días. No hace falta comer menos.</p></div>`;
-  }
-  if(s==="proteina"){
-    const pk=num(testVals().peso)??getIni().peso??null;if(pk==null){h+=`<div class="card"><p class="eyebrow">Proteína</p><h2>Apunta tu peso</h2><p class="lead">Escribe tu peso en Progreso → Medidas y aquí verás tu referencia de proteína diaria.</p></div>`;return h}
-    const lo=Math.round(pk*1.4),hi=Math.round(pk*2.0);
-    h+=`<div class="card"><p class="eyebrow">Para ganar y mantener músculo</p><h2>Proteína al día</h2>
-      <div class="big"><b>${lo}-${hi} g</b><span>al día para tu peso (${nf(pk)} kg)</span></div>
-      <p class="lead">Es la referencia general para la mayoría de personas que entrenan: 1,4-2,0 g por kg de peso al día (Jäger et al., 2017).</p>
-      <p class="note">No hace falta contar gramos cada día. Lo práctico es incluir una buena ración de proteína en cada comida principal. Si tienes una enfermedad renal, consulta con tu médico antes de aumentarla.</p></div>
-    <div class="card"><p class="eyebrow">Ideas</p><h2>Fuentes de proteína</h2>
-      <div class="chipgrid">${["Pollo o pavo","Huevos","Yogur natural o skyr","Queso fresco batido","Legumbres","Tofu o tempeh","Carne magra","Pescado","Leche o bebida de soja"].map(x=>`<span class="chip b">${x}</span>`).join("")}</div></div>`;
-  }
-  if(s==="suplementos"){
-    const sup=[
-      {n:"Creatina monohidrato",ev:"alta",tag:"Recomendada",txt:"Mejora el rendimiento en esfuerzos intensos y las adaptaciones al entrenamiento de fuerza. Es de los suplementos más estudiados y es segura en personas sanas.",use:"3-5 g al día, cualquier momento del día, también los de descanso. No hace falta fase de carga.",note:"Puede subir algo el peso en la báscula por el agua que retiene el músculo: no es grasa.",ref:"Kreider et al., 2017"},
-      {n:"Cafeína",ev:"alta",tag:"Opcional",txt:"Tiene buena evidencia para mejorar el rendimiento. Un café antes de entrenar es suficiente para la mayoría.",use:"Evítala por la tarde si te cuesta dormir: el sueño importa más.",ref:"Maughan et al., 2018"},
-      {n:"Omega-3",ev:"limitada",tag:"Solo en algunos casos",txt:"Para la fuerza y el músculo, la evidencia no es clara.",use:"Tiene sentido valorarlo si comes poco pescado azul. Coméntalo antes con tu médico o farmacéutico, sobre todo si tomas anticoagulantes.",ref:"Timraz et al., 2023"},
-      {n:"Magnesio",ev:"limitada",tag:"Solo si hay déficit",txt:"No está claro que mejore el rendimiento si no tienes déficit. Los estudios son pequeños.",use:"Solo si un profesional sanitario detecta que te falta. Frutos secos, legumbres y cereales integrales lo aportan.",ref:"Zhang et al., 2017"},
-      {n:"Proteína en polvo",ev:"comida",tag:"Comodidad",txt:"Es comida en polvo, no un suplemento mágico. Útil si te cuesta llegar a tu proteína con la comida.",use:"Como una ración de proteína más, cuando te venga bien."}
-    ];
-    h+=`<div class="card"><p class="eyebrow">Antes de tomar nada</p><h2>Primero, la comida</h2>
-      <div class="alert">Si tienes alguna enfermedad, estás embarazada o tomas medicación, consulta antes con tu médico o farmacéutico.</div>
-      <div class="alert">Elige marcas con sello de análisis independiente: algunos suplementos llevan sustancias que no aparecen en la etiqueta.</div></div>
-    <div class="supl">${sup.map(x=>`<div class="sp"><div class="sph"><b>${x.n}</b><span class="ev ev-${x.ev}">${x.tag}</span></div>
-      <p>${x.txt}</p><p class="use"><b>Cómo:</b> ${x.use}</p>${x.note?`<p class="note">${x.note}</p>`:""}${x.ref?`<small>${x.ref}</small>`:""}</div>`).join("")}</div>`;
-  }
+/* ================= Mis máquinas (sustituye a Nutrición: su alimentación la lleva su nutricionista) ================= */
+const MAQ=[
+  ["Cinta","Fuerza A","Empieza a 3-4 km/h, sin inclinación, y agárrate al principio. Para bajarte, baja la velocidad hasta que la cinta pare del todo."],
+  ["Bici sentada","Fuerza B","Ajusta el asiento para que, con el pedal abajo, la rodilla quede un poco doblada. Espalda apoyada en el respaldo."],
+  ["Prensa horizontal","Fuerza A","Mueve el asiento para que, al doblar las piernas, las rodillas no pasen de un ángulo recto. Pies en el centro de la plataforma y manos en las asas laterales."],
+  ["Press de pecho en máquina","Fuerza A","Sube o baja el asiento hasta que las asas queden a la altura del pecho, no del cuello. Espalda pegada al respaldo."],
+  ["Remo sentado en máquina","Fuerza A","Asiento con las asas a la altura del pecho o un poco por debajo. Ajusta el apoyo del pecho para llegar a las asas con los brazos estirados sin despegarte."],
+  ["Abductores en máquina","Fuerza A","Empieza con la apertura más cerrada, la que te resulte cómoda. Espalda apoyada y manos en las asas."],
+  ["Pallof press en polea","Fuerza A","Polea a la altura del pecho. Ponte de lado, a un paso largo de la máquina."],
+  ["Patada de glúteo en polea","Fuerza B","Polea abajo del todo y tobillera en el tobillo. Agárrate a la máquina con las dos manos."],
+  ["Curl femoral sentada","Fuerza B","La rodilla, a la altura del eje de giro (la marca de la máquina). Rodillo justo encima del tobillo y almohadilla sujetando el muslo."],
+  ["Jalón al pecho","Fuerza B","Ajusta la almohadilla de las piernas para que no se te levanten los muslos al tirar. Agarre algo más ancho que los hombros."],
+  ["Press de hombro en máquina","Fuerza B","Asiento con las asas a la altura de los hombros al empezar. Espalda apoyada."]
+];
+function renderMaquinas(){
+  let h=`<div class="card"><p class="eyebrow">Tus máquinas</p><h2>Cómo dejarlas listas</h2>
+    <p class="lead">Antes de empezar cada ejercicio, ajusta la máquina. Apunta tu posición (número del asiento, del respaldo…) y la próxima vez lo tendrás hecho en un momento.</p>
+    <p class="note">Lo que apuntas se guarda en este móvil.</p></div>`;
+  h+=MAQ.map(([n,ses,t],i)=>`<div class="card"><div class="sph"><b style="font-size:16px">${esc(n)}</b><span class="chip b">${esc(ses)}</span></div>
+    <p class="lead" style="color:var(--ink)">${esc(t)}</p>
+    <div class="field"><label for="maq-${i}">Mi ajuste</label><input class="txt" id="maq-${i}" data-maq="${esc(n)}" value="${esc(S.maq[n]||"")}" placeholder="Ej.: asiento 4, respaldo 2"></div></div>`).join("");
+  h+=`<div class="card"><p class="eyebrow">Tu alimentación</p><h2>La lleva tu nutricionista</h2><p class="lead">Sigue sus pautas. Si te cambia algo que pueda afectar a tus entrenos, cuéntamelo en el check-in.</p></div>`;
   return h;
 }
 
@@ -782,7 +752,7 @@ function renderProgreso(){
       <p class="note">Las volveremos a medir juntas en tu valoración presencial. El peso sube y baja de un día a otro: fíjate en la tendencia.</p></div>`;
   }
   if(s==="fuerza"){
-    const bars=["Prensa de piernas","Hip thrust en máquina","Press de pecho en máquina","Remo sentado en máquina","Jalón al pecho","Curl femoral sentada"].map(name=>{
+    const bars=["Prensa horizontal","Patada de glúteo en polea","Press de pecho en máquina","Remo sentado en máquina","Jalón al pecho","Curl femoral sentada"].map(name=>{
       const vals=[1,2,3,4].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
       const mx=Math.max(...vals.filter(v=>v!=null),0),last=[...vals].reverse().find(v=>v!=null);
       return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
@@ -933,7 +903,7 @@ function render(){
   $("#cname").textContent=CLIENTE.nombre+(CLIENTE.ejemplo?" · ejemplo":"");
   $("#wknum").textContent="S"+week;
   const v=$("#view");
-  v.innerHTML=tab==="semana"?renderSemana():tab==="guia"?renderGuia():tab==="nutricion"?renderNutricion():tab==="checkin"?renderCheckin():tab==="progreso"?renderProgreso():renderHabitos();
+  v.innerHTML=tab==="semana"?renderSemana():tab==="guia"?renderGuia():tab==="maquinas"?renderMaquinas():tab==="checkin"?renderCheckin():tab==="progreso"?renderProgreso():renderHabitos();
   document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
 }
 document.addEventListener("click",e=>{
@@ -962,6 +932,7 @@ document.addEventListener("input",e=>{const t=e.target;
   else if(t.dataset.t){const [id,k]=t.dataset.t.split("|");tSt(id)[k]=t.value;save()}
   else if(t.dataset.note){ses(t.dataset.note).nota=t.value;save()}
   else if(t.dataset.ini){S.ini[t.dataset.ini]=t.value;save()}
+  else if(t.dataset.maq){S.maq[t.dataset.maq]=t.value;save()}
   else if(t.dataset.cit){ciSt(week)[t.dataset.cit]=t.value;save()}
   else if(t.dataset.rpe){ses(t.dataset.rpe).rpe=t.value;save()}
 });
@@ -987,7 +958,7 @@ function startIntervals(n,on,off){
 $("#tplus").onclick=()=>{tEnd+=15000;tTot+=15};
 $("#tstop").onclick=()=>{clearInterval(tInt);ivQueue=null;$("#timer").hidden=true};
 
-try{const t=localStorage.getItem(LS+"-tab");if(t)tab=t}catch(_){}
+try{const t=localStorage.getItem(LS+"-tab");if(["semana","checkin","guia","maquinas","habitos","progreso"].includes(t))tab=t}catch(_){}
 render();
 </script>
 
