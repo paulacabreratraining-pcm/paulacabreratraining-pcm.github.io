@@ -705,7 +705,6 @@ function renderMaquinas(){
   h+=MAQ.map(([n,ses,t],i)=>`<div class="card"><div class="sph"><b style="font-size:16px">${esc(n)}</b><span class="chip b">${esc(ses)}</span></div>
     <p class="lead" style="color:var(--ink)">${esc(t)}</p>
     <div class="field"><label for="maq-${i}">Mi ajuste</label><input class="txt" id="maq-${i}" data-maq="${esc(n)}" value="${esc(S.maq[n]||"")}" placeholder="Ej.: asiento 4, respaldo 2"></div></div>`).join("");
-  h+=`<div class="card"><p class="eyebrow">Tu alimentación</p><h2>La lleva tu nutricionista</h2><p class="lead">Sigue sus pautas. Si te cambia algo que pueda afectar a tus entrenos, cuéntamelo en el check-in.</p></div>`;
   return h;
 }
 
@@ -775,6 +774,7 @@ function renderProgreso(){
 
 /* ================= Hábitos ================= */
 const HABITS=[
+  ["creatina","Tomar la creatina","Cada día, también los de descanso. Marca el día cuando te la tomes."],
   ["sueno","Dormir 7 horas o más","Es cuando te recuperas del entrenamiento."],
   ["caminar","Caminar 30 minutos","Fuera del entrenamiento. Suma mucho a tu salud y a tu gasto diario."],
   ["proteina","Proteína en cada comida principal","Ayuda a ganar y mantener músculo."],
