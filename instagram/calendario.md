@@ -11,7 +11,7 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-05 | 19:00 | Carrusel | Educa | ¿Qué es el RIR? | `posts/2026-11-05-que-es-el-rir` | Programado en Metricool |
 | 2026-11-10 | 19:00 | Carrusel | Educa | Tus huesos piden pesas (fuerza en la menopausia) | `posts/2026-11-10-fuerza-en-la-menopausia` | Programado en Metricool |
 | 2026-11-15 | 11:00 | Carrusel | Oferta | Tres formas de entrenar conmigo | `posts/2026-11-15-entrena-conmigo` | Programado en Metricool |
-| 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Guion (pendiente de clips de Paula) |
+| 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Publicado (lo subió Paula desde la app el 12/11) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿cuánto peso cojo? El RIR (patrón 2) | `posts/2026-11-17-chuleta-rir` | Descartado (repite tema y diseño) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | 4 mitos de la fuerza (diseño nuevo mito/realidad) | `posts/2026-11-17-mitos-fuerza` | Borrador |
 | 2026-11-19 | 19:00 | Reel | Confianza | Un paseo conmigo: domingo en la montaña + test del habla (zona suave), voz en off (patrón 1) | — | Guion (se graba el 8/11) |
