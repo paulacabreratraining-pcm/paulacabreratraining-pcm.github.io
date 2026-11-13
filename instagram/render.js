@@ -44,6 +44,17 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .op .chip{font-size:34px;font-weight:800;padding:16px 28px;border-radius:999px;border:4px solid currentColor}
 .op.navy .chip{border-color:${C.rosa};color:${C.rosa}}
 .op .foot{opacity:.9}
+.dm{background:${C.logoBg};color:${C.blanco};padding:110px 80px 170px;justify-content:center}
+.dm .lg{width:120px;height:120px;border-radius:26px;margin-bottom:56px}
+.dm h2{font-weight:900;font-size:118px;line-height:.9;letter-spacing:-4px;text-transform:uppercase;margin:0 0 36px}
+.dm h2 .k{color:${C.rosa}}
+.dm .tx{font-size:44px;line-height:1.3;font-weight:600;color:${C.azul};margin-bottom:70px}
+.dm .lab{font-size:30px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${C.azul};margin-bottom:18px}
+.dm .msg{display:flex;align-items:center;gap:24px;background:${C.blanco};border-radius:999px;padding:22px 22px 22px 48px}
+.dm .msg b{flex:1;font-weight:900;font-size:66px;letter-spacing:2px;color:${C.logoBg}}
+.dm .send{flex:none;width:104px;height:104px;border-radius:50%;background:${C.rosa};display:flex;align-items:center;justify-content:center}
+.dm .rosa-band{position:absolute;right:-140px;top:-60px;width:420px;height:90px;background:${C.rosa};transform:rotate(32deg)}
+.dm .azul-band{position:absolute;right:-170px;top:90px;width:420px;height:36px;background:${C.azul};transform:rotate(32deg)}
 .pa{background:${C.rosa};color:${C.logoBg};padding:110px 80px 170px;justify-content:center}
 .pa h2{font-weight:900;font-size:112px;line-height:.9;letter-spacing:-4px;text-transform:uppercase;margin:0 0 60px}
 .pa h2 .k{color:${C.blanco};-webkit-text-stroke:3px ${C.logoBg}}
@@ -122,6 +133,10 @@ function slide(d, i, n, H){
     case 'pasos': { // pasos numerados en tarjetas azul marino sobre rosa
       const t = esc(d.titulo).replace(esc(d.resaltado||'\u0000'), `<span class="k">${esc(d.resaltado||'')}</span>`);
       return `<div class="s pa"><h2>${t}</h2><div class="rows">${(d.pasos||[]).map((p,j)=>`<div class="row"><div class="n">${j+1}</div><span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`; }
+    case 'cierre-dm': { // cierre con la caja de mensaje directo escribiendo la palabra clave
+      const t = esc(d.titulo).replace(esc(d.resaltado||'\u0000'), `<span class="k">${esc(d.resaltado||'')}</span>`);
+      const send = `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="${C.logoBg}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>`;
+      return `<div class="s dm"><div class="rosa-band"></div><div class="azul-band"></div><img class="lg" src="${LOGO}"><h2>${t}</h2>${d.texto?`<p class="tx">${md(d.texto)}</p>`:''}<div class="lab">${esc(d.etiqueta||'Escríbeme por mensaje directo')}</div><div class="msg"><b>${esc(d.palabra||'EMPEZAR')}</b><div class="send">${send}</div></div>${foot()}</div>`; }
     case 'texto': return `<div class="s light">${d.num?`<div class="num">${esc(d.num)}</div>`:''}<h2>${marca(d.titulo,d.resaltado)}</h2><p class="txt">${md(d.texto)}</p>${foot()}</div>`;
     case 'lista': return `<div class="s light"><h2>${marca(d.titulo,d.resaltado)}</h2><div class="pts">${(d.puntos||[]).map(p=>`<div class="pt">${check}<span>${md(p)}</span></div>`).join('')}</div>${foot()}</div>`;
     case 'cierre': return `<div class="s dark cierre">${rayas}<img class="logo" src="${LOGO}" style="position:relative"><h2 style="position:relative">${marca(d.titulo,d.resaltado)}</h2>${d.texto?`<p class="txt" style="color:${C.azul};position:relative">${md(d.texto)}</p>`:''}<span class="pill" style="position:relative">${esc(d.boton||'Escríbeme EMPEZAR por mensaje')}</span>${foot(1)}</div>`;
