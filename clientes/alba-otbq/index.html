@@ -402,46 +402,47 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 const FOCUS={
   1:["Semana de la marcha","Hoy todo va dirigido al sábado: piernas frescas, nada nuevo y descanso. Miércoles, rodaje corto; jueves, movilidad suave; viernes, descanso."],
   2:["Recuperar y aprender la técnica","Tras la marcha, la semana es suave: un paseo o bici el martes y 2 sesiones de técnica con cargas muy cómodas. Si esta semana te viene la regla, guíate por cómo te encuentras."],
-  3:["Empiezan tus 3 días de fuerza","Lunes, miércoles y viernes fuerza; martes, rodaje suave. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más y apunta los pesos."],
-  4:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible. El rodaje del martes sube a 35'."]
+  3:["Empiezan tus 3 días de fuerza","Lunes, miércoles y viernes fuerza; martes, rodaje suave. Piernas: la semana pasada te sobraba mucho, así que sube hasta que te sobren 3-4 repeticiones. Hombro: esta semana, todo más suave y el face pull y la rotación, con goma."],
+  4:["Una serie más en piernas","Los ejercicios de piernas pasan a 3 series. Los de tren superior siguen con 2 mientras cuidamos el hombro. Si la semana pasada completaste el rango con el RIR indicado, sube la carga lo mínimo posible. El rodaje del martes sube a 35'."]
 };
 const WARM_F=["4' de bici o elíptica suave (RPE 3)","Movilidad de cadera, tobillo y hombro (3')","1 serie ligera de cada ejercicio principal"];
 const WARM_M=["5' andando a buen paso","Movilidad suave de tobillo y cadera"];
 const DOLOR="Si la rodilla o el hombro te molestan en un ejercicio, usa la alternativa y apúntalo en las notas. Si la molestia va a más, para y avísame.";
 
 /* Fuerza A · piernas y core */
-function sesA(w){const s=w<=3?2:3,rb=w===2?"4":"3-4";return{type:"fuerza",t:w===2?"Fuerza A · técnica":"Fuerza A · piernas y core",dur:45,
+function sesA(w){const s=w<=3?2:3,su=2,rb=w===2?"4":"3-4";return{type:"fuerza",t:w===2?"Fuerza A · técnica":"Fuerza A · piernas y core",dur:45,
   goal:w===2?"Aprender a moverte bien con cargas muy cómodas. Hoy no se trata de cansarte.":"Fuerza de piernas y cadera, con ejercicios amables para la rodilla.",
   warm:WARM_F,cool:["3' andando suave","Estiramiento suave de cadera y cuádriceps"],
   after:DOLOR+" Incluye proteína en tu siguiente comida.",
   ex:[
-  {n:"Sentadilla goblet a cajón",sets:s,lo:8,hi:10,rir:rb,rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho. Siéntate hacia atrás hasta rozar el cajón y levántate sin impulso, con las rodillas en la línea de los pies.",alt:"Prensa de piernas"},
-  {n:"Hip thrust",sets:s,lo:8,hi:10,rir:rb,rirMin:3,rest:90,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
-  {n:"Remo con mancuerna",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:75,inc:2,incTxt:"la siguiente mancuerna",how:"Mano y rodilla en el banco, espalda recta. Lleva el codo hacia la cadera sin girar el tronco.",alt:"Remo en máquina"},
+  {n:"Sentadilla goblet a cajón",sets:s,sug:w===3?"La semana pasada, 3 kg × 10 y te sobraban 4 o más. Prueba con <b>6-8 kg</b> y ajusta para que te sobren 3-4 repeticiones.":"",lo:8,hi:10,rir:rb,rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho. Siéntate hacia atrás hasta rozar el cajón y levántate sin impulso, con las rodillas en la línea de los pies.",alt:"Prensa de piernas"},
+  {n:"Hip thrust",sets:s,sug:w===3?"La semana pasada, 6 kg × 10 y te sobraban 4 o más. Prueba con <b>10-15 kg</b> y ajusta para que te sobren 3-4 repeticiones.":"",lo:8,hi:10,rir:rb,rirMin:3,rest:90,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
+  {n:"Remo con mancuerna",sets:su,lo:10,hi:12,rir:"2-3",rirMin:2,rest:75,inc:2,incTxt:"la siguiente mancuerna",how:"Mano y rodilla en el banco, espalda recta. Lleva el codo hacia la cadera sin girar el tronco.",alt:"Remo en máquina"},
   {n:"Plancha lateral",sets:s,time:"20-30\" / lado",rest:45,how:"Codo bajo el hombro y cuerpo en línea recta. Empuja el suelo con el antebrazo.",alt:"Con las rodillas apoyadas"}]}}
 
 /* Fuerza B · tren superior y hombros */
-function sesB(w){const s=w<=3?2:3,rb=w===2?"4":"3-4";return{type:"fuerza",t:w===2?"Fuerza B · técnica":"Fuerza B · espalda y hombros",dur:45,
+function sesB(w){const s=2,rb=w===2?"4":"3-4",hc=w>=3;return{type:"fuerza",t:w===2?"Fuerza B · técnica":"Fuerza B · espalda y hombros",dur:45,
   goal:"Espalda y hombros fuertes y estables. Empujamos con un ángulo cómodo para el hombro y no por encima de la cabeza.",
   warm:WARM_F,cool:["Movilidad de hombros con palo (1')","Estiramiento suave de pecho"],
-  after:DOLOR+" Fin de semana: rellena el check-in el domingo.",
+  after:(hc?"Hombro izquierdo: si algún ejercicio te molesta, usa la goma o la alternativa, apúntalo en las notas y avísame. Mejor quedarte corta que pasarte. ":DOLOR+" ")+"Fin de semana: rellena el check-in el domingo.",
   ex:[
-  {n:"Press inclinado con mancuernas (agarre neutro)",sets:s,lo:8,hi:10,rir:rb,rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Banco a unos 30°. Palmas mirándose, escápulas atrás y abajo. Baja con control hasta la altura del pecho.",alt:"Press en máquina"},
-  {n:"Jalón al pecho (agarre neutro)",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:75,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás, sin balancearte.",alt:"Jalón con banda elástica"},
+  {n:"Press inclinado con mancuernas (agarre neutro)",sets:s,lo:8,hi:10,rir:hc?"3":rb,rirMin:3,sug:w===3?"La semana pasada, 6 kg con RIR 2. <b>Mantén 6 kg</b> y que te sobren 3 repeticiones.":"",rest:90,inc:2,incTxt:"1 kg por mano",how:"Banco a unos 30°. Palmas mirándose, escápulas atrás y abajo. Baja con control hasta la altura del pecho.",alt:"Press en máquina"},
+  {n:"Jalón al pecho (agarre neutro)",sets:s,lo:10,hi:12,rir:hc?"3":"2-3",rirMin:hc?3:2,sug:w===3?"La semana pasada, 20 kg con RIR 0: fuiste al límite. <b>Baja a 15-17,5 kg</b> para que te sobren 3 repeticiones.":"",rest:75,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás, sin balancearte.",alt:"Jalón con banda elástica"},
+  hc?{n:"Face pull con goma",sets:s,reps:"12-15",rest:60,how:"Goma a la altura de la cara. Tira separando las manos y llevando los codos atrás y arriba, despacio y sin dolor. Elige una goma con la que te sobren 3 o más.",alt:"Aperturas inversas con goma"}:
   {n:"Face pull en polea",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Cuerda a la altura de la cara. Tira separando las manos y llevando los codos atrás y arriba.",alt:"Aperturas inversas con banda"},
-  {n:"Rotación externa en polea",sets:2,reps:"12-15 / lado",rest:45,how:"Codo pegado al costado con una toalla. Gira el antebrazo hacia fuera despacio, sin mover el codo. Peso muy ligero.",alt:"Con banda elástica"},
+  {n:hc?"Rotación externa con goma":"Rotación externa en polea",sets:2,reps:"12-15 / lado",rest:45,how:"Codo pegado al costado con una toalla. Gira el antebrazo hacia fuera despacio, sin mover el codo."+(hc?" Goma suave: tiene que ser fácil y sin molestia.":" Peso muy ligero."),alt:hc?"Solo el movimiento, sin goma":"Con banda elástica"},
   {n:"Dead bug",sets:2,reps:"8 / lado",rest:45,how:"Zona lumbar pegada al suelo. Suelta el aire al estirar brazo y pierna contrarios.",alt:"Solo piernas"}]}}
 
 /* Fuerza C · cuerpo completo + agilidad */
-function sesC(w){const s=w<=3?2:3;return{type:"fuerza",t:"Fuerza C · cuerpo completo y agilidad",dur:45,
+function sesC(w){const s=w<=3?2:3,su=2;return{type:"fuerza",t:"Fuerza C · cuerpo completo y agilidad",dur:45,
   goal:"Cadena posterior, una pierna cada vez y un poco de agilidad: lo que te hace sentirte ligera y ágil.",
   warm:WARM_F,cool:["3' andando suave","Estira lo que notes cargado"],
   after:DOLOR+" Fin de semana: rellena el check-in el domingo.",
   ex:[
   {n:"Peso muerto rumano con mancuernas",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
   {n:"Subida al cajón (por pierna)",sets:s,lo:8,hi:10,rir:"2-3",rirMin:2,rest:75,inc:1,incTxt:"1 kg por mano",how:"Cajón bajo, a media espinilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo y con la rodilla en la línea del pie.",alt:"Puente de glúteo a una pierna"},
-  {n:"Flexiones inclinadas",sets:s,reps:"6-10",rest:75,how:"Manos en un banco o en la barra de la máquina Smith. Cuerpo en línea recta y codos a unos 45° del cuerpo. Cuanto más baja la superficie, más difícil.",alt:"Press en máquina"},
-  {n:"Paseo del granjero",sets:s,reps:"30 m",rest:60,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"},
+  {n:"Flexiones inclinadas",sets:su,reps:"6-10",rest:75,how:"Manos en un banco o en la barra de la máquina Smith. Cuerpo en línea recta y codos a unos 45° del cuerpo. Cuanto más baja la superficie, más difícil.",alt:"Press en máquina"},
+  {n:"Paseo del granjero",sets:su,reps:"30 m",rest:60,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"},
   {n:"Pasos laterales y cambios de dirección",sets:2,time:"30\"",rest:45,how:"Pasos laterales cortos y rápidos durante 3-4 m, toca el suelo, y vuelta. Sin saltos y con las rodillas suaves.",alt:"Pasos laterales con banda en las rodillas, andando"}]}}
 
 /* Motor y movilidad */
@@ -515,6 +516,7 @@ function prevLog(w,name){
   return null;
 }
 function suggest(e,p){
+  if(e.sug)return e.sug;
   if(!e.lo&&!e.kg)return "";
   if(!p)return `Elige una carga con la que te sobren <b>${e.rir||"2-3"} repeticiones</b> en la última serie.`;
   const kg=p.kg;
