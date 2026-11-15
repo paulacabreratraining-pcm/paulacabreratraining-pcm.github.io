@@ -399,7 +399,7 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 const FOCUS={
   1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
   2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual; en el press bajamos un poco para ir con calma, y en el remo estrenas la máquina de fuerza. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos. Y como el jueves no puedes, la Fuerza B la haces el viernes en casa."],
-  3:["El esfuerzo justo","¡Otra semana completa, Luis! Esta semana no subimos nada: lo has hecho todo, pero fuiste más fuerte de lo que tocaba (natación, tobilleras y algún kilo de más). Ahora progresar es entrenar con el esfuerzo justo. En sentadilla e hip thrust, mismo peso y llega a 8-10 repeticiones: no pares en 7. Como el miércoles te vas, esta semana no hay piscina: el jueves haces la Fuerza B en casa. Si das paseos, que sean suaves, y apúntalos."],
+  3:["El esfuerzo justo","¡Otra semana completa, Luis! Esta semana no subimos nada: lo has hecho todo, pero fuiste más fuerte de lo que tocaba (natación, tobilleras y algún kilo de más). Ahora progresar es entrenar con el esfuerzo justo. En sentadilla e hip thrust, mismo peso y llega a 8-10 repeticiones: no pares en 7. Esta semana cambiamos los días: el lunes, Fuerza A; el martes, natación suave, que es tu trabajo de motor de la semana; y el jueves, la Fuerza B en casa. Si das paseos, que sean suaves, y apúntalos."],
   4:["Semana de valoración","Martes, test de fuerza y medidas; miércoles, natación suave; jueves, test de la milla."]
 };
 const WARM_F=["5' de bici o elíptica suave (RPE 3)","Movilidad de cadera, tobillo, espalda alta y hombro (3')","1 serie ligera de cada ejercicio principal"];
@@ -479,7 +479,7 @@ function sesCasa(w){return{type:"fuerza",t:"Fuerza B · en casa",dur:45,
 const PLAN={
   1:{mie:sesA(1),jue:sesNat(1)},
   2:{mar:sesA(2),mie:sesNat(2),vie:sesCasa(2)},   // jueves 12 no puede: Fuerza B en casa el viernes 13
-  3:{mar:sesA(3),jue:sesCasa(3)},   // miércoles 18 fuera: sin natación; Fuerza B en casa el jueves 19
+  3:{lun:sesA(3),mar:sesNat(3),jue:sesCasa(3)},   // lunes 16 Fuerza A, martes 17 natación, jueves 19 Fuerza B en casa
   4:{mar:testFuerza(),mie:sesNat(4),jue:testMilla()}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
