@@ -19,7 +19,12 @@
     {
       "tipo": "mitos",
       "etiqueta": "Mitos de la fuerza",
-      "frases": ["Te vas a poner enorme", "Ya no tienes edad", "Sin agujetas no vale", "Necesitas un gimnasio"],
+      "frases": [
+        "Te vas a poner enorme",
+        "Ya no tienes edad",
+        "Sin agujetas no vale",
+        "Necesitas un gimnasio"
+      ],
       "titulo": "4 mitos que te **frenan**"
     },
     {
@@ -61,5 +66,6 @@
     "fuerzaysalud",
     "malaga",
     "entrenadorapersonalmalaga"
-  ]
+  ],
+  "diseno": "Rehecho el 16/11/2026 a petición de Paula (no le gustó el formato de bloques): foto a sangre en cada diapositiva con degradado azul marino y texto encima; generado con render_fotos.py, no con render.js. Fotos de Paula del 16/11; mito 2 con su foto de material (step, barra, botella)."
 }
