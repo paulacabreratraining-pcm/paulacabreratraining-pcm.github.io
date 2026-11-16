@@ -42,6 +42,8 @@ El tipo `portada` antiguo queda solo como reserva.
 
 **Interiores (decisión de Paula, 07/11/2026: el diseño de fondo claro con lista le parece plano y soso).** Variar el diseño dentro de cada carrusel y no hacer carruseles enteros de `texto`/`lista` sobre fondo claro. Tipo nuevo `mito`: bloque rosa arriba con el mito tachado y bloque azul marino abajo con la realidad. Campos: `num`, `mito`, `realidad`, `fuente` (opcional). Si un formato pide un diseño que no existe, se añade a `render.js` antes que forzarlo en una lista.
 
+**Ideas de fotos en cada carrusel (decisión de Paula, 16/11/2026): siempre.** Con cada carrusel van 3–5 ideas de fotos suyas, opcionales («por si te da tiempo»): una por diapositiva donde encaje (portada e interiores), cada una con qué hace ella, plano, dónde (gimnasio o aire libre, nunca en casa) y cómo colocarse según el hueco del diseño. Sin clientes reconocibles ni planes de clientes reales (para la app, el plan de ejemplo de Laura). Fecha límite para mandarlas: unas 6 h antes de que tenga que aprobar. En la app van en `posts/<id>` como `fotos` [{`texto`, `como`}] y `fotosHasta`; también en el mensaje del chat con el borrador. Si llegan las fotos, se rehace el carrusel con ellas; si no, sale tal cual.
+
 **Antes de proponer un tema, revisa `calendario.md`: no repetir un tema ya publicado o programado** (07/11/2026: se propuso una chuleta del RIR repetida con el post del 5/11 y Paula la descartó).
 
 ## Pilares de contenido
