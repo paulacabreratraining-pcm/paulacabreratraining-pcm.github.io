@@ -27,7 +27,9 @@ Paula dedica 1–2 h a la semana. Va a empezar a grabarse entrenando y quizá a 
 - 2 publicaciones por semana (carruseles) y 3–5 historias (decisión de Paula, 06/11/2026: mejor constancia que cantidad).
 - Reels sin cara (decisión de Paula, 06/11/2026): 1 reel a la semana. Paula graba clips cortos del ejercicio con el móvil (sin hablar a cámara ni mostrar a clientes); Claude escribe el guion de clips, monta el vídeo 1080×1920 con los textos en pantalla con la identidad visual y lo programa en Metricool (tipo REEL) cuando Paula lo apruebe. Semana del 9/11: reel extra el jueves a las 19:00. Desde la semana del 16/11: 1 carrusel (martes 19:00) + 1 reel (jueves 19:00), salvo que Paula diga otra cosa.
 - Alcance: cada post se comparte en historias de la marca y en la cuenta personal de Paula. Carruseles pensados para guardar y compartir («Mándaselo a…», chuletas). Zona local: Málaga (ubicación Málaga, que Paula añade en la app al publicar, y #malaga más 1 hashtag local como #entrenadorapersonalmalaga).
-- Horas por defecto: martes a las 19:00 y domingo a las 11:00 (hora de Madrid). Ajústalas con las estadísticas.
+- **Desde el 16/11/2026 (Paula estaba agobiada y pidió organizarse mejor): 2 publicaciones por semana, carrusel el martes a las 19:00 y reel el jueves a las 19:00, y 2–3 historias.** Una sola sesión de grabación de 15–20 min entre semana en el gimnasio; los fines de semana, solo si sale fuera (aire libre). Si una semana no puede grabar, se usa un carrusel sin fotos ya hecho y no pasa nada.
+- **Página de organización:** el doc «Mi Instagram, semana a semana» (https://claude.ai/artifact/UrVp1XmWf9YmLVNwr881V7, Claude Docs). Cada viernes, con los borradores, se actualizan sus apartados «Esta semana» (día a día con casillas: qué aprueba, qué graba, qué comparte) y «Lo que grabas esta semana» (cada clip con qué hace, plano y duración, y fotos opcionales), y «Semana que viene». Solo las tareas de Paula; cabe en 45–60 min a la semana. Sustituye a `hoja-grabacion.md`.
+- Horas por defecto: martes y jueves a las 19:00 (hora de Madrid). Ajústalas con las estadísticas.
 
 ## Portadas (decisión de Paula, 07/11/2026: más llamativas y variadas)
 
