@@ -14,7 +14,7 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-12 | 19:00 | Reel | Educa | 3 errores en la sentadilla | `posts/2026-11-12-reel-errores-sentadilla` | Publicado (lo subió Paula desde la app el 12/11) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿cuánto peso cojo? El RIR (patrón 2) | `posts/2026-11-17-chuleta-rir` | Descartado (repite tema y diseño) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | 4 mitos de la fuerza (diseño nuevo mito/realidad) | `posts/2026-11-17-mitos-fuerza` | Borrador |
-| 2026-11-19 | 19:00 | Reel | Confianza | Entrena conmigo: mi sesión de fuerza (un clip por ejercicio, nombres en pantalla) | `posts/2026-11-19-reel-entrena-conmigo` | Guion (Paula graba mar 17 o mié 18). Cambiado el 16/11: no repetir sentadilla tras el reel del 12/11 |
+| 2026-11-19 | 19:00 | Reel | Confianza | Entrena conmigo: mi sesión de fuerza (un clip por ejercicio, nombres en pantalla) | `posts/2026-11-19-reel-entrena-conmigo` | Montado (v3, 17 s), pendiente de aprobar en la app |
 | 2026-11-24 | 19:00 | Carrusel | Método | ¿Tu plan cambia si tu semana va mal? El check-in del domingo | `posts/2026-11-22-check-in-semanal` | Borrador (movido del 22/11 al 24/11) |
 | — | — | Carrusel | Educa | Fuerza con un banco y una mochila: 5 ejercicios para empezar (patrón 2; con fotos de Paula en gimnasio o parque) | — | Idea aprobada, sin fecha |
 | 2026-11-26 | 19:00 | Reel | Confianza | Un paseo conmigo (si Paula sale a la montaña el finde 21–22/11); si no, reel grabado en el gimnasio | — | Idea aprobada |
