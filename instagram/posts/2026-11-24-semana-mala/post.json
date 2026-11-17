@@ -1,0 +1,125 @@
+{
+  "fecha": "2026-11-24",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "ganchos": [
+    {
+      "texto": "¿Semana horrible? Tranqui",
+      "nota": 9,
+      "elegido": true
+    },
+    {
+      "texto": "Fallaste una semana. ¿Y ahora qué?",
+      "nota": 9
+    },
+    {
+      "texto": "Qué hacer cuando tu semana se tuerce",
+      "nota": 7
+    }
+  ],
+  "nota": "Sustituye a «¿Tu plan cambia si tu semana va mal?» (17/11/2026): Paula quiere vender menos. Criterio práctico, sin datos científicos. Cierre suave.",
+  "diapositivas": [
+    {
+      "tipo": "impacto",
+      "etiqueta": "Semana mala",
+      "lineas": [
+        "¿Semana",
+        "horrible?"
+      ],
+      "grande": "TRANQUI",
+      "franja": "No lo tires **todo** por la borda"
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "01",
+      "etiqueta": "Paso 1",
+      "titulo": "No compenses",
+      "resaltado": "compenses",
+      "texto": "No metas el doble de sesiones la semana siguiente. **Retoma donde lo dejaste** y sigue.",
+      "chips": [
+        "Sin castigos",
+        "Sin prisas"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "rosa",
+      "num": "02",
+      "etiqueta": "Paso 2",
+      "titulo": "Haz menos, pero haz",
+      "resaltado": "pero haz",
+      "texto": "Si solo tienes 20 minutos, haz **los 2 o 3 ejercicios principales**. Algo cuenta más que nada.",
+      "chips": [
+        "2–3 ejercicios",
+        "20 min"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "azul",
+      "num": "03",
+      "etiqueta": "Paso 3",
+      "titulo": "Si duermes fatal, baja",
+      "resaltado": "baja",
+      "texto": "Quita una serie o algo de peso y deja **más margen** al final de cada serie. Ya subirás.",
+      "chips": [
+        "Menos peso",
+        "Más margen"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "04",
+      "etiqueta": "Paso 4",
+      "titulo": "Ponle hora",
+      "resaltado": "hora",
+      "texto": "Apunta el próximo entreno en tu calendario como si fuera una cita. **Hoy**, no el lunes.",
+      "chips": [
+        "Hoy",
+        "Con hora"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Una semana mala no borra tu progreso",
+      "resaltado": "tu progreso",
+      "texto": "Guárdalo para la próxima vez que lo necesites.",
+      "boton": "Guárdalo 📌"
+    }
+  ],
+  "texto": "¿Semana horrible? Tranqui, no lo tires todo por la borda 👇\n\n1️⃣ No compenses: retoma donde lo dejaste, sin meter el doble de sesiones.\n2️⃣ Haz menos, pero haz: con 20 minutos y 2 o 3 ejercicios principales ya cuenta.\n3️⃣ Si has dormido fatal, baja un poco el peso o quita una serie.\n4️⃣ Ponle hora al próximo entreno. Hoy, no el lunes.\n\nUna semana mala no borra lo que llevas hecho.\n\nGuárdalo 📌 y mándaselo a quien deja de entrenar cada vez que se le tuerce la semana.\n\nSi quieres que te ayude con tu plan, escríbeme EMPEZAR.",
+  "hashtags": [
+    "entrenamientodefuerza",
+    "constancia",
+    "fuerzaysalud",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ],
+  "fotos": [
+    {
+      "texto": "Portada: tú atándote las zapatillas en el gimnasio",
+      "como": "Detalle o de cintura para abajo, con espacio arriba para el titular."
+    },
+    {
+      "texto": "«No compenses»: tú sentada en un banco, tranquila, bebiendo agua",
+      "como": "De lado, cuerpo entero."
+    },
+    {
+      "texto": "«Haz menos, pero haz»: tú haciendo una sentadilla goblet",
+      "como": "De lado, abajo del todo."
+    },
+    {
+      "texto": "«Si duermes fatal, baja»: tú quitando un disco de la barra",
+      "como": "Manos y disco, o cuerpo entero de lado."
+    },
+    {
+      "texto": "«Ponle hora»: tú mirando el calendario del móvil",
+      "como": "De cintura para arriba, junto a una ventana."
+    }
+  ]
+}
