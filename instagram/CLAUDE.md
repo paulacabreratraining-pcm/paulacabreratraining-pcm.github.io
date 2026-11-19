@@ -154,6 +154,15 @@ Cuando Paula apruebe un post, pon `"aprobado": true`, haz push y espera 1–2 mi
 
 Al publicar o programar, pon `"publicado": true`, actualiza `calendario.md` y haz push.
 
+### Música en los reels (decisión de Paula, 19/11/2026)
+
+Metricool no puede poner canciones de Instagram y, una vez publicado, el reel ya no admite música (le pasó con «Entrena conmigo»). Por eso:
+
+1. Al montar cada reel, Claude le mete música dentro del vídeo. Solo música libre de derechos o compuesta aquí (con numpy o ffmpeg). Nunca una canción comercial. Volumen bajo si hay voz en off.
+2. Se lo enseña a Paula con la música puesta. Si le gusta la música, se aprueba y se programa en Metricool como siempre.
+3. Si no le gusta, Claude le manda el vídeo sin música y el texto listo para copiar. Ella lo publica a mano desde Instagram a su hora, eligiendo la canción, y ese reel no se programa en Metricool.
+4. En TikTok, Paula siempre puede poner música de la biblioteca al subirlo.
+
 ## Auditar el perfil
 
 Cuando Paula lo pida (o cada 3 meses), revisa el perfil con sus capturas y puntúa cada punto como Bien / Mejorable / Falta, con la propuesta reescrita al lado:
