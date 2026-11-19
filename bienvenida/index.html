@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- © 2026 Paula Cabrera Training. Todos los derechos reservados. Prohibida su copia, reproducción o distribución sin autorización. -->
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Bienvenida · Paula Cabrera Training</title>
+<link rel="icon" type="image/png" href="/icono.png?v=2">
+<link rel="apple-touch-icon" href="/icono.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#FAF7F6; --surface:#FFFFFF; --sunk:#F1EEF3; --ink:#1F3B5C; --muted:#5D6B80; --line:#E3DEE7;
+  --blue:#A9C8E8; --blue-ink:#24527F; --blue-soft:#E5EEF8;
+  --pink:#F3C6D3; --pink-ink:#9A3C5C; --pink-soft:#FBEAF0;
+  --ok:#2F7A55; --ok-soft:#DFF1E7; --warn:#9A6714; --warn-soft:#F8ECD6; --bad:#B03B3D; --bad-soft:#F7E0E0;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111824; --surface:#182233; --sunk:#0E141E; --ink:#E9EEF5; --muted:#9AA8BA; --line:#29354A;
+  --blue-ink:#A9C8E8; --blue-soft:#1C3049; --pink-ink:#F3C6D3; --pink-soft:#3A2432;
+  --ok:#72C996; --ok-soft:#173327; --warn:#E3B566; --warn-soft:#3A2D15; --bad:#EE8B8C; --bad-soft:#3D1E20; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:620px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left,0px))}
+header{background:#122A4E;color:#FAF7F6;padding:28px 0 26px;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-30px;top:-50px;width:56px;height:150px;background:var(--pink);transform:rotate(32deg)}
+header::before{content:"";position:absolute;right:34px;top:-50px;width:20px;height:150px;background:var(--blue);transform:rotate(32deg)}
+.hrow{display:flex;align-items:center;gap:14px;position:relative;z-index:1;padding-right:56px}
+.hrow img{width:56px;height:56px;border-radius:14px}
+.hrow small{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{margin:2px 0 0;font:800 clamp(26px,7vw,34px)/1.05 var(--display)}
+.intro{position:relative;z-index:1;margin:18px 0 0;max-width:460px;color:#E4E8EF}
+main{padding:18px 0 40px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px}
+.eyebrow{margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-ink)}
+h2{margin:0 0 10px;font:800 22px/1.15 var(--display)}
+h3{margin:16px 0 6px;font-size:16px}
+p{margin:0 0 10px}
+ul,ol{margin:0;padding-left:20px}
+li{margin:5px 0}
+.time{list-style:none;padding:0;margin:0;position:relative}
+.time li{position:relative;padding:0 0 16px 34px;margin:0}
+.time li::before{content:"";position:absolute;left:8px;top:6px;bottom:-6px;width:2px;background:var(--line)}
+.time li:last-child::before{display:none}
+.time li::after{content:"";position:absolute;left:2px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--surface);box-shadow:0 0 0 1px var(--blue-ink)}
+.time b{display:block}
+.time span{color:var(--muted);font-size:15px}
+.sem{display:grid;gap:8px;margin-top:6px}
+.sem div{border-radius:12px;padding:10px 12px;font-size:15px}
+.sem b{display:block}
+.v{background:var(--ok-soft)} .v b{color:var(--ok)}
+.a{background:var(--warn-soft)} .a b{color:var(--warn)}
+.r{background:var(--bad-soft)} .r b{color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td:first-child{font-weight:700}
+.tip{background:var(--blue-soft);border-radius:12px;padding:10px 12px;font-size:15px;margin-top:10px}
+.alert{background:var(--bad-soft);color:var(--ink);border-radius:12px;padding:12px;font-size:15px}
+.firma{font-family:var(--display);font-weight:800;font-size:20px;margin:6px 0 0}
+footer{text-align:center;font-size:12px;color:var(--muted);padding:0 16px 32px}
+@media print{header::after,header::before{display:none}.card{break-inside:avoid}body{background:#fff}}
+</style></head>
+<body>
+<header><div class="wrap">
+  <div class="hrow"><img src="/icono.png?v=2" alt=""><div><small>Paula Cabrera Training</small><h1>¡Bienvenida, bienvenido!</h1></div></div>
+  <p class="intro">Gracias por confiar en mí. Aquí tienes todo lo que necesitas saber para empezar: cómo funciona tu plan, cómo usar tu app y cómo vamos a trabajar juntos.</p>
+</div></header>
+
+<main class="wrap">
+
+<section class="card">
+  <p class="eyebrow">Cómo trabajamos</p>
+  <h2>Tus primeras semanas</h2>
+  <ol class="time">
+    <li><b>Valoración</b><span>Conocemos tu punto de partida: cuestionario y unos tests elegidos para ti.</span></li>
+    <li><b>Tu plan de 4 semanas</b><span>Te llega el enlace a tu app. Las primeras semanas son para aprender la técnica y coger el ritmo, con cargas cómodas.</span></li>
+    <li><b>Check-in cada domingo</b><span>Me cuentas tu semana en 2 minutos y yo ajusto el plan con lo que me dices.</span></li>
+    <li><b>Nuevo bloque cada 4 semanas</b><span>Con tus datos, preparo el siguiente.</span></li>
+    <li><b>Revaloración cada 8–12 semanas</b><span>Repetimos los mismos tests para que veas tu progreso con números, no a ojo.</span></li>
+  </ol>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Tu app</p>
+  <h2>Instálala y úsala así</h2>
+  <ol>
+    <li><b>Instálala en tu móvil.</b> Abre el enlace en Safari (iPhone) o Chrome (Android) y elige «Añadir a pantalla de inicio». Los pasos están en la pestaña <b>Guía → Instalar</b>.</li>
+    <li><b>Ábrela siempre desde el icono.</b> Lo que apuntas se guarda en ese navegador: si un día la abres desde WhatsApp, verás datos distintos.</li>
+    <li><b>En cada ejercicio</b> marca las series que haces, apunta los kilos, las repeticiones de la última serie y cuántas te sobraban. Con eso la app te dice la semana siguiente si subir, mantener o bajar.</li>
+    <li><b>Si no sabes hacer un ejercicio</b>, toca el botón de vídeo o «Cómo hacerlo». Ahí tienes también una alternativa si la máquina está ocupada.</li>
+    <li><b>Usa el temporizador</b> de cada ejercicio para los descansos.</li>
+  </ol>
+  <p class="tip">No borres los datos de navegación de Safari o Chrome: perderías lo que has apuntado.</p>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Cada domingo</p>
+  <h2>Tu check-in</h2>
+  <p>En la pestaña <b>Check-in</b> respondes unas preguntas rápidas (cómo has dormido, tu energía, si te ha molestado algo…), tocas <b>Copiar mi check-in</b> y me lo pegas por WhatsApp. Las sesiones, los kilos y tus notas se añaden solos.</p>
+  <p>Con tus respuestas, la app sugiere un color y yo decido:</p>
+  <div class="sem">
+    <div class="v"><b>Verde</b>Vas bien: seguimos progresando.</div>
+    <div class="a"><b>Amarillo</b>Algo no ha ido del todo bien: mantenemos cargas y hablamos.</div>
+    <div class="r"><b>Rojo</b>Dolor que te limita o varias semanas cansada o cansado: bajamos el volumen para que recuperes.</div>
+  </div>
+  <p class="tip">Bajar una semana no es retroceder: es entrenar con cabeza. Sé sincera o sincero en el check-in; me sirve para ayudarte mejor.</p>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Semanas difíciles</p>
+  <h2>Cuando no llegues a todo</h2>
+  <ul>
+    <li><b>Haz la sesión mínima:</b> 20–30 minutos con un ejercicio de pierna, uno de empuje y uno de tracción, 2 series de cada uno. Mantiene lo que has ganado.</li>
+    <li><b>Las sesiones perdidas no se recuperan.</b> No las sumes a otro día ni alargues la semana siguiente: sigue con el plan.</li>
+    <li><b>Si tu semana ha cambiado</b> (turnos, viajes, exámenes), dímelo en el check-in y adapto los días y la duración.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Tu salud primero</p>
+  <h2>Cuándo parar y avisarme</h2>
+  <ul>
+    <li>Dolor que te limita, que cambia tu forma de moverte o que empeora al entrenar: para ese ejercicio y escríbeme.</li>
+    <li>Molestias leves: apúntalas en el check-in y las vigilamos.</li>
+    <li>Si estás enferma o enfermo, con fiebre, no entrenes: retomamos con la semana anterior.</li>
+  </ul>
+  <p class="alert" style="margin-top:10px"><b>Dolor u opresión en el pecho, falta de aire que no es normal, mareo o desmayo:</b> para y llama al 112 o a tu médico. No esperes a escribirme.</p>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Lo práctico</p>
+  <h2>Normas del servicio</h2>
+  <table>
+    <tr><th>Tema</th><th>Cómo funciona</th></tr>
+    <tr><td>Pago</td><td>Por Bizum o en efectivo, antes de empezar cada bloque de 4 semanas. Tu plan nuevo se envía cuando está pagado.</td></tr>
+    <tr><td>Pago trimestral</td><td>Si pagas 3 meses de una vez, tienes un 10 % de descuento.</td></tr>
+    <tr><td>Sesiones presenciales</td><td>Si no puedes venir, avísame con al menos 24 horas. Si avisas más tarde, la sesión cuenta como hecha.</td></tr>
+    <tr><td>Mensajes</td><td>Te contesto de lunes a viernes, de 9:00 a 20:00, en menos de 24 horas laborables (en Premium, con prioridad). Lo que me escribas fuera de ese horario lo veo el siguiente día laborable.</td></tr>
+    <tr><td>Check-in</td><td>Me lo mandas el domingo y te respondo el lunes con los ajustes.</td></tr>
+    <tr><td>Alimentación</td><td>Te doy pautas generales. Si necesitas una dieta, te recomiendo un dietista-nutricionista.</td></tr>
+  </table>
+</section>
+
+<section class="card">
+  <p class="eyebrow">Tus datos</p>
+  <h2>Privacidad</h2>
+  <p>Lo que apuntas en la app se queda en tu móvil. Lo que me cuentas en el cuestionario y en los check-ins (incluida tu salud) solo lo veo yo y solo lo uso para tu plan. En tu app nunca aparecen tus apellidos, tu teléfono ni tus datos de salud.</p>
+</section>
+
+<section class="card">
+  <p>Estoy muy contenta de empezar contigo. Cualquier duda, por pequeña que sea, pregúntame.</p>
+  <p class="firma">Paula</p>
+</section>
+
+</main>
+<footer>© 2026 Paula Cabrera Training · Todos los derechos reservados.</footer>
+</body></html>
