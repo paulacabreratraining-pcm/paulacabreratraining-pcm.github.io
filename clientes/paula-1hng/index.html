@@ -923,15 +923,28 @@ function weekAuto(w){
   const hs=S.hab[sid(w,"hab")]||{};
   return {tot:ds.length,dn,rpe:rp.length?rp.reduce((a,b)=>a+b,0)/rp.length:null,hab:HABITS.map(([k,t])=>[t,(hs[k]||[]).filter(Boolean).length])};
 }
-/* Semáforo del método: verde, amarillo o rojo (criterio práctico de Paula) */
+/* Semáforo del método (criterio práctico de Paula, no validado).
+   Separa recuperación (el color) y adherencia (aparte). Cada escala se compara con la media
+   de las semanas anteriores del cliente; sin 2 semanas previas, la referencia es 3 sobre 5. */
+const SEM_KEYS=CIQ.map(([k])=>k);
+function semRef(w,k){const p=[];for(let pw=w-1;pw>=1&&p.length<4;pw--){const v=num((S.ci["w"+pw]||{})[k]);if(v!=null)p.push(v)}
+  return p.length>=2?p.reduce((a,b)=>a+b,0)/p.length:3}
+function semCaidas(w){let n=0;for(const d of DAYS(w)){const s=PLAN[w][d];if(!s.ex)continue;
+  s.ex.forEach((e,i)=>{const l=S.ses[sid(w,d)]?.ex?.[i];if(!e.lo||!l||num(l.kg)==null||num(l.reps)==null)return;
+    const p=prevLog(w,e.n);if(p&&p.kg===num(l.kg)&&p.reps!=null&&num(l.reps)<p.reps)n++})}
+  return n}
 function semaforo(w){
-  const c=S.ci["w"+w]||{},a=weekAuto(w),q=CIQ.map(([k])=>num(c[k])).filter(v=>v!=null);
+  const c=S.ci["w"+w]||{};
   if(c.dolor==="limita")return "ROJO";
-  const low=q.filter(v=>v<=2).length;
-  const verde=a.dn/a.tot>=.8&&q.length===4&&q.every(v=>v>=3)&&c.dolor!=="leve";
-  if(verde)return "VERDE";
-  if(w>1&&S.ci["w"+(w-1)]&&semaforo(w-1)!=="VERDE")return "ROJO (2.ª semana seguida sin verde)";
+  const bajas=SEM_KEYS.filter(k=>{const v=num(c[k]);return v!=null&&v<=semRef(w,k)-1}).length;
+  const amarillo=bajas>=2||semCaidas(w)>=2||c.dolor==="leve";
+  if(!amarillo)return "VERDE";
+  if(w>1&&S.ci["w"+(w-1)]&&!semaforo(w-1).startsWith("VERDE"))return "ROJO (2.ª semana seguida en amarillo: descarga)";
   return "AMARILLO";
+}
+function adherencia(w){
+  const a=weekAuto(w),dn=a.dn,tot=a.tot,p=tot?Math.round(dn/tot*100):0;
+  return `${dn}/${tot} (${p} %) · `+(p>=80?"bien":p>=50?"ajustar días y duración a tu semana real":"rehacer tu semana tipo si se repite");
 }
 function renderCheckin(){
   const c=ciSt(week),a=weekAuto(week),mujer=CLIENTE.sexo==="mujer";
@@ -960,7 +973,7 @@ function renderCheckin(){
 }
 function resumenCheckin(w){
   const c=S.ci["w"+w]||{},a=weekAuto(w),lab={no:"No",leve:"Sí, leve",limita:"Sí, y me ha limitado",algo:"Algo",mucho:"Mucho",nr:"Prefiero no responder"};
-  const L=[`CHECK-IN · ${CLIENTE.nombre} · Semana ${w}`,`Semáforo sugerido: ${semaforo(w)}`,"",
+  const L=[`CHECK-IN · ${CLIENTE.nombre} · Semana ${w}`,`Semáforo sugerido: ${semaforo(w)}`,`Adherencia: ${adherencia(w)}`,"",
     `Sesiones: ${a.dn}/${a.tot}${a.rpe!=null?" · RPE medio "+nf(a.rpe):""}`,
     ...CIQ.map(([k,q])=>`${q} ${c[k]||"—"}/5`),
     `Dolor o molestia: ${lab[c.dolor]||"—"}${c.dolorTxt?" ("+c.dolorTxt+")":""}`];
