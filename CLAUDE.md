@@ -35,3 +35,7 @@ Los clientes valoran que el plan suene a Paula y esté hecho para ellos (un clie
    - Vídeos de técnica: el bloque `VIDEOS` (nombre del ejercicio → enlace de YouTube) lo rellena Paula con vídeos que ella haya revisado o propios. Para un vídeo solo en un ejercicio concreto, añade `vid:"<enlace>"` a ese ejercicio. Sin enlace, el botón abre una búsqueda «técnica <ejercicio>» en YouTube. No inventar enlaces.
 4. Comprobar el script con `node --check` y abrir la página una vez en Playwright para ver que no hay errores.
 5. Commit y push a `main`. GitHub Pages lo publica en 1-2 minutos.
+
+## Al cerrar cada bloque (informe)
+
+Antes de crear el bloque siguiente, rellena en el plan que termina el objeto `INFORME` con lo que diga Paula (si no lo ha dicho, pregúntaselo): `fuerte` (su punto fuerte), `mejorar` (lo que vamos a mejorar) y `siguiente` (qué cambia en el siguiente bloque). Una frase cada uno, con la voz de Paula y sin datos de salud. El cliente lo ve en Progreso → Informe, junto con sus sesiones, su semáforo y lo que ha mejorado en fuerza, que la app calcula sola.

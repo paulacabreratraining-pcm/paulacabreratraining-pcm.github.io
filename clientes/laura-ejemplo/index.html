@@ -295,6 +295,12 @@ details.more[open] summary::before{content:"▾ "}
 .sp small{font-size:11.5px;color:var(--muted)}
 .ev{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px}
 .ev-alta{background:var(--ok-soft);color:var(--ok)} .ev-limitada{background:var(--warn-soft);color:var(--warn)} .ev-comida{background:var(--blue-soft);color:var(--blue-ink)}
+.semrow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.semchip{border-radius:12px;padding:8px 4px;text-align:center;font:700 11px var(--body);color:var(--muted);background:var(--sunk)}
+.semchip b{display:block;font:800 14px var(--display);color:var(--ink)}
+.semchip.verde{background:var(--ok-soft)}.semchip.verde b{color:var(--ok)}
+.semchip.amarillo{background:var(--warn-soft)}.semchip.amarillo b{color:var(--warn)}
+.semchip.rojo{background:var(--bad-soft)}.semchip.rojo b{color:var(--bad)}
 .wsum{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .wsum div{background:var(--surface);border:1px solid var(--line);border-radius:12px;text-align:center;padding:10px 2px}
 .wsum b{display:block;font:800 21px var(--display);line-height:1.05;font-variant-numeric:tabular-nums}
@@ -362,6 +368,8 @@ const CLIENTE={
     movilidad:{sentadilla:"Limitado",bisagra:"Bien",brazos:"Bien"},
     rockport:{tiempo:"15:48",fc:148}}
 };
+/* Valoración de Paula al cerrar el bloque (aparece en Progreso → Informe). Sin datos de salud. */
+const INFORME={fuerte:"",mejorar:"",siguiente:""};
 
 /* ================= Fechas ================= */
 const START=(()=>{const [y,m,d]=CLIENTE.inicio.split("-").map(Number);return new Date(y,m-1,d)})();
@@ -621,7 +629,7 @@ const SUBS={
   guia:[["esfuerzo","Esfuerzo"],["progresion","Progresión"],["cardio","Cardio"],["ejercicios","Ejercicios"],["seguridad","Seguridad"],["instalar","Instalar"]],
   nutricion:[["basicos","Básicos"],["entreno","Entreno"],["proteina","Proteína"],["suplementos","Suplementos"]],
   habitos:[["registro","Registro"],["sueno","Sueño"],["recuperacion","Recuperación"]],
-  progreso:[["resumen","Resumen"],["medidas","Medidas"],["fuerza","Fuerza"],["motor","Motor"]]
+  progreso:[["resumen","Resumen"],["medidas","Medidas"],["fuerza","Fuerza"],["motor","Motor"],["informe","Informe"]]
 };
 const SUB={guia:"esfuerzo",nutricion:"basicos",habitos:"registro",progreso:"resumen"};
 const segBar=t=>`<div class="seg" role="tablist" aria-label="Apartados">${SUBS[t].map(([k,n])=>`<button type="button" role="tab" data-sub="${t}|${k}" aria-selected="${SUB[t]===k}">${n}</button>`).join("")}</div>`;
@@ -774,6 +782,38 @@ function iniForm(){
 /* ================= Progreso ================= */
 function testVals(){const a=S.ses[sid(4,"lun")]?.t||{},b=S.ses[sid(4,"mie")]?.t||{};return {...a,...b}}
 const pdate=s=>{if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return null;const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+/* ================= Informe del bloque =================
+   Se rellena solo con lo que el cliente apunta. Paula añade su valoración en INFORME (sin datos de salud: la web es pública). */
+function renderInforme(){
+  const IN=typeof INFORME!=="undefined"?INFORME:{};
+  let tot=0,dn=0;for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){tot++;if(S.ses[sid(w,dd)]?.done)dn++}
+  let hb=0,hbMax=0;for(let w=1;w<=NW;w++){const x=S.hab[sid(w,"hab")]||{};HABITS.forEach(([k])=>{hbMax+=7;hb+=(x[k]||[]).filter(Boolean).length})}
+  const sem=[];for(let w=1;w<=NW;w++)sem.push(S.ci["w"+w]?semaforo(w).split(" ")[0]:null);
+  const verdes=sem.filter(v=>v==="VERDE").length,conCi=sem.filter(Boolean).length;
+  const ej={};for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;
+    x.ex.forEach((e,i)=>{if(!e.lo)return;const l=S.ses[sid(w,dd)]?.ex?.[i];const kg=num(l?.kg),r=num(l?.reps);if(kg==null)return;
+      const o=ej[e.n]||(ej[e.n]={n:e.n});if(!o.a)o.a={w,kg,r};o.b={w,kg,r}})}
+  const lista=Object.values(ej).filter(o=>o.b.w>o.a.w).map(o=>({...o,pct:o.a.kg?(o.b.kg-o.a.kg)/o.a.kg*100:0,dr:(o.b.r??0)-(o.a.r??0)}))
+    .sort((x,y)=>y.pct-x.pct||y.dr-x.dr).slice(0,6);
+  const fila=o=>{const up=o.b.kg>o.a.kg,same=o.b.kg===o.a.kg;
+    const txt=up?`+${nf(o.b.kg-o.a.kg)} kg`:same&&o.dr>0?`+${o.dr} reps`:same?"igual":`${nf(o.b.kg-o.a.kg)} kg`;
+    return `<div><span class="k">${esc(o.n)}</span><span class="v">${nf(o.a.kg)}${o.a.r!=null?"×"+o.a.r:""}</span><span class="v">${nf(o.b.kg)}${o.b.r!=null?"×"+o.b.r:""}</span><span class="d" style="color:${up||o.dr>0?"var(--ok)":"var(--muted)"}">${txt}</span></div>`};
+  const chip=(v,i)=>`<span class="semchip ${v?v.toLowerCase():"na"}">S${i+1}<b>${v?v[0]+v.slice(1).toLowerCase():"—"}</b></span>`;
+  const nota=IN.fuerte||IN.mejorar||IN.siguiente;
+  return `<div class="card"><p class="eyebrow">Informe del bloque</p><h2>${esc(CLIENTE.objetivo)}</h2>
+      <p class="lead">${fmt(dateOf(1,"lun"))} – ${fmt(dateOf(NW,"dom"))}. Así han ido tus ${NW} semanas.</p></div>
+    <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${verdes}/${conCi||NW}</b><span>semanas verdes</span></div><div><b>${hbMax?Math.round(hb/hbMax*100):0}%</b><span>hábitos</span></div></div>
+    <div class="card"><p class="eyebrow">Semana a semana</p><h2>Tu semáforo</h2><div class="semrow">${sem.map(chip).join("")}</div>
+      <p class="note">Sale de tus check-ins. Una semana en amarillo o rojo no es un fracaso: es la información que me ayuda a ajustar tu plan.</p></div>
+    <div class="card"><p class="eyebrow">Fuerza</p><h2>Lo que has mejorado</h2>
+      ${lista.length?`<div class="cmp"><div class="head"><span></span><span>Primera vez</span><span>Última vez</span><span>Cambio</span></div>${lista.map(fila).join("")}</div>
+      <p class="note">Kilos × repeticiones de la última serie, la primera y la última vez que apuntaste cada ejercicio.</p>`
+      :`<p class="lead">Cuando apuntes los kilos de al menos dos semanas, aquí verás cuánto has mejorado.</p>`}</div>
+    <div class="card"><p class="eyebrow">De Paula</p><h2>Mi valoración</h2>
+      ${nota?`${IN.fuerte?`<p><b>Tu punto fuerte:</b> ${esc(IN.fuerte)}</p>`:""}${IN.mejorar?`<p><b>Lo que vamos a mejorar:</b> ${esc(IN.mejorar)}</p>`:""}${IN.siguiente?`<p><b>En el siguiente bloque:</b> ${esc(IN.siguiente)}</p>`:""}`
+      :`<p class="lead">Al cerrar el bloque te dejaré aquí tu punto fuerte, lo que vamos a mejorar y qué cambia en el siguiente.</p>`}
+      <p class="note">Para guardarlo, haz una captura de pantalla.</p></div>`;
+}
 function renderProgreso(){
   const s=SUB.progreso,I=getIni(),T=testVals();let h=segBar("progreso");
   if(CLIENTE.ejemplo)h+=`<p class="example">Valores iniciales de ejemplo.</p>`;
@@ -784,7 +824,8 @@ function renderProgreso(){
     const rp=[];for(let w=1;w<=NW;w++)for(const dd of DAYS(w)){const r=num(S.ses[sid(w,dd)]?.rpe);if(r!=null)rp.push(r)}
     h+=`<div class="card"><p class="eyebrow">Objetivo</p><h2>${esc(CLIENTE.objetivo)}</h2><p class="lead">Nivel ${esc(CLIENTE.nivel.toLowerCase())} · servicio ${esc(CLIENTE.servicio)}. ${pdate(I.fecha)?"Valoración inicial: "+fmt(pdate(I.fecha))+".":""} Siguiente: semana 4.</p></div>
       <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${rp.length?nf(rp.reduce((a,b)=>a+b,0)/rp.length):"–"}</b><span>RPE medio</span></div><div><b>${hb}</b><span>hábitos</span></div></div>
-      <p class="note" style="text-align:center">La constancia es lo que más predice tus resultados.</p>`;
+      <p class="note" style="text-align:center">La constancia es lo que más predice tus resultados.</p>
+      <button class="btn" type="button" data-sub="progreso|informe" style="margin-top:4px">Ver el informe del bloque</button>`;
   }
   if(s==="medidas"||s==="motor")h+=iniForm();
   if(s==="medidas"){
@@ -810,6 +851,7 @@ function renderProgreso(){
     h+=`<div class="card"><p class="eyebrow">En el gimnasio</p><h2>Tus cargas semana a semana</h2><div class="bars">${bars}</div></div>
     <div class="card"><p class="eyebrow">Test · semana 4</p><h2>8-10RM</h2><div class="cmp">${rms}</div><p class="note">Es tu primera medición de fuerza. La compararemos en la próxima valoración.</p></div>`;
   }
+  if(s==="informe")h+=renderInforme();
   if(s==="motor"){
     const p2=num(T.peso);
     const v1=rockport(I.peso,parseT(I.rockport.tiempo),I.rockport.fc),v2=rockport(p2??I.peso,parseT(T.milla_t),num(T.milla_fc));
