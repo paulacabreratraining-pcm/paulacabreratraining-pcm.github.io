@@ -18,9 +18,10 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-24 | 19:00 | Carrusel | Educa | ¿Semana horrible? Tranqui: qué hacer cuando se tuerce la semana | `posts/2026-11-24-semana-mala` | Borrador (sustituye al del check-in: Paula quiere vender menos, 17/11) |
 | — | — | Carrusel | Método | ¿Tu plan cambia si tu semana va mal? El check-in del domingo | `posts/2026-11-22-check-in-semanal` | Aparcado (demasiado de venta) |
 | — | — | Carrusel | Educa | Fuerza con un banco y una mochila: 5 ejercicios para empezar (patrón 2; con fotos de Paula en gimnasio o parque) | — | Idea aprobada, sin fecha |
-| 2026-11-26 | 19:00 | Reel | Confianza | Un paseo conmigo (si Paula sale a la montaña el finde 21–22/11); si no, reel grabado en el gimnasio | — | Idea aprobada |
+| 2026-11-26 | 19:00 | Reel | Educa | Entreno en la playa: sesión con tu peso en la arena, series en pantalla (grabado en el camping el finde 21–22/11 con su amiga) | — | Idea aprobada (20/11, sustituye a «Un paseo conmigo») |
 | 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
-| 2026-12-03 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio (patrón 1) | — | Idea aprobada |
+| 2026-12-03 | 19:00 | Reel | Confianza | Un finde conmigo: camper, playa, entreno y descanso (grabado el finde 21–22/11). La historia de cómo Paula hace la camper con su padre irá en otro post cuando esté terminada | — | Idea aprobada (20/11) |
 | 2026-12-10 | 19:00 | Reel | Confianza | Por qué me hice entrenadora: ver a otros mejorar, clips de Paula + voz en off (patrón 1) | — | Idea aprobada (movida desde el 19/11) |
+| 2026-12-17 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio (patrón 1) | — | Idea aprobada (movida desde el 3/12) |
 | — | — | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí (sentadilla al banco) | `posts/2026-11-19-reel-sentadilla-banco` | Aparcado: tema demasiado cerca del reel del 12/11 |
 | 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (con fotos de Paula) | — | Idea (pendiente de aprobar) |
