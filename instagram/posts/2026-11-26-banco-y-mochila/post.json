@@ -1,0 +1,146 @@
+{
+  "fecha": "2026-11-26",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "patron_nicho": "2 · contenido para guardar y compartir (análisis 07/11/2026)",
+  "ganchos": [
+    {
+      "texto": "¿Fuerza con un banco y una mochila? SÍ.",
+      "nota": 9,
+      "elegido": true
+    },
+    {
+      "texto": "5 ejercicios de fuerza sin máquinas",
+      "nota": 8
+    },
+    {
+      "texto": "Sin gimnasio también se gana fuerza",
+      "nota": 7
+    }
+  ],
+  "nota": "Plan B del jueves 26/11: solo se usa si el reel de la playa no llega a tiempo. Criterio práctico, sin datos científicos. Idea ya aprobada en el calendario («Fuerza con un banco y una mochila»).",
+  "diapositivas": [
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Fuerza con un banco y una mochila?",
+      "respuesta": "SÍ.",
+      "texto": "5 ejercicios para empezar **sin máquinas**"
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "01",
+      "etiqueta": "Pierna",
+      "titulo": "Sentadilla al banco",
+      "resaltado": "al banco",
+      "texto": "Baja despacio hasta **rozar el banco** y sube sin dejarte caer. El banco te marca la profundidad.",
+      "chips": [
+        "3 × 10–12",
+        "Baja en 3 s"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "rosa",
+      "num": "02",
+      "etiqueta": "Espalda",
+      "titulo": "Remo con mochila",
+      "resaltado": "mochila",
+      "texto": "Una mano y una rodilla en el banco. Tira de la mochila **hacia la cadera**, no hacia el hombro.",
+      "chips": [
+        "3 × 10 por lado",
+        "Espalda recta"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "azul",
+      "num": "03",
+      "etiqueta": "Pecho y brazos",
+      "titulo": "Flexiones en el banco",
+      "resaltado": "en el banco",
+      "texto": "Manos en el banco: cuanto **más alto** el apoyo, más fácil. Cuerpo en bloque, sin hundir la cadera.",
+      "chips": [
+        "3 × 8–12",
+        "Cuerpo recto"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "04",
+      "etiqueta": "Glúteo y femoral",
+      "titulo": "Peso muerto rumano",
+      "resaltado": "rumano",
+      "texto": "Mochila abrazada al pecho o en las manos. Lleva **la cadera atrás** con las rodillas un poco flexionadas.",
+      "chips": [
+        "3 × 10–12",
+        "Cadera atrás"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "rosa",
+      "num": "05",
+      "etiqueta": "Pierna a una",
+      "titulo": "Subida al banco",
+      "resaltado": "al banco",
+      "texto": "Pie entero en el banco y empuja con **esa pierna**, sin impulso de la de abajo.",
+      "chips": [
+        "3 × 8 por lado",
+        "Sin impulso"
+      ]
+    },
+    {
+      "tipo": "pasos",
+      "titulo": "Para seguir mejorando",
+      "resaltado": "mejorando",
+      "pasos": [
+        "Mete **más peso** en la mochila: libros, botellas de agua",
+        "Haz **2 repeticiones más** en cada serie",
+        "Baja **más lento**: 3 o 4 segundos",
+        "Pasa a **4 series** en lo que más te guste"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Lo que cuenta es repetirlo cada semana",
+      "resaltado": "cada semana",
+      "texto": "Guárdalo para tu próximo entreno y mándaselo a quien dice que sin gimnasio no puede.",
+      "boton": "Guárdalo 📌"
+    }
+  ],
+  "texto": "¿Se puede ganar fuerza con un banco y una mochila? Sí 👇\n\n1️⃣ Sentadilla al banco: baja despacio hasta rozarlo.\n2️⃣ Remo con mochila: tira hacia la cadera.\n3️⃣ Flexiones con las manos en el banco.\n4️⃣ Peso muerto rumano con la mochila.\n5️⃣ Subida al banco, empujando con la pierna de arriba.\n\n3 series de cada uno, 2 o 3 días a la semana. Cuando te cueste poco, mete más peso en la mochila o haz un par de repeticiones más. Así el cuerpo tiene un motivo para seguir mejorando.\n\nVale en el parque, en el gimnasio o donde tengas un banco.\n\nGuárdalo 📌 y mándaselo a quien dice que sin gimnasio no puede.\n\nSi quieres que te ayude con tu plan, escríbeme EMPEZAR.",
+  "hashtags": [
+    "entrenamientodefuerza",
+    "entrenarsinmaquinas",
+    "fuerzaysalud",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ],
+  "fotos": [
+    {
+      "texto": "Portada: tú sentada en un banco del parque con la mochila al lado",
+      "como": "Cuerpo entero, de frente, con cielo o espacio libre arriba para la pregunta."
+    },
+    {
+      "texto": "01 Sentadilla al banco: tú rozando el banco abajo del todo",
+      "como": "De lado, cuerpo entero, en el parque o en el gimnasio."
+    },
+    {
+      "texto": "02 Remo con mochila: mano y rodilla en el banco, mochila arriba",
+      "como": "De lado, que se vea la mochila pegada a la cadera."
+    },
+    {
+      "texto": "04 Peso muerto rumano: mochila en las manos, cadera atrás",
+      "como": "De lado, en el punto más bajo."
+    },
+    {
+      "texto": "05 Subida al banco: un pie arriba, empujando",
+      "como": "De lado o en diagonal, cuerpo entero."
+    }
+  ]
+}

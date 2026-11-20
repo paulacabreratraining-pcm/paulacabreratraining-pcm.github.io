@@ -17,8 +17,9 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-19 | 19:00 | Reel | Confianza | Entrena conmigo: mi sesión de fuerza (un clip por ejercicio, nombres en pantalla) | `posts/2026-11-19-reel-entrena-conmigo` | Montado (v3, 17 s), pendiente de aprobar en la app |
 | 2026-11-24 | 19:00 | Carrusel | Educa | ¿Semana horrible? Tranqui: qué hacer cuando se tuerce la semana | `posts/2026-11-24-semana-mala` | Borrador (sustituye al del check-in: Paula quiere vender menos, 17/11) |
 | — | — | Carrusel | Método | ¿Tu plan cambia si tu semana va mal? El check-in del domingo | `posts/2026-11-22-check-in-semanal` | Aparcado (demasiado de venta) |
-| — | — | Carrusel | Educa | Fuerza con un banco y una mochila: 5 ejercicios para empezar (patrón 2; con fotos de Paula en gimnasio o parque) | — | Idea aprobada, sin fecha |
 | 2026-11-26 | 19:00 | Reel | Educa | Entreno en pareja en la playa: sesión con su amiga y vuestro peso en la arena, series en pantalla (grabado en el camping el finde 21–22/11 con su amiga) | — | Idea aprobada (20/11, sustituye a «Un paseo conmigo») |
+| 2026-11-26 | 19:00 | Carrusel | Educa | ¿Fuerza con un banco y una mochila? SÍ: 5 ejercicios sin máquinas (plan B del jueves si el reel de la playa no llega) | `posts/2026-11-26-banco-y-mochila` | Borrador |
+| 2026-11-29 | 11:00 | Carrusel | Educa | Con 2 días ya cuenta: la OMS recomienda fuerza 2+ días/semana (extra opcional; si no, queda de reserva para una semana sin grabar) | `posts/2026-11-29-dos-dias-fuerza` | Borrador |
 | 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
 | 2026-12-03 | 19:00 | Reel | Confianza | Un finde conmigo: camper, playa, entreno y descanso (grabado el finde 21–22/11). La historia de cómo Paula hace la camper con su padre irá en otro post cuando esté terminada | — | Idea aprobada (20/11) |
 | 2026-12-10 | 19:00 | Reel | Confianza | Por qué me hice entrenadora: ver a otros mejorar, clips de Paula + voz en off (patrón 1) | — | Idea aprobada (movida desde el 19/11) |

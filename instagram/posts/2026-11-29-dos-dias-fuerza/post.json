@@ -1,0 +1,117 @@
+{
+  "fecha": "2026-11-29",
+  "hora": "11:00",
+  "formato": "carrusel",
+  "pilar": "Educa",
+  "aprobado": false,
+  "publicado": false,
+  "patron_nicho": "2 · contenido para guardar y compartir (análisis 07/11/2026)",
+  "ganchos": [
+    {
+      "texto": "Mitos tachados + «Con 2 días ya cuenta»",
+      "nota": 9,
+      "elegido": true
+    },
+    {
+      "texto": "¿2 días de fuerza a la semana sirven?",
+      "nota": 8
+    },
+    {
+      "texto": "No necesitas entrenar todos los días",
+      "nota": 7
+    }
+  ],
+  "fuentes": [
+    "Bull, F. C., Al-Ansari, S. S., Biddle, S., Borodulin, K., Buman, M. P., Cardon, G., … Willumsen, J. F. (2020). World Health Organization 2020 guidelines on physical activity and sedentary behaviour. British Journal of Sports Medicine, 54(24), 1451–1462. https://doi.org/10.1136/bjsports-2020-102955"
+  ],
+  "nota": "Extra opcional / reserva: Paula publica 2 veces por semana (16/11/2026), así que por defecto no sale esta semana y queda listo para una semana sin grabación. Dato verificado: la OMS recomienda a los adultos actividades de fortalecimiento muscular de intensidad moderada o mayor 2 o más días a la semana (Bull et al., 2020). El resto (cuerpo completo, día de descanso entre medias, ejemplo de semana) es criterio práctico.",
+  "diapositivas": [
+    {
+      "tipo": "mitos",
+      "etiqueta": "Fuerza sin agobios",
+      "frases": [
+        "O 5 días o nada",
+        "El lunes empiezo",
+        "2 días no sirven"
+      ],
+      "titulo": "Con **2 días** ya cuenta"
+    },
+    {
+      "tipo": "mito",
+      "num": "01",
+      "mito": "Si no entreno 4 o 5 días, no merece la pena",
+      "realidad": "La OMS recomienda trabajar la fuerza **2 o más días a la semana**, con un esfuerzo moderado o mayor.\n\nDos días bien hechos ya están **dentro de la recomendación**.",
+      "fuente": "OMS · Bull et al., 2020"
+    },
+    {
+      "tipo": "opcion",
+      "color": "navy",
+      "num": "02",
+      "etiqueta": "Cómo organizarlo",
+      "titulo": "Cuerpo completo los dos días",
+      "resaltado": "los dos días",
+      "texto": "Pierna, empuje, tirón y bisagra de cadera **en cada sesión**. Así cada músculo trabaja dos veces por semana.",
+      "chips": [
+        "4–6 ejercicios",
+        "45–60 min"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "color": "rosa",
+      "num": "03",
+      "etiqueta": "Esfuerzo",
+      "titulo": "Que cueste de verdad",
+      "resaltado": "de verdad",
+      "texto": "Termina cada serie dejando **2 o 3 repeticiones** en la recámara. Si podrías hacer 10 más, sube el peso.",
+      "chips": [
+        "RIR 2–3",
+        "Sube poco a poco"
+      ]
+    },
+    {
+      "tipo": "pasos",
+      "titulo": "Una semana de ejemplo",
+      "resaltado": "de ejemplo",
+      "pasos": [
+        "**Martes:** sesión A, cuerpo completo",
+        "**Viernes:** sesión B, cuerpo completo",
+        "Deja **al menos un día** de descanso entre las dos",
+        "El resto de días, **camina** o muévete como te guste"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Mejor 2 días siempre que 5 días una semana",
+      "resaltado": "2 días siempre",
+      "texto": "Guárdalo y mándaselo a quien no empieza porque «no tiene tiempo».",
+      "boton": "Guárdalo 📌"
+    }
+  ],
+  "texto": "¿Crees que con 2 días de fuerza a la semana no haces nada? 👇\n\nLa OMS recomienda a los adultos trabajar la fuerza 2 o más días a la semana, con un esfuerzo moderado o mayor (Bull et al., 2020). Dos días bien hechos ya están dentro.\n\nCómo lo organizaría yo:\n1️⃣ Cuerpo completo en las dos sesiones: pierna, empuje, tirón y bisagra de cadera.\n2️⃣ Que cueste: termina cada serie dejando 2 o 3 repeticiones en la recámara.\n3️⃣ Un día de descanso como mínimo entre las dos. El resto de la semana, camina o muévete como te guste.\n\nMejor 2 días todas las semanas que 5 días una semana y luego nada.\n\nGuárdalo 📌 y mándaselo a quien no empieza porque «no tiene tiempo».\n\nSi quieres que te ayude con tu plan, escríbeme EMPEZAR.",
+  "hashtags": [
+    "entrenamientodefuerza",
+    "fuerzaysalud",
+    "constancia",
+    "malaga",
+    "entrenadorapersonalmalaga"
+  ],
+  "fotos": [
+    {
+      "texto": "Portada: tú cargando una barra o colocando discos",
+      "como": "Plano medio, con hueco abajo para el titular (el diseño pone el texto abajo)."
+    },
+    {
+      "texto": "02 Cuerpo completo: tú haciendo un peso muerto rumano con mancuernas",
+      "como": "De lado, cuerpo entero, en el gimnasio."
+    },
+    {
+      "texto": "03 Que cueste: tú en la última repetición de un press o una sentadilla, con cara de esfuerzo",
+      "como": "De frente o en diagonal, de cintura para arriba."
+    },
+    {
+      "texto": "Ejemplo de semana: tú caminando al aire libre",
+      "como": "De espaldas o de lado, con mucho cielo arriba."
+    }
+  ]
+}
