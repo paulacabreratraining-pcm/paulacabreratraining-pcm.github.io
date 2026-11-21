@@ -408,7 +408,7 @@ const FOCUS={
   1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
   2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual; en el press bajamos un poco para ir con calma, y en el remo estrenas la máquina de fuerza. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos. Y como el jueves no puedes, la Fuerza B la haces el viernes en casa."],
   3:["El esfuerzo justo","¡Otra semana completa, Luis! Esta semana no subimos nada: lo has hecho todo, pero fuiste más fuerte de lo que tocaba (natación, tobilleras y algún kilo de más). Ahora progresar es entrenar con el esfuerzo justo. En sentadilla e hip thrust, mismo peso y llega a 8-10 repeticiones: no pares en 7. Esta semana cambiamos los días: el lunes, Fuerza A; el martes, natación suave, que es tu trabajo de motor de la semana; y el jueves, la Fuerza B en casa. Si das paseos, que sean suaves, y apúntalos."],
-  4:["Semana de valoración","Martes, test de fuerza y medidas; miércoles, natación suave; jueves, test de la milla."]
+  4:["Semana de valoración","¡Semana de pruebas, Luis! La semana pasada llegaste por fin a 10 repeticiones: así se hace. Martes, test de fuerza y medidas; miércoles, natación muy suave; jueves, la milla en el mismo recorrido que la primera vez. Para que las pruebas salgan bien, hasta el jueves los paseos cortos y tranquilos (5 km como mucho, RPE 4). Y en los tests, para cuando la técnica empiece a fallar: no hace falta llegar al «no puedo más»."]
 };
 const WARM_F=["5' de bici o elíptica suave (RPE 3)","Movilidad de cadera, tobillo, espalda alta y hombro (3')","1 serie ligera de cada ejercicio principal"];
 const RESP="Respira en cada repetición: suelta el aire al hacer fuerza y nunca aguantes la respiración.";
@@ -425,9 +425,9 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse
   {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Desde un banco bajo, o con apoyo en una espaldera"}]}}
 
 function sesNat(w){const mins={1:20,2:25,3:25,4:20}[w];return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
-  goal:"Sumar resistencia con lo que más te gusta. Hoy todo suave: nada que te deje sin aliento.",
+  goal:w===4?"Hoy, solo para soltar el cuerpo: mañana tienes la milla y tienes que llegar fresco.":"Sumar resistencia con lo que más te gusta. Hoy todo suave: nada que te deje sin aliento.",
   warm:["3' de movilidad de hombros fuera del agua","2 largos muy suaves"],cool:["Ducha y estira suave lo que notes cargado"],
-  cardio:{mins,txt:w===3?"1 largo suave y 30 segundos de pausa en la pared; repite hasta completar los minutos. No cuentes largos":"Natación a ritmo cómodo, con pausas en la pared cuando las necesites"},
+  cardio:{mins,txt:w===3||w===4?"1 largo suave y 30 segundos de pausa en la pared; repite hasta completar los minutos. No cuentes largos":"Natación a ritmo cómodo, con pausas en la pared cuando las necesites"},
   after:"Cuenta minutos a ritmo cómodo, no largos para batir tu marca. Aunque un día te sientas muy bien, mantén el tiempo de la semana.",
   ex:[
   {n:"Sentadilla profunda asistida",sets:3,time:"20-30\"",rest:30,how:"Agárrate a un soporte firme y baja todo lo que puedas con los talones apoyados. Respira tranquilo.",alt:"Sentado en un banco bajo, inclinándote hacia delante"},
