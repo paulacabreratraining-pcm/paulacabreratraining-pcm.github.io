@@ -456,10 +456,10 @@ function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:70,
    {k:"mob_sentadilla",n:"Sentadilla profunda con brazos arriba",sel:true,h:"Baja todo lo que puedas con los brazos estirados por encima de la cabeza, sin apoyarte."},
    {k:"mob_bisagra",n:"Bisagra de cadera con palo",sel:true,h:"Palo en la espalda tocando cabeza, espalda alta y sacro. Inclínate sin que se separe."},
    {k:"mob_brazos",n:"Brazos arriba contra la pared",sel:true,h:"Espalda y cabeza apoyadas. Sube los brazos estirados hasta tocar la pared."},
-   {k:"rm_sentadilla",n:"Sentadilla goblet · 8-10RM",rm:true},
-   {k:"rm_hip",n:"Hip thrust · 8-10RM",rm:true},
-   {k:"rm_press",n:"Press con mancuernas · 8-10RM",rm:true},
-   {k:"rm_remo",n:"Remo en máquina · 8-10RM",rm:true}]}}
+   {k:"rm_sentadilla",n:"Sentadilla goblet · 8-10RM",rm:true,ex:"Sentadilla goblet"},
+   {k:"rm_hip",n:"Hip thrust · 8-10RM",rm:true,ex:"Hip thrust"},
+   {k:"rm_press",n:"Press con mancuernas · 8-10RM",rm:true,ex:"Press con mancuernas en banco",pm:true},
+   {k:"rm_remo",n:"Remo en máquina · 8-10RM",rm:true,ex:"Remo en máquina"}]}}
 
 function testMilla(){return{type:"test",t:"Test de la milla",dur:35,
   goal:"Medir tu resistencia caminando y compararla con tu primera milla.",
@@ -638,21 +638,30 @@ function exCard(w,id,e,i){
 function testBlock(id,s){
   const t=tSt(id);
   let h="";
-  if(s.tests.some(x=>x.rm))h+=`<p class="sub">Cómo hacer cada test de fuerza</p><ol class="steps">
-     <li>Aproximación: 1 serie ligera de 8-10, una media de 5 y otra más pesada de 2-3 (1-2' de descanso).</li>
-     <li>Intento con la carga que creas que puedes mover 8-10 veces con buena técnica.</li>
-     <li>Si haces más de 10, descansa 3-5', sube la carga y repite. Máximo 3-4 intentos.</li>
-     <li>La serie termina cuando se rompe la técnica, nunca al fallo. Apunta el último intento válido.</li>
-     <li>Suelta el aire al subir: nunca aguantes la respiración.</li></ol>`;
+  if(s.tests.some(x=>x.rm))h+=`<p class="sub">El test de fuerza, paso a paso</p>
+    <div class="why"><b>Qué buscamos</b>El peso más alto con el que haces entre 8 y 10 repeticiones bien hechas. Eso es tu «8-10RM». No hace falta acertar a la primera: para eso tienes hasta 3-4 intentos.</div>
+    <ol class="steps">
+     <li><b>Calienta el ejercicio</b> con 3 series cortas, descansando 1-2' entre ellas: una muy ligera de 8-10 repeticiones, otra media de 5 y otra algo más pesada de 2-3. Tienen que salir fáciles.</li>
+     <li><b>Primer intento:</b> coge un poco más de lo que usas en tus entrenos (debajo de cada ejercicio te pongo cuánto) y haz todas las repeticiones que puedas <b>bien hechas</b>.</li>
+     <li><b>Para cuando la técnica empiece a fallar</b> (la espalda se curva, las rodillas se van hacia dentro, tienes que dar un tirón…). No hace falta llegar al «no puedo más».</li>
+     <li><b>Mira cuántas has hecho:</b>
+       <br>· <b>Entre 8 y 10:</b> ¡ya está! Apunta el peso y las repeticiones.
+       <br>· <b>Más de 10:</b> descansa 3-5' (usa el reloj), sube un poco el peso y repite.
+       <br>· <b>Menos de 8:</b> apúntalo igualmente; también vale.</li>
+     <li><b>Máximo 3-4 intentos</b> por ejercicio. Si al cuarto sigues pasando de 10, apunta el último y listo.</li>
+     <li>Suelta el aire al subir y <b>nunca aguantes la respiración</b>.</li></ol>
+    <div class="why"><b>Un ejemplo</b>Sentadilla. Calientas con 5 kg × 10, 7 kg × 5 y 9 kg × 3. Primer intento con 10 kg: haces 12 bien → descansas 3' y subes a 12 kg. Segundo intento: en la 10.ª ya cuesta mantener la espalda recta, así que paras en 9. Apuntas 12 kg y 9 repeticiones. ¡Hecho!</div>`;
   const groups=[["Medidas",x=>x.u&&!x.rm&&!x.txt&&!s.milla],["Movilidad",x=>x.sel],["Fuerza",x=>x.rm],["Test",x=>s.milla]];
   for(const [g,f] of groups){const items=s.tests.filter(f);if(!items.length)continue;
     h+=`<p class="sub">${g}</p>`+items.map(x=>{
       if(x.sel)return `<div class="test"><span class="n">${esc(x.n)}</span><p class="h">${esc(x.h)}</p>
         <div class="field"><label for="t-${id}-${x.k}">Resultado</label><select class="sel" id="t-${id}-${x.k}" data-t="${id}|${x.k}">${["","Bien","Limitado","Dolor"].map(v=>`<option ${t[x.k]===v?"selected":""} value="${v}">${v||"—"}</option>`).join("")}</select></div></div>`;
-      if(x.rm)return `<div class="test"><span class="n">${esc(x.n)}</span>
+      if(x.rm){const pl=x.ex?prevLog(4,x.ex):null,ini=pl?Math.round(pl.kg*1.1*2)/2:null;
+        const ref=pl?`<p class="h">En tus entrenos: ${nf(pl.kg)} kg${x.pm?" por mano":""} × ${pl.reps??"?"}${pl.rir!=null?` (te sobraban ${pl.rir})`:""}. Empieza el primer intento con unos <b>${nf(ini)} kg${x.pm?" por mano":""}</b>.</p>`:"";
+        return `<div class="test"><span class="n">${esc(x.n)}</span>${ref}
         <div class="exin"><div class="field"><label for="t-${id}-${x.k}-kg">Kg</label><input class="num" inputmode="decimal" id="t-${id}-${x.k}-kg" data-t="${id}|${x.k}_kg" value="${esc(t[x.k+"_kg"]??"")}"></div>
         <div class="field"><label for="t-${id}-${x.k}-r">Reps</label><input class="num" inputmode="numeric" id="t-${id}-${x.k}-r" data-t="${id}|${x.k}_r" value="${esc(t[x.k+"_r"]??"")}"></div>
-        <button class="restbtn" type="button" data-rest="180" data-label="${esc(x.n)}">${IC.timer} 3'</button></div></div>`;
+        <button class="restbtn" type="button" data-rest="180" data-label="${esc(x.n)}">${IC.timer} 3'</button></div></div>`}
       return `<div class="test"><span class="n">${esc(x.n)}</span><p class="h">${esc(x.h)}</p>
         <div class="field"><label for="t-${id}-${x.k}">${esc(x.u)}</label><input class="num" ${x.txt?'inputmode="text" placeholder="15:30"':'inputmode="decimal"'} id="t-${id}-${x.k}" data-t="${id}|${x.k}" value="${esc(t[x.k]??"")}"></div></div>`;
     }).join("");}
