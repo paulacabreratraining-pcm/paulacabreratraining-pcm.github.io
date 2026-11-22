@@ -421,28 +421,30 @@ function pilates(w){return{type:"pilates",t:"Clase de pilates",dur:55,
   warm:["El calentamiento de la clase"],cool:["La vuelta a la calma de la clase"],
   after:"Márcala como hecha: cuenta igual que una sesión."}}
 
-function sesA(w){const s=w<=2?2:3,carga=w>=3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:40,
+function sesA(w){const s=w<=2?2:3,carga=w>=3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:45,
   goal:"Piernas y espalda fuertes para agacharte, levantarte y cargar cosas en tu día a día sin miedo. Todo sentada o de pie, con la espalda neutra y sin doblarla con peso.",
   warm:WARM_F,cool:COOL_F,
   after:w===1?"Si algo te molesta, apúntalo en «¿Cómo ha ido?» y lo ajustamos.":"Incluye proteína en tu siguiente comida.",
   ex:[
-  carga?{n:"Sentadilla goblet a banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Coge la mancuerna de un banco o un soporte alto, nunca del suelo, y pégala al pecho. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentarse y levantarse de un banco, sin peso"}
+  carga?{n:"Sentadilla goblet a banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentarse y levantarse de un banco, sin peso"}
        :{n:"Sentarse y levantarse de un banco",sets:s,reps:"8-10",rest:75,how:"Sin peso, con los brazos al frente. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentadilla isométrica en pared"},
   {n:"Press de pecho en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, con la espalda apoyada entera en el respaldo y las asas a la altura del pecho. Empuja soltando el aire y vuelve despacio.",alt:"Press de pecho en polea, de pie"},
   {n:"Remo con pecho apoyado",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"En máquina, con el pecho apoyado en el respaldo: así la zona lumbar no trabaja. Lleva los codos atrás soltando el aire y junta las escápulas al final.",alt:"Remo en polea alta, de pie"},
-  {n:"Pasos laterales con banda",sets:s,reps:"10 / lado",rest:45,how:"Ponte la banda sentada en un banco, sin agacharte. De pie, banda por encima de las rodillas, rodillas un poco dobladas y espalda recta. Pasos cortos de lado sin que los pies se junten del todo.",alt:"Abducción de pie en polea"},
-  {n:"Plancha frontal desde rodillas",sets:s,time:w<=2?"15-20\"":"20-25\"",rest:45,how:"Antebrazos y rodillas apoyados, cuerpo en línea de las rodillas a la cabeza. Respira con normalidad todo el tiempo: nada de aguantar el aire. Para levantarte, gírate de lado, siéntate y ponte de pie despacio.",alt:"Plancha en la pared, de pie"}]}}
+  {n:"Pasos laterales con banda",sets:s,reps:"10 / lado",rest:45,how:"Banda por encima de las rodillas, rodillas un poco dobladas y espalda recta. Pasos cortos de lado sin que los pies se junten del todo.",alt:"Abducción de pie en polea"},
+  {n:"Face pull en polea",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:1.25,incTxt:"la placa más pequeña",how:"De pie, polea a la altura de la cara y cuerda en las manos. Tira hacia la frente separando las manos y abriendo los codos, soltando el aire. Espalda recta, sin echarte atrás.",alt:"Aperturas con banda elástica"},
+  {n:"Plancha frontal desde rodillas",sets:s,time:w<=2?"15-20\"":"20-25\"",rest:45,how:"Antebrazos y rodillas apoyados, cuerpo en línea de las rodillas a la cabeza. Respira con normalidad todo el tiempo: nada de aguantar el aire.",alt:"Plancha en la pared, de pie"}]}}
 
-function sesB(w){const dl=w===4,s=dl||w<=2?2:3;return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · glúteos, isquios y espalda",dur:dl?30:40,
+function sesB(w){const dl=w===4,s=dl||w<=2?2:3;return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · glúteos, isquios y espalda",dur:45,
   goal:dl?"Sesión suave para recuperarte del test del martes. Mismos ejercicios con 2 series y la carga de la semana 3.":"Glúteos, parte de atrás de las piernas y espalda: los músculos que sostienen tu zona lumbar. Sin doblar la espalda con peso.",
   warm:WARM_F,cool:COOL_F,
   after:"El domingo, rellena tu check-in y mándamelo por WhatsApp.",
   ex:[
   {n:"Puente de glúteo",sets:s,reps:w<=2?"10-12":"12-15",rest:60,how:"Boca arriba, rodillas dobladas y pies apoyados a la anchura de la cadera. Sube la cadera apretando glúteos y soltando el aire, solo hasta que hombros, cadera y rodillas queden en línea: sin arquear la zona lumbar arriba. Aguanta 2 segundos y baja despacio."+(w>=3?" Esta semana, con una banda por encima de las rodillas, empujándola hacia fuera.":""),alt:"Puente isométrico: sube y aguanta 15-20 segundos"},
-  {n:"Curl femoral tumbada",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:75,inc:2.5,incTxt:"1 placa",how:"Boca abajo en la máquina, con la cadera pegada al banco y el abdomen firme. Lleva los talones hacia los glúteos soltando el aire, sin despegar la cadera ni arquear la zona lumbar, y vuelve despacio.",alt:"Curl femoral en polea de pie, agarrada a la máquina"},
+  {n:"Zancada estática",sets:s,reps:"8 / lado",rest:60,how:"Un pie adelante y otro atrás, tronco recto y espalda neutra. Baja la rodilla de atrás hacia el suelo y sube empujando con la pierna de delante, soltando el aire. Si te cuesta el equilibrio, apóyate con una mano en la pared o en una máquina.",alt:"Subida a un cajón bajo"},
+  {n:"Curl femoral sentada",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:75,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada en el respaldo y rodillo justo encima del tobillo. Lleva los talones hacia abajo y atrás soltando el aire, y vuelve despacio. Si notas hormigueo o tirantez que baja por detrás de la pierna, para y apúntalo en la nota.",alt:"Curl femoral en polea de pie"},
   {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, pecho arriba y espalda recta, sin echarte hacia atrás. Tira llevando los codos abajo y atrás soltando el aire.",alt:"Jalón con agarre neutro"},
   {n:"Pallof press",sets:s,reps:"10 / lado",rest:45,how:"De pie, de lado a la polea, con el asa pegada al pecho. Empuja al frente soltando el aire sin que el tronco gire, y vuelve despacio.",alt:"Con banda elástica"},
-  {n:"Plancha lateral desde rodillas",sets:s,time:w<=2?"15\" / lado":"20\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo. Para levantarte, gírate, siéntate y ponte de pie despacio.",alt:"Plancha lateral en la pared, de pie"}]}}
+  {n:"Plancha lateral desde rodillas",sets:s,time:w<=2?"15\" / lado":"20\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo.",alt:"Plancha lateral en la pared, de pie"}]}}
 
 function paseo(mins,w){return{type:"motor",t:"Paseo en llano",dur:mins,
   goal:"Caminar en llano le sienta bien a tu espalda y es tu cardio de esta fase. Cuestas, de momento no: empezamos por lo que mejor te sienta.",
@@ -460,7 +462,7 @@ function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:50,
    {k:"mob_sentadilla",n:"Sentadilla con brazos arriba",sel:true,h:"Sin pared. Baja con los brazos estirados arriba solo hasta donde tu espalda siga neutra y sin dolor. Nada de forzar."},
    {k:"mob_brazos",n:"Brazos arriba contra la pared",sel:true,h:"Espalda, glúteos y cabeza apoyados. Sube los brazos estirados hasta tocar la pared sin despegar la zona lumbar."},
    {k:"rm_sentadilla",n:"Sentadilla goblet a banco · 8-10RM",rm:true},
-   {k:"rm_curl",n:"Curl femoral tumbada · 8-10RM",rm:true},
+   {k:"rm_curl",n:"Curl femoral sentada · 8-10RM",rm:true},
    {k:"rm_press",n:"Press de pecho en máquina · 8-10RM",rm:true},
    {k:"rm_remo",n:"Remo con pecho apoyado · 8-10RM",rm:true}]}}
 
@@ -852,9 +854,9 @@ function renderProgreso(){
     <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: inicio. Derecha: semana 4.</p></div>`;
   }
   if(s==="fuerza"){
-    const rms=[["rm_sentadilla","Sentadilla goblet a banco"],["rm_curl","Curl femoral tumbada"],["rm_press","Press de pecho en máquina"],["rm_remo","Remo con pecho apoyado"]].map(([k,n])=>{
+    const rms=[["rm_sentadilla","Sentadilla goblet a banco"],["rm_curl","Curl femoral sentada"],["rm_press","Press de pecho en máquina"],["rm_remo","Remo con pecho apoyado"]].map(([k,n])=>{
       const kg=num(T[k+"_kg"]),r=num(T[k+"_r"]);return `<div><span class="k">${n}</span><span class="v ${kg==null?"muted":""}">${kg!=null?nf(kg)+" kg":"—"}</span><span class="v ${r==null?"muted":""}">${r!=null?"× "+r:""}</span><span class="d"></span></div>`}).join("");
-    const bars=["Curl femoral tumbada","Press de pecho en máquina","Remo con pecho apoyado","Jalón al pecho","Sentadilla goblet a banco"].map(name=>{
+    const bars=["Curl femoral sentada","Press de pecho en máquina","Remo con pecho apoyado","Jalón al pecho","Sentadilla goblet a banco"].map(name=>{
       const vals=[1,2,3].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
       const mx=Math.max(...vals.filter(v=>v!=null),0),last=[...vals].reverse().find(v=>v!=null);
       return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
