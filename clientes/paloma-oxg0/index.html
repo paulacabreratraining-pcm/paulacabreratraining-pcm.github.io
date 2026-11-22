@@ -100,6 +100,7 @@ nav.tabs button[aria-selected="true"]{color:var(--blue-ink);background:var(--blu
 .sd .c.t-fuerza{background:var(--blue-soft);color:var(--blue-ink)}
 .sd .c.t-motor{background:var(--pink-soft);color:var(--pink-ink)}
 .sd .c.t-test{background:var(--test-soft);color:var(--test)}
+.sd .c.t-pilates{background:var(--warn-soft);color:var(--warn)}
 .sd .c.done{background:var(--ok);color:#fff}
 .sd .c.today{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
 .sd .k{font-size:9.5px;font-weight:700;color:var(--muted);text-transform:uppercase;min-height:12px}
@@ -116,6 +117,7 @@ nav.tabs button[aria-selected="true"]{color:var(--blue-ink);background:var(--blu
 .t-fuerza .ticon{background:var(--blue-soft);color:var(--blue-ink)}
 .t-motor .ticon{background:var(--pink-soft);color:var(--pink-ink)}
 .t-test .ticon{background:var(--test-soft);color:var(--test)}
+.t-pilates .ticon{background:var(--warn-soft);color:var(--warn)}
 .dinfo{min-width:0}
 .dinfo .when{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .dinfo .when em{font-style:normal;color:var(--ink);background:var(--pink-soft);padding:1px 6px;border-radius:5px;margin-left:6px}
@@ -386,11 +388,12 @@ const IC={
   fuerza:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>',
   motor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>',
   test:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>',
+  pilates:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M4 20h16M7 20l3-7h4l3 7M12 13V9M8 11l4-2 4 2"/></svg>',
   timer:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg>',
   target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
   form:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="4" y="3" width="16" height="18" rx="3"/></svg>'
 };
-const TLABEL={fuerza:"Fuerza",motor:"Motor",test:"Test"};
+const TLABEL={fuerza:"Fuerza",motor:"Motor",test:"Test",pilates:"Pilates"};
 
 /* ================= Vídeos de técnica =================
    Un enlace de YouTube por ejercicio, con el mismo nombre que en el plan.
@@ -405,38 +408,41 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
-  1:["Empezamos con calma","Dos series de cada ejercicio y cargas muy cómodas: termina cada serie sintiendo que podías hacer 3 o 4 más. Espalda neutra en todo, y suelta el aire al hacer el esfuerzo. Esta semana solo quiero que te sientas segura y que apuntes los pesos."],
-  2:["Repetimos y sumamos un paseo","Mismos ejercicios y 2 series, para que la técnica te salga sola. Si la semana pasada te sobraban más de 4 repeticiones, sube un poco la carga. Añadimos un paseo en llano el lunes: caminar es de lo que mejor le sienta a tu espalda."],
+  1:["Empezamos con calma","Dos series de cada ejercicio y cargas muy cómodas: termina cada serie sintiendo que podías hacer 3 o 4 más. Espalda neutra en todo y suelta el aire al hacer el esfuerzo. Lunes y miércoles, tu pilates: márcalo como hecho, que cuenta igual."],
+  2:["Repetimos y sumamos un paseo","Mismos ejercicios y 2 series, para que la técnica te salga sola. Si la semana pasada te sobraban más de 4 repeticiones, sube un poco la carga. Añadimos un paseo en llano el domingo: caminar es de lo que mejor le sienta a tu espalda."],
   3:["Una serie más","Pasamos a 3 series. El martes la sentadilla ya lleva una mancuerna, siempre sentándote en el banco. El sábado el paseo sube a 20 minutos, en llano."],
   4:["Semana de valoración","El martes apuntamos tus medidas y tu fuerza de partida. El jueves, sesión suave. El sábado repites la caminata cómoda para ver cómo responde tu espalda. Con todo esto preparo tu siguiente mes."]
 };
 const WARM_F=["5' andando en cinta en llano, a paso cómodo (RPE 3)","Respiración: 5 respiraciones lentas soltando el aire largo, como en pilates","Movilidad de cadera y hombros, de pie (3'), sin doblar la espalda","1 serie ligera del primer ejercicio"];
-const COOL_F=["3' andando suave","Para levantarte del suelo: gírate de lado, quédate sentada unos segundos y ponte de pie despacio"];
+const COOL_F=["3' andando suave","Bebe agua"];
 
-function sesA(w){const s=w<=2?2:3,carga=w>=3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:45,
-  goal:"Piernas y espalda fuertes para agacharte, levantarte y cargar cosas en tu día a día sin miedo. Todo con la espalda neutra y sin doblarla con peso.",
+function pilates(w){return{type:"pilates",t:"Clase de pilates",dur:55,
+  goal:"Tu clase de siempre. Ahí ya trabajamos el control del tronco, por eso no lo repetimos en tus sesiones de fuerza.",
+  warm:["El calentamiento de la clase"],cool:["La vuelta a la calma de la clase"],
+  after:"Márcala como hecha: cuenta igual que una sesión."}}
+
+function sesA(w){const s=w<=2?2:3,carga=w>=3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:40,
+  goal:"Piernas y espalda fuertes para agacharte, levantarte y cargar cosas en tu día a día sin miedo. Todo sentada o de pie, con la espalda neutra y sin doblarla con peso.",
   warm:WARM_F,cool:COOL_F,
   after:w===1?"Si algo te molesta, apúntalo en «¿Cómo ha ido?» y lo ajustamos.":"Incluye proteína en tu siguiente comida.",
   ex:[
-  carga?{n:"Sentadilla goblet a banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho y un banco detrás. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentadilla isométrica en pared"}
+  carga?{n:"Sentadilla goblet a banco",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"2 kg",how:"Coge la mancuerna de un banco o un soporte alto, nunca del suelo, y pégala al pecho. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentarse y levantarse de un banco, sin peso"}
        :{n:"Sentarse y levantarse de un banco",sets:s,reps:"8-10",rest:75,how:"Sin peso, con los brazos al frente. Baja llevando la cadera atrás hasta sentarte sin dejarte caer, con la espalda neutra, y levántate soltando el aire. Si notas que la espalda se redondea, usa un banco más alto.",alt:"Sentadilla isométrica en pared"},
-  {n:"Press con mancuernas en banco inclinado",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:1,incTxt:"1 kg por mano",how:"Banco algo inclinado y espalda apoyada entera. Para coger las mancuernas, siéntate con ellas sobre los muslos antes de tumbarte. Empuja soltando el aire y baja despacio.",alt:"Press de pecho en máquina"},
-  {n:"Remo con pecho apoyado",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"En máquina, con el pecho apoyado en el respaldo: así la espalda baja no trabaja. Lleva los codos atrás soltando el aire y junta las escápulas al final.",alt:"Remo en polea baja sentada"},
-  {n:"Pasos laterales con banda",sets:s,reps:"10 / lado",rest:45,how:"Banda por encima de las rodillas, rodillas un poco dobladas y espalda recta. Pasos cortos de lado sin que los pies se junten del todo.",alt:"Abducción de pie en polea"},
-  {n:"Bird dog",sets:s,reps:"6 / lado",rest:45,how:"A cuatro patas, espalda neutra. Estira brazo y pierna contrarios soltando el aire, sin que la cadera se mueva ni la zona lumbar se hunda. Aguanta 2 segundos.",alt:"Solo brazos o solo piernas"},
-  {n:"Plancha frontal desde rodillas",sets:s,time:w<=2?"15-20\"":"20-25\"",rest:45,how:"Antebrazos y rodillas apoyados, cuerpo en línea de las rodillas a la cabeza. Respira con normalidad todo el tiempo: nada de aguantar el aire.",alt:"Plancha en la pared, de pie"}]}}
+  {n:"Press de pecho en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, con la espalda apoyada entera en el respaldo y las asas a la altura del pecho. Empuja soltando el aire y vuelve despacio.",alt:"Press de pecho en polea, de pie"},
+  {n:"Remo con pecho apoyado",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"En máquina, con el pecho apoyado en el respaldo: así la zona lumbar no trabaja. Lleva los codos atrás soltando el aire y junta las escápulas al final.",alt:"Remo en polea alta, de pie"},
+  {n:"Pasos laterales con banda",sets:s,reps:"10 / lado",rest:45,how:"Ponte la banda sentada en un banco, sin agacharte. De pie, banda por encima de las rodillas, rodillas un poco dobladas y espalda recta. Pasos cortos de lado sin que los pies se junten del todo.",alt:"Abducción de pie en polea"},
+  {n:"Plancha frontal desde rodillas",sets:s,time:w<=2?"15-20\"":"20-25\"",rest:45,how:"Antebrazos y rodillas apoyados, cuerpo en línea de las rodillas a la cabeza. Respira con normalidad todo el tiempo: nada de aguantar el aire. Para levantarte, gírate de lado, siéntate y ponte de pie despacio.",alt:"Plancha en la pared, de pie"}]}}
 
-function sesB(w){const dl=w===4,s=dl||w<=2?2:3;return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · glúteos, isquios y espalda",dur:dl?35:45,
+function sesB(w){const dl=w===4,s=dl||w<=2?2:3;return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · glúteos, isquios y espalda",dur:dl?30:40,
   goal:dl?"Sesión suave para recuperarte del test del martes. Mismos ejercicios con 2 series y la carga de la semana 3.":"Glúteos, parte de atrás de las piernas y espalda: los músculos que sostienen tu zona lumbar. Sin doblar la espalda con peso.",
   warm:WARM_F,cool:COOL_F,
   after:"El domingo, rellena tu check-in y mándamelo por WhatsApp.",
   ex:[
-  {n:"Hip thrust en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada y espalda neutra. Sube apretando glúteos y soltando el aire, hasta que cadera y rodillas queden en línea. No arquees la zona lumbar arriba.",alt:"Puente de glúteo en el suelo con un disco"},
-  {n:"Curl femoral sentada",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:75,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada en el respaldo y rodillo justo encima del tobillo. Lleva los talones hacia abajo y atrás soltando el aire, y vuelve despacio.",alt:"Curl femoral en polea de pie"},
+  {n:"Puente de glúteo",sets:s,reps:w<=2?"10-12":"12-15",rest:60,how:"Boca arriba, rodillas dobladas y pies apoyados a la anchura de la cadera. Sube la cadera apretando glúteos y soltando el aire, solo hasta que hombros, cadera y rodillas queden en línea: sin arquear la zona lumbar arriba. Aguanta 2 segundos y baja despacio."+(w>=3?" Esta semana, con una banda por encima de las rodillas, empujándola hacia fuera.":""),alt:"Puente isométrico: sube y aguanta 15-20 segundos"},
+  {n:"Curl femoral tumbada",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:75,inc:2.5,incTxt:"1 placa",how:"Boca abajo en la máquina, con la cadera pegada al banco y el abdomen firme. Lleva los talones hacia los glúteos soltando el aire, sin despegar la cadera ni arquear la zona lumbar, y vuelve despacio.",alt:"Curl femoral en polea de pie, agarrada a la máquina"},
   {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, pecho arriba y espalda recta, sin echarte hacia atrás. Tira llevando los codos abajo y atrás soltando el aire.",alt:"Jalón con agarre neutro"},
   {n:"Pallof press",sets:s,reps:"10 / lado",rest:45,how:"De pie, de lado a la polea, con el asa pegada al pecho. Empuja al frente soltando el aire sin que el tronco gire, y vuelve despacio.",alt:"Con banda elástica"},
-  {n:"Dead bug",sets:s,reps:"6 / lado",rest:45,how:"Boca arriba, brazos al techo y rodillas dobladas en el aire. Estira un brazo y la pierna contraria soltando el aire, con la espalda neutra: sin arquearla ni apretarla contra el suelo. Si te cuesta, estira solo las piernas.",alt:"Solo piernas, con los brazos apoyados en el suelo"},
-  {n:"Plancha lateral desde rodillas",sets:s,time:w<=2?"15\" / lado":"20\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo.",alt:"Plancha lateral en la pared, de pie"}]}}
+  {n:"Plancha lateral desde rodillas",sets:s,time:w<=2?"15\" / lado":"20\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo. Para levantarte, gírate, siéntate y ponte de pie despacio.",alt:"Plancha lateral en la pared, de pie"}]}}
 
 function paseo(mins,w){return{type:"motor",t:"Paseo en llano",dur:mins,
   goal:"Caminar en llano le sienta bien a tu espalda y es tu cardio de esta fase. Cuestas, de momento no: empezamos por lo que mejor te sienta.",
@@ -444,19 +450,18 @@ function paseo(mins,w){return{type:"motor",t:"Paseo en llano",dur:mins,
   cardio:{mins,txt:"Caminar por terreno llano"},
   after:w===1?"Si al día siguiente tu espalda está peor que antes de caminar, apúntalo en la nota y bajamos los minutos.":"Si un día no puedes, no pasa nada: no lo recuperes."}}
 
-function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:55,
+function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:50,
   goal:"Saber con qué cargas trabajas de verdad. Estos datos son tu punto de partida para el próximo mes.",
   warm:WARM_F,cool:["3' andando suave","Apunta todo antes de irte"],
-  after:"Nada de entrenamiento intenso hasta el jueves.",
+  after:"Nada de entrenamiento intenso hasta el jueves. El miércoles, tu pilates normal.",
   tests:[
    {k:"peso",n:"Peso",u:"kg",h:"Por la mañana, tras ir al baño, en ayunas y con ropa ligera. Misma báscula siempre."},
    {k:"cintura",n:"Perímetro de cintura",u:"cm",h:"De pie, a mitad de camino entre la última costilla y el hueso de la cadera, al soltar el aire. Cinta horizontal sin apretar. Mide 2 veces y apunta la media."},
    {k:"mob_sentadilla",n:"Sentadilla con brazos arriba",sel:true,h:"Sin pared. Baja con los brazos estirados arriba solo hasta donde tu espalda siga neutra y sin dolor. Nada de forzar."},
    {k:"mob_brazos",n:"Brazos arriba contra la pared",sel:true,h:"Espalda, glúteos y cabeza apoyados. Sube los brazos estirados hasta tocar la pared sin despegar la zona lumbar."},
    {k:"rm_sentadilla",n:"Sentadilla goblet a banco · 8-10RM",rm:true},
-   {k:"rm_hip",n:"Hip thrust en máquina · 8-10RM",rm:true},
-   {k:"rm_curl",n:"Curl femoral sentada · 8-10RM",rm:true},
-   {k:"rm_press",n:"Press en banco inclinado · 8-10RM",rm:true},
+   {k:"rm_curl",n:"Curl femoral tumbada · 8-10RM",rm:true},
+   {k:"rm_press",n:"Press de pecho en máquina · 8-10RM",rm:true},
    {k:"rm_remo",n:"Remo con pecho apoyado · 8-10RM",rm:true}]}}
 
 function testCaminata(){return{type:"test",t:"Caminata cómoda",dur:35,
@@ -469,12 +474,13 @@ function testCaminata(){return{type:"test",t:"Caminata cómoda",dur:35,
    {k:"cam_fin",n:"Tu espalda al terminar",u:"0-10",h:"0 = muy mal, 10 = muy bien. Igual que en tu primera caminata."},
    {k:"cam_man",n:"Tu espalda a la mañana siguiente",u:"0-10",h:"0 = muy mal, 10 = muy bien."}]}}
 
-/* Fuerza martes y jueves (a partir de las 20:15). Paseo en llano el sábado y, desde la semana 2, también el lunes. */
+/* Pilates lunes y miércoles (su clase). Fuerza martes y jueves (a partir de las 20:15).
+   Paseo en llano el sábado y, desde la semana 2, también el domingo. */
 const PLAN={
-  1:{mar:sesA(1),jue:sesB(1),sab:paseo(15,1)},
-  2:{lun:paseo(15,2),mar:sesA(2),jue:sesB(2),sab:paseo(15,2)},
-  3:{lun:paseo(15,3),mar:sesA(3),jue:sesB(3),sab:paseo(20,3)},
-  4:{lun:paseo(20,4),mar:testFuerza(),jue:sesB(4),sab:testCaminata()}
+  1:{lun:pilates(1),mar:sesA(1),mie:pilates(1),jue:sesB(1),sab:paseo(15,1)},
+  2:{lun:pilates(2),mar:sesA(2),mie:pilates(2),jue:sesB(2),sab:paseo(15,2),dom:paseo(15,2)},
+  3:{lun:pilates(3),mar:sesA(3),mie:pilates(3),jue:sesB(3),sab:paseo(20,3),dom:paseo(15,3)},
+  4:{lun:pilates(4),mar:testFuerza(),mie:pilates(4),jue:sesB(4),sab:testCaminata()}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
@@ -544,7 +550,7 @@ function renderSemana(){
         <div class="chips"><span class="chip b">Fase Base</span>${week===4?'<span class="chip p">Valoración</span>':""}<span class="chip">${done}/${days.length} hechas</span></div></div>
       <button class="arrow" type="button" data-w="1" ${week===NW?"disabled":""} aria-label="Semana siguiente">›</button></div>
     <div class="strip">${strip}</div>
-    <div class="legend"><span><i style="background:var(--blue-ink)"></i>Fuerza</span><span><i style="background:var(--pink-ink)"></i>Motor</span><span><i style="background:var(--test)"></i>Test</span><span><i style="background:var(--ok)"></i>Hecha</span></div>
+    <div class="legend"><span><i style="background:var(--blue-ink)"></i>Fuerza</span><span><i style="background:var(--pink-ink)"></i>Motor</span><span><i style="background:var(--test)"></i>Test</span><span><i style="background:var(--warn)"></i>Pilates</span><span><i style="background:var(--ok)"></i>Hecha</span></div>
     <div class="focus"><div class="ic">${IC.target}</div><div><b>${esc(ft)}</b><p>${esc(fp)}</p></div></div>`;
   h+=days.map(d=>dayCard(week,d,plan[d])).join("");
   const url=CLIENTE.checkinUrl;
@@ -696,6 +702,7 @@ function renderGuia(){
     h+=`<div class="card"><p class="eyebrow">Importante</p><h2>Cuándo parar y avisarme</h2>
       <div class="alert">Dolor en el pecho, mareo o falta de aire que no es normal: para y consulta con tu médico.</div>
       <div class="alert">Dolor que te limita o que empeora al entrenar: no sigas con ese ejercicio y escríbeme.</div>
+      <div class="alert">Nunca cojas ni dejes el peso en el suelo: usa un banco o un soporte alto.</div>
       <div class="alert">Dolor que te baja por la pierna por debajo de la rodilla, hormigueo o falta de fuerza en la pierna: para y escríbeme.</div>
       <div class="alert">Pérdida de sensibilidad en la zona genital o en las nalgas, o cambios nuevos al orinar: ve a urgencias.</div>
       <div class="alert">Cambios de salud (diagnóstico nuevo, medicación nueva, embarazo): avísame antes de seguir. Tendrás que volver a rellenar el PAR-Q+.</div></div>
@@ -845,9 +852,9 @@ function renderProgreso(){
     <div class="card"><p class="eyebrow">Movilidad</p><h2>Cribado</h2><div class="mob">${mobRows}</div><p class="note">Izquierda: inicio. Derecha: semana 4.</p></div>`;
   }
   if(s==="fuerza"){
-    const rms=[["rm_sentadilla","Sentadilla goblet a banco"],["rm_hip","Hip thrust en máquina"],["rm_curl","Curl femoral sentada"],["rm_press","Press en banco inclinado"],["rm_remo","Remo con pecho apoyado"]].map(([k,n])=>{
+    const rms=[["rm_sentadilla","Sentadilla goblet a banco"],["rm_curl","Curl femoral tumbada"],["rm_press","Press de pecho en máquina"],["rm_remo","Remo con pecho apoyado"]].map(([k,n])=>{
       const kg=num(T[k+"_kg"]),r=num(T[k+"_r"]);return `<div><span class="k">${n}</span><span class="v ${kg==null?"muted":""}">${kg!=null?nf(kg)+" kg":"—"}</span><span class="v ${r==null?"muted":""}">${r!=null?"× "+r:""}</span><span class="d"></span></div>`}).join("");
-    const bars=["Hip thrust en máquina","Curl femoral sentada","Press con mancuernas en banco inclinado","Remo con pecho apoyado","Jalón al pecho","Sentadilla goblet a banco"].map(name=>{
+    const bars=["Curl femoral tumbada","Press de pecho en máquina","Remo con pecho apoyado","Jalón al pecho","Sentadilla goblet a banco"].map(name=>{
       const vals=[1,2,3].map(w=>{for(const dd of DAYS(w)){const x=PLAN[w][dd];if(!x.ex)continue;const i=x.ex.findIndex(e=>e.n===name);if(i<0)continue;return num(S.ses[sid(w,dd)]?.ex?.[i]?.kg)}return null});
       const mx=Math.max(...vals.filter(v=>v!=null),0),last=[...vals].reverse().find(v=>v!=null);
       return `<div class="barrow"><div class="t">${name}<span>${last!=null?nf(last)+" kg":"sin datos"}</span></div>
