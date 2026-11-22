@@ -406,8 +406,8 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
   1:["Volvemos con calma","Dos series de cada ejercicio y cargas cómodas: termina cada serie sintiendo que podías hacer 3 o 4 más. Esta semana la fuerza es martes y viernes. Lo importante es moverte bien y apuntar los pesos."],
-  2:["Una serie más","Pasamos a 3 series. Si la semana pasada completaste las repeticiones con el RIR indicado, la app te dirá cuánto subir. El jueves vuelve a pasar al viernes."],
-  3:["Vuelven los jueves","Fuerza martes y jueves, como querías. Añadimos 10 minutos suaves al final de cada sesión de fuerza: el martes andando en cinta y el jueves en bici. Es lo único que cambia."],
+  2:["Repetimos y apuntamos","Repetimos la semana 1, con 2 series, porque la sesión B se quedó sin hacer. El martes empiezas por la B y el viernes haces la A. Muy importante: apunta los kilos y las repeticiones de cada ejercicio, que así la app te dice cuándo subir."],
+  3:["Vuelven los jueves","Fuerza martes y jueves, como querías. Añadimos 10 minutos suaves al final de cada sesión de fuerza: el martes en bici y el jueves andando en cinta. Es lo único que cambia."],
   4:["Cerrar el mes","Misma estructura que la semana pasada. Si subes de carga, solo donde la app te lo diga. Al terminar, quedamos para tu valoración presencial."]
 };
 const WARM_A=["5' andando en cinta a paso cómodo (RPE 3): así sumas pasos","Movilidad de cadera y hombros, de pie (3')","1 serie ligera del primer ejercicio con carga"];
@@ -419,40 +419,41 @@ function aquagym(w){return{type:"motor",t:"Aquagym",dur:30,
   cardio:{mins:30,txt:"Clase de aquagym"},
   after:"Si un día no puedes ir, no lo recuperes: lo importante son las dos sesiones de fuerza."}}
 
-function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:w>=3?60:50,
+function sesA(w,last){const s=w<=2?2:3;return{type:"fuerza",t:"Fuerza A · piernas, pecho y espalda",dur:w>=3?60:50,
   goal:"Piernas fuertes y espalda que tire bien: lo que más ayuda a ganar músculo y a moverte con soltura en el día a día. Todo en máquina para que te concentres en hacerlo bien. Al cambiar de máquina, levántate despacio.",
   warm:WARM_A,cool:["Estiramiento suave de cadera, de pie","Bebe agua"],
   expres:"Haz solo los 3 primeros ejercicios, 2 series de cada uno. Mejor 30 minutos que no venir.",
-  after:"Si un día no puedes venir, no pasa nada: la próxima vez haz la sesión que te tocaba y sigue.",
+  after:last?"El domingo, rellena tu check-in y mándamelo por WhatsApp.":"Si un día no puedes venir, no pasa nada: la próxima vez haz la sesión que te tocaba y sigue.",
   easyEnd:w>=3?10:null,easyTxt:"andando en cinta a paso cómodo · RPE 3",
   ex:[
-  {n:"Sentadilla isométrica en pared",sets:s,time:"20-30\"",rest:60,how:"Espalda apoyada en la pared y pies un paso por delante. Baja solo hasta donde estés cómoda, sin molestias, y aguanta respirando con normalidad.",alt:"Menos tiempo o bajando menos"},
-  {n:"Prensa horizontal",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, con la espalda pegada al respaldo y los pies a la anchura de la cadera en el centro de la plataforma. Dobla las rodillas solo hasta donde no notes molestias y empuja soltando el aire, sin bloquear las rodillas al estirar.",alt:"Sentadilla isométrica en pared"},
+  {n:"Sentadilla isométrica en pared",sets:s,time:"20-30\"",rest:60,how:"Espalda apoyada en la pared y pies un paso por delante. Baja poco, sin llegar a doblar mucho las rodillas, y aguanta respirando con normalidad. Si notas la rodilla, sube un poco más y apúntalo en la nota.",alt:"Menos tiempo o bajando menos"},
+  {n:"Prensa horizontal",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Sentada, con la espalda pegada al respaldo y los pies a la anchura de la cadera en el centro de la plataforma. Recorrido corto: dobla las rodillas solo un poco, menos que un ángulo recto, y empuja soltando el aire sin bloquearlas al estirar. Si notas la rodilla, acorta más y apúntalo en la nota.",alt:"Sentadilla isométrica en pared"},
   {n:"Press de pecho en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada y asas a la altura del pecho. Empuja soltando el aire y vuelve despacio.",alt:"Press de pecho en polea"},
   {n:"Remo sentado en máquina",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho apoyado en el respaldo. Lleva los codos hacia atrás y junta las escápulas al final, sin encoger los hombros.",alt:"Remo en polea baja sentada"},
   {n:"Abductores en máquina",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada. Abre las piernas con control y vuelve despacio, sin dejar que el peso caiga de golpe.",alt:"Abducción de pie en polea"},
   {n:"Pallof press en polea",sets:s,reps:"10 / lado",rest:45,how:"De pie, de lado a la polea y con el asa pegada al pecho. Empuja al frente sin que el tronco gire y suelta el aire al empujar.",alt:"Con banda elástica"}]}}
 
-function sesB(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza B · glúteos, espalda y hombros",dur:w>=3?60:50,
+function sesB(w,last){const s=w<=2?2:3;return{type:"fuerza",t:"Fuerza B · glúteos, espalda y hombros",dur:w>=3?60:50,
   goal:"Glúteos, parte de atrás de las piernas y espalda: lo que te sostiene y te ayuda a agacharte y levantarte con facilidad. Al cambiar de máquina, levántate despacio.",
   warm:WARM_B,cool:["Movilidad de hombros, de pie","Bebe agua"],
   expres:"Haz solo los 3 primeros ejercicios, 2 series de cada uno. Mejor 30 minutos que no venir.",
-  after:"El domingo, rellena tu check-in y mándamelo por WhatsApp.",
+  after:last?"El domingo, rellena tu check-in y mándamelo por WhatsApp.":"Si un día no puedes venir, no pasa nada: la próxima vez haz la sesión que te tocaba y sigue.",
   easyEnd:w>=3?10:null,easyTxt:"bici sentada suave · RPE 3",
   ex:[
-  {n:"Sentadilla en pared con foam roller",sets:s,reps:"8-10",rest:60,how:"El foam roller entre la pared y la zona lumbar, pies un paso por delante. Baja deslizando hasta donde estés cómoda, sin molestias, y sube empujando el suelo. Suelta el aire al subir.",alt:"Sentadilla isométrica en pared"},
+  {n:"Sentadilla en pared con foam roller",sets:s,reps:"8-10",rest:60,how:"El foam roller entre la pared y la zona lumbar, pies un paso por delante. Baja deslizando solo un poco, sin llegar a sentarte, y sube empujando el suelo. Suelta el aire al subir. Si notas la rodilla, baja menos y apúntalo en la nota.",alt:"Sentadilla isométrica en pared"},
   {n:"Patada de glúteo en polea",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:60,inc:1.25,incTxt:"la placa más pequeña",how:"De pie, agarrada a la máquina con las dos manos y la tobillera puesta. Lleva la pierna hacia atrás apretando el glúteo, sin arquear la zona lumbar, y vuelve despacio. Haz todas las repeticiones con una pierna y luego con la otra; apunta las de la pierna que te cueste más.",alt:"Abducción de pie en polea"},
   {n:"Curl femoral sentada",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Ajusta el rodillo justo encima del tobillo. Lleva los talones hacia abajo y atrás y vuelve despacio.",alt:"Curl femoral en polea de pie"},
   {n:"Jalón al pecho",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás, hasta la parte alta del pecho.",alt:"Jalón con agarre neutro"},
   {n:"Press de hombro en máquina",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada y abdomen firme. Sube soltando el aire, sin arquear la zona lumbar.",alt:"Elevaciones laterales con mancuernas ligeras"},
   {n:"Dead bug",sets:s,reps:"6 / lado",rest:45,how:"Tumbada boca arriba en la colchoneta, brazos al techo y rodillas dobladas en el aire. Estira un brazo y la pierna contraria soltando el aire, sin que la zona lumbar se despegue del suelo. Lo dejamos al final para que solo bajes al suelo una vez. Para levantarte, en tres pasos: gírate de lado, quédate sentada unos segundos y después ponte de pie despacio.",alt:"Solo piernas, con los brazos apoyados en el suelo"}]}}
 
-/* Fuerza martes y jueves. Las semanas 1 y 2, el jueves pasa al viernes. Lunes y miércoles, aquagym. */
+/* Fuerza martes y jueves. Las semanas 1 y 2, el jueves pasa al viernes. Lunes y miércoles, aquagym.
+   Desde la semana 2, B el martes y A el jueves/viernes (la B se quedó sin hacer en la semana 1). */
 const PLAN={
-  1:{lun:aquagym(1),mar:sesA(1),mie:aquagym(1),vie:sesB(1)},
-  2:{lun:aquagym(2),mar:sesA(2),mie:aquagym(2),vie:sesB(2)},
-  3:{lun:aquagym(3),mar:sesA(3),mie:aquagym(3),jue:sesB(3)},
-  4:{lun:aquagym(4),mar:sesA(4),mie:aquagym(4),jue:sesB(4)}
+  1:{lun:aquagym(1),mar:sesA(1),mie:aquagym(1),vie:sesB(1,true)},
+  2:{lun:aquagym(2),mar:sesB(2),mie:aquagym(2),vie:sesA(2,true)},
+  3:{lun:aquagym(3),mar:sesB(3),mie:aquagym(3),jue:sesA(3,true)},
+  4:{lun:aquagym(4),mar:sesB(4),mie:aquagym(4),jue:sesA(4,true)}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
