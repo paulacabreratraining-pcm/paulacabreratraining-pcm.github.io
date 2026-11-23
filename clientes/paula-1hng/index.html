@@ -410,13 +410,13 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 const FOCUS={
   1:["Semana tranquila","Esta semana solo vuelves a moverte: 2 series por ejercicio, cargas cómodas con las que te sobren 3-4 repeticiones y nada de tests. Lo que cuenta es ir."],
   2:["Empieza la Base","¡4 de 4, Paula! Pasamos a 3 series, pero los pesos se quedan igual: tu energía estuvo baja. La carrera repite la de la semana 1, porque solo hiciste 4 tramos y se te puso en RPE 7. El trote es suave: si no puedes hablar, baja la velocidad o anda más."],
-  3:["Solo sube una cosa","Si completaste el rango con RIR 3-4, sube la carga mínima. Los tramos de trote pasan a 1'30\" y la sesión sigue durando 24 minutos: así cumples la regla del 10 %."],
+  3:["Mismos pesos, más margen","La semana pasada fuiste más cerca del fallo de lo previsto (RIR 0-2) y por eso tantas agujetas. Esta semana, mismas cargas pero parando con 3-4 repeticiones de margen. Zancada más ligera y paso más corto si la rodilla avisa. El trote, más lento (6-6,5 km/h): si no puedes hablar, no es suave. El martes es más corto para que te dé tiempo, y el press militar pasa al miércoles."],
   4:["Semana de valoración","Lunes, test de fuerza y medidas; jueves, 2 km de remo y técnica de estaciones. El martes y el miércoles van suaves para que llegues fresca. Nada al fallo."]
 };
 const WARM_F=["5' de bici o remo suave (RPE 3)","Movilidad de cadera, tobillo y hombro (3')","1-2 series ligeras del primer ejercicio"];
 const WARM_M=["5' andando rápido en la cinta (1 % de inclinación)"];
 const WARM_H=["5' de remo suave","Movilidad general (3')","2 tramos de trineo sin discos"];
-const RUNW={1:[8,60,120],2:[8,60,120],3:[8,90,90],4:[6,150,90]};
+const RUNW={1:[8,60,120],2:[8,60,120],3:[8,60,120],4:[8,60,120]};
 
 function vuelta(){return{type:"motor",t:"Vuelta suave",dur:45,
   goal:"Volver a moverte sin cansarte después de estas semanas. Todo cómodo: hoy no se busca nada más.",
@@ -465,21 +465,21 @@ function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · tren infe
   ex:[
   {n:"Sentadilla trasera",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:150,inc:2.5,incTxt:"2,5 kg",how:"Rodillas en la línea de los pies y la misma profundidad en todas las repeticiones.",alt:"Prensa de piernas"},
   {n:"Peso muerto rumano",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Cadera atrás, barra pegada a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Rumano con mancuernas"},
-  {n:"Zancada atrás con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Paso largo hacia atrás, la rodilla de atrás roza el suelo. Reps por pierna.",alt:"Split squat sin desplazarte"},
+  {n:"Zancada atrás con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Paso largo hacia atrás, la rodilla de atrás roza el suelo. Reps por pierna. Si la rodilla de delante molesta, paso más corto o baja menos, y que no pase de 3/10.",alt:"Split squat sin desplazarte"},
   {n:"Extensión de cuádriceps",sets:s,lo:10,hi:15,rir:"2-3",rirMin:2,rest:75,inc:2.5,incTxt:"1 placa",how:"Ajusta el respaldo para que la rodilla quede alineada con el eje de la máquina. Estira del todo, aguanta 1 segundo arriba y baja en 2-3 segundos.",alt:"Sentadilla española con banda"},
   {n:"Gemelo de pie",sets:s,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:5,incTxt:"5 kg",how:"Un segundo arriba y bajada lenta. Prepara el tendón de Aquiles para correr.",alt:"Gemelo en prensa"},
   {n:"Plancha lateral",sets:s,time:"30-40\" / lado",rest:45,how:"Cadera alta y cuerpo en línea recta.",alt:"Con las rodillas apoyadas"}]}}
 
-function sesB(w){const s=w===1?2:3;return{type:"fuerza",t:"Andar-correr + tren superior",dur:65,
+function sesB(w){const s=w===1?2:3,corto=w>=3;return{type:"fuerza",t:"Andar-correr + tren superior",dur:corto?50:65,
   goal:"Volver a correr poco a poco y fuerza de tracción y empuje para el arrastre, el remo y el wall ball.",warm:WARM_M,cool:["5' andando","Movilidad de hombros"],
   runwalk:RUNW[w],
   after:"La carrera va primero porque ahora es tu prioridad para HYROX. Si un día te molesta algo más de 3/10, repite la semana anterior.",
   ex:[
   {n:"Press banca",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Escápulas juntas y atrás, pies firmes. La barra baja a la mitad del pecho.",alt:"Press con mancuernas"},
   {n:"Jalón al pecho",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Dominada asistida con banda"},
-  {n:"Press militar con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Sentada, abdomen firme y sin arquear la zona lumbar.",alt:"Press en máquina"},
+  ...(corto?[]:[{n:"Press militar con mancuernas",sets:s,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Sentada, abdomen firme y sin arquear la zona lumbar.",alt:"Press en máquina"}]),
   {n:"Remo en polea",sets:s,lo:10,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2.5,incTxt:"1 placa",how:"Tira hacia el ombligo y junta las escápulas al final.",alt:"Remo con banda elástica"},
-  {n:"Paseo del granjero",sets:s,reps:"40 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos y rápidos. Es una estación de HYROX.",alt:"Con kettlebells"}]}}
+  ...(corto?[]:[{n:"Paseo del granjero",sets:s,reps:"40 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Hombros abajo, tronco recto y pasos cortos y rápidos. Es una estación de HYROX.",alt:"Con kettlebells"}])]}}
 
 function sesC(w){const mins={1:25,2:30,3:35,4:30}[w];return{type:"motor",t:"Motor suave + core",dur:mins+20,
   goal:"Sumar resistencia sin impacto ni fatiga, para llegar fresca al HYROX del jueves.",warm:["5' suave en la misma máquina"],cool:["Estira suave lo que notes cargado"],
@@ -489,6 +489,7 @@ function sesC(w){const mins={1:25,2:30,3:35,4:30}[w];return{type:"motor",t:"Moto
   {n:"Dead bug",sets:3,reps:"8 / lado",rest:45,how:"Zona lumbar pegada al suelo. Suelta el aire al estirar brazo y pierna contrarios.",alt:"Solo piernas"},
   {n:"Pallof press",sets:3,reps:"10 / lado",rest:45,how:"Empuja la polea al frente sin que el tronco gire.",alt:"Con banda elástica"},
   {n:"Suitcase carry",sets:3,reps:"30 m / lado",rest:60,kg:true,inc:2,incTxt:"2 kg",how:"Peso en una mano y tronco recto, sin inclinarte.",alt:"Con kettlebell"},
+  ...(w>=3?[{n:"Press militar con mancuernas",sets:3,lo:8,hi:12,rir:"3-4",rirMin:3,rest:90,inc:2,incTxt:"1 kg por mano",how:"Sentada, abdomen firme y sin arquear la zona lumbar. Viene del martes para que esa sesión te quepa en el tiempo.",alt:"Press en máquina"}]:[]),
   {n:"Abducción de cadera en máquina",sets:3,lo:12,hi:15,rir:"2-3",rirMin:2,rest:60,inc:2.5,incTxt:"1 placa",how:"Espalda apoyada. Abre las piernas con control, 1 segundo fuera y vuelve despacio. Los glúteos ayudan a que la rodilla no se vaya hacia dentro al correr, en las zancadas y en las escaleras.",alt:"Puente lateral o paseo lateral con banda"}]}}
 
 function sesH(w){const r=w<=2?2:3,t1=w===1;return{type:"hyrox",t:t1?"HYROX suave · técnica":"HYROX · técnica de estaciones",dur:t1?55:65,
