@@ -26,3 +26,4 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-12-17 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio (patrón 1) | — | Idea aprobada (movida desde el 3/12) |
 | — | — | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí (sentadilla al banco) | `posts/2026-11-19-reel-sentadilla-banco` | Aparcado: tema demasiado cerca del reel del 12/11 |
 | 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (con fotos de Paula) | — | Idea (pendiente de aprobar) |
+| — | Destacados | Historias (13) | Confianza y Método | Destacados Sobre mí, Método, Valoración y Dudas (con portadas) | `posts/2026-11-23-destacado-*` | Borrador |

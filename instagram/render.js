@@ -100,7 +100,14 @@ h2{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1px;margin-bo
 .mito .bot .lab{background:${C.azul};color:${C.logoBg}}
 .mito .rt{margin-top:36px;font-size:50px;line-height:1.3;font-weight:600} .mito .rt strong{color:${C.rosa};font-weight:800}
 .mito .src{margin-top:28px;font-size:28px;color:${C.azul};font-weight:600}
-.mito .foot{color:${C.blanco}}`;
+.mito .foot{color:${C.blanco}}` + (H>1500 ? `
+/* historias: zona segura de 250 px arriba y abajo (23/11/2026) */
+.op,.dm,.pa{padding:290px 80px 340px}
+.op .et{top:280px} .op .big{top:340px}
+.mito .top{padding-top:290px;min-height:860px} .mito .n{top:270px}
+.mits{padding:290px 80px} .mits .big{bottom:340px}
+.imp{padding:290px 80px} .imp .band{bottom:430px}
+.fot{padding-bottom:340px}` : '');
 
 const check = `<svg width="56" height="56" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="${C.azul}"/><path d="M4.5 8.2l2.2 2.2 4.8-4.8" fill="none" stroke="${C.navy}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const rayas = `<div class="stripe" style="width:150px;height:900px;background:${C.rosa};right:-120px;top:-330px"></div>

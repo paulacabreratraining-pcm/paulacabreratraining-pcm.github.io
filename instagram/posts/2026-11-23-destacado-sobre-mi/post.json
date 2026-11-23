@@ -1,0 +1,36 @@
+{
+  "fecha": "2026-11-23",
+  "hora": "destacado (sin fecha)",
+  "formato": "historia",
+  "pilar": "Confianza",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "Destacado «Sobre mí». Orden: 1) clip de Paula entrenando (lo graba ella), 2) slide-1, 3) compartir el carrusel «Hola, soy Paula», 4) slide-2, 5) slide-3.",
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Soy Paula, entrenadora personal",
+      "resaltado": "Paula",
+      "sub": "Estudiante de CAFYD y monitora en un gimnasio. Entreno online y en Málaga."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Con quién trabajo",
+      "resaltado": "quién",
+      "puntos": [
+        "Si empiezas **desde cero**",
+        "Si estás en la **perimenopausia o la menopausia**",
+        "Si quieres **fuerza y resistencia**"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "Lo que más me gusta: ver a otros mejorar",
+      "resaltado": "ver a otros mejorar",
+      "texto": "Por eso cada plan es a tu medida y lo revisamos cada semana.",
+      "boton": "Escríbeme EMPEZAR por mensaje"
+    }
+  ],
+  "texto": "",
+  "hashtags": []
+}

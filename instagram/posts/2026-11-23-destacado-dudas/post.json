@@ -1,0 +1,45 @@
+{
+  "fecha": "2026-11-23",
+  "hora": "destacado (sin fecha)",
+  "formato": "historia",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "Destacado «Dudas». Orden: slide-1 a slide-4. Al final, una historia con sticker de pregunta (la sube Paula).",
+  "diapositivas": [
+    {
+      "tipo": "mito",
+      "num": "01",
+      "mito": "Necesito experiencia para empezar",
+      "realidad": "No. Si empiezas desde cero, lo primero es aprender bien la técnica."
+    },
+    {
+      "tipo": "opcion",
+      "num": "?",
+      "etiqueta": "Online",
+      "titulo": "¿Cómo funciona?",
+      "resaltado": "funciona",
+      "texto": "Tienes tu plan en la app y cada semana lo ajustamos con tu check-in.",
+      "chips": [
+        "App",
+        "Check-in",
+        "Revisión de técnica"
+      ],
+      "color": "azul"
+    },
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Entrenas también en persona?",
+      "respuesta": "SÍ.",
+      "texto": "En Málaga: sesiones sueltas, bonos y el plan Premium."
+    },
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Cuántos planes hay?",
+      "respuesta": "3",
+      "texto": "Esencial, Plus y Premium. Escríbeme y te cuento cuál te encaja."
+    }
+  ],
+  "texto": "",
+  "hashtags": []
+}

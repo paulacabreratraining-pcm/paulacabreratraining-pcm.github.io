@@ -1,0 +1,37 @@
+{
+  "fecha": "2026-11-23",
+  "hora": "destacado (sin fecha)",
+  "formato": "historia",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "Destacado «Valoración». Orden: 1) slide-1, 2) compartir el carrusel «Así empieza tu plan conmigo», 3) slide-2, 4) slide-3.",
+  "diapositivas": [
+    {
+      "tipo": "pregunta",
+      "pregunta": "¿Por qué empiezo con una valoración?",
+      "respuesta": "TÚ.",
+      "texto": "Tu plan parte de dónde estás tú, no de una plantilla."
+    },
+    {
+      "tipo": "lista",
+      "titulo": "Qué hacemos en la valoración",
+      "resaltado": "valoración",
+      "puntos": [
+        "Me cuentas tu **objetivo** y tu historial",
+        "Revisamos tu **salud** antes de empezar",
+        "Hacemos unos **tests** para ver tu punto de partida",
+        "Te explico **qué plan te encaja**"
+      ]
+    },
+    {
+      "tipo": "cierre-dm",
+      "titulo": "¿Empezamos?",
+      "resaltado": "Empezamos",
+      "texto": "Si vienes recomendado o con mi tarjeta, la valoración es gratis.",
+      "palabra": "EMPEZAR"
+    }
+  ],
+  "texto": "",
+  "hashtags": []
+}

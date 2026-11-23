@@ -1,0 +1,52 @@
+{
+  "fecha": "2026-11-23",
+  "hora": "destacado (sin fecha)",
+  "formato": "historia",
+  "pilar": "Método",
+  "aprobado": false,
+  "publicado": false,
+  "notas": "Destacado «Método». Orden: 1) slide-1, 2) grabación de pantalla de la app con el plan de ejemplo de Laura (la graba Paula), 3) slide-2, 4) slide-3.",
+  "diapositivas": [
+    {
+      "tipo": "pasos",
+      "titulo": "Cómo trabajo",
+      "resaltado": "trabajo",
+      "pasos": [
+        "**Cuestionario**: tu objetivo, tu salud y tu horario",
+        "**Valoración**: unos tests para ver de dónde partes",
+        "**Plan de 4 semanas** en tu app",
+        "**Check-in** cada semana para ajustarlo"
+      ]
+    },
+    {
+      "tipo": "opcion",
+      "num": "1",
+      "etiqueta": "Cada semana",
+      "titulo": "Check-in",
+      "resaltado": "Check-in",
+      "texto": "Me cuentas cómo ha ido y ajusto tu plan.",
+      "chips": [
+        "Sesiones hechas",
+        "Cansancio",
+        "Dudas"
+      ],
+      "color": "rosa"
+    },
+    {
+      "tipo": "opcion",
+      "num": "4",
+      "etiqueta": "Cada 4 semanas",
+      "titulo": "Nuevo bloque",
+      "resaltado": "Nuevo",
+      "texto": "Repetimos los tests, vemos lo que has mejorado y preparo tu siguiente plan.",
+      "chips": [
+        "Tests",
+        "Informe",
+        "Plan nuevo"
+      ],
+      "color": "navy"
+    }
+  ],
+  "texto": "",
+  "hashtags": []
+}
