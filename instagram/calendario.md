@@ -23,10 +23,16 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
 | 2026-12-03 | 19:00 | Reel | Educa | Entreno en pareja en la playa (no se grabó el finde 21–22/11; grabar otro día al aire libre) | — | Idea aprobada |
 | — | — | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí (sentadilla al banco) | `posts/2026-11-19-reel-sentadilla-banco` | Aparcado: tema demasiado cerca del reel del 12/11 |
-| 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (con fotos de Paula) | — | Idea (pendiente de aprobar) |
-| 2026-12-10 | 19:00 | Reel | Confianza | Camino a HYROX · 1: «27 de abril. Mi HYROX», 8 km + 8 estaciones, quedan 20 semanas (clips en el gimnasio antes del 7/12) | — | Idea aprobada (23/11) |
-| 2026-12-15 | 19:00 | Carrusel | Educa | Qué es HYROX: 8 km y 8 estaciones (fuente: hyrox.com) | — | Idea |
-| 2026-12-17 | 19:00 | Reel | Confianza | Por qué me hice entrenadora | — | Idea (movida desde el 10/12) |
-| 2026-12-24 | 19:00 | Reel | Confianza | Camino a HYROX · 2 | — | Idea |
-| 2026-12-31 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases en el gimnasio | — | Idea (movida desde el 17/12) |
+| 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (puente de diciembre) (con fotos de Paula) | — | Idea (pendiente de aprobar) |
+| 2026-12-10 | 19:00 | Reel | Confianza | Camino a HYROX · 1: «27 de abril. Mi HYROX», 8 km + 8 estaciones, quedan 20 semanas (clips antes del 7/12) | — | Idea aprobada (23/11) |
+| 2026-12-15 | 19:00 | Carrusel | Oferta | Regala entrenamiento: tarjeta regalo de Navidad (quien regala elige un plan; válida 6 meses). Publicación de servicio del mes, sin precios | — | Idea aprobada (23/11) |
+| 2026-12-17 | 19:00 | Reel | Educa | Entreno exprés para las fiestas: 20 min con tu peso para días de comidas y viajes | — | Idea aprobada (23/11) |
+| 2026-12-22 | 19:00 | Carrusel | Educa | Navidad sin culpa: no compensar, moverte cuando puedas, volver sin dramas | — | Idea aprobada (23/11) |
+| 2026-12-23 | 19:00 | Reel | Confianza | Camino a HYROX · 2: entrenar en Navidad (adelantado para no publicar en Nochebuena) | — | Idea aprobada (23/11) |
+| 2026-12-24 / 25 / 31 y 2027-01-01 | — | Historia | — | Sin publicaciones: solo una historia de felicitación | — | Decisión de Paula (23/11) |
+| 2026-12-29 | 19:00 | Carrusel | Educa | Propósitos que sí se cumplen: empezar pequeño, 2 días a la semana | — | Idea aprobada (23/11) |
+| 2027-01-08 | 19:00 | Reel | Confianza | Humor: cosas que solo entiende quien da clases… en enero (gimnasio lleno) | — | Idea aprobada (movida desde el 31/12) |
+| 2027-01-13 | 19:00 | Carrusel | Educa | Qué es HYROX: 8 km y 8 estaciones (fuente: hyrox.com) | — | Idea |
+| 2027-01-15 | 19:00 | Reel | Confianza | Por qué me hice entrenadora | — | Idea |
+| 2027-01-22 | 19:00 | Reel | Confianza | Camino a HYROX · 3 | — | Idea |
 | — | Destacados | Historias (13) | Confianza y Método | Destacados Sobre mí, Método, Valoración y Dudas (con portadas) | `posts/2026-11-23-destacado-*` | Borrador |
