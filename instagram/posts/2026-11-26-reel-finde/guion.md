@@ -6,3 +6,4 @@ Portada (foto elegida por Paula, ella en la cama de la furgo): «UN FINDE CON NO
 Pegatinas, en este orden (v3, 22/11: el clip en pijama es por la mañana): VIERNES · MALETAS: DE MÁS · CENA · NOCHE · A DORMIR · BUENOS DÍAS · BOCATAS · PASEO · Y SIN TERMINAR.
 Cierre: «Descansar también es parte del plan · Guárdatelo para tu próximo finde».
 Su amiga ha dado permiso para salir. Matrícula difuminada en el clip de noche. Música compuesta para el reel (sin derechos).
+v5 (23/11, Paula pidió más texto contando algo más): cada pegatina lleva una frase debajo: salimos con la furgo a medio hacer · para dos días, como para una semana · picoteo en el camping · camping a pie de playa · la cama ya está; lo demás, poco a poco · y el mar al lado · desayuno sin prisas · caminar también suma · pero ya la estamos estrenando.
