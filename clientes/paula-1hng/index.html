@@ -501,10 +501,14 @@ function sesH(w){const r=w<=2?2:3,t1=w===1;return{type:"hyrox",t:t1?"HYROX suave
   {n:"Wall ball",sets:w<=2?(t1?3:4):5,reps:"10",rest:60,how:"Sentadilla completa y lanza con las piernas, no solo con los brazos. 4 kg si vas a la individual; 6 kg si acabas en doubles mixto.",alt:"Balón medicinal ligero"},
   {n:`Circuito · ${r} rondas`,sets:r,reps:"400 m cinta andar-correr + 300 m remo + 6 burpees con salto + 20 m zancada con saco + 40 m granjero",rest:120,how:"Ritmo de conversación en la cinta. Marca una ronda al acabarla; descansa 2' entre rondas.",alt:"Burpee sin salto o zancada sin peso"}]}}
 
+function semana3mie(){const A=sesA(3).ex,B=sesB(3).ex,dos=e=>({...e,sets:2});return{...sesB(3),t:"Andar-correr + fuerza completa",dur:65,
+  goal:"Esta semana el lunes y el martes no salieron, así que hoy juntamos lo más importante de los dos: el trote, una pierna, un empuje y una tracción. No recuperamos todo lo perdido: solo lo que más te acerca a HYROX.",
+  after:"Mañana tienes HYROX con trineo: por eso hoy nada de zancadas y las piernas con 3-4 repeticiones de margen. Si llegas cansada, haz 2 series de todo.",
+  ex:[A[0],dos(A[1]),B[0],B[1]]}}
 const PLAN={
   1:{lun:vuelta(),mar:sesB(1),mie:sesC(1),jue:sesH(1)},
   2:{lun:sesA(2),mar:sesB(2),mie:sesC(2),jue:sesH(2)},
-  3:{lun:sesA(3),mar:sesB(3),mie:sesC(3),jue:sesH(3)},
+  3:{lun:sesA(3),mar:sesB(3),mie:semana3mie(),jue:sesH(3)},
   4:{lun:testFuerza(),mar:{...sesB(4),after:"Hoy y mañana, suave: el jueves es el test de remo."},mie:sesC(4),jue:testRemoHyrox()}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
