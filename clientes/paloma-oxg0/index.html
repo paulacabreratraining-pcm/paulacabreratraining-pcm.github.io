@@ -409,7 +409,7 @@ const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="no
 /* ================= Plan · 4 semanas · fase Base ================= */
 const FOCUS={
   1:["Empezamos con calma","Dos series de cada ejercicio y cargas muy cómodas: termina cada serie sintiendo que podías hacer 3 o 4 más. Espalda neutra en todo y suelta el aire al hacer el esfuerzo. Lunes y miércoles, tu pilates: márcalo como hecho, que cuenta igual."],
-  2:["Repetimos y sumamos un paseo","Mismos ejercicios y 2 series, para que la técnica te salga sola. Si la semana pasada te sobraban más de 4 repeticiones, sube un poco la carga. Añadimos un paseo en llano el domingo: caminar es de lo que mejor le sienta a tu espalda."],
+  2:["Repetimos y sumamos un paseo","Esta semana cambiamos el orden: el martes hacemos juntas en el gimnasio la sesión B, la que hiciste en casa, y el jueves la A. Mismos ejercicios y 2 series, para que la técnica te salga sola. Si la semana pasada te sobraban más de 4 repeticiones, sube un poco la carga. Añadimos un paseo en llano el domingo: caminar es de lo que mejor le sienta a tu espalda."],
   3:["Una serie más","Pasamos a 3 series. El martes la sentadilla ya lleva una mancuerna, siempre sentándote en el banco. El sábado el paseo sube a 20 minutos, en llano."],
   4:["Semana de valoración","El martes apuntamos tus medidas y tu fuerza de partida. El jueves, sesión suave. El sábado repites la caminata cómoda para ver cómo responde tu espalda. Con todo esto preparo tu siguiente mes."]
 };
@@ -446,6 +446,20 @@ function sesB(w){const dl=w===4,s=dl||w<=2?2:3;return{type:"fuerza",t:dl?"Fuerza
   {n:"Pallof press",sets:s,reps:"10 / lado",rest:45,how:"De pie, de lado a la polea, con el asa pegada al pecho. Empuja al frente soltando el aire sin que el tronco gire, y vuelve despacio.",alt:"Con banda elástica"},
   {n:"Plancha lateral desde rodillas",sets:s,time:w<=2?"15\" / lado":"20\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo.",alt:"Plancha lateral en la pared, de pie"}]}}
 
+function sesCasa(w){const s=2;return{type:"fuerza",t:"Fuerza en casa · glúteos, isquios y espalda",dur:45,
+  goal:"Hoy no puedes ir al gimnasio, así que entrenas en casa con tus pesas de agua, la kettlebell y las bandas. Lo mismo que el jueves en el gimnasio: glúteos, parte de atrás de las piernas y espalda, sin doblar la espalda con peso. Esta sesión de gimnasio la hacemos juntas el martes.",
+  warm:["3' de marcha en el sitio o andando por casa, a paso cómodo","Respiración: 5 respiraciones lentas soltando el aire largo, como en pilates","Movilidad de cadera y hombros, de pie (3'), sin doblar la espalda","1 serie ligera del primer ejercicio"],
+  cool:["3' andando suave por casa","Bebe agua"],
+  after:"Apunta cuánto has llenado las pesas de agua para repetirlo la próxima vez. El domingo, tu check-in.",
+  ex:[
+  {n:"Puente de glúteo con kettlebell",sets:s,reps:"12-15",rest:60,how:"Boca arriba, rodillas dobladas, pies a la anchura de la cadera y la kettlebell de 4 kg sobre la cadera, sujeta con las manos. Sube apretando glúteos y soltando el aire hasta que hombros, cadera y rodillas queden en línea, sin arquear la zona lumbar. Aguanta 2 segundos y baja despacio.",alt:"Sin kettlebell, con banda por encima de las rodillas"},
+  {n:"Curl femoral de pie con banda",sets:s,reps:"12 / lado",rest:45,how:"Banda atada abajo (pata de un mueble que no se mueva o puerta cerrada) y por el tobillo. De pie, agarrada a una silla o a la pared, lleva el talón hacia el glúteo soltando el aire, sin que la rodilla se vaya hacia delante ni se arquee la espalda. Vuelve despacio.",alt:"Puente isométrico: sube y aguanta 20 segundos"},
+  {n:"Zancada estática con pesas de agua",sets:s,reps:"8 / lado",rest:60,how:"Una pesa de agua en cada mano, brazos estirados a los lados. Un pie adelante y otro atrás, tronco recto y espalda neutra. Baja la rodilla de atrás hacia el suelo y sube empujando con la pierna de delante, soltando el aire. Llénalas para que te sobren 3-4 repeticiones.",alt:"Sin peso, con una mano apoyada en la pared"},
+  {n:"Remo de pie con banda",sets:s,reps:"12-15",rest:60,how:"Banda atada a la altura del pecho (en el pomo de una puerta cerrada). De pie, rodillas un poco dobladas y espalda recta. Lleva los codos atrás soltando el aire y junta las escápulas al final.",alt:"Remo a una mano con pesa de agua, apoyando la otra mano en la pared"},
+  {n:"Pasos laterales con banda",sets:s,reps:"10 / lado",rest:45,how:"Banda por encima de las rodillas, rodillas un poco dobladas y espalda recta. Pasos cortos de lado sin que los pies se junten del todo.",alt:"Abducción de pie con banda en los tobillos, agarrada a una silla"},
+  {n:"Pallof press con banda",sets:s,reps:"10 / lado",rest:45,how:"Banda atada a la altura del pecho y tú de lado a ella, con las manos pegadas al pecho. Empuja al frente soltando el aire sin que el tronco gire, y vuelve despacio.",alt:"Más cerca del anclaje para que tire menos"},
+  {n:"Plancha lateral desde rodillas",sets:s,time:"15\" / lado",rest:45,how:"Apoyada en el antebrazo y las rodillas, cuerpo en línea. Respira con normalidad todo el tiempo.",alt:"Plancha lateral en la pared, de pie"}]}}
+
 function paseo(mins,w){return{type:"motor",t:"Paseo en llano",dur:mins,
   goal:"Caminar en llano le sienta bien a tu espalda y es tu cardio de esta fase. Cuestas, de momento no: empezamos por lo que mejor te sienta.",
   warm:["Los primeros 3' más despacio"],cool:["Termina andando más despacio 2'"],
@@ -479,8 +493,8 @@ function testCaminata(){return{type:"test",t:"Caminata cómoda",dur:35,
 /* Pilates lunes y miércoles (su clase). Fuerza martes y jueves (a partir de las 20:15).
    Paseo en llano el sábado y, desde la semana 2, también el domingo. */
 const PLAN={
-  1:{lun:pilates(1),mar:sesA(1),mie:pilates(1),jue:sesB(1),sab:paseo(15,1)},
-  2:{lun:pilates(2),mar:sesA(2),mie:pilates(2),jue:sesB(2),sab:paseo(15,2),dom:paseo(15,2)},
+  1:{lun:pilates(1),mar:sesA(1),mie:pilates(1),jue:sesCasa(1),sab:paseo(15,1)},
+  2:{lun:pilates(2),mar:sesB(2),mie:pilates(2),jue:sesA(2),sab:paseo(15,2),dom:paseo(15,2)},
   3:{lun:pilates(3),mar:sesA(3),mie:pilates(3),jue:sesB(3),sab:paseo(20,3),dom:paseo(15,3)},
   4:{lun:pilates(4),mar:testFuerza(),mie:pilates(4),jue:sesB(4),sab:testCaminata()}
 };
