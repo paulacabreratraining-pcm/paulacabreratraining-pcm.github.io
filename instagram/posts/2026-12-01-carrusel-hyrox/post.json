@@ -1,0 +1,24 @@
+{
+  "fecha": "2026-12-01",
+  "hora": "19:00",
+  "formato": "carrusel",
+  "pilar": "Confianza",
+  "estilo": "fotos a sangre (render_fotos.py), con las fotos de grabaciones/2026-12-01-fotos-hyrox",
+  "ganchos": [
+    {"texto": "27 de abril. Mi primer HYROX", "corto": 2, "concreto": 2, "para_alguien": 1, "tension": 1, "marca": 2, "total": 8, "elegido": true},
+    {"texto": "Me he apuntado a mi primer HYROX", "corto": 2, "concreto": 2, "para_alguien": 0, "tension": 1, "marca": 2, "total": 7},
+    {"texto": "¿Sabes qué es HYROX? Yo me apunto", "corto": 1, "concreto": 1, "para_alguien": 1, "tension": 2, "marca": 2, "total": 7}
+  ],
+  "slides": [
+    {"foto": "f1", "etiqueta": "Camino a HYROX", "titulo": "27 de abril. **Mi primer** HYROX"},
+    {"foto": "f2", "titulo": "Qué es", "texto": "8 km corriendo, en tramos de 1 km.\nEntre tramo y tramo, una estación de trabajo."},
+    {"foto": "f3", "titulo": "Las 8 estaciones", "texto": "SkiErg · empuje de trineo · arrastre de trineo · burpee broad jumps · remo · farmers carry · zancadas con saco · wall balls"},
+    {"foto": "f4", "titulo": "Por qué me apunto", "texto": "Quería un reto con fecha.\nJunta lo que más me gusta: **fuerza y resistencia**.\nY lo hago con mi compañero."},
+    {"foto": "f5", "titulo": "Con mi propio método", "texto": "Me aplico lo mismo que a mis clientes: valoración, plan por bloques y bajar la carga los días antes de la carrera."},
+    {"foto": "f6", "tipo": "cierre", "titulo": "Te lo cuento **todo** aquí", "texto": "Un capítulo cada dos semanas y el día a día en el destacado HYROX.", "boton": "Guárdalo 📌"}
+  ],
+  "texto": "27 de abril. Mi primer HYROX 🏁\n\nHYROX son 8 km corriendo, en tramos de 1 km, y entre tramo y tramo una estación: SkiErg, empuje y arrastre de trineo, burpee broad jumps, remo, farmers carry, zancadas con saco y wall balls.\n\n¿Por qué me apunto? Quería un reto con fecha, junta lo que más me gusta (fuerza y resistencia) y lo hago con mi compañero.\n\nY me voy a aplicar mi propio método, el mismo que uso con mis clientes: valoración, plan por bloques y bajar la carga los días antes de la carrera.\n\nTe lo voy a contar todo aquí: un capítulo cada dos semanas y el día a día en el destacado HYROX.\n\n¿Lo conocías? ¿Te animarías? Cuéntamelo en comentarios 👇\n\n#hyrox #caminoahyrox #entrenamientodefuerza #malaga #entrenadorapersonalmalaga",
+  "fuentes": ["https://hyrox.com/the-fitness-race/ (formato y orden de estaciones, comprobado el 23/11/2026)"],
+  "aprobado": false,
+  "publicado": false
+}
