@@ -355,11 +355,11 @@ details.more[open] summary::before{content:"▾ "}
    DATOS DEL CLIENTE · lo único que cambia de un cliente a otro
    ========================================================================= */
 const CLIENTE={
-  id:"luis-h3sz",
+  id:"luis-h3sz-b2",                  // bloque 2: datos separados del bloque 1 (que sigue en bloque-1/)
   nombre:"Luis",
   ejemplo:false,
   servicio:"Estándar",
-  inicio:"2026-11-02",                // lunes de la semana 1 (la semana 1 empieza el miércoles 4)
+  inicio:"2026-11-30",                // lunes de la semana 1 del bloque 2
   objetivo:"Agacharte y levantarte del suelo con facilidad",
   nivel:"Principiante",
   edad:64, sexo:"hombre",
@@ -367,11 +367,8 @@ const CLIENTE={
   inicial:null                        // null = el cliente apunta su valoración inicial en el móvil
 };
 /* Valoración de Paula al cerrar el bloque (aparece en Progreso → Informe). Sin datos de salud. */
-const INFORME={
-  fuerte:"Tu constancia: 4 semanas sin fallar ni una sesión, aunque hubo viajes y cambios de día. Y se nota: haces la milla más rápido y con menos pulsaciones.",
-  mejorar:"Entrenar con el esfuerzo justo: ni quedarte corto en repeticiones ni pasarte en la piscina o con los pesos. Así el peso sube antes y con seguridad.",
-  siguiente:"Seguimos en la fase de base, pero con algo más de esfuerzo (te quedarán 2-3 repeticiones en la recámara), y tus paseos cuentan como parte del entreno, porque ya son tu mejor cardio."
-};
+const INFORME={fuerte:"",mejorar:"",siguiente:""};
+const BLOQUES_ANT=[{n:"Bloque 1",fechas:"2 nov – 29 nov",url:"bloque-1/"}];
 
 /* ================= Fechas ================= */
 const START=(()=>{const [y,m,d]=CLIENTE.inicio.split("-").map(Number);return new Date(y,m-1,d)})();
@@ -407,47 +404,48 @@ const PLAY='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><pat
 const vidUrl=e=>e.vid||VIDEOS[e.n]||"https://www.youtube.com/results?search_query="+encodeURIComponent("técnica "+e.n);
 const vidBtn=e=>`<a class="vid" href="${esc(vidUrl(e))}" target="_blank" rel="noopener">${PLAY} Ver vídeo${e.vid||VIDEOS[e.n]?"":" en YouTube"}</a>`;
 
-/* ================= Plan · 4 semanas · fase Base ================= */
+/* ================= Plan · bloque 2 · 4 semanas · fase Base ================= */
 const FOCUS={
-  1:["Técnica y cargas cómodas","Esta semana empiezas el miércoles, con 2 sesiones. Termina cada serie sintiendo que podías hacer 3 o 4 repeticiones más. Lo importante es moverte bien y apuntar los pesos."],
-  2:["Una serie más, mismos pesos","¡Qué buena primera semana, Luis! Te recuperaste genial, así que pasamos a 3 series. Los pesos se quedan igual; en el press bajamos un poco para ir con calma, y en el remo estrenas la máquina de fuerza. En la piscina, más suave que el jueves: 25 minutos en los que puedas hablar. Cuenta minutos, no largos. Y como el jueves no puedes, la Fuerza B la haces el viernes en casa."],
-  3:["El esfuerzo justo","¡Otra semana completa, Luis! Esta semana no subimos nada: lo has hecho todo, pero fuiste más fuerte de lo que tocaba (natación, tobilleras y algún kilo de más). Ahora progresar es entrenar con el esfuerzo justo. En sentadilla e hip thrust, mismo peso y llega a 8-10 repeticiones: no pares en 7. Esta semana cambiamos los días: el lunes, Fuerza A; el martes, natación suave, que es tu trabajo de motor de la semana; y el jueves, la Fuerza B en casa. Si das paseos, que sean suaves, y apúntalos."],
-  4:["Semana de valoración","¡Semana de pruebas, Luis! La semana pasada llegaste por fin a 10 repeticiones: así se hace. Martes, test de fuerza y medidas; miércoles, natación muy suave; jueves, la milla en el mismo recorrido que la primera vez. Para que las pruebas salgan bien, hasta el jueves los paseos cortos y tranquilos (5 km como mucho, RPE 4). Y en los tests, para cuando la técnica empiece a fallar: no hace falta llegar al «no puedo más»."]
+  1:["Bloque 2: un poco más de esfuerzo","¡Empezamos el bloque 2, Luis! Mismos días que antes. Ahora termina cada serie sintiendo que te quedan 2 o 3 repeticiones, no 4: un poquito más de esfuerzo, porque ya te mueves mejor. El jueves estrenas la Fuerza B en el gimnasio. Y tus paseos ya cuentan como entreno: 2 a la semana, tranquilos."],
+  2:["Sumar repeticiones","Mismos pesos y busca hacer 1 o 2 repeticiones más que la semana pasada. Cuando llegues a 12 con 2-3 en la recámara, la app te dirá que subas. El martes 8 es festivo: si el gimnasio está cerrado, haz la Fuerza A el lunes."],
+  3:["Paso a paso","Sigue lo que te diga la app en cada ejercicio: sumar repeticiones o subir un poco el peso. En la piscina, 25 minutos tranquilos, como siempre: cuenta minutos, no largos."],
+  4:["Semana de Navidad","Semana de fiestas, ¡disfrútala! Si el jueves 24 no puedes, haz la Fuerza A el lunes 22 y la Fuerza B el miércoles 23, y cambia la piscina por un paseo tranquilo. Y si un día solo tienes 20 minutos, haz la sesión mínima: mejor eso que nada."]
 };
 const WARM_F=["5' de bici o elíptica suave (RPE 3)","Movilidad de cadera, tobillo, espalda alta y hombro (3')","1 serie ligera de cada ejercicio principal"];
 const RESP="Respira en cada repetición: suelta el aire al hacer fuerza y nunca aguantes la respiración.";
 const CAMBIO=" ¿La haces otro día (lunes o viernes)? Apúntala aquí igualmente. Deja siempre un día entre las dos sesiones de fuerza.";
 
-function sesA(w){const s=w===1?2:3;return{type:"fuerza",t:"Fuerza A · agacharse y empujar",dur:60,
-  goal:"Fuerza de piernas y cadera para agacharte y levantarte con facilidad.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera"],
+function sesA(w){const s=3;return{type:"fuerza",t:"Fuerza A · agacharse y empujar",dur:60,
+  goal:"Fuerza de piernas y cadera para agacharte y levantarte con facilidad. Ahora, con 2-3 repeticiones en la recámara.",warm:WARM_F,cool:["5' andando suave","Estiramiento suave de cadera"],
   after:RESP+" Incluye proteína en tu siguiente comida."+CAMBIO,
   ex:[
-  {n:"Sentadilla goblet",start:"8 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"2 kg",how:"Siéntate hacia atrás en un banco o cajón y levántate sin impulso. Mancuerna pegada al pecho y rodillas en la línea de los pies. Cuando lo controles bien, bajamos la altura del cajón.",alt:"Prensa de piernas"},
-  {n:"Hip thrust",start:"10 kg",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:5,incTxt:"5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
-  {n:"Press con mancuernas en banco",start:"10 kg por mano",sets:w===2?2:s,ajuste:w===2?"Esta semana, <b>8 kg por mano y 2 series</b>: vamos con calma en el press. Si notas molestia, cambia al press en máquina o para.":w===3?"Esta semana, <b>8 kg por mano y 3 series</b>: el peso que te tocaba la semana pasada. Si notas molestia en el brazo, vuelve a 7 kg.":"",lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2.5,incTxt:"la siguiente mancuerna",how:"Punto de partida: 10 kg por mano. Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
-  {n:"Remo en máquina",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",ajuste:w===2?"Ojo: este no es el remo de cardio. Es el de fuerza, sentado y con placas de peso. Empieza con <b>un peso ligero</b> y ajusta para que te sobren <b>2-3 repeticiones</b>.":"",how:"Es la máquina de fuerza con placas de peso, no el remo de cardio. Sentado, con el pecho apoyado, tira de las asas hacia ti llevando los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
-  {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate de la forma que te resulte más cómoda, sin prisa. Cuando te sea fácil, intenta apoyar menos las manos.",alt:"Desde un banco bajo, o con apoyo en una espaldera"}]}}
+  {n:"Sentadilla goblet",start:"10 kg",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:120,inc:2,incTxt:"2 kg",how:"Mancuerna pegada al pecho y rodillas en la línea de los pies. Siéntate hacia atrás hasta rozar un banco bajo y levántate sin impulso. Si ya bajas bien, prueba sin banco.",alt:"Prensa de piernas"},
+  {n:"Hip thrust",start:"12 kg",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:120,inc:2.5,incTxt:"2,5 kg",how:"Espalda alta apoyada en el banco. Sube apretando glúteos, aguanta 1 segundo arriba y baja despacio, sin arquear la zona lumbar.",alt:"Puente de glúteo en el suelo"},
+  {n:"Press con mancuernas en banco",start:"8 kg por mano",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:120,inc:1,incTxt:"la siguiente mancuerna",how:"Escápulas juntas y atrás. Baja las mancuernas hasta la altura del pecho, con control, y suelta el aire al subir.",alt:"Press en máquina"},
+  {n:"Remo en máquina",start:"20 kg",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"La máquina de fuerza con placas, no el remo de cardio. Pecho apoyado: tira de las asas llevando los codos atrás y junta las escápulas al final.",alt:"Remo con mancuerna"},
+  {n:"Levantarse del suelo",sets:s,reps:"3-5",rest:90,how:"Siéntate en el suelo y levántate sin prisa. En este bloque, intenta apoyar una sola mano; cuando te salga fácil, ninguna.",alt:"Con apoyo en un banco o una espaldera"}]}}
 
-function sesNat(w){const mins={1:20,2:25,3:25,4:20}[w];return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
-  goal:w===4?"Hoy, solo para soltar el cuerpo: mañana tienes la milla y tienes que llegar fresco.":"Sumar resistencia con lo que más te gusta. Hoy todo suave: nada que te deje sin aliento.",
+function sesNat(w){const mins=25;return{type:"motor",t:"Natación suave + movilidad",dur:mins+20,
+  goal:"Sumar resistencia con lo que más te gusta, y sin cansarte para la fuerza del jueves. Hoy todo suave.",
   warm:["3' de movilidad de hombros fuera del agua","2 largos muy suaves"],cool:["Ducha y estira suave lo que notes cargado"],
-  cardio:{mins,txt:w===3||w===4?"1 largo suave y 30 segundos de pausa en la pared; repite hasta completar los minutos. No cuentes largos":"Natación a ritmo cómodo, con pausas en la pared cuando las necesites"},
-  after:"Cuenta minutos a ritmo cómodo, no largos para batir tu marca. Aunque un día te sientas muy bien, mantén el tiempo de la semana.",
+  cardio:{mins,txt:"1 largo suave y 30 segundos de pausa en la pared; repite hasta completar los minutos. No cuentes largos"},
+  after:"Si un día no puedes ir a la piscina, cámbiala por un paseo tranquilo de 45 minutos y apúntalo en tus paseos.",
   ex:[
-  {n:"Sentadilla profunda asistida",sets:3,time:"20-30\"",rest:30,how:"Agárrate a un soporte firme y baja todo lo que puedas con los talones apoyados. Respira tranquilo.",alt:"Sentado en un banco bajo, inclinándote hacia delante"},
+  {n:"Sentadilla profunda asistida",sets:3,time:"20-30\"",rest:30,how:"Agárrate a un soporte firme y baja todo lo que puedas con los talones apoyados y el pecho arriba. Respira tranquilo.",alt:"Sentado en un banco bajo, inclinándote hacia delante"},
   {n:"Deslizamientos en la pared",sets:2,reps:"8",rest:30,how:"Espalda, cabeza y brazos contra la pared. Desliza los brazos hacia arriba sin despegarlos ni arquear la zona lumbar.",alt:"Tumbado boca arriba en el suelo"},
+  {n:"Apoyo a una pierna",sets:2,time:"20-30\" / pierna",rest:30,how:"De pie junto a una pared, levanta un pie y aguanta sin apoyarte. Si pierdes el equilibrio, toca la pared y sigue.",alt:"Con una mano en la pared"},
   {n:"Bird dog",sets:2,reps:"6 / lado",rest:30,how:"A cuatro patas, estira brazo y pierna contrarios sin mover la cadera.",alt:"Solo brazos o solo piernas"}]}}
 
-function sesC(w){const dl=w===4,s=dl||w===1?2:3;
-  return{type:"fuerza",t:dl?"Fuerza B · descarga":"Fuerza B · recoger y tirar",dur:60,
-  goal:dl?"Sesión suave para recuperarte de los tests. Mismos ejercicios con menos series.":"Fuerza de cadera, espalda y agarre para recoger cosas del suelo sin esfuerzo.",
+function sesC(w){const s=3;
+  return{type:"fuerza",t:"Fuerza B · recoger y tirar",dur:60,
+  goal:"Fuerza de cadera, espalda y agarre para recoger cosas del suelo sin esfuerzo. En el gimnasio, por fin.",
   warm:WARM_F,cool:["5' andando suave","Movilidad de hombros"],
   after:RESP+CAMBIO+" El domingo, rellena el check-in.",
   ex:[
-  {n:"Peso muerto rumano con mancuernas",start:"6 kg por mano",sets:s,lo:8,hi:10,rir:"3-4",rirMin:3,rest:120,inc:2,incTxt:"1 kg por mano",how:"Cadera atrás, mancuernas pegadas a las piernas y espalda neutra. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
-  {n:"Prensa de piernas",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada.",alt:"Sentadilla goblet"},
-  {n:"Jalón al pecho",start:"un peso ligero",sets:s,lo:10,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás.",alt:"Remo con banda elástica"},
-  {n:"Subida al cajón (por pierna)",start:"sin peso",sets:s,lo:8,hi:10,rir:"2-3",rirMin:2,rest:90,inc:1,incTxt:"1 kg por mano",how:"Cajón o escalón a media espinilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo. Apóyate en algo si lo necesitas; al principio, sin peso.",alt:"Subir escaleras despacio"},
+  {n:"Peso muerto rumano con mancuernas",start:"8 kg por mano",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:120,inc:1,incTxt:"1 kg por mano",how:"Como la bisagra con el palo, que ya te sale bien: cadera atrás, mancuernas pegadas a las piernas y espalda recta. Baja hasta notar tensión detrás del muslo.",alt:"Puente de glúteo con peso"},
+  {n:"Prensa de piernas",start:"un peso ligero",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:90,inc:5,incTxt:"5 kg",how:"Pies a la anchura de la cadera. Baja hasta donde mantengas la zona lumbar apoyada. La primera vez, empieza ligero y sube hasta que te queden 2-3 repeticiones.",alt:"Sentadilla goblet"},
+  {n:"Jalón al pecho",start:"un peso ligero",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:90,inc:2.5,incTxt:"1 placa",how:"Pecho arriba. Tira llevando los codos hacia abajo y atrás, hasta la barbilla.",alt:"Remo con banda elástica"},
+  {n:"Subida al cajón (por pierna)",start:"2 kg por mano",sets:s,lo:8,hi:12,rir:"2-3",rirMin:2,rest:90,inc:1,incTxt:"1 kg por mano",how:"Cajón o escalón a media espinilla. Sube empujando con la pierna de arriba, sin impulsarte con la de abajo. Apóyate en algo si lo necesitas.",alt:"Subir escaleras despacio"},
   {n:"Paseo del granjero",start:"10 kg por mano",sets:s,reps:"30 m",rest:75,inc:2,incTxt:"2 kg por mano",kg:true,how:"Recoge las mancuernas del suelo con cadera atrás y espalda recta. Hombros abajo, tronco recto y pasos cortos.",alt:"Con kettlebells"}]}}
 
 function testFuerza(){return{type:"test",t:"Test de fuerza y medidas",dur:70,
@@ -489,10 +487,10 @@ function sesCasa(w){return{type:"fuerza",t:"Fuerza B · en casa",dur:45,
   {n:"Elevación lateral de pierna con tobilleras",sets:2,reps:"12-15 / lado",rest:45,how:"Tumbado de lado, con una sola tobillera. Sube la pierna de arriba recta, sin girar la cadera, y baja despacio. Si se te hace fácil, sube y baja más lento antes que añadir peso: tienen que sobrarte 2-3 repeticiones.",alt:"Sin tobillera"}]}}
 
 const PLAN={
-  1:{mie:sesA(1),jue:sesNat(1)},
-  2:{mar:sesA(2),mie:sesNat(2),vie:sesCasa(2)},   // jueves 12 no puede: Fuerza B en casa el viernes 13
-  3:{lun:sesA(3),mar:sesNat(3),jue:sesCasa(3)},   // lunes 16 Fuerza A, martes 17 natación, jueves 19 Fuerza B en casa
-  4:{mar:testFuerza(),mie:sesNat(4),jue:testMilla()}
+  1:{mar:sesA(1),mie:sesNat(1),jue:sesC(1)},
+  2:{mar:sesA(2),mie:sesNat(2),jue:sesC(2)},
+  3:{mar:sesA(3),mie:sesNat(3),jue:sesC(3)},
+  4:{mar:sesA(4),mie:sesNat(4),jue:sesC(4)}
 };
 const DAYS=w=>Object.keys(OFF).filter(d=>PLAN[w][d]);
 
@@ -567,6 +565,7 @@ function renderSemana(){
     <div class="focus"><div class="ic">${IC.target}</div><div><b>${esc(ft)}</b><p>${esc(fp)}</p></div></div>`;
   h+=days.map(d=>dayCard(week,d,plan[d])).join("");
   h+=paseosCard(week);
+  h+=minimaCard();
   const url=CLIENTE.checkinUrl;
   h+=`<div class="card"><div class="checkin"><div class="ic">${IC.form}</div><div><b>Check-in del domingo</b><p class="note">5 preguntas y me mandas tu semana por WhatsApp.</p></div></div>
     <button class="btn soft" type="button" data-tab="checkin">Ir al check-in</button></div>
@@ -577,6 +576,14 @@ function renderSemana(){
 /* Paseos fuera del plan (solo en el plan de Luis) */
 const pasSt=w=>S.pas["w"+w]||(S.pas["w"+w]=[]);
 function paseosTot(w){const a=(S.pas["w"+w]||[]).filter(p=>num(p.km)!=null);return {n:a.length,km:a.reduce((x,p)=>x+num(p.km),0)}}
+const PAS_OBJ=2;
+const pasSuaves=w=>(S.pas["w"+w]||[]).filter(p=>num(p.km)!=null&&num(p.rpe)!=null&&num(p.rpe)<=4).length;
+function minimaCard(){
+  return `<div class="card"><p class="eyebrow">Por si acaso</p><h2>Sesión mínima</h2>
+    <p class="lead">¿Un día con solo 20-30 minutos? Haz esto, con 2-3 repeticiones en la recámara:</p>
+    <ul class="plain"><li>Sentadilla goblet · 2 × 8-12</li><li>Press con mancuernas · 2 × 8-12</li><li>Remo en máquina · 2 × 8-12</li></ul>
+    <p class="note">En casa: sentadilla a la silla, flexiones apoyado en la pared y remo con mancuerna en una silla. Mejor esto que nada. Y si un día no entrenas, no pasa nada: no lo recuperes otro día, sigue con la semana.</p></div>`;
+}
 function paseosCard(w){
   const a=S.pas["w"+w]||[],t=paseosTot(w);
   const dsel=(i,v)=>`<select class="sel" id="pas-${w}-${i}-d" data-pas="${w}|${i}|d">${["",...Object.keys(OFF)].map(k=>`<option value="${k}" ${v===k?"selected":""}>${k?DLABEL[k]:"—"}</option>`).join("")}</select>`;
@@ -587,10 +594,10 @@ function paseosCard(w){
       <div class="field"><label for="pas-${w}-${i}-fc">Pulso al terminar</label><input class="num" id="pas-${w}-${i}-fc" data-pas="${w}|${i}|fc" value="${esc(p.fc||"")}" inputmode="numeric"></div>
       <div class="field"><label for="pas-${w}-${i}-rpe">RPE (1-10)</label>${rsel(i,p.rpe)}</div>
       <button class="btn soft" type="button" data-delpas="${w}|${i}" aria-label="Borrar este paseo">Borrar</button></div>`;
-  return `<div class="card"><p class="eyebrow">Fuera del plan</p><h2>Tus paseos</h2>
-    <p class="lead">Apunta aquí los paseos que das durante la semana, Luis. Así veo todo lo que te mueves y lo tengo en cuenta al ajustar tu plan.</p>
+  return `<div class="card"><p class="eyebrow">Parte de tu entreno</p><h2>Tus paseos</h2>
+    <p class="lead">Tu objetivo: <b>${PAS_OBJ} paseos tranquilos</b> a la semana (RPE 3-4: puedes ir charlando sin problema). Los demás, como te apetezca. Apúntalos todos, Luis: así veo todo lo que te mueves.</p>
     ${a.map(row).join("")}
-    <p class="note">${t.n?`Esta semana: <b>${t.n} ${t.n===1?"paseo":"paseos"} · ${nf(t.km)} km</b>.`:"Aún no has apuntado ningún paseo esta semana."} El pulso, el que marque el reloj justo al terminar.</p>
+    <p class="note">${t.n?`Esta semana: <b>${t.n} ${t.n===1?"paseo":"paseos"} · ${nf(t.km)} km</b> · tranquilos: <b>${pasSuaves(w)}/${PAS_OBJ}</b>.`:"Aún no has apuntado ningún paseo esta semana."} El pulso, el que marque el reloj justo al terminar.</p>
     <button class="btn soft" type="button" data-addpas="${w}">+ Añadir paseo</button></div>`;
 }
 
@@ -853,7 +860,7 @@ function renderInforme(){
   const chip=(v,i)=>`<span class="semchip ${v?v.toLowerCase():"na"}">S${i+1}<b>${v?v[0]+v.slice(1).toLowerCase():"—"}</b></span>`;
   const nota=IN.fuerte||IN.mejorar||IN.siguiente;
   return `<div class="card"><p class="eyebrow">Informe del bloque</p><h2>${esc(CLIENTE.objetivo)}</h2>
-      <p class="lead">${fmt(dateOf(1,"lun"))} – ${fmt(dateOf(NW,"dom"))}. Así han ido tus ${NW} semanas.</p></div>
+      <p class="lead">${fmt(dateOf(1,"lun"))} – ${fmt(dateOf(NW,"dom"))}. Así van tus ${NW} semanas.</p>${typeof BLOQUES_ANT!=="undefined"?BLOQUES_ANT.map(x=>`<p class="note"><a href="${x.url}">Ver tu ${esc(x.n)} (${esc(x.fechas)}) y su informe →</a></p>`).join(""):""}</div>
     <div class="wsum"><div><b>${dn}/${tot}</b><span>sesiones</span></div><div><b>${tot?Math.round(dn/tot*100):0}%</b><span>constancia</span></div><div><b>${verdes}/${conCi||NW}</b><span>semanas verdes</span></div><div><b>${hbMax?Math.round(hb/hbMax*100):0}%</b><span>hábitos</span></div></div>
     <div class="card"><p class="eyebrow">Semana a semana</p><h2>Tu semáforo</h2><div class="semrow">${sem.map(chip).join("")}</div>
       <p class="note">Sale de tus check-ins. Una semana en amarillo o rojo no es un fracaso: es la información que me ayuda a ajustar tu plan.</p></div>
@@ -974,7 +981,7 @@ function resumen(w){
     if(st.nota)L.push(`Nota: ${st.nota}`);
   }
   const pa=(S.pas["w"+w]||[]).filter(p=>p.km||p.fc||p.rpe),pt=paseosTot(w);
-  if(pa.length){L.push("",`Paseos: ${pt.n} · ${nf(pt.km)} km en total`);
+  if(pa.length){L.push("",`Paseos: ${pt.n} · ${nf(pt.km)} km en total · tranquilos (RPE 4 o menos): ${pasSuaves(w)}/${PAS_OBJ}`);
     pa.forEach(p=>L.push(`- ${p.d?DLABEL[p.d]:"Día sin apuntar"}: ${p.km?p.km+" km":"? km"}${p.fc?" · pulso al terminar "+p.fc:""}${p.rpe?" · RPE "+p.rpe:""}`))}
   const hs=S.hab[sid(w,"hab")]||{};
   L.push("","Hábitos: "+HABITS.map(([k,t])=>`${t} ${(hs[k]||[]).filter(Boolean).length}/7`).join(" · "));
