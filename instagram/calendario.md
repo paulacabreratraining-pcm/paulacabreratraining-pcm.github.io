@@ -20,11 +20,12 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-24 | 19:00 | Reel | Confianza | Un finde con nosotras en mi furgo sin terminar (v6, `posts/2026-11-26-reel-finde`) | — | Publicado: lo subió Paula a mano con su música el martes 24 (cambiado con el carrusel) |
 | — | — | Carrusel | Educa | ¿Fuerza con un banco y una mochila? SÍ: 5 ejercicios sin máquinas (era el plan B del 26/11; el reel sí llegó, queda de reserva) | `posts/2026-11-26-banco-y-mochila` | Borrador, de reserva |
 | — | — | Carrusel | Educa | Con 2 días ya cuenta (`posts/2026-11-29-dos-dias-fuerza`) | — | En reserva hasta tener sus fotos |
-| 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada Con fotos de Paula obligatorias (hasta el lunes 30 a las 20:00). |
-| 2026-12-03 | 19:00 | Reel | Educa | Entreno en pareja en la playa (no se grabó el finde 21–22/11; grabar otro día al aire libre) | — | Idea aprobada |
+| 2026-12-01 | 19:00 | Carrusel | Confianza | Camino a HYROX: «27 de abril. Mi HYROX», qué es, por qué lo hago y cómo me preparo (con sus fotos entrenando; fotos hasta el lunes 30 a las 20:00) | `posts/2026-12-01-carrusel-hyrox` | Idea aprobada (27/11) |
+| 2026-12-03 | 19:00 | Reel | Confianza | Un día conmigo: uni, gimnasio, clase, entreno de HYROX y vuelta de noche; texto tipo diario (clips hasta el miércoles 2 a las 20:00). Sustituye al entreno en pareja, descartado el 27/11 | — | Idea aprobada (27/11) |
 | — | — | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí (sentadilla al banco) | `posts/2026-11-19-reel-sentadilla-banco` | Aparcado: tema demasiado cerca del reel del 12/11 |
-| 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (puente de diciembre) (con fotos de Paula) | — | Idea (pendiente de aprobar) |
-| 2026-12-10 | 19:00 | Reel | Confianza | Camino a HYROX · 1: «27 de abril. Mi HYROX», 8 km + 8 estaciones, quedan 20 semanas (clips antes del 7/12) | — | Idea aprobada (23/11) |
+| 2026-12-08 | 19:00 | Carrusel | Educa | Tu primera semana de fuerza (movido desde el 1/12; fotos hasta el lunes 7 a las 20:00) | — | Idea aprobada |
+| — | — | Carrusel | Confianza | 5 cosas que no sabías de mí (con fotos) | — | En reserva (movido desde el 8/12) |
+| 2026-12-10 | 19:00 | Reel | Confianza | Camino a HYROX · 1 en vídeo: así entreno (el carrusel del 1/12 es el anuncio) | — | Idea aprobada |
 | 2026-12-15 | 19:00 | Carrusel | Oferta | Regala entrenamiento: tarjeta regalo de Navidad (quien regala elige un plan; válida 6 meses). Publicación de servicio del mes, sin precios | — | Idea aprobada (23/11) |
 | 2026-12-17 | 19:00 | Reel | Educa | Entreno exprés para las fiestas: 20 min con tu peso para días de comidas y viajes | — | Idea aprobada (23/11) |
 | 2026-12-22 | 19:00 | Carrusel | Educa | Navidad sin culpa: no compensar, moverte cuando puedas, volver sin dramas | — | Idea aprobada (23/11) |
