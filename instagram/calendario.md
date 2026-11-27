@@ -15,12 +15,12 @@ Estados: Borrador → Aprobado → Programado/Publicado.
 | 2026-11-17 | 19:00 | Carrusel | Educa | Chuleta para guardar: ¿cuánto peso cojo? El RIR (patrón 2) | `posts/2026-11-17-chuleta-rir` | Descartado (repite tema y diseño) |
 | 2026-11-17 | 19:00 | Carrusel | Educa | 4 mitos de la fuerza (diseño nuevo mito/realidad) | `posts/2026-11-17-mitos-fuerza` | Borrador |
 | 2026-11-19 | 19:00 | Reel | Confianza | Entrena conmigo: mi sesión de fuerza (un clip por ejercicio, nombres en pantalla) | `posts/2026-11-19-reel-entrena-conmigo` | Montado (v3, 17 s), pendiente de aprobar en la app |
-| 2026-11-26 | 19:00 | Carrusel | Educa | ¿Semana horrible? Tranqui: qué hacer cuando se tuerce la semana | `posts/2026-11-24-semana-mala` | Borrador (sustituye al del check-in: Paula quiere vender menos, 17/11) | Movido al jueves 26 (25/11): el martes no le dio tiempo a las fotos; fotos hasta el jueves a las 13:00.
+| — | — | Carrusel | Educa | ¿Semana horrible? Tranqui (`posts/2026-11-24-semana-mala`) | — | No se publicó el 26/11. En reserva hasta tener sus fotos (27/11: no más carruseles sin fotos) |
 | — | — | Carrusel | Método | ¿Tu plan cambia si tu semana va mal? El check-in del domingo | `posts/2026-11-22-check-in-semanal` | Aparcado (demasiado de venta) |
 | 2026-11-24 | 19:00 | Reel | Confianza | Un finde con nosotras en mi furgo sin terminar (v6, `posts/2026-11-26-reel-finde`) | — | Publicado: lo subió Paula a mano con su música el martes 24 (cambiado con el carrusel) |
 | — | — | Carrusel | Educa | ¿Fuerza con un banco y una mochila? SÍ: 5 ejercicios sin máquinas (era el plan B del 26/11; el reel sí llegó, queda de reserva) | `posts/2026-11-26-banco-y-mochila` | Borrador, de reserva |
-| 2026-11-29 | 11:00 | Carrusel | Educa | Con 2 días ya cuenta: la OMS recomienda fuerza 2+ días/semana (extra opcional; si no, queda de reserva para una semana sin grabar) | `posts/2026-11-29-dos-dias-fuerza` | Borrador |
-| 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada |
+| — | — | Carrusel | Educa | Con 2 días ya cuenta (`posts/2026-11-29-dos-dias-fuerza`) | — | En reserva hasta tener sus fotos |
+| 2026-12-01 | 19:00 | Carrusel | Método | Tu primera semana de fuerza. Prueba: «comenta GUÍA y te la envío» (patrón 3, test) | — | Idea aprobada Con fotos de Paula obligatorias (hasta el lunes 30 a las 20:00). |
 | 2026-12-03 | 19:00 | Reel | Educa | Entreno en pareja en la playa (no se grabó el finde 21–22/11; grabar otro día al aire libre) | — | Idea aprobada |
 | — | — | Reel | Educa | Si la sentadilla te cuesta, empieza por aquí (sentadilla al banco) | `posts/2026-11-19-reel-sentadilla-banco` | Aparcado: tema demasiado cerca del reel del 12/11 |
 | 2026-12-08 | 19:00 | Carrusel | Confianza | 5 cosas que no sabías de mí (puente de diciembre) (con fotos de Paula) | — | Idea (pendiente de aprobar) |
