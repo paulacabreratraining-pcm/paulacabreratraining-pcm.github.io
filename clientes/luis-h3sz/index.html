@@ -367,7 +367,11 @@ const CLIENTE={
   inicial:null                        // null = el cliente apunta su valoración inicial en el móvil
 };
 /* Valoración de Paula al cerrar el bloque (aparece en Progreso → Informe). Sin datos de salud. */
-const INFORME={fuerte:"",mejorar:"",siguiente:""};
+const INFORME={
+  fuerte:"Tu constancia: 4 semanas sin fallar ni una sesión, aunque hubo viajes y cambios de día. Y se nota: haces la milla más rápido y con menos pulsaciones.",
+  mejorar:"Entrenar con el esfuerzo justo: ni quedarte corto en repeticiones ni pasarte en la piscina o con los pesos. Así el peso sube antes y con seguridad.",
+  siguiente:"Seguimos en la fase de base, pero con algo más de esfuerzo (te quedarán 2-3 repeticiones en la recámara), y tus paseos cuentan como parte del entreno, porque ya son tu mejor cardio."
+};
 
 /* ================= Fechas ================= */
 const START=(()=>{const [y,m,d]=CLIENTE.inicio.split("-").map(Number);return new Date(y,m-1,d)})();
